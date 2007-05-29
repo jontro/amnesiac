@@ -3,3 +3,4 @@
 -Bind alt-[key-left] and alt-[key-right] to window prev and window next
  suggested by mongoose //kreca
 -Increase version number and snapshot dates //kreca
+-Remove set REVERSE_STATUS_LINE //kreca
