@@ -1,0 +1,5 @@
+DESC crapple blah hi
+1 $$fparse(format_timestamp_some $($_timess))$$(c2)$$1$$(hblk)/$$(cl)$$2$$(cl) $$3-
+2 $$fparse(format_timestamp_some $($_timess))*> $$1 $$3-
+3 *> $$1 $$3-
+4 $$fparse(format_timestamp_some $($_timess))* -> $$(hyel)$$1$$(cl) $$3-

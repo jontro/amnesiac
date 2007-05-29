@@ -1,0 +1,27 @@
+Warning the following may screw up your script, remove precious savefiles or
+render the client unusable, you have been warned.
+
+## /adump info and why.
+/adump is more of a scripters command, there are various usages of this cmd,
+i.e when playing with /sets and or formats/sbars etc.. something went wrong
+/adump will dump and reload/configure the script from it's last /save position
+(basically last working config before it got messed up)
+
+## Upgrading from 1.1x 1.2x to 1.3d 1.4d
+rm -rf /path/to/amn
+tar zxf newver.tgz (will normally uncompress in home dir, or current dir)
+or if one wishes to specify where to put amn
+tar zxf newver.tgz -C /path/to/where/you/want/it
+/adump (in client)
+
+## upgrading to snapshots
+wget http://amnesiac.ircii.org/ac-snap.tgz
+rm -rf /path/to/amn
+tar zxf ac-snap.tgz (this will store in current dir usually home as amn)
+or to specify where to put amn.
+tar zxf ac-snap.tgz -C /path/to/preferred/place
+/adump (in client)
+
+NOTE: in some cases you may have to rm -rf ~/.amn in cases we may have
+broke backwards compatability with some things.
+ie; banwordkick(mmatrix module) and format settings(core client)

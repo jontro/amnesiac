@@ -1,0 +1,33 @@
+^sfset format_whois_header ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ-Ä ÄÄÄ-
+^sfset format_whois_nick ³ \($1!$2@$3)$country($rightw(1 $sar(g/./ / $3))))
+^sfset format_whois_name ³ ircname  : $1-
+^sfset format_whois_channels ³ channels : $1-
+^sfset format_whois_server ³ server   : $1 \($2-\)
+^sfset format_whois_away ³ away     : $1-
+^sfset format_whois_actual ³ actual   : $2 $msar(g/[/%K[%n/]/%K]%n/ $3)
+^sfset format_whois_connect ³ connect  : on $1 actual $6
+^sfset format_whois_login ³ login    : as $3
+^sfset format_whois_ident ³ ident    : identified
+^sfset format_whois_active ³ active   : is active
+^sfset format_whois_root ³ root   : Services Root Admin
+^sfset format_whois_operator ³ operator : $1 $2- 
+^sfset format_whois_admin ³ admin    : $1-    
+^sfset format_whois_idle ³ idle     : $tdiff($1) idle
+^sfset format_whois_unknown ³ $1: no such nick/channel
+^sfset -format_whois_footer 
+^sfset format_whowas_header ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ-Ä ÄÄÄ-
+^sfset format_whowas_nick ³ $1 was $2@$3)
+^sfset format_whowas_name ³ ircname  : $1-
+^sfset format_whowas_unknown ³ $1: there was no such nickname
+^sfset format_whois_signon . signon   : $2-
+
+^sfset format_whois_operator ³ operator : $1 $2- 
+^sfset format_whois_admin ³ admin    : $1-    
+^sfset format_whois_idle ³ idle     : $tdiff($1) idle
+^sfset format_whois_unknown ³ $1: no such nick/channel
+^sfset -format_whois_footer 
+^sfset format_whowas_header ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ-Ä ÄÄÄ-
+^sfset format_whowas_nick ³ $1 was $2@$3)
+^sfset format_whowas_name ³ ircname  : $1-
+^sfset format_whowas_unknown ³ $1: there was no such nickname
+^sfset format_whois_signon . signon   : $2-

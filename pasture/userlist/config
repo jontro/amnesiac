@@ -1,0 +1,6 @@
+eval osetitem protect aopdelay Auto-op delay Timer:;
+
+@_modsinfo.userlist.loadcmd =  'userload';
+@_modsinfo.userlist.savecmd =  'usersave';
+@_modsinfo.userlist.savefiles= 'a.friends';
+@_modsinfo.userlist.helpcmd =  'uhelp';

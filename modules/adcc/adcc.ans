@@ -1,0 +1,11 @@
+^eval aecho $(hwht) ÚÄÄ$(c2)Ä$(hwht)Ä$(c2)ÄÄÄÄ$(c1)Ä$(c2)ÄÄ$(c1)ÄÄ-$(hblk)  -      -           ú 
+^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl)        $(hwht)am$(cl)nes$(hblk)iac$(cl) $(hwht)x$(cl)d$(hblk)cc 
+^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl) send   $(hblk)-$(cl) (usage - /xdcc send <nick1,nick2,nick3,> [file])
+^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl) save   $(hblk)-$(cl) saves current dcc settings
+^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl) list   $(hblk)-$(cl) lists current packs
+^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl) offer  $(hblk)-$(cl) creates new pack for offering files
+^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl) doffer $(hblk)-$(cl) deletes specifed offered pack
+^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl) load   $(hblk)-$(cl) loads current adcc settings
+^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl) plist  $(hblk)-$(cl) publicly lists current packs to channel
+^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl) timer  $(hblk)-$(cl) sets timer on public plist in specified channel.
+^eval aecho $(c1) À-$(hblk) -Ä- -     -              -          -

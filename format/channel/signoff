@@ -1,0 +1,23 @@
+# Copyright (c) 2003-2007 Amnesiac Software Project.
+# See the 'COPYRIGHT' file for more information.
+
+DESC crapple #amnesiac bye!
+1 $$fparse(format_timestamp_some $($_timess))$$ztsignoff: %K\\\(%n$$1%K/%n$$2%K\\\)%n $$3-
+2 $$fparse(format_timestamp_some $($_timess))$$zt$$(c1)signoff%K: $$(c2)$$1%K/$$(c2)$$2 %K\\\(%n$$3-%K\\\)
+3 $$fparse(format_timestamp_some $($_timess))$$zt%nsignoff: %W$$1%K/%W$$2 %K\\\(%n$$3-%K\\\)
+4 $$fparse(format_timestamp_some $($_timess))$$zt%c.%K.[%Ws%nignoff%K/%n$$1%K\\\(%w$$2%K\\\)]:%n $$3-
+5 $$fparse(format_timestamp_some $($_timess))$$zt$$(c1)$$1$$(c2)/$$(c1)$$2 %nhas left irc%K:%n $$3-
+6 $$fparse(format_timestamp_some $($_timess))$$zt%K.%m.%K[%Ws%nignoff%m.%n$$1%K\\\(%m$$2%K\\\)] %K\\\(%n$$3-%K\\\)
+7 $$fparse(format_timestamp_some $($_timess))$$zt%K.%c.%K[%Ws%nignoff%c.%n$$1%K\\\(%c$$2%K\\\)] [%n$$3-%K]%n
+8 $$fparse(format_timestamp_some $($_timess))$$zt%K\\\(%Wquit%K/$$(c2)$$1%K\\\) \\\(%n$$3-%K\\\)
+9 $$fparse(format_timestamp_some $($_timess))$$zt$$(c1)signoff$$(hblk): $$(c2)$$1%K/$$(c1)$$2 %K\\\(%n$$3-%K\\\)
+10 $$fparse(format_timestamp_some $($_timess))$$zt%K[%csignoff%K!%n$$2%K]%n $$3- %K[%nby%W!%n$$1%K]%n
+11 $$fparse(format_timestamp_some $($_timess))$$ztsignoff%K/%n$$1 %K[%n$$3-%K]%n by %c$$2
+12 $$fparse(format_timestamp_some $($_timess))$$zt%K[$$(c1)signoff%K/%n$$1%K]$$(c1) $$2 %K[%n$$3-%n%K]
+13 $$fparse(format_timestamp_some $($_timess))$$zt%K[$$(c3)signoff%K/%n$$1%K]$$(c3) $$2 %K[%n$$3-%n%K]
+14 $$fparse(format_timestamp_some $($_timess))$$zt$$(c1)signoff%K/%n$$2 $$(c1)$$1 %K[%n$$3-%n%K]
+15 $$fparse(format_timestamp_some $($_timess))$$zt$$(c3)signoff%K/%n$$2 $$(c3)$$1 %K[%n$$3-%n%K]
+16 $$fparse(format_timestamp_some $($_timess))$$ztSignoff: $$2 \\\($$3-\\\)
+17 *** Signoff: $$2 \\\($$3-\\\)
+18 $$fparse(format_timestamp_some $($_timess))$$zt%K[%Wquit%K/%n$$1%K] %W$$2 %K[%n$$3-%n%K]
+19 $$fparse(format_timestamp_some $($_timess))*** %y$$2%n %r[%B$$1%r]%n Quit Irc Because %g\\\($$3-\\\)%n

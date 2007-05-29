@@ -1,0 +1,23 @@
+^sfset format_whois_header $(c2)ÚÄÄÄÄÄÄÄÄÄÄÄ$(c1)Ä$(c2)ÄÄ$(c1)Ä$(c2)ÄÄÄÄÄÄÄÄÄÄÄÄ$(hblk)Ä$(c2)ÄÄ$(hblk)ÄÄ$(c2)Ä$(hblk)ÄÄÄÄÄÄ-Ä ÄÄÄ-
+^sfset format_whois_nick $(c2)³ $(hblk)<$(hwht)$1$(hblk)!$(c1)$2$(hblk)@$(c1)$3$(hblk)>$(cl) $(hblk)\($(cl)$country($rightw(1 $sar(g/./ / $3)))$(hblk))
+^sfset format_whois_name $(c2)³ $(hwht)i$(cl)rcname  $(hblk): $(cl)$1-
+^sfset format_whois_channels $(c1)³ $(hwht)c$(cl)hannels $(hblk): $(cl)$1-
+^sfset format_whois_server $(c1)³ $(hwht)s$(cl)erver   $(hblk): $(cl)$1 \($2-\)
+^sfset format_whois_away $(hblk)³ $(hwht)a$(cl)way     $(hblk):$(cl) $1-
+^sfset format_whois_actual $(hblk)³ $(hwht)a$(cl)ctual   $(hblk): $(cl)$2 $msar(g/[/%K[%n/]/%K]%n/ $3)
+^sfset format_whois_login $(hblk)³ $(hwht)l$(cl)ogin   $(hblk): $(cl) as $3
+^sfset format_whois_ident $(hblk)³ $(hwht)i$(cl)dent   $(hblk): $(cl) identified
+^sfset format_whois_connect $(hblk)³ $(hwht)c$(cl)onnect  $(hblk): $(cl) on $1 actual $6
+^sfset format_whois_active $(hblk)³ $(hwht)a$(cl)ctive   $(hblk): $(cl) is active
+^sfset format_whois_root $(hblk)³ $(hwht)r$(cl)oot   $(hblk): $(cl) Services Root Admin
+^sfset format_whois_operator $(hblk)³ $(hwht)o$(cl)perator $(hblk): $(cl)$1 $2- %K[%nOperator%K]
+^sfset format_whois_admin $(hblk)³ $(hwht)a$(cl)dmin    $(hblk): $(cl)$1-    
+^sfset format_whois_idle $(hblk)³ $(hwht)i$(cl)dle     $(hblk): $(cl)$tdiff($1) idle
+^sfset format_whois_unknown $(c2)³ $(cl)$1$(hblk):$(cl) no such nick/channel
+^sfset -format_whois_footer 
+^sfset format_whowas_header $(c2)ÚÄÄÄÄÄÄÄÄÄÄÄ$(c1)Ä$(c2)ÄÄ$(c1)Ä$(c2)ÄÄÄÄÄÄÄÄÄÄÄÄ$(hblk)Ä$(c2)ÄÄ$(hblk)ÄÄ$(c2)Ä$(hblk)ÄÄÄÄÄÄ-Ä ÄÄÄ-
+^sfset format_whowas_nick $(c2)³ $(hwht)$1 was $(hblk)\($(c1)$2@$3$(hblk)\)$(cl)
+^sfset format_whowas_name $(hblk)³ $(hwht)i$(cl)rcname  $(hblk): $(cl)$1-
+^sfset format_whowas_unknown $(c2)³ $(cl)$1$(hblk):$(cl) there was no such nickname
+^sfset format_whois_signon $(hblk). $(hwht)s$(cl)ignon   $(hblk): $(cl)$2-
+

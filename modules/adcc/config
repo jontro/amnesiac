@@ -1,0 +1,4 @@
+@_modsinfo.adcc.loadcmd =  'adcc.load';
+@_modsinfo.adcc.savecmd =  'adcc.save';
+@_modsinfo.adcc.savefiles= 'dcc.list';
+@_modsinfo.adcc.description="xdcc/dcc pack/offers";

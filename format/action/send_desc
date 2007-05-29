@@ -1,0 +1,5 @@
+DESC crapple #amnesiac hi
+1 $$fparse(format_timestamp_some $($_timess))$$(cl)-> $$(hwht)$$1 $$(c3)$$N $$(cl)$$3-
+2 $$fparse(format_timestamp_some $($_timess))* -> $$1: $$N $$3-
+3 * -> $$1: $$N $$3-
+4 $$fparse(format_timestamp_some $($_timess))* -> $$(hyel)$$N$$(cl) $$3-

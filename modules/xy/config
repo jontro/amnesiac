@@ -1,0 +1,2 @@
+@_modsinfo.xy.helpcmd = 'xyhelp';
+@_modsinfo.xy.description="undernet xy services helper";

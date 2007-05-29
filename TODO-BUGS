@@ -1,0 +1,113 @@
+Amnesiac TODO/BUGS/Projects/Procrastinating list.
+
+Meaning of flags:
+! = fixed/added stuff
++ = changed stuff, uncertain if complete.
+@ = requests/votes
+$ = knownbug.
+? = undecided/closed votes.
+
+## low priority knownbugs.
+$ Supposedly texp will break under certain circumstances
+
+## high priority knownbugs.
+None
+
+## high priority todo. (stuff that needs to done before upcoming release)
+
+## lower priority requests.
+@ Finish server list module, assigned to kreca
+
+@ add bans help documentation
+
+@ add some topwin module, kreca has to start a discussion about some topwin
+  script he might have permission for us to use/modify/rip ;)
+
+@ make orignick use ISON functionality.. -Rylan
+
+@ Get some variables from numeric 005 so we can finetune some displays?
+  EG, get nick length so we can have formatted publics and /who with proper
+  output? <-- i crapple vote yay. "while shielding myself from kreca"
+
+@ make some aliases to simplify the new ssl stuff in -cvs, be useful
+  for dcc/msgs/ctcp's perhaps we can somehow base it on a query win func
+  when we know the other is using the same compatable epic5 client.
+
+@ Add a way to match the ban/invite execption list against the current
+  users in a channel. Requested by Tilt.
+
+## Procrastinated requests.
+@ add support to bwk to allow usage of wildcards.
+@ fixdouble/fixwin or equiv for doublestats
+@ finish up or scrap the adcc module, i really hate to touch this myself
+  i have never heard of a request for this module nor have i heard a single
+  complaint about it working or not working perhaps a vote?
+
+## bugs fixed. / projects done.
+4.17.07
+!@ refix /wall fix formats to make use of + or the like for on 
+  public_other "% @*" may get rid of /wall2 and the current notice hook
+  as apparently a lot of ircd's now support /msg @#chan for walls.
+  //kreca . See ChangeLog for more info
+3.26.07
+! /config still outputs the old userlist info??
+  (c) Auto-op delay Timer:  [] <--- //kreca
+! away formats are broken, it gets stuck with one format, fset/format
+  bug?? 
+This was when changing back to away format 9 (empty string bug) //kreca
+
+3.20.07 - i beleive kreca fixed this as well as above.
+! merge in the new userlist more cleanly some errors i have ran into:
+  /save sometimes shows usersave nonexistent when its not loaded? or loaded?
+  /addmod userlist sometimes spew weird help/something errors i forget.
+  savefile issues with a line that needs to be remove manually to fix.
+
+3.20.07
+! possible way to make /delmod urlgrab actually unload completely?? for
+  some of us who runs multiple epic clients on the same box. a la on hook
+  unloading issue??? 
+  Fixed by adding unload hook to the module framework //kreca
+
+
+1.31.07
+! mmatrix module, /addword foobar #chan will not ban and kick user, just kick
+  ^^ fixed prolly about a month or two ago //zak
+
+1.30.07
+! add auto_rejoin_on_connect toggability [on/off] (reconnect script)
+
+12.02.06
+! make * wildcard actually work in /trickle
+
+11.xx.06 kreca rewrote/fixed/convert to pf sometime in the 11th month //zak
+! @ cleanup/rewrite the /bkh /bkn etc...
+
+10.21.06 - fixed by kreca 'getuhost' issue in alias.m -Rylan
+! /ign seems to have interesting issues, recursion?? /ign foo-bar(nonexistent
+  nick) spews Cannot pop operand: no more operands, looks like there's some
+  hack to suppress even more errors a la ^?; math parser issue? -Rylan
+
+9.14.06 seems to work fine, hopefully some will like this feature //zak
+! make usage of $encode() for basic 'encryption' for awaylogs or some other
+  new function that has yet to be investigated.  
+
+9.06.06 //zak a modified version written by nullie, modified by kreca has
+  been merged into amnesiac, /set auto_reconnect on to enable
+! check out the rewritten /reconnect script in -cvs/epic5?
+
+7.10.06 //skullY
+! =nick= bug: if you use /msg nic<tab> and their nick ends in a \
+  =nick= it prefixes it with another \, so it'll be nick\\
+
+4.10.06 
+! <jak> if you /msg #channel
+  <jak> where #channel != $C
+  <jak> it'll show up formatted as a public to $C
+! cleanup the silly ugly usages of stupid arrays in color.m
+
+8/7/05 doesn't look like this is needed move to here votes closed. //zak
+- maybe? for - glines...
+  <@skullY> you could if ([$0]==[y] || [$0]==[yes]) //vote?
+
+and of course!
+UNSURPRISING BUG FIXES.

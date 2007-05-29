@@ -1,0 +1,132 @@
+Amnesiac FAQ 0.1.1
+
+      d. ^b. ,$   ,b.^b ,s$b    .dP^`Sb   d^`b. `$$'    d.   ,s`$b
+     d'$b l'$'`b .$$$ $d$'`$b  d$'   `$b `$. `   $$    d'$b dP'  `b
+    d' `$bl $  `b'`$$ $'   $$  `$b.       `$b.   $$   d' `$bl
+   dsssss$b $      $$ $    $$  d$P'^  ,b.   `$$. $$  dsssss$b
+  d'     `$b$      $$ $    $$ d$b     ,$$.db `$$ $$ d'     `$b    ,b
+ d'       `$$      $$,$    `$b'$$b. ,$$$'`$$bdP'.$$dbs     s$$b  .d$' 
+d' ###### ,d$$b ###X#A#V#I#E#R##b`$$$$$'d####################`$$$$P'
+
+Q: How do I get help documentation?
+A: /ahelp for general amnesiac help, /ehelp to see what other help commands
+   are available.
+   NOTE: We need a better help system. Think you can do it? Come talk to us
+   on EFNet #amnesiac.
+   NOTE: see amn/docs for further documentation.
+   NOTE: see http://www.prbh.org/help/ also ~help/ for epic specific help.
+
+Q: How can I contribute?
+A: We need documentation and testing. Come to EFNet #amnesiac if you find
+   a bug. Even better if you can isolate it and provide a patch. If you
+   write some documentation come to #amnesiac to get it included.
+
+Q: Where can I get help?
+A: The official amnesiac channel is on EFNet, #amnesiac. Don't ask if anyone
+   is around, just ask your question. If no one can answer it right away then
+   idle, someone will be around eventually.
+
+Q: How do I switch channels?
+A: Hit ^X to switch between channels and queries for the current window
+
+Q: How do I make this look less gay?
+A: /theme to see a list of themes, /theme <name> to switch themes. You can
+   also change individual formats with /format.
+
+Q: How do I load and unload modules?
+A: /addmod to load a module, /delmod to remove a module, /listmod to see
+   what's loaded, /vmod to see all the modules available. /emod to see more 
+   detailed description about the module.
+
+Q: How do I use windows?
+A: /wj to join a channel in a new window, ^Wc to create a new window, ^Wn to
+   move to the next window, ^Wp to move to the previous window, ^Wk to kill
+   the current window, ^W<0-9> to switch to the specified window, /<0-9> to
+   switch to the specified window. esc<0-9> to switch to specified window.
+   /wk to kill current window.
+   NOTE: We need better documentation on this. Any volunteers?
+   NOTE: see also /winhelp
+
+Q: How do i create a window dedicated to msgs?
+A: /mw -hidden|split|kill <-- this should be self explanatory.
+
+Q: How do i make a dcc query window stay consistent?
+   One of the new features of epic5 has the ability to allow multiple
+   query's in a single window, at the time of this writing ctcp over dcc's
+   do not match up to their query windows very well. a workaround is to.
+   /wq =nick followed by /q nick you can swap between msg/dcc in the query
+   window via ctrl-x.
+   NOTE: this issue has been corrected in epic5 commit id 1415+
+
+Q: Where is the annoying ambiguous nickcomplete feature?
+A: Under a ideal world we would like to see users use tab to complete
+   nicks in publics, whilest appending a : at the end of the specified
+   completed nick. i.e if user crapple is in current channel, do
+   hi cra<tab> which will complete the nick crapple or, cra<tab> : which
+   usually completes the nick in question usually with a greater chance
+   of accuracy, for those who want's the old nickcomplete and all of it's
+   broken glory. /addmod ncomp to load the nickcomplete module /format r
+   while choosing your poison don't forget to /save to keep your changes.
+
+Q: What's the best way to change behavior that I don't like?
+A: First, see if there's a /format or a /config for the behavior you want
+   to change. If not, take a look at amn/modules/vanilla for an example
+   of how to write a module to set behavior you like. or if its a simple
+   alias of minor things put it in your ~/.epicrc
+
+Q: How do i use notify?
+A: /notify to view online/offline nicks if any.
+   /notify nick will add specified nick to notify list.
+   /notify -nick will remove specified nick from notify list.
+
+Q: How do i ignore someone, what do the types mean?
+A: /ign nick <type> if specified nick is online else
+   /ign *!ident@*.isp.com <type>
+   /tig to remove ignores.
+   Some common ignore types. taken from epicsol.org's page.
+   ctcps      filter in/out all CTCPs received
+   invites    filter in/out all INVITEs received
+   msgs       filter in/out all MSGs received (but not CTCPs)
+   notes      filter in/out all NOTEs received
+   notices    filter in/out all NOTICEs received
+   public     filter in/out public channel conversation
+   wallops    filter in/out operator WALLOPS
+   topics     filter in/out all TOPIC changes
+   nicks      filter in/out all NICK changes
+   joins      filter in/out all channel JOINs
+   parts      filter in/out all channel PARTs
+   crap       filter QUIT, MODE, KICK and PONG
+   all        everything listed above
+
+Q: How do i ignore a channel?
+A: /cig #channel or /cig for current chan.
+   /tig to remove ignores.
+
+Q: How do i enable/use auto_reconnect?
+A: Auto_reconnect has been added on Tue, 29 Aug 2006 @ 21:45:33 EST
+   there are 3 different sets at the time of this writing to make the best
+   use of reconnect.
+   AUTO_RECONNECT is ON <-- settings are on/off on means it will attempt to
+   reconnect you to another server if any during timeouts/kills etc.
+   AUTO_RECONNECT_DELAY is 10 <--- time in seconds before retrying
+   AUTO_RECONNECT_RETRIES is 3 <-- how many times to try before giving up
+
+Q: why do the colours/font display properly?
+A: see docs/NOTES for more detailed info, one can however try /fixterm or
+   /latin1(european)
+
+Q: I want to make this really great theme but I need to add some formats. How
+   do I do this?
+A: You need to add the appropriate format in amn/arrays. If you add a new
+   whois or scan you need to add some example output to amn/wis or amn/scan.
+
+Q: How do i disable/toggle certain window notification?
+A: /wnlevel none <-- disables notification
+   /wnlevel publics,join,part <-- notify on public, join and parts
+
+Q: how do i make use of the new userlist as of 02.27.07(approx)?
+A: /adduser someuser *!someone@host1.com *!*other@host2.com
+   /chflags someone aor <-- flags are auto-op, op, reop on deop on all
+   channels/networks (as of this writing the multiserver capabilities are
+   buggy, best to use global and or */#channel)
+   also see: /userhelp /userlevels

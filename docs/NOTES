@@ -1,0 +1,46 @@
+## various notes/documents about some common problems known in
+## amnesiac/epic.
+
+
+## ansi/ibm437 hardcoding fonts/ugly looking etc..
+-this is not a bug per se, it's just how the font handles ansi codes. 
+ i do not know what fonts really support them, these are some of the
+ things you can try if your theme/colors/ansi etc.. in the client looks
+ screwed up, also for european/non western languages users. there is a
+ /latin1 alias which should fix your terminal to fix your native language
+ characters however you cannot use an ansi theme (in most cases)
+ best to use the vanilla or epic theme. for non-western language encodings.
+ /ibm437 will try and enable ansi-like encodings on your terminal/putty/
+ xterm/whatever. it is best to have a font that supports this, one such
+ font i do know that supports it for rxvt/aterm/etc.. is the vga11x19
+ font, most people do not like this font as this is huge on small screens
+ ie; 1024x768 or 15" or less monitors, it can be grabbed from 
+ http://amnesiac.ircii.org/misc/
+ there are also some other fonts in there as well which may or may not work.
+
+## terminfo/termcap info.
+-terminfo/termcap issues on FreeBSD not sure about DragonFly... possible fix
+ ln -s /usr/compat/linux/usr/share/terminfo /usr/share/misc 
+ and cross your fingers? - help from |Rain| (naturally i presume this
+ requires the linux-compat libs installed.)
+
+## multiserver in amnesiac.
+-there has been some improvements since 1.1 release
+ it's been tested and known to work, at the time of this writing mjoin does
+ not support multiple servers. auto_reconnect is now back by popular demand.
+
+## putty/other terminals etc..
+in putty make sure you have a proper font, usually i use lucida console
+however i have heard some complaints it will still not display ansi properly
+even if one selects ansi/oem modes and set font translation character set to
+'use font encoding' in that case try the terminal font. if all else fails
+one can try /fixterm and or /latin1
+
+## bwk module has been merged into mmatrix /addmod mmatrix
+we have broken backwards compatability with the old way it used to save
+bwk, if you see issues do rm -rf ~/.amn/a.words.save /delmod mmatrix
+/addmod mmatrix and retry, bug reports of this sort without doing
+the above will be ignored.
+
+//zak
+//zak@ircii.org

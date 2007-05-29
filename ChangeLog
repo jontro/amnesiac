@@ -1,0 +1,5 @@
+05.28.07
+-Fix broken /theme //kreca
+-Bind alt-[key-left] and alt-[key-right] to window prev and window next
+ suggested by mongoose //kreca
+-Increase version number and snapshot dates //kreca
