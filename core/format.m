@@ -7,7 +7,43 @@ if (word(2 $loadinfo()) != [pf]) {
 };
 
 subpackage format;
+## Format helper functions (for scripters) 
+alias _format.getop (noop dwords 1, nickchan) {
+	@:nick=word(0 $split(: $nickchan));
+	@:chan=word(1 $split(: $nickchan));
+	if (showop == 'on') {
+		if (ischanop($nick $chan)) {
+			return @;
+		} else if (ischanvoice($nick $chan)) {
+			return +;
+		} else {
+			return $noop;
+		};
+	};
+};
 
+alias _format.npad (padding, nickchan, text) {
+	@:nick=word(0 $split(: $nickchan));
+	@:chan=word(1 $split(: $nickchan));
+	return $_format.rchan($padding $nick $chan "" $text)
+};
+## internal format helper functions
+alias _format.rchan (padding, nick , chan, prefix dwords 1, text) {
+	@:output="";
+	if (!iscurchan($chan)) {
+		@output = "$(nick):$chan";
+	} else {
+		@output = nick;
+	};
+	@output = "$(prefix)$highlightpub($output $text)";
+	return $_format.pad($padding $output);
+};
+alias _format.pad (padding, text) {
+	if (padding > 0) {
+		return $leftpc($padding $(text)$pad($padding " "));
+	};
+	return $text;
+};
 ## format.getfilename (format_name)
 ## translate format_name to the file name containing the format strings
 alias format.getfilename (format_name) {

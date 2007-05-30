@@ -4,3 +4,6 @@
  suggested by mongoose //kreca
 -Increase version number and snapshot dates //kreca
 -Remove set REVERSE_STATUS_LINE //kreca
+
+05.30.07
+-Add some format helper functions and temporarily two new formats //kreca

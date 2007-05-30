@@ -1,4 +1,4 @@
-DESC kreca hi!
+DESC kreca:#amnesiac hi!
 1 $$fparse(format_timestamp_some $($_timess))%K<$$spubpad(%n 0 $1)%K>%n $$2-
 2 $$fparse(format_timestamp_some $($_timess))%K\\\($$spubpad(%n 0 $1)%K\\\)%n $$2-
 3 $$fparse(format_timestamp_some $($_timess))$$(hmag)<$$spubpad(%n 0 $1)$$(hmag)>%n $$2-
@@ -31,3 +31,4 @@ DESC kreca hi!
 29 $$fparse(format_timestamp_some $($_timess))$$(hblu)\\\($$spubpad(%n 0 $1)$$(hblu)\\\)%n $$2-
 30 $$fparse(format_timestamp_some $($_timess))$$(mag)\\\($$spubpad(%n 0 $1)$$(mag)\\\)%n $$2-
 31 $$fparse(format_timestamp_some $($_timess))$$spubpad(%Y 9 $1)%n: $$2-
+32 $$_format.getop(" " $1)%K\\\(%W$$_format.npad(9 $1)%K\\\)%w $$2-
