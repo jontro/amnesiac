@@ -1,5 +1,5 @@
 DESC crapple #amnesiac hi
-1 $$fparse(format_timestamp_some $($_timess))%K-$$(c3)$$1%K:%n$$2%n $$3-
-2 $$fparse(format_timestamp_some $($_timess))-$$1:$$2- $$3-
-3 -$$1:$$2- $$3-
-4 $$fparse(format_timestamp_some $($_timess))* %r[%B$$2%r]%n %G$$1 %G$$3-
+1 $fparse(format_timestamp_some $($_timess))%K-$(c3)$1%K:%n$2%n $3-
+2 $fparse(format_timestamp_some $($_timess))-$1:$2- $3-
+3 -$1:$2- $3-
+4 $fparse(format_timestamp_some $($_timess))* %r[%B$2%r]%n %G$1 %G$3-

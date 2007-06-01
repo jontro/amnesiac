@@ -115,7 +115,6 @@ alias format.returndesc (format_name, number) {
 ## return the format string by number
 alias format.readitem (fname, number) {
 	@:fn=format.getfilename($fname);
-
 	if (fexist("$fn") == 1) {
 			@ :fd = open("$fn" R);
 
@@ -124,7 +123,7 @@ alias format.readitem (fname, number) {
 				@:cv= word(0 $cline);
 				if (cv == number ) {
 					@close($fd);
-					eval return $rest(${@cv+1} $cline);
+					return $rest(${@cv+1} $cline);
 				};
 			};
 			@close($fd);
