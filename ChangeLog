@@ -7,3 +7,7 @@
 
 05.30.07
 -Add some format helper functions and temporarily two new formats //kreca
+
+06.01.07
+-Change the way formats are stored, no double expandoes are required any more
+ //kreca
