@@ -24,7 +24,7 @@ alias vocop {
 	config.showop -s $*
 };
 
-eval osetitem misc showop Extended publics:;
+osetitem misc showop Extended publics:;
 
 #end of config
 

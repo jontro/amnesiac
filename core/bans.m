@@ -159,5 +159,5 @@ alias config.bantype {
 	};
 };
 
-eval osetitem protect kickops Kick ops:;
-eval osetitem protect bantype Ban Type:;
+osetitem protect kickops Kick ops:;
+osetitem protect bantype Ban Type:;

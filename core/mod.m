@@ -20,7 +20,7 @@ alias emod {
 		@cnt++;
 
 	};
-	eval //echo -----------------------------------------------------------------;
+	//echo -----------------------------------------------------------------;
 };
 
 alias _isdefaultmod (name,void)
@@ -73,7 +73,7 @@ alias listmod {
 	if (numitems(_mods) == 0) {
 		xecho $acban no modules current on list;
 	}{
-		eval aecho ----------------------= Modules Loaded =------------------;
+		aecho ----------------------= Modules Loaded =------------------;
 		for (@xx=0, xx<numitems(_mods), @xx=xx+2) {
 			@ :mod1 = "\($xx\) $getitem(_mods $xx)";
 			if ( xx+1 >= numitems(_mods) )
@@ -84,7 +84,7 @@ alias listmod {
 			};
 			//echo $[30]mod1 $mod2;
 		};
-		eval aecho -----------------------------------------------------------;
+		aecho -----------------------------------------------------------;
 		xecho $acban /vmod to list valid modules /emod view module descriptions;
 	};
 };

@@ -22,7 +22,7 @@ alias tig {
 		};
 		input "enter # of which ignore to takeoff: " {
 			if ( ( "$0" >= word(0 $igns)) && "$0" <= word(${numwords($igns)-1} $igns)) {
-				@eval ^$ignorectl(DELETE $0);
+				@ignorectl(DELETE $0);
 			}
 			{
 				xecho -b number out of range \($word(0 $igns) - $word(${numwords($igns)-1} $igns)\);

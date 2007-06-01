@@ -20,7 +20,7 @@ alias config {
 				config.printsection $sec;
 			};
 		};
-		eval aecho -----------------------------------------------------------------------------;
+		aecho -----------------------------------------------------------------------------;
 		xecho -v $acban -> config <section> <letter> <setting>;
 		xecho -v $acban valid sections: <away|protect|misc|oper|relay|connect>;
 	}{
@@ -49,22 +49,22 @@ alias config.printsection
 {
 	switch ($0) {
 	(away) {
-		eval aecho ------------------------------= Away Settings =------------------------------;
+		aecho ------------------------------= Away Settings =------------------------------;
 	};
 	(protect) {
-		eval aecho ---------------------------= Protection Settings =---------------------------;
+		aecho ---------------------------= Protection Settings =---------------------------;
 	};
 	(misc) {
-		eval aecho ------------------------------= Misc Settings =------------------------------;
+		aecho ------------------------------= Misc Settings =------------------------------;
 	};
 	(relay) {
-		eval aecho ------------------------------= Relay Settings =-----------------------------;
+		aecho ------------------------------= Relay Settings =-----------------------------;
 	};
 	(oper) {
-		eval aecho ------------------------------= Oper Settings =------------------------------;
+		aecho ------------------------------= Oper Settings =------------------------------;
 	};
 	(connect) {
-		eval aecho ------------------------------= Connect Settings =---------------------------;
+		aecho ------------------------------= Connect Settings =---------------------------;
 	};
 	};
 	@:aname= "confa$0";
@@ -206,16 +206,16 @@ alias extpub {modeshow $*;};
 alias tform {format 3 $*};
 
 ## connect items
-eval osetitem connect umode Auto-connect umode:;
-eval osetitem connect auto_reconnect Auto-reconnect:;
-eval osetitem connect auto_reconnect_delay Auto-reconnect delay:;
-eval osetitem connect auto_reconnect_retries Auto-reconnect retry:;
-eval osetitem connect auto_rejoin_connect Auto-rejoin connect:;
+osetitem connect umode Auto-connect umode:;
+osetitem connect auto_reconnect Auto-reconnect:;
+osetitem connect auto_reconnect_delay Auto-reconnect delay:;
+osetitem connect auto_reconnect_retries Auto-reconnect retry:;
+osetitem connect auto_rejoin_connect Auto-rejoin connect:;
 
 ## misc config items
-eval osetitem misc origdelay Orignick Timer:;
-eval osetitem misc timestamp Timestamps:;
-eval osetitem misc pubnick Pubstring:;
-eval osetitem misc auto_rejoin Auto rejoin:;
-eval osetitem misc auto_rejoin_delay Auto rejoin delay:;
-eval osetitem misc windowdoubles Double fixed window:;
+osetitem misc origdelay Orignick Timer:;
+osetitem misc timestamp Timestamps:;
+osetitem misc pubnick Pubstring:;
+osetitem misc auto_rejoin Auto rejoin:;
+osetitem misc auto_rejoin_delay Auto rejoin delay:;
+osetitem misc windowdoubles Double fixed window:;
