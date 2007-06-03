@@ -195,7 +195,7 @@ alias bye {
 	};
 };
 
-alias ping (target default "$C") {
+alias ping (target default "$T") {
 	//ping $target;
 };
 
