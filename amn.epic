@@ -12,9 +12,9 @@ if (word(2 $loadinfo()) != [pf]) {
 };
 package amnesiac;
 
-if (word(0 $info(v)) != 'epic5' || V < 20050520 || info(i) < 1458) {
+if (word(0 $info(v)) != 'epic5' || V < 20050520 || info(i) < 1480) {
 	xecho -b Amnesiac has detected an old version of epic;
-	xecho -b Recommended version is epic5-0.3.3 or greater.;
+	xecho -b Recommended version is epic5-0.3.4 or greater.;
 	return;
 };
 
@@ -52,7 +52,7 @@ for array in ($getarrays()) {
 @_pcnt=0;
 alias _progress {
 	@_pcnt=_pcnt+1;
-	eval set input_prompt $$(hblk)[$$cparse($(c1)$[20]repeat($_pcnt þ))$$(hblk)] [$$(cl)${_pcnt*2}$$(hwht)%$$(hblk)];
+	set input_prompt $(hblk)[$cparse($(c1)$[20]repeat($_pcnt þ))$(hblk)] [$(cl)${_pcnt*2}$(hwht)%$(hblk)];
 };
 
 ## unset/set cosmetic crap

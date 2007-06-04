@@ -138,7 +138,7 @@ awecho  ---------------------------------------------------------------------;
 	};
 	push _htopics2 %w|;
 	fe ($hwords) $_htopics {
-		eval awecho  |  $_htopics2;
+		awecho  | ${**_htopics2};
 	};
 awecho  ---------------------------------------------------------------------;
 	abecho $a.ver usage -> /ahelp <helpword>;

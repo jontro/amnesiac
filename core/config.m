@@ -28,7 +28,7 @@ alias config {
 		@:xx= ascii($1)-ascii(a);
 		@ :cur1 = getitem($aname $xx);
 		@:con1=word(0 $cur1);
-		eval @$$config.${con1}\(-s $2-\);
+		@$(config.$(con1))(-s $2-);
 
 	};
 };
@@ -73,7 +73,7 @@ alias config.printsection
 		@ :con1 = word(0 $cur1);
 		@ :mod1 = restw(1 $cur1);
 		@ :mod1 = "\($chr(${ascii(a)+xx})\) $mod1";
-		^eval local cval1 $$config.${con1}\(-r\);
+		@ :cval1 = (config.$(con1))(-r);
 		@ :mod1= "$[25]mod1 [$cval1]";
 		if ( xx+1 >= numitems($aname) ) {
 			@ :mod2 = '';
@@ -82,7 +82,7 @@ alias config.printsection
 			@ :con2 = word(0 $cur2);
 			@ :mod2 = restw(1 $cur2);
 			@ :mod2 = "\($chr(${ascii(a)+xx+1})\) $mod2";
-			^eval local cval2 $$config.${con2}\(-r\);
+			@:cval2 = (config.$(con2))(-r);
 			@ :mod2= "$[25]mod2 [$cval2]";
 		};
 		if (strlen($mod1) < 37 && strlen($mod2)) {
@@ -99,12 +99,12 @@ alias config.printsection
 ## config helper alias
 alias config.matchinput {
 	if (*2=="''") {
-		eval xecho -v $acban $$3- set to "$$$1";
+		xecho -v $acban $3- set to "$($1)";
 	}{
 		@:aVar=mid(1 ${strlen($2)-2} $2);
 		if (match($aVar $split(| $0))) {
 			^assign $1 $aVar;
-        		eval xecho -v $acban $$3- set to "$$$1";
+			xecho -v $acban $3- set to "$($1)";
 		}{
 			xecho -v $acban invalid choice <$0>;
 		};

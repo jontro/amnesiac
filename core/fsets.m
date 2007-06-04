@@ -35,7 +35,7 @@ alias fset (format_name,value) {
 	};
 };
 
-alias fparse {eval return $(cparse($($*)));};
+alias fparse {return ${**cparse($($*))};};
 
 ## who fsets.
 ^on ^who * {

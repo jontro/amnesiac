@@ -37,7 +37,7 @@ alias trickle {
 			@:users= pattern($curmatch $users);
 		};
 		fe ($users) curuser {
-			eval $cmd $curuser;
+			$cmd $curuser;
 		};
 	};
 };

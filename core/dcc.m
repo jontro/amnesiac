@@ -75,7 +75,7 @@ alias dccag {
 	config.dccag -s $*;
 };
 
-eval osetitem misc dccag Dcc autoget:;
+osetitem misc dccag Dcc autoget:;
 ## end config
 
 ## dcc menu help.

@@ -30,7 +30,7 @@ osetitem misc showop Extended publics:;
 
 alias highlightpub (nick, text) {
 	fe (_pubnick) cur {
-		^eval local cursearch $$$cur;
+		@:cursearch = $cur;
 		if (  strlen($cursearch) && match($cursearch* $text) > 0 ) {
 			return $(hwht)$nick$(cl);
 		};

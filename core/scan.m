@@ -76,9 +76,9 @@ alias printnames (printstats,lchan,lnick) {
 	};
 	fe ($scan1) $_nlist {
 		if (format_scan_nicks_border) {
-			eval xecho $xevars -- $$fparse(format_scan_nicks_border) $_nlist2;
+			xecho $xevars -- $fparse(format_scan_nicks_border) ${**_nlist2};
 		}{
-			eval xecho $xevars -- $_nlist2;
+			xecho $xevars -- ${**_nlist2};
 		};
 	};
 	if (format_scan_footer) {

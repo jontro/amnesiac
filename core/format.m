@@ -98,7 +98,7 @@ alias format.loaditemfromfile (format_name,number){
 ## Like fparse but instead of using the value in format_name it takes
 ## it from the file.
 alias format.fshow (format_name, number, ...) {
-	eval return $cparse($format.readitem($format_name $number));
+	return ${**cparse($format.readitem($format_name $number))};
 };
 
 ## format.printdesc (format_name)
