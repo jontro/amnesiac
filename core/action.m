@@ -8,52 +8,15 @@ if (word(2 $loadinfo()) != [pf]) {
 subpackage action;
 
 ## action hooks
-if (info(i) < 1415) {
-	## This code block is kept for backwards compability
-
-	## helper function that'll make /me output to the correct window
-	## during a dcc chat //kreca 
-	## XXX, this is only intended for epic5 and is a temporary solution. 
-	## The output handling will change in the future.
-	alias myquerywin (wn,void) {
-		fe ($winrefs()) cw {
-			if ( findw($wn $winnicklist($cw)) != -1) {
-				return $cw;
-			};
-		};
-		return -1;
-	};
-
-	on ^action * {
-		if (winchan($1)) {
-			if ( iscurchan($1) ) {
-				xecho $fparse(format_action $0 $1 $2-);
-			} {
-				xecho $fparse(format_action_other $0 $1 $2-);
-			};
+on ^action * (sender, recvr, body) {
+	if (winchan($recvr)) {
+		if (iscurchan($recvr)) {
+			xecho $fparse(format_action $sender $recvr $body);
 		} {
-			@:wqwin = myquerywin($0);
-			if ( wqwin != -1)
-			{
-				xecho -window $wqwin $fparse(format_desc $0 $1 $2-);
-			} {
-				xecho $fparse(format_action_other $0 $1 $2-);
-			};
+			xecho $fparse(format_action_other $sender $recvr $body);
 		};
-	};
-}{
-	## new code body, this will be the only remaint once epic5 goes
-	## production.
-	on ^action * (sender, recvr, body) {
-		if (winchan($recvr)) {
-			if (iscurchan($recvr)) {
-				xecho $fparse(format_action $sender $recvr $body);
-			} {
-				xecho $fparse(format_action_other $sender $recvr $body);
-			};
-		} {
-			xecho $fparse(format_desc $sender $recvr $body);
-		};
+	} {
+		xecho $fparse(format_desc $sender $recvr $body);
 	};
 };
 

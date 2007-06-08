@@ -85,10 +85,6 @@ alias bkn (nick, reason){@_bk(bkn 6 $nick $reason);};
 alias bkd (nick, reason){@_bk(bkd 4 $nick $reason);};
 ## iban alias. (i stands for ident)
 alias iban (nick, reason){@_bk(iban 10 $nick $reason);};
-if (info(i) < 1439) {
-	alias iban {xecho -b /iban isnt supported on old versions of epic. Please upgrade to a version with commitid 1439 or greater;};
-};
-
 
 ## end bankick type on the fly.
 alias kickban (nick,reason){

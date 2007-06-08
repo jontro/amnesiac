@@ -10,21 +10,12 @@ alias wall {
 alias _bwallform (chan,text) {
 	@:pf=left(1 $chan);
 	@chan=after($pf $chan);
-	if (info(i) < 1456) {
-		xecho -l publics -w $winchan($chan) $fparse(format_bwall $pf $chan $text);
-	}{
-		xecho -l publics -t $chan $fparse(format_bwall $pf $chan $text);
-	};
+	xecho -l publics -t $chan $fparse(format_bwall $pf $chan $text);
 };
 alias _wallform (nick,chan,text) {
 	@:pf=left(1 $chan);
 	@chan=after($pf $chan);
-	if (info(i) < 1456) {
-		xecho -l publics -w $winchan($chan) $fparse(format_wall $pf $nick $chan $text);
-	}{
-		xecho -l publics -t $chan $fparse(format_wall $pf $nick $chan $text);
-	};
-
+	xecho -l publics -t $chan $fparse(format_wall $pf $nick $chan $text);
 };
 
 fe (send_notice send_msg) con {

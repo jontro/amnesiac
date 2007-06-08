@@ -1,14 +1,14 @@
 # Copyright (c) 2003-2007 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 subpackage away
-eval osetitem away awaytime A-setaway time:;
-eval osetitem away awaytog A-setaway on/off:;
-eval osetitem away awaymsg A-msg:;
-eval osetitem away awaylogmsg A-log msgs:;
-eval osetitem away awaylogcrap A-log crap/miscs:;
-eval osetitem away awaylognotice A-log notices:;
-eval osetitem away awaylogdcc A-log dcc:;
-eval osetitem away awaylogpub A-log public:;
+osetitem away awaytime A-setaway time:;
+osetitem away awaytog A-setaway on/off:;
+osetitem away awaymsg A-msg:;
+osetitem away awaylogmsg A-log msgs:;
+osetitem away awaylogcrap A-log crap/miscs:;
+osetitem away awaylognotice A-log notices:;
+osetitem away awaylogdcc A-log dcc:;
+osetitem away awaylogpub A-log public:;
 
 
 #awaystat is per default 0. Without this awaystat will be undefined.
