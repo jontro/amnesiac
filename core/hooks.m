@@ -36,11 +36,11 @@ on ^301 "*"
 
 ## notify hook.
 ^on ^notify_signon * {
-	awecho $G SignOn by $0!$sar(g/@/@/$1-) at $Z;
+	xecho -v $G SignOn by $0!$sar(g/@/@/$1-) at $Z;
 };
 
 ^on ^notify_signoff * {
-	awecho $G SignOff by $0 at $Z;
+	xecho -v $G SignOff by $0 at $Z;
 };
 
 ## edit topic stuff from the epic5 source tree.. used for the /topic_input

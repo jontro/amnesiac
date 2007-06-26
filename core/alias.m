@@ -251,7 +251,6 @@ alias whowas (nick, number default "$num_of_whowas", void) {
 
 ## script echo ##still need to clean some of this up.
 alias abwecho {xecho -v $acban $cparse($*);};
-alias awecho {xecho -v $cparse($*);};
 alias aecho {//echo $cparse($*);};
 alias abecho {xecho -b -- $cparse($*);};
 alias ce {//echo $cparse("$*");};

@@ -64,16 +64,16 @@ alias adcc.list {
 	if (numitems(offers.files)== 0) {
 		xecho (adcc).. no packs current on list
     }{
-		banner.lchead
-		banner.mid      file                           desc	                     gets
+		xecho -v -- ---------------------------------------------------------------
+		xecho -v  |       file                           desc	                     gets
 			for (@xx=0, xx<numitems(offers.files), @xx++) {
 			@pgets = getitem(gets $xx)
 				if (getitem(gets $xx) == []) {
 				@pgets = 0
 				}
-					banner.mid $cparse(%K[%n${xx+1}%K]%n) $[27]getitem(offers.files $xx) $[37]getitem(offers.desc $xx) $[4]pgets
+					xecho -v  | $cparse(%K[%n${xx+1}%K]%n) $[27]getitem(offers.files $xx) $[37]getitem(offers.desc $xx) $[4]pgets
 			}
-        		 	banner.lcfoot
+        		xecho -v -- ---------------------------------------------------------------
 	}
 }
 

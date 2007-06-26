@@ -34,11 +34,11 @@ alias listword {
 	if (numitems(_words) == 1) {
 		xecho $acban no words current on list
 	}{
-		banner.head
+		xecho -v -- ------------------------------------------------------------------
 		for (@xx=1, xx<numitems(_words), @xx++) {
-			banner.mid2 $cparse(%K[%n$xx%K]%n) $getitem(_words $xx) $getitem(_wordschan $xx) $getitem(_wordstype $xx)
+			xecho -v  | $cparse(%K[%n$xx%K]%n) $getitem(_words $xx) $getitem(_wordschan $xx) $getitem(_wordstype $xx)
 		}
-		banner.foot
+		xecho -v -- ------------------------------------------------------------------
 	}
 }
 

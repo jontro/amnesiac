@@ -18,9 +18,9 @@ alias _pad {
 
 alias addbot {
 	if ( numwords($*) < 4) {
-	banner.lchead 
-	banner.mid syntax: $Cparse(/addbot %K[%nbotnick%K|%nbotnick%K!%nbotident%K@%nbothost%K]%n password channel opcmd)
-	banner.lcfoot
+	xecho -v -- ---------------------------------------------------------------
+	xecho -v  | syntax: $Cparse(/addbot %K[%nbotnick%K|%nbotnick%K!%nbotident%K@%nbothost%K]%n password channel opcmd)
+	xecho -v -- ---------------------------------------------------------------
 }{
 	@ :input1 = [$0]
 	if (ismask($input1)) {
@@ -43,23 +43,23 @@ alias addbot {
 }
 
 alias listbot {
-	if (numitems(bots)<2) { 
-	banner.lchead
-	banner.mid the botlist is empty! 
-	banner.lcfoot			} {
-	banner.lchead
-        banner.mid $(hblk)[$(c2)n$(c1)um$(hblk)] [$(cl)$_pad(3 $(c2)c$(c1)hannel)$(hblk)] [$_pad(32 $(c2)u$(c1)serhost)$(hblk)] [$(c2)o$(c1)p cmd$(hblk)]$(cl)
-	banner.mid
+	xecho -v -- ---------------------------------------------------------------
+	if (numitems(bots)<2) {
+		xecho -v  | the botlist is empty! 
+	}{
+		xecho -v  | $cparse($(hblk)[$(c2)n$(c1)um$(hblk)] [$(cl)$_pad(3 $(c2)c$(c1)hannel)$(hblk)] [$_pad(32 $(c2)u$(c1)serhost)$(hblk)] [$(c2)o$(c1)p cmd$(hblk)]$(cl))
+		xecho -v  | 
 	for (@xx=1, xx<numitems(bots), @xx++)
         {
 		@ :pass = decode($word(1 $getitem(bots $xx))) 
        		@ :uhost = word(0 $getitem(bots $xx))
 	        @ :cmd = word(3 $getitem(bots $xx))
 		@ :chan = word(2 $getitem(bots $xx))
-		banner.mid $(hblk)[$(c1)$[3]xx$(hblk)] [$(c1)$[10]chan$(hblk)] [$(c1)$[40]uhost$(hblk)] [$(c1)$[6]cmd$(hblk)] 
+		xecho -v  | $cparse($(hblk)[$(c1)$[3]xx$(hblk)] [$(c1)$[10]chan$(hblk)] [$(c1)$[40]uhost$(hblk)] [$(c1)$[6]cmd$(hblk)])
 	}
-	banner.lcfoot
+
 	}
+	xecho -v -- ---------------------------------------------------------------
 }
 
 alias botsave {
@@ -75,13 +75,13 @@ alias botsave {
 
 alias botdel if ([$0]) {
 	if (numitems(bots)<=[$0]) {
-	banner.lchead   
-	banner.mid no such bot! }{ 
-	banner.lchead
+		xecho -v -- ---------------------------------------------------------------
+	xecho -v  | no such bot! }{ 
+		xecho -v -- ---------------------------------------------------------------
 	@ delitem(bots $0)
-}}{ banner.lchead 
- banner.mid usage: /botdel <bot number>
- banner.lcfoot
+}}{ 		xecho -v -- ---------------------------------------------------------------
+ xecho -v  | usage: /botdel <bot number>
+ 		xecho -v -- ---------------------------------------------------------------
     	}
 
 alias botload

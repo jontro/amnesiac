@@ -33,11 +33,11 @@ alias listchan {
 	if (numitems(chans) == 1) {
 			xecho $acban no channels current on list;
 	}{
-		banner.lchead;
+xecho -v -- ------------------------------------------------------------------;
 		for (@xx=1, xx<numitems(chans), @xx++) {
-			banner.mid2 $cparse(%K[%n$xx%K]%n) $getitem(chans $xx);
+			xecho -v  | $cparse(%K[%n$xx%K]%n) $getitem(chans $xx);
 		};
-		banner.foot;
+xecho -v -- ------------------------------------------------------------------;
 	};
 };
 
