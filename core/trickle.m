@@ -71,8 +71,8 @@ pause;
 //echo some /trickle usage examples.;
 //echo /trickle #somechan *!*@*aol.com kill;
 //echo /trickle #somechan *!ident@* voice;
-//echo /trickle * will run the command on all channels like:
-//echo /trickle * *!~*@* bk Real ident must be used.
+//echo /trickle * will run the command on all channels like:;
+//echo /trickle * *!~*@* bk Real ident must be used.;
 //echo ---------------------------------------------------------------------;
         };
 };

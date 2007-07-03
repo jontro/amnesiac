@@ -123,7 +123,12 @@ alias moff {set old_math_parser off;};
 alias ioff {set -input_prompt;};
 alias tog {toggle $*;};
 ## dumps and reload script, for scripters and advanced users in general.
-alias adump {dump all;fe ($getarrays()) n1 {@delarray($n1)};unload * fe;load ~/.epicrc;};
+alias adump {
+	dump all;
+	fe ($getarrays()) n1 {@delarray($n1)};
+	unload * fe;
+	load ~/.epicrc;
+};
 
 ## CrazyEddie's alias
 alias comatch return ${match($*)||rmatch($*)};

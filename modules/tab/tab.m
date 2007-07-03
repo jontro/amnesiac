@@ -258,6 +258,7 @@ switch ($L) {
 	($(K)ping %)
 	($(K)m %)
 	($(K)msg %)
+	($(K)notice %)
 	($(K)dcc chat %)
 	($(K)chat %)
 	($(K)dcc send %)
@@ -304,7 +305,7 @@ alias add.msg (nick,void){
 	};
 };
 
-on #-input 2 "/msg #*" {
+on #-input 3 "/msg #*" {
 	@add.msg($1);
 };
 

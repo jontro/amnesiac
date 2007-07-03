@@ -21,3 +21,8 @@
 06.08.07
 -Add whois.9 (looks like whois.1 but is iso-8859-1 compatible)
  submitted by mongoose //kreca
+
+07.03.07
+-Add notice to tab completion //kreca
+-Clean ncomp module up. Should be a lot more efficient and not intefer
+ with history script. //kreca

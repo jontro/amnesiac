@@ -1,1 +1,2 @@
 @_modsinfo.ncomp.description="nick completion";
+@_modsinfo.ncomp.unloadcmd='ncompunload';
