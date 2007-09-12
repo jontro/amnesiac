@@ -26,3 +26,8 @@
 -Add notice to tab completion //kreca
 -Clean ncomp module up. Should be a lot more efficient and not intefer
  with history script. //kreca
+
+09.12.07
+-Fix wall alias to do old style wall notices when sender is not opped.
+ This brings back functionality from wall2 and with an added bonus
+ that it now respects the TARGMAX 005//kreca
