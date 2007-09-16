@@ -28,6 +28,15 @@ alias wcs {
 		xecho $acban usage: /wcs server channel key;
 	};
 };
+
+alias _statusmsg {
+	@:smsg = serverctl(GET 4 005 TARGMAX);
+	if (!@smsg) {
+		@smsg='@+';
+	};
+	return $smsg;
+};
+
 alias _maxmodes {
   ^local num;
   @ num = serverctl(get $servernum() 005 MODES);
