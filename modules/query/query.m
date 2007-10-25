@@ -18,8 +18,8 @@ assign AUTO_QUERY 1;
 assign AUTO_QUERY_WINDOW_ARGS hide;
 
 ## hooks
-on #-msg 835 "*" { _autoquery $0 $userhost(); };
-on #-send_msg 835 "*" { _autoquery $0 $userhost(); };
+on #-msg -835 "*" { _autoquery $0 $userhost(); };
+on #-send_msg -835 "*" { _autoquery $0 $userhost(); };
 
 ## funcs
 alias _autoquery (nick, uhost, void) {

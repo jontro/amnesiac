@@ -31,3 +31,7 @@
 -Fix wall alias to do old style wall notices when sender is not opped.
  This brings back functionality from wall2 and with an added bonus
  that it now respects the TARGMAX 005//kreca
+
+10.25.07
+-Change serial in query module from 835 to -835. This fixes first msg
+ bug. Reported by hokkaido. //kreca
