@@ -25,6 +25,13 @@ alias delset (name, void) {
 		@ symbolctl(check $name);
 	};
 };
+alias decode (...) {
+	return $xform(-ENC $*);
+};
+
+alias encode (...) {
+	return $xform(+ENC $*);
+};
 
 # The following functions were all pulled from the 'builtins' script
 # written by David B. Kratter and distributed with EPIC5.
