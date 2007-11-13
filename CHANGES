@@ -35,3 +35,7 @@
 10.25.07
 -Change serial in query module from 835 to -835. This fixes first msg
  bug. Reported by hokkaido. //kreca
+
+10.13.07
+-Update away module to the pf loader. Hopefully fixes issues that some
+ people have noticed with it. //kreca
