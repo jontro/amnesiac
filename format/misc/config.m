@@ -50,12 +50,13 @@ alias format.loadtimestamp_some (number,void)
 	if (_tss=='on') {
 		@_timess='Z';
 		^assign -zt;
-		@format.loaditemfromfile (timestamp_some $number);
+		return $format.loaditemfromfile(timestamp_some $number);
 	}{
 		^assign -_timess;
 		^assign -format_timestamp_some;
                 @ZT = G;
 	};
+	return 1;
 };
 
 alias timeform (number) {
