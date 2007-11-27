@@ -1,8 +1,8 @@
 subpackage stat16
 alias stat16 {
-^set status_format $(sc1)[$(sc1)-$(hblk)--\(%*%=%@$(cl)%N$(hblk)..%#$(hblk)\)%A$(hblk)-%Q-%>-%B-%T$(sc1)-$(sc1)-]
-^set status_format1 $(sc1)[$(sc1)-$(hblk)--\(%*%=%@$(cl)%N$(hblk)..%#$(hblk)\)$(hblk)-%Q-%>-%B-\($(cl)lag$(hblk)..$(cl)%1$(hblk)\)$(sc1)-$(sc1)-]
-^set status_format2 $(sc1)[$(sc2)-$(sc1)-$(hblk)-$(hblk)\($(sc1)o$(cl)%2$(hblk)/$(sc1)n$(cl)%3$(hblk)/$(sc1)t$(cl)%7$(hblk)\)%A$(hblk)%F---%>---%T-$(hblk)\($(sc1)win$(hblk)/$(sc2)%R$(hblk)\)$(hblk)--$(sc1)-$(sc1)]
+^set status_format $(sc1)[$(sc1)-$(hblk)--\(%*%=%@$(cl)%N$(hblk)..%#$(hblk)\)%A$(hblk)-%Q-%>-%B-%T$(sc2)-$(sc1)-]
+^set status_format1 $(sc1)[$(sc1)-$(hblk)--\(%*%=%@$(cl)%N$(hblk)..%#$(hblk)\)$(hblk)-%Q-%>-%B-\($(cl)lag$(hblk)..$(cl)%1$(hblk)\)--$(sc2)-$(sc1)-]
+^set status_format2 $(sc1)[$(sc2)-$(sc1)-$(hblk)-$(hblk)\($(sc1)o$(cl)%2$(hblk)/$(sc1)n$(cl)%3$(hblk)/$(sc1)t$(cl)%7$(hblk)\)%A$(hblk)%F---%>---%T-$(hblk)\($(sc1)win$(hblk)/$(sc2)%R$(hblk)\)$(hblk)--$(sc2)-$(sc1)]
 ^set status_notify -$(hblk)\($(sc1)act$(hblk): $(cl)%F$(hblk)\)
 ^set status_umode $(sc2)+$(sc1)%#$(hblk)
 ^set status_oper $(sc1)*
