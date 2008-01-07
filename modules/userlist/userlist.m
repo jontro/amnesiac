@@ -39,7 +39,7 @@ alias purge {
     _uecho purge $0 . $ii;
     @purge($0.$ii);
   };
-  assign -$0;
+  ^assign -$0;
 };
 
 alias _urename (old, new, path default "") {
