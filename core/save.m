@@ -36,7 +36,7 @@ alias fsetsave {
 	@rename($(savepath)$fsetsavefile $(savepath)$fsetsavefile~);
         @fsetsavemt = open($(savepath)$fsetsavefile W T);
         @write($fsetsavemt ** amnesiac format file - saved $strftime($time() %D %T));
-	#fwords is edited in fsets.m
+#fwords is edited in fsets.m
 	fe ($fwords) a1 {
 		@write($fsetsavemt ^sfset format_$a1 $(format_$a1));
 	};
@@ -81,14 +81,14 @@ alias igsave {
 
 alias save saveall;
 alias saveall {
-	#core saves
+#core saves
 	@_savevar='asave csave fsave fsetsave modsave igsave setsave';
 	fe ($_savevar) n1 {
 		if (match($n1 $aliasctl(alias match *))) {
 			$n1;
 		} {xecho Warning: Core alias $n1 not found. Important changes might not be saved;};
 	};
-	#saves from loaded modules
+#saves from loaded modules
 	fe ($listarray(_mods)) n1 {
                 if (_modsinfo[$n1][savecmd]) {
 			$_modsinfo[$n1][savecmd];

@@ -81,6 +81,7 @@ alias format.loaditem (format_name, number ) {
 	if (symbolctl(PMATCH ALIAS format.load$format_name)) {
 		return $(format.load$(format_name)($number));
 	};
+
 	return $format.loaditemfromfile($format_name $number);
 };
 

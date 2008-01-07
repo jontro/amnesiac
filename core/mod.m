@@ -95,7 +95,7 @@ alias delmod {
 	}{
 		if ("$0"=='*') {
 			fe ($listarray(_mods)) n1 {
-				#if the script has an unloadcmd, run it
+#if the script has an unloadcmd, run it
 				if (@_modsinfo[$n1][unloadcmd]) {
 					$_modsinfo[$n1][unloadcmd];
 				};
@@ -107,7 +107,7 @@ alias delmod {
 			fe ($split(, $0)) n1 {
 				@:li=finditem(_mods $n1);
 				if (li>=0) {
-					#if the script has an unloadcmd, run it
+#if the script has an unloadcmd, run it
 					if (@_modsinfo[$n1][unloadcmd]) {
 						$_modsinfo[$n1][unloadcmd];
 					};
@@ -154,7 +154,7 @@ alias _loadmod {
 #	};
 	load $(loadpath)modules/$(cmod)/$(cmod).m;
 	if ( _modsinfo[$cmod][savefiles]) {
-		#if the script has a loadcmd, use it
+#if the script has a loadcmd, use it
 		if (_modsinfo[$cmod][loadcmd]) {
 			$_modsinfo[$cmod][loadcmd];
 		};

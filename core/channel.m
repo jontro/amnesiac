@@ -215,8 +215,10 @@ alias mdeop {
 alias cycle {
 	@:chan=ischannel($0)?(*0):C;
 	@:key=key($chan);
-	xecho -b cycling on channel $chan\, one moment...;
-	^quote part $chan;wait;join $chan $key;
+	if (ischannel($chan)) {
+		xecho -b cycling on channel $chan\, one moment...;
+		^quote part $chan;wait;join $chan $key;
+	};
 };
 
 ## emo cycle, randreads from emopart.reason

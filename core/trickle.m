@@ -15,8 +15,8 @@ alias trickle {
 
 	@ :cmd = *[~];
 	@ :nums = # - 2;
-	## Stores $1-$xx in the variable allusers
-	## Using the $n-m expando.
+## Stores $1-$xx in the variable allusers
+## Using the $n-m expando.
 	@ :allusers = *[1-$nums];
 	if (ischannel($0) ) {
 		@:users = chanusers($0);

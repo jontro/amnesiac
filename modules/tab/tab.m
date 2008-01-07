@@ -86,6 +86,7 @@ switch ($L) {
 	($(K)deop *)
 	($(K)op *)
 	($(K)voice *)
+	($(K)v *)
 	($(K)k *)
 	($(K)bk *)
 	($(K)me *)

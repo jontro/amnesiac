@@ -48,7 +48,7 @@ alias invite  {
 		xecho -b Usage: INVITE nick #chan1 #chan2 #chan3 ...;
 		return;
 	};
-	# /invite [#chan] nick1 nick2 nick3
+# /invite [#chan] nick1 nick2 nick3
 	if (ischannel($0)) {
 		fe ($1-) nn {
 			quote invite $nn $0;

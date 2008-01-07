@@ -11,18 +11,18 @@ alias config {
 	if ( @ && ! match($0 away protect misc oper relay connect)) {
 		xecho -v $acban Invalid section.;
 		xecho -v $acban -> config <section> <letter> <setting>;
-		xecho -v $acban valid sections: <away|protect|misc|oper|relay|connect>;
+		xecho -v $acban valid sections: <away|protect|misc|oper|relay|connect|query>;
 	} else if (  # < 2) {
-		if (match($0 away protect misc oper relay connect)) {
+		if (match($0 away protect misc oper relay connect query)) {
 			config.printsection $0;
 		}{
-			fe (away protect misc oper relay connect) sec {
+			fe (away protect misc oper relay connect query) sec {
 				config.printsection $sec;
 			};
 		};
 		aecho -----------------------------------------------------------------------------;
 		xecho -v $acban -> config <section> <letter> <setting>;
-		xecho -v $acban valid sections: <away|protect|misc|oper|relay|connect>;
+		xecho -v $acban valid sections: <away|protect|misc|oper|relay|connect|query>;
 	}{
 		@:aname= "confa$0";
 		@:xx= ascii($1)-ascii(a);
@@ -65,6 +65,9 @@ alias config.printsection
 	};
 	(connect) {
 		aecho ------------------------------= Connect Settings =---------------------------;
+	};
+	(query) {
+		aecho ------------------------------= Query Settings =---------------------------;
 	};
 	};
 	@:aname= "confa$0";

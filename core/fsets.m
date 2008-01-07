@@ -165,8 +165,8 @@ alias fparse {return ${**cparse($($*))};};
 
 ## whois stuff
 on ^311 * {
-	## Since 311-318 is an atomic operation we can safely do this crazy
-	## ircii feature.
+## Since 311-318 is an atomic operation we can safely do this crazy
+## ircii feature.
 
 	stack push on 301;
 	on ^301 * xecho $$fparse\(format_whois_away $$1-\);

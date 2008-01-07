@@ -154,7 +154,7 @@ alias _reconn.purge (ref, void) {
   _reconn.clearentry $egr;
 
   if (word(0 $gr) == 'gr') {
-    # it is a server, but it suddenly gained a group
+# it is a server, but it suddenly gained a group
     @ :str = encode(sv $ref);
     _reconn.clearentry $str;
   };
@@ -180,13 +180,13 @@ alias _reconn.sweep (ref, void) {
     @ item = word(1 $str);
     if (type == 'sv') {
       @ gr = servergroup($item);
-      # it is a server, but it suddenly gained a group
+# it is a server, but it suddenly gained a group
       if (gr != '<default>' && !@gr) {
         _reconn.clearentry $i;
       };
     } elif (type == 'gr') {
       @ svs = serverctl(GMATCH $item);
-      # there are no servers || the only server is the one that's being deleted
+# there are no servers || the only server is the one that's being deleted
       if (!@svs || svs == ref) {
         _reconn.clearentry $i;
       };
@@ -263,7 +263,7 @@ alias _reconn.nextserv (ref, group, void) {
   @ :servers = serverctl(GMATCH $group);
   @ :num = numwords($servers);
   if (num == 0) {
-    # shouldn't happen
+# shouldn't happen
     return -1;
   };
   @ :found = findw($ref $servers);

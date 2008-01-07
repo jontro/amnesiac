@@ -7,7 +7,7 @@ if (word(2 $loadinfo()) != [pf]) {
 
 subpackage scan;
 
-^on ^names * #-;
+^on ^names * {};
 
 ## fixups
 alias pad.nick {

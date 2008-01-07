@@ -106,7 +106,7 @@ on ^send_public * (chan, text) {
 	if ( iscurchan($chan)) {
 		//echo $fparse(format_send_public $N:$chan $text);
 	} {
-		## Compensate for lame setup of send_public_other ##
+## Compensate for lame setup of send_public_other ##
 		@extravar = '';
 		if (showop == 'on') {
 			if (ischanop($N $chan)) {

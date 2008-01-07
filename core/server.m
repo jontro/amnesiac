@@ -29,6 +29,23 @@ alias wcs {
 	};
 };
 
+alias wser (srv) {
+	if (srv) {
+		^window new server $srv hide swap last;
+	} else {
+		xecho $acban Usage: /wser <server[:port[:password[:nick]]]>;
+	};
+};
+
+alias _wser {
+	input "Server[:port[:password[:nick]]]: " (srv) {
+		if (@srv) {
+			^wser $srv;
+		};
+	};
+
+}
+
 alias _statusmsg {
 	@:smsg = serverctl(GET 4 005 TARGMAX);
 	if (!@smsg) {
@@ -126,6 +143,9 @@ alias servhelp {
 //echo ssl       /ssl <server> add the given server as type ssl to the server list;
 //echo snext     /snext To switch to the next server in your list;
 //echo sprev     /sprev To switch to the previous server in your list;
+//echo sprev     /sprev To switch to the previous server in your list;
+//echo wcs       /wcs To create a new window connected to a server and join a channel;
+//echo wser      /wser To create a new window with a specified server.;
 //echo ---------------------------------------------------------------------;
         };
 };
