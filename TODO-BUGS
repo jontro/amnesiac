@@ -59,7 +59,7 @@ None
 
 ## bugs fixed. / projects done.
 4.17.07
-!@ refix /wall fix formats to make use of + or the like for on 
+!@ refix /wall fix formats to make use of + or the like for on
   public_other "% @*" may get rid of /wall2 and the current notice hook
   as apparently a lot of ircd's now support /msg @#chan for walls.
   //kreca . See ChangeLog for more info
@@ -68,7 +68,7 @@ None
 ! /config still outputs the old userlist info??
   (c) Auto-op delay Timer:  [] <--- //kreca
 ! away formats are broken, it gets stuck with one format, fset/format
-  bug?? 
+  bug??
 This was when changing back to away format 9 (empty string bug) //kreca
 
 3.20.07 - i beleive kreca fixed this as well as above.
@@ -80,7 +80,7 @@ This was when changing back to away format 9 (empty string bug) //kreca
 3.20.07
 ! possible way to make /delmod urlgrab actually unload completely?? for
   some of us who runs multiple epic clients on the same box. a la on hook
-  unloading issue??? 
+  unloading issue???
   Fixed by adding unload hook to the module framework //kreca
 
 1.31.07
@@ -103,7 +103,7 @@ This was when changing back to away format 9 (empty string bug) //kreca
 
 9.14.06 seems to work fine, hopefully some will like this feature //zak
 ! make usage of $encode() for basic 'encryption' for awaylogs or some other
-  new function that has yet to be investigated.  
+  new function that has yet to be investigated.
 
 9.06.06 //zak a modified version written by nullie, modified by kreca has
   been merged into amnesiac, /set auto_reconnect on to enable
@@ -113,7 +113,7 @@ This was when changing back to away format 9 (empty string bug) //kreca
 ! =nick= bug: if you use /msg nic<tab> and their nick ends in a \
   =nick= it prefixes it with another \, so it'll be nick\\
 
-4.10.06 
+4.10.06
 ! <jak> if you /msg #channel
   <jak> where #channel != $C
   <jak> it'll show up formatted as a public to $C
