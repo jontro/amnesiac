@@ -25,7 +25,6 @@ alias scann {scn $*;};
 alias n {^names $C;};
 
 ## misc abstract funcs/aliases
-alias dpart emopart;
 alias epart emopart;
 alias emopart {
 	part $C $srand$randread($(loadpath)reasons/emopart.reasons);
@@ -181,12 +180,7 @@ alias mv {
 	@_massmode($C +v $nochops());
 };
 
-## $msar()???? some bitchx thingy? //broken -Rylan
-#alias mdv {
-#	fe ($msar(g/?//@//.//+//$pattern(*+* $channel()))) ii jj kk ll {
-#		//mode $C -vvvv $ii $jj $kk $ll;
-#	};
-#};
+## do we really need a massdevoice? needs to be rewritten anyways.
 
 alias mreop {
 	@_massmode($C +o $chops());

@@ -21,14 +21,8 @@ alias snext {server +;};
 alias sprev {server -;};
 
 ## multiserv stuff.
-alias wcs {
-	if (@) {
-		^window new server $0 hide swap last channel "$channame($1) $2-";
-	}{
-		xecho $acban usage: /wcs server channel key;
-	};
-};
-
+alias wcs {wser $*;};
+alias wns {wser $*;}; 
 alias wser (srv) {
 	if (srv) {
 		^window new server $srv hide swap last;
@@ -69,8 +63,6 @@ alias _maxmodes {
   };
    return $num;
 };
-
-alias wns {wcs $*;};
 
 ## Newnick from src/epic5/scripts by BlackJac.
 ## Copyright (c) 2005 David B. Kratter (BlackJac@EFNet)
@@ -144,7 +136,7 @@ alias servhelp {
 //echo snext     /snext To switch to the next server in your list;
 //echo sprev     /sprev To switch to the previous server in your list;
 //echo sprev     /sprev To switch to the previous server in your list;
-//echo wcs       /wcs To create a new window connected to a server and join a channel;
+//echo wser      /wser /wser <server[:port[:password[:nick]]]> multiserver cmd;
 //echo wser      /wser To create a new window with a specified server.;
 //echo ---------------------------------------------------------------------;
         };

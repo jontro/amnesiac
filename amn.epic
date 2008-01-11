@@ -138,4 +138,3 @@ load $(loadpath)ans/startup.ans;
 wait;
 
 _center Amnesiac/$a.rel \($a.snap\) for $(J) \($V\) [$info(i)] loaded..;
-

@@ -39,7 +39,7 @@ alias nslookup {dns $*;};
 	xecho -c [dns] -----------------------------------------;
 };
 
-## misc short crap
+## cmd exec shit.
 alias ls {^exec ls $*;};
 alias osv {^exec -o uname -amnv;};
 alias ps {^exec ps $*;};

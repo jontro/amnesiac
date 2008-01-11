@@ -54,3 +54,8 @@
 -sync docs/E5-KNOWNBUGS/E5-UPDATES to a much needed reality. //zak
 -remove some minor dead code here and there. //zak
 -sync TODO-BUGS to reality. //zak
+-various cleanups, make /wcs rename to /wser which actually works and
+ prolly much better for multiserver, i have been on 4 different networks
+ with one client the past month and have yet to really have any issues.
+ //zak
+

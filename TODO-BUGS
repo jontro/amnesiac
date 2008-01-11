@@ -25,6 +25,12 @@ None
 
 @ add possible dcc_ports toggability, somewhat based off epic5/scripts.
 
+@ we have too many bindings for dcc, perhaps we could set some sort of cycle
+  for chat/accept/send, as i highly doubt more than one person would send
+  some sort of dcc request at once in most cases, ie; use ctrl-t to accept
+  both chat/files and ctrl-r to reject both chat/files? something to look
+  into?
+
 ## lower priority requests.
 @ Finish server list module, assigned to kreca
 

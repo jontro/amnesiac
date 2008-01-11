@@ -74,6 +74,10 @@ alias cs {quote ChanServ $*;};
 alias chanserv {cs $*;};
 alias nickserv {ns $*;};
 alias memoserv {ms $*;};
+## Some stupid networks w/services requires messages
+alias mserv {msg memorserv $*;};
+alias nserv {msg nickserv $*;};
+alias cserv {msg chanserv $*;};
 
 ## dalnets dcc bullshit so called "protection"
 alias allow {dccallow $*;};
@@ -98,7 +102,6 @@ alias p {if (@) ping $*;};
 alias k {kick $*;};
 alias l {part $*;};
 alias host {//userhost $*;};
-alias realname {set realname $*;};
 alias irchost {hostname $*;};
 alias unset {set -$*;};
 alias unalias {alias -$*;};
@@ -112,16 +115,19 @@ alias about {more $(loadpath)ans/about.ans;};
 alias verk {massk $*;};
 alias csc {clear;sc;};
 
-## builtin simplification aliases.
+## toggable aliases
 alias arejoin {set auto_rejoin toggle;};
 alias aww {set auto_whowas toggle;};
 alias debug {set debug $*;};
 alias lls {set lastlog $*;};
-alias ircname {set realname $*;};
+alias sbl {set scrollback $*;};
 alias mon {set old_math_parser on;};
 alias moff {set old_math_parser off;};
 alias ioff {set -input_prompt;};
 alias tog {toggle $*;};
+alias realname {set default_realname $*;};
+alias username {set default_username $*;};
+
 ## dumps and reload script, for scripters and advanced users in general.
 alias adump {
 	dump all;
@@ -253,7 +259,7 @@ alias whowas (nick, number default "$num_of_whowas", void) {
 	//whowas $nick $number;
 };
 
-## script echo ##still need to clean some of this up.
+## script echo //does this still needing cleaning??
 alias abwecho {xecho -v $acban $cparse($*);};
 alias aecho {//echo $cparse($*);};
 alias abecho {xecho -b -- $cparse($*);};

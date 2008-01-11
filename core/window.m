@@ -86,11 +86,9 @@ alias clsa clear -ALL;
 ## for Alien88
 alias wnc2 {window new hide swap last split off channel $0 $1 $2;};
 
-## misc query qwin/name aliases.
+## query
 alias qw {wq $*;};
 alias q {query $*;};
-alias dq {window remove $*;};
-alias wadd {window add $*;};
 
 ## window shortcuts.
 alias wsl window swap last;
