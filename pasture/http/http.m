@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project.
+# Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # HTTP client library. Provides some useful commands for communicating with
 # servers that speak HTTP. Written by skullY.

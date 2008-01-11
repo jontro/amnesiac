@@ -9,20 +9,26 @@ $ = knownbug.
 
 ## low priority knownbugs.
 $ Supposedly texp will break under certain circumstances
+$ userlist is buggy/has been having issues for years it's really not a
+  priority for us but we may work on it soon.
 
 ## high priority knownbugs.
 None
 
 ## high priority todo. (stuff that needs to done before upcoming release)
+@ fixup /set realname for default_realname and default_user should we
+  if < ver, or break compatability? i vote for if < somever when it was
+  added then do the old way of set realname.
+
+@ not exactly a high priority however we should prolly merge in a supposidly
+  working/better userlist than the one we have right now.
 
 ## lower priority requests.
 @ Finish server list module, assigned to kreca
 
 @ add bans help documentation
-
 @ add some topwin module, kreca has to start a discussion about some topwin
   script he might have permission for us to use/modify/rip ;)
-
 @ make orignick use ISON functionality.. -Rylan
 
 @ Get some variables from numeric 005 so we can finetune some displays?
@@ -49,6 +55,7 @@ None
   public_other "% @*" may get rid of /wall2 and the current notice hook
   as apparently a lot of ircd's now support /msg @#chan for walls.
   //kreca . See ChangeLog for more info
+
 3.26.07
 ! /config still outputs the old userlist info??
   (c) Auto-op delay Timer:  [] <--- //kreca
@@ -67,7 +74,6 @@ This was when changing back to away format 9 (empty string bug) //kreca
   some of us who runs multiple epic clients on the same box. a la on hook
   unloading issue??? 
   Fixed by adding unload hook to the module framework //kreca
-
 
 1.31.07
 ! mmatrix module, /addword foobar #chan will not ban and kick user, just kick

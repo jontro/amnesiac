@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project.
+# Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -7,7 +7,7 @@ if (word(2 $loadinfo()) != [pf]) {
 
 subpackage modeshow;
 
-#config
+# config
 alias modeshow {vocop $*;};
 alias showmodes {vocop $*;};
 
@@ -26,7 +26,7 @@ alias vocop {
 
 osetitem misc showop Extended publics:;
 
-#end of config
+# end of config
 
 alias highlightpub (nick, text) {
 	fe (_pubnick) cur {
@@ -63,6 +63,7 @@ alias pubpad {
 		return $(extravar)$0$(thenick);
 	};
 };
+
 alias spubpad {
 	@:thenick=word(0 $split(: $2));
 	@:thechan=word(1 $split(: $2));

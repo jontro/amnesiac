@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project.
+# Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # Taken from the base epic5/scripts.
 #
@@ -159,5 +159,3 @@ alias lformat (len, stuff) {
 	    return $stuff; 
 	};
 };
-
-

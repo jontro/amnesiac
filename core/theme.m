@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project.
+# Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 ## codelogic's theme module, thanx to robohak for help w/ padding
 ## modified crapple/kreca 05&06
@@ -61,4 +61,3 @@ alias theme (name,void) {
 		};
 	};
 };
-

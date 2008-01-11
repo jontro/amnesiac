@@ -1,6 +1,6 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project.
+# Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
-# userlist written by nullie, fucked up by crapple
+# userlist written by nullie, fucked up by crapple/kreca
 if (word(2 $loadinfo()) != [pf]) { load -pf $word(1 $loadinfo()); return; };
 
 subpackage userlist;

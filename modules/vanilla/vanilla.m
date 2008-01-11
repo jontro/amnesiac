@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project.
+# Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # Make amnesiac behave a bit more like default epic with tc and netsplit
 # loaded, just the way skullY likes it.

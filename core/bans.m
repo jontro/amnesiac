@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project. 
+# Copyright (c) 2003-2008 Amnesiac Software Project. 
 # See the 'COPYRIGHT' file for more information.     
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -18,7 +18,6 @@ alias clearbans {ub $*;};
 
 alias banstat bans;
 alias sb bans;
-
 
 ## ban aliases.
 alias fuckem lban;
@@ -42,7 +41,7 @@ alias _bmode (bt,nick ,void) {
 	};
 };
 
-#Different ban aliases starting here
+## Different ban aliases starting here
 alias ban (nick,void){
 	if (!@nick) {
 		xecho -b Usage: /ban nick;

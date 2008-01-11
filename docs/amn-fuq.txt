@@ -43,7 +43,6 @@ Q: How do i make a module/plugin for amnesiac?
 A: figure it out on your own time. or you could read docs @
 http://www.prbh.org/help/
 
-
 Q: Where can i obtain amnesiac help?
 A: #amnesiac on EFnet, depends on your level of skill or lacktherof you may
 be ignored, it's best to read docs first before asking a question, and
@@ -51,7 +50,7 @@ asking a documented question will surely get you ignored, repeatidly asking
 the same question over and over will guarantee you a ban.
 
 Q: How do i load amnesiac?
-A: presuming that you have epic4/5 installed and downloaded the script.
+A: presuming that you have epic5 installed and downloaded the script.
 tar zxvf amnesiac*.tgz;cat load ~/amn/amn.epic >> ~/.epicrc;
 epic -B -H somevhost.com somenick irc.someserver.com
 or if the client is already loaded and the script is untarred
@@ -85,18 +84,12 @@ A: YES
 
 Q: where can I find the latest version of amnesiac?
 A: http://amnesiac.ircii.org/ac-snap.tgz or http://amnesiac.ircii.org
+   or cvs up -Pd in your amn directory as of 1.5 release (this requires cvs
+   to be installed)
 
 Q: my backspace key in the xterm spews out ~~ or does not work does that 
    mean im lame?
 A: try set term=vt100 then restart the client.
-
-Q: how do I add aop for my inbred cousin HOW?
-A: /addmod userlist
-/adduser *!ident@somehostordomain.com #channel iops can only add 1
-channel at a time. or use * for all channels. 
-if the user is online. /adduser nickname #channel iops
-/adelay 1-40 will set the delay time for ops. in seconds.
-/save
 
 Q: how do I start epic+amnesiac?
 A: HEY LOOK AT ME IM A MORON!
@@ -107,11 +100,10 @@ Q: whats the difference between epic scrollz ircii BitchX?
 Q: what do you mean to compile? how do you spell './configure'
 
 Q: why wont ppl answer my lame non-epic/amnesiac questions?
-
-#AMNESIAC IS ONLY FOR AMNESIAC/SOME EPIC HELP NOTHING ELSE GO FUCK YOURSELF
-YOU PEOPLE WASTE OUR FUCKING TIME. TRY #BNC FOR BNC HELP OR #EGGDROP
-FOR EGGDROP HELP /MSG MMAP HOW DO I BE A SCRIPT KIDDIE ETC
-DO NOT BUG US FOR NON AMNESIAC/EPIC RELATED QUESTIONS.
+A: #AMNESIAC IS ONLY FOR AMNESIAC/SOME EPIC HELP NOTHING ELSE GO FUCK YOURSELF
+   YOU PEOPLE WASTE OUR FUCKING TIME. TRY #BNC FOR BNC HELP OR #EGGDROP
+   FOR EGGDROP HELP /MSG MMAP HOW DO I BE A SCRIPT KIDDIE ETC
+   DO NOT BUG US FOR NON AMNESIAC/EPIC RELATED QUESTIONS.
 
 Q: where do I get the epic source code?
 A: ftp.epicsol.org
@@ -143,25 +135,25 @@ how do I get it removed? why do none of the ops answer
 my question  regarding it?, why do I get banned if I change
 my host?. when will it be removed?.
 
-LAME VHOSTS ARE NOT PERMITTED IN #AMNESIAC IT WILL NEVER BE
-REMOVED, YOU CAN PROLLY GET BACK IN LATER UNDER A DIFF ONE IF 
-YOU DO NOT BOTHER ANYONE!.
+A: LAME VHOSTS ARE NOT PERMITTED IN #AMNESIAC IT WILL NEVER BE
+   REMOVED, YOU CAN PROLLY GET BACK IN LATER UNDER A DIFF ONE IF 
+   YOU DO NOT BOTHER ANYONE!.
 
 Q: how do I dcc chat? how do I add a dcc query window?
 A: make some windows with /wc then do alt-1-9 to change windows or 
-esc 1-9 or /1 /2 /3 /4 etc.. to change windows
-in the window you want to dcc chat do /dcc chat nick
-/q =nick to put them in a query the = does matter it means
-dcc you can also do /m =nick under epic5 ctcp over dcc's still do
-not match very well so you will need to do /wadd nick to make the
-dcc msg's for nick to stay in that window when it's hidden or not active.
+ esc 1-9 or /1 /2 /3 /4 etc.. to change windows
+ in the window you want to dcc chat do /dcc chat nick /q =nick will them in 
+ a query the = does matter its the switch for dcc or if you dont use windows
+ use /msg =nick 
 
 Q: how do I make epic/amn add a bunch of windows on startup?
 A: add ^window new double on hide. in your ~/.epicrc for as many
 windows as you want IE: for 2 windows do
 ^window new double on hide
 ^window new double on hide
-do ^window new hide if you do not like double statbars.
+^window 1 level all,-dcc <- will put all common things into window 1 except
+for dcc msgs. NOTE: one should really look at the mjoin module for better
+massjoin, setting which windows you which to join a chan in etc..
 
 Q: how do I make an alias?
 A: /alias cmd somelongfunctionorcommand

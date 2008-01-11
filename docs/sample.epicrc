@@ -14,9 +14,8 @@
 #set DCC_STORE_PATH ~/porn <-- isn't that all ppl transfer on irc anyways?
 #set DCC_USE_GATEWAY_ADDR ON
 #set LOAD_PATH ~/.epic:~/.irc:/usr/local/share/epic5/script:.
-set REALNAME seymour butts
+set DEFAULT_REALNAME seymour butts
 set NO_FAIL_DISCONNECT ON
-
 # Load amn on startup.
 load ~/amn/amn.epic
 # make epic dump core on crash

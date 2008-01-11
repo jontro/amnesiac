@@ -43,5 +43,14 @@
 01.07.08
 -Fix bug in /cycle which parted all channels. rb Alien88 //kreca
 -Add /v to tab completion, requested by Mongoose. //kreca
--Fix bug that sent //#- to the server upon joins. rb Hi. //kreca
--Add wser and _wser aliases. Submitted by someone unknown (send me an msg). //kreca
+-Fix bug that sent //#- to the server upon joins. rb wjr. //kreca
+-Add wser and _wser aliases. Submitted by someone unknown (send me an msg). 
+ //kreca
+
+01.11.08
+-update copyrights to 2008 //zak
+-minor one line changes/minor undoing of kreca's emacisms in some places //zak
+-sync help docs more/less to reality. //zak
+-sync docs/E5-KNOWNBUGS/E5-UPDATES to a much needed reality. //zak
+-remove some minor dead code here and there. //zak
+-sync TODO-BUGS to reality. //zak

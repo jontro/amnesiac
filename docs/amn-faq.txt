@@ -1,4 +1,4 @@
-Amnesiac FAQ 0.1.1
+Amnesiac FAQ 0.1.2
 
       d. ^b. ,$   ,b.^b ,s$b    .dP^`Sb   d^`b. `$$'    d.   ,s`$b
      d'$b l'$'`b .$$$ $d$'`$b  d$'   `$b `$. `   $$    d'$b dP'  `b
@@ -49,14 +49,6 @@ A: /wj to join a channel in a new window, ^Wc to create a new window, ^Wn to
 
 Q: How do i create a window dedicated to msgs?
 A: /mw -hidden|split|kill <-- this should be self explanatory.
-
-Q: How do i make a dcc query window stay consistent?
-   One of the new features of epic5 has the ability to allow multiple
-   query's in a single window, at the time of this writing ctcp over dcc's
-   do not match up to their query windows very well. a workaround is to.
-   /wq =nick followed by /q nick you can swap between msg/dcc in the query
-   window via ctrl-x.
-   NOTE: this issue has been corrected in epic5 commit id 1415+
 
 Q: Where is the annoying ambiguous nickcomplete feature?
 A: Under a ideal world we would like to see users use tab to complete
@@ -130,3 +122,5 @@ A: /adduser someuser *!someone@host1.com *!*other@host2.com
    channels/networks (as of this writing the multiserver capabilities are
    buggy, best to use global and or */#channel)
    also see: /userhelp /userlevels
+   NOTE: the userlist of 02.27.07 apx, is buggy, a replacement is in the
+   works.

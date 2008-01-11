@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project.        
+# Copyright (c) 2003-2008 Amnesiac Software Project.        
 # See the 'COPYRIGHT' file for more information.     
 
 before installing amnesiac remember this script is for epic it's not a
@@ -37,5 +37,4 @@ save files will go to ~/.amn per default.
 
 problems:
 if you have read all the docs and still have trouble with script or
-client issues, you may ask for help in #amnesiac@efnet or e-mail
-help@ircii.org
+client issues, check the amnesiac irc support channel #amnesiac@efnet

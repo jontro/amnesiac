@@ -2,252 +2,212 @@ EPIC5 Projects, Bugs, and other Errata:
 
 KNOWN ERRATA (eg, bugs, or unresolved requests):
 ------------------------------------------------
-* Permit /load'ing a directory, complete with /set load_path changes
-* Observe whether the errors reported by the newio2 system are adequate.
-* Nullie wants a way to do themed sends, such that
-	/ctcp ...   is themed, and /^ctcp .. is unthemed
-* Larne wants me to figure out if i can support 256-color xterm
-* Using screen's hardware status bar causes a race condition where screen
-  can report the wrong geometry, causing epic to screw up the status bar
-  placement (the status bar ends up in the input bar)
-* Nullie reports that resizing display to 1x1 then back again screws up.
-* Investigate suitability of http://miniupnp.free.fr/
-* Rain says we need to turn off IXOFF as well as IXON
-* Because of call to new_normalize_string (input.c:271), input prompt can
-  never truly be "null" so all code that special cases that is bogus.  Decide
-  whether this call is bogus for no input prompt, or whether all code that
-  special cases null prompt is bogus.
+* Howl wants a temporary hold mode that expires when you reach bottom.
+* Larne wants a way to globally toggle whether ignores are honored.
+* [-1   ] == -1 is false. this is bad.
+* Howl wants the toplines that are fixed-width to auto-resize
+* A function that tells whether a block statement is "well formed"
 
-LOOK FOR IN THE FUTURE
------------------------
-* send_text() needs rework, to add extra /on's so you can flag those special. 
-* Lastlog improvements (unified lastlog, refnums, moving between windows, etc)
-* Shattah would like something like /window omit <regex> to remove stuff.
-* Import utf8 support from ircII OR add support for utf16 (wide chars)
-* Import fg/bg color support from ircII
-* Cache what files can be /loaded in a hash
-* Support loading through ZIP files.
-* Some way to call an alias in a variable indirectly
+ISSUES OF INTEREST
+------------------
+* What about pastes with "rogue characters" like ³ (alt-3, ie, ^[3) ?
+* Kreca mentions that word manip functions strip extraneous spaces.
+* The way dcc filenames are handled is bad; you should be able to seamlessly
+  rewrite filenames both outbound and inbound.  URL encoding should auto-detect
+* Rewrite the input prompt to use a linked list instead of a C string.
+* Everybody wants utf8 support -- but who will volunteer to help me?
+* Normalize 'proto', 'type', and 'addrfamily' values with server stuff.
+* There should be an /on send_encrypted_msg, /on send_encrypted_public, etc.
+* You should be able to move lastlog items between windows, split, merge.
+* IRCII supports "default" fg/bg colors, which looks intriguing.
+* Larne would like to use 256-color-support for xterm.
+* I would like to be able to /load zip files and put them into LOAD_PATH.
+* UPnP support (http://miniupnp.free.fr) would fix dcc-behind-firewall dilema.
+* If @ var = [encode] you should be able to do $($var)(args) to call it.
 * Output rules
-* Support for CNOTICE
+* Undernet's CPRIVMSG and CNOTICE allow chanops to msg members w/o penalty
 * /CTCPs over /DCCs don't match up with their queries very well. (nullie)
-* $xform()s for SED and DEF
-* str_to_mask() should be silent, callers should be warning.
-* Support for 64 bit ints could be more widespread
 * Larne wants suppression of duplicated lines (like syslog maybe?)
-* Larne and nullie say that stdout can block when running under screen
-* Refactor hardcoded uses of select() so select() isn't mandatory.
+* Remove all the hardcoded uses of select() so it isn't mandatory.
+* Shattah would like something like /window omit <regex> to remove stuff.
+* Kanan wants support for jabber
+* Zlonix wants a way to be notified when window geometry changes
+* Zlonix would like me to commit his /on signal patch
+* Zlonix would like per-screen toplines
+* How about base85 support for $xform() ?
+* Larne would like to have a shadow display for "ignored" stuff
+* Larne would like a ==== that appears at his last scrollback ponit.
 
 [See http://www.epicsol.org/PROJECTS for things to come in the future]
 [See http://www.epicsol.org/CHANGELOG5 for things that changed in the past]
 
 THE CHANGELOG SINCE THE LAST RELEASE:
 -------------------------------------
-* Make GET_INT_ARG() support 64 bit ints, for future use
-* Make $fseek() support 64 bit file offsets (yay!)
-* Begin converting some time_t uses over to 64 bits, Just In Case
-* Make $numsort(), $strtol(), $tobase() support 64 bit ints.
-* Make $stat() support 64 bit ints where possible.
-* Add 'channelmonitor' script from larne.  Thanks!
-* Whack /set highlight_char which is no longer being used.
-* Move away from calling parse_line() and runcmds(), towards the call_* funcs
-* Add provisional support for renumbering windows with channels/logs/timers
-* Constify get_*_alias(), so lookups can't modify the actual alias this way.
-* Rename parse_command() to parse_statement().
-* Create a next_statement() to figure out how long the next stmt is.
-* Stop using expand_alias() to rip apart statements. yay!
-* Refactor parse_command and parse_statement to better define their roles.
-* Push responsibility for expansion to parse_statement, someday, to cmds!
-* Push responsibility for handling block statements to parse_statement.
-* "Forget" to re-implement /set input_aliases.  I wonder if anyone will notice.
-* Change the name of "hist_flag" to "interactive" to reflect its purpose.
-* Change /load -std to use parse_statement() instead of parse_line()
-* Add a /perl command, just for laughs. Usage: /perl {...}
-* Ruby support. yay!
-* Add a /tcl command, just for laughs.  Same as perl.
-* Trap ruby exceptions, get everything working (sort of)
-* Eliminate the third argument to expand_alias(), the statement spanner.
-* Rename parse_line() to parse_block() to better reflect its duties.
-* Make parse_block() static.  Everything needs to call runcmds() now.
-* Eliminate the local-stack-creating feature of parse_block(), callers do this.
-* Rename 'line' to 'stmt' in parse_statement().
-* Sort of forget to re-implement /set cmdchars.  The / is the cmdchar.
-* Try to optimize parse_statement() and next_statement() some.
-* Rework configure mojo for perl, ruby, tcl to autogrok compile stuff.
-* Run make depend again.
-* Update the DCC "last time" value regularly.
-* Fix build on freebsd-i386
-* Make the ruby support work with ruby-1.6.4 api (for older freebsd)
-* Add the 'nickcomp' script contributed by Blackjac. Thanks!
-* Create an 'extlang.h' header file for perl/tcl/ruby stuff.
-* Clean up warnings and stuff for the external lang support.
-* Suspend protocol enforcement when we're processing user input.
-* Lay the foundations for nonblocking ssl connection (not supported yet)
-* Change SEND_LINE to do SCROLL_FORWARD if we're in scrollback mode
-* Add support for maildir mailboxes. 
-* Fix crash with 042 numeric.
-* Fix buffer overrun with new server state.
-* Don't call close_server() for gaps in server list in close_all_servers().
-* Support AI_ADDRCONFIG in our builtin AI_MASK/getaddrinfo().
-* Make set[_non]_blocking extern.
-* Support NEWIO_SSL_CONNECT as a new_open() type.
-* Add a new ssl_connect() io callback function for NEWIO_SSL_CONNECT.
-* New scripts from weirdo: autojoin, autoquery, floodprot, renumber
-* New version of reconnect script from weirdo.
-* GC the fixed-alist support (last used by /quote and protocol handler)
-* Reorg server SSL negotation stuff to be nonblocking. yay!
-* Comment all sorts of stuff in ssl.c.
-* Add /set mail_type (MBOX or MAILDIR) to control what we check for mail.
-* Make rebuild-scrollback a toggle flag instead of an operation.
-* Teach update_all_windows() how to rebuild scrollback
-* Write some preliminary code for the unified lastlog
-* Add /ON NUMERIC which is thrown if you don't hook the numeric specifically.
-* Important changes to autojoin and floodprot scripts.
-* Support cast5/blowfish encryption a la ircII.
-* Fix build for non-ssl users.
-* Add AES256 support.
-* Add AESSHA256 support (AES256 using the SHA256 digest of your passkey)
-* Rename "EXTCRYPT" to "PROGCRYPT"
-* Migrate SED support from crypt.c to crypto.c
-* Integrate SED and extprog support into the mainline [de]cipher_message()
-* Refactor [de]cipher_message() to be less lame.
-* Support "anycrypt" support (AESSHA, AES, BLOWFISH, CAST5, SED, PROG)
-* Include sha256 implementation from Karll.  Thanks Karll!
-* Unify the ctcp handling of all crypto ctcps
-* Add $sha256() function to test sha support (digest)
-* Make funcs in crypto.c static and just expose [de]crypt_msg().
-* This finishes the divide between crypt.c (front end) and crypto.c (back end)
-* Fix a gazillion compiler warnings and sort out const/unsigned char issues.
-* Add SEDSHA cipher type, which is better than SED, and always available.
-* Add my_sleep|isreadable|iswritable() funcs to phase out rogue selects()h
-* Add support for multiple concurrent servers to /encrypt. yay!
-* Store the length of the Crypt key within the key itself.
-* This moves us closer to being able to decrypt arbitrary data.
-* Test all of the cipher types, incl. compat of CAST with ircII.  All set!
-* Fix Cut & Paste error.
-* DO YOU THINK YOU CAN RE-ORDER AN ARRAY AND NOT CHANGE THE #DEFINES DUMMY?
-* Bust do_crypt back into its callers [de]crypt_msg().
-* Make lookups between /encrypt flag<->cipher flag<->ctcp table-driven.
-* Fix bugs with /crypt -- I think this finishes the project!
-* Fix bug that prevented you from deleting a crypto having server desc.
-* Add /encrypt -clear so you can purge your crypto list (for debugging)
-* Don't output the key for SEDSHA and AESSHA in binary mode (convert to hex)
-* Fix external encryption support.
-* Release epic5-0.3.1
-* Fix compile errors for non-openssl users.
-* Fix breakage for solaris found by zlonix
-* Fix %{2}+ so it behaves like %+ and not like %{1}+, as per the docs.
-* Add server states CREATED and DELETED for nullie.
-* Add /on operwall and operwall window level for black.
-* Fix $levelwindow()
-* Finally whack unused /set status_truncate_rhs
-* New versions of autojoin and reconnect from nullie
-* Fix /xecho -l for larne. yay!
-* Fix /whois so trailing spaces don't look like real words.
-* Change ltoa() to my_ltoa() for hpux's sake
-* Change finite() to isfinite() for hpux's sake
-* Add $serverctl(GET refnum ADDRSLEFT) (see UPDATES)
-* Fix finite()/isfinite() madness.
-* Look for clock_gettime() in -lrt for ubuntu.
-* Automatic reconnect from nullie. yay!
-* Change /xecho -v to always output to current window if it's visible.
-* Fix /on's with arglists, so lower serial nums don't corrupt $*. [rb nullie]
-* Fix memory leak with $url(en|de)code() [rb nullie]
-* Change /server - so it calls disconnect() directly
-* Fix const correctness problems with sha2.c
-* Fix typo: HAVE_INFINITE -> HAVE_ISFINITE [rb kev]
-* Desupport dwords in a lot of builtin functions (see updates) [nullie]
-* Make /window foo kill fail for want of 'foo' (see updates)
-* New 'builtins' from blackjac, more modern format, /whowas improvements
-* Refactor the serverinfo stuff
-* Allow skipping of fields in server descs (see UPDATES)
-* Make /window foo kill not fall back to /window describe, for want of 'foo'.
-* Add a 'proto' field to server descs (tcp4, tcp6, 4, or 6), see UPDATES.
-* Add RESET_LINE keybinding, for tabkey and history recall scripts.
-* Add /on channel_lost, from nullie, who needs to write an UPDATES blurb.
-* Fix bug with reset_line, found by nullie.
-* Finish implementation of /stack push|pop set with symbol table, rb nullie.
-* Preliminary work making @#chan public show up in #chan's window.
-* Add /ON UNKNOWN_COMMAND from nullie (thanks!)
-* Fix valgrind bugs that nullie found (yay!)
-* Fix bug with '' in the new math parser being NULL instead of empty string
-* Add support for @#chan via notices to show up in #chan's window
-* MORON.  Don't replace a 'return' with something that doesn't return!
-* Don't call happykey() on a plain text password (valgrind)
-* Fixes for two memory leaks from nullie
-* New /on, /ON WINDOW_SERVER, from nullie.
-* Teach history script to use parsekey reset_line (nullie)
-* Fix one bogon (still others left!) in map script
-* Improvements to 'save' script (blackjac)
-* Change /on unknown_command to include // prefix if that was used (nullie)
-* Fix behavior of /set old_server_lastlog_level (rb larne, fixed by nullie)
-* Pass double ptr to remove_bindings_recurse() to fix exit-time memory leak.
-* Remove /set bad_style, input_aliases, security,  (unused)
-* Remove /set ssl_certfile, ssl_keyfile, and ssl_path (unused)
-* Add a (ServerInfo) object to (Server), switch to using it.
-* Remove a bunch of unused thingees in (Server) while i'm here.
-* Restore /set reverse_status_line to a builtin. oh well.
-* Make $urlencode() rfc3986-ish, converting all non-unreserved chars
-* Change ServerInfo to use const char's since we don't modify them directly.
-* Reorganize how ServerInfos are used, into "temporary" and "permanent" types
-* Convert Server's use of ServerInfo's into safe permanent types.
-* Add /server -update <refnum> <desc> to change server descs on the fly.
-* Fix typo in /invite.
-* Fix 'country' script by wrapping it with xdebug dwords.
-* Fix some problems with /window query (rc kreca)
-* Fix cross-matching of ctcp-over-dcc with queries. YAY! (nullie)
-* Fix crash when you received ssl-encrypted msgs and you don't have ssl.
-* Begin a major project to normalize the behavior of "words" in function calls
-* Fix compat issues with 'history' script.
-* Fix problem with get_child_exit() can block SIGCHLD.
-* Change $mask() so it doesn't require a full $uhc() value, compat with epic4
-* Avoid crash by actually removing ssl entries when they're shut down
-* Fix replace_line, it wasn't moving the cursor before writing new contents.
-* Fix a double SSL_free, from yesterday's fixes.
-* Add a WIP document that describes how all functions arglists work.
-* Fix a few problematic word manip functions.
-* Add a 'vhost' field to server descriptions, for setting per-server vhost.
-* Fix $prefix( )
-* Add support for "conditional dequoting" in universal_next_arg_count
-* Change next_earg() and next_func_arg() to use the conditional dequoting.
-* This permits me to implement $qword() which returns a $word() literally! yay!
-* Fix 'loadformats' script (rb zlonix)
-* Change last_arg() so it dequotes the retval according to the word type
-* Change $pop() so it only takes an lvalue
-* Change $revw() to use the last_arg() improvements.
-* Improve /xdebug so it takes a block as an argument
-* Improve $push() so it pushes the whole arguments as dwords
-* Add new function $curcmd() for currently executing command (nullie)
-* Rewrite $remw() so it uses standard word handling routines.
-* Normalize $shift() and $unshift() in the same way as $push() and $pop().
-* Fix /eval echo $func($*) at the input prompt causing "add is NULL" panic.
-* Put a delay on handling 001 to avoid problem I'm seeing on epicsol.
-* Release EPIC5-0.3.2 (1431) (Mitigation)
-* Make the build work with socks5 again, for freebsd ports support
-* Add malloc_strcat3_c().
-* Optimize malloc_strcat_word_c
-* Add a new /userhost -extra flag for nullie (see UPDATES)
-* Add code to do stdout stuff with threads (larne)
-* If you're doing threaded stdout, $info(o) includes 'o'.
-* Add $mask(10 ...) from kreca.
-* Fix from black for 'save' script, to save notify nicks.
-* Fix from larne for configure checks for tcl for solaris (ick)
-* Fix solaris ports support, inspired by patch from larne, rb zlonix
-* Change startup code so it outputs the pid of the bot process for -b.
-* Fix $info(o) bug.  rb zlonix
-* Output the errno value ret by failed nonblocking server connects on error.
-* Add auto-close boolean flag for server (see UPDATES)
-* Black pointed out that $winquery() exists in builtins.
-* Pass error value from getsockopt() through dgets for nonblocking connects.
-* Use the error value from getsockopt() to output to the user.
-* Allow you to ignore operwalls and have them tracked as floods.
-* New version of altchan from black.
-* Various and sundry fixes.
-* Don't unconditionally set who_level to NONE in /window.
-* Set and reset message_from() info around each /window operation.
-* This fixes /window <refnum> echo "<string>" so the line is added to lastlog.
-* Fix $ruby(puts 0.4.0) by calling rb_rescue2() to catch /all/ exceptions.
-* Fix /window add/query so they auto-remove nicks from other wins first.
-* Fix build on non-ipv6 systems. (bruns)
-* Never allow INPUT_PROMPT_LEN to be < 0.
-* This fixes the damage from resizing to 1x1 and then back again.
+* Change 'wserv4' to 'epic5-wserv4' to avoid conflicting with epic4.
+* Fix output of /disconnect when disconnected to be less confusing.
+* Some changes to tabkey.jm to see if we can get it working.
+* Move some functions out of input.c to better places.
+* Fix normalization bug via $stripcrap(all ^C0@^Otest) (from kitambi)
+* Fix denormalization bug via $leftpc(9 ^C0@^Otest) (from kitambi)
+* Make the activity script use its own /package.
+* Enhance prntdump() to convert unprintable chars to hex.
+* Change /set -word_break so it pretends you set it to " \t" (rb kitambi)
+* Add socks5p.h from epic4 so we can build with socks5 again.
+* Remember, it's ./configure --with-socks5=/usr/local/lib
+* Make update_input() take a screen as an argument, to update one screen only.
+* Make /window create screen's input lines work again (rb kitambi)
+* Fix crash from /parsekey type_text
+* Add ^Vs to the start of  DEFAULT_STATUS_FORMAT* in config.h
+* Comment out code for /set reverse_status_line pending removal later.
+* GC the code for -f/-F/-o/-O command line arguments
+* Fix the serverctl() comment for howl
+* Change /say (or the empty command) to send to channel first, query second
+* Add $dccctl(SET|GET ref WANT_PORT) to set the -p flag.
+* Change tabkey.jm to use /msg -serv/nick instead of /msg serv:nick
+* Add dccctl(DEFAULT_PORT <string>) [see UPDATES]
+* Add /on dcc_lost case for cant-bind-port [see UPDATES]
+* Add 'dcc_ports' script [see UPDATES]
+* Add mask_to_(positive|negative)_str to convert masks to shorter strings
+* So now mask_to_str() returns strings like "ALL -DCC" if it's shorter!
+* Fix a couple of bugs rb zlonix
+* When doing /stack pop set ... the callback (if any) should be invoked.
+* Add a server param to what_channel() so i can use it in send_text() later.
+* Add length of 'meta' arg to ciphers so 'meta' doesn't have to be c string
+* Fix highlight script so it pf-loads
+* Add the ** unary operator -- double expand.  See UPDATES
+* Comment what I'm going to mangle xform into.
+* Fix happykey().  Sometimes, I just don't pay enough attention.
+* Don't trim 1 too many chars on incoming encrypted messages. Important!
+* Fix buffer sizes being too small to hold buffer for enc/dec short strings.
+* Add $xform() handlers for blowfish and cast5
+* Whip the $xform() callback functions into usable shape.
+* Fix base64 encoding both via $xform() and $b64encode().
+* Rewrite $xform(), see UPDATES.  Strong crypto now supported! YAY!
+* Allow encryption $xform() handlers to reformat their keys, so we can...
+* Add SHA256/AES/AESSHA $xform() encoders
+* Fix it so it compiles without ssl support again.
+* Add "ALL" $xform() encoder, returns all valid xforms
+* Fix infinite recursion if you load a script as a formats file.
+* Release epic5-0.3.4 (Solicitude) (1480)
+* Fix bug that kept implied on hooks from working (important fix!)
+* Add new level SYSERR (see UPDATES)
+* Add a server refnum to syserr() to send the syserr to the proper window.
+* Add a server refnum to new_open() so we can pass it to syserr().
+* Add new flag to /XECHO, /XECHO -AS (output to all windows on server)
+* This should make syserrs go to the "correct window" most of the time (larne)
+* Fix hookctl(set list ... implied {...}) to work as intended (rb zlonix)
+* Add $windowctl(GET refnum CHANNELS) (rb Black)
+* Eliminate u_* type bsd-isms so we can compile with -ansi on linux.
+* Add /lastlog -rewrite (see UPDATES)
+* Add /set lastlog_rewrite as a special favor for larne.
+* Fix a bug with /lastlog (in previous commit)
+* Add dyanmic support for $xform()s, which I'll be using very soon.
+* Fix configure so --with-threaded-stdout pulls in -pthread
+* Include some commented out code that I'm ruminating over for input line
+* Create CURSOR_LEFT and CURSOR_RIGHT macros to avoid assigning LOGICAL_CURSOR
+* Default xforms now don't need to be ordered, or have default refnums.
+* Fix BACKWARD_WORD or PREVIOUS_WORD or whatever it's called.
+* Add /SET DEFAULT_REALNAME and DEFAULT_USERNAME
+* Add scripted /set realname and /ircuser in builtins for backwards compat.
+* Don't want to regfree() a failed attempt to regcomp(). (rb larne)
+* Add $serverctl(get -1 default_realname) and $serverctl(get -1 realname).
+* Change $Y to reflect current realname for current server.
+* Add $xform(iconv fromcode/tocode ...) wrapper around iconv (3).
+* Add support for ./configure --localdir
+* Add support for ./configure --with-iconv=/usr/local
+* Add support for looking for iconv in configure in various places
+* Make configure check for nanosleep().
+* Add function decls for [sg]et_server_realname()
+* New version of screen.e
+* Change "filename" to "local_filename" in dcc's, in prep of further work.
+* Un-revert a few minor things.
+* Don't use NULL in configure; use 0 instead.
+* Fix missing NULL for $hookctl(list ...) [rb howl]
+* Fix various other issues that valgrind found (yay!)
+* Commit a 'url.irc' script that I don't know where it came from...
+* Apparantly solaris 9 doesn't have <stdint.h>, intmax_t, or strtoimax. ick.
+* Begin "fixing" protected implied hooks.  Must test above examples.
+* The sequence we delete stuff on shutdown actually does matter.  (Fix crash)
+* OK.  The implied hook, and protected implied hook stuff works now
+* Make a note in UPDATES about *0 being an rval instead of lval, and *(*0).
+* Begin a refactoring of dcc to make my life easier
+* Simplify register_dcc_offer(), removing unnecessary args.
+* Also, register_dcc_offer() will only take url-encoded filenames now.
+* Fix up the ctcp handler do_ctcp to urlencode offered filenames.
+* Change the DCC_FILE* macros to DCC_SEND and DCC_GET to stop confusing me
+* Add a "offer_filename" variable to dcc's for next round of work
+* GC some unused code
+* Break dcc_message_transmit() into dcc_raw_transmit() and dcc_chat_transmit()
+* Drastically simplify those two functions
+* Fix up dcc_raw_transmit() so the hostname isn't required
+* This means /dcc raw <fd> <host> <msg> ignores <host>. yay!
+* Add $is8bit(). See UPDATES.
+* Change $tobase(). Now $tobase(b i) should support negative integers (i).
+* Revert commit 1498 (the dcc stuff) -- it was half baked.
+* Fix warnings found with --with-warns.
+* The dot (".") and tilde ("~") are unreserved characters in rfc3986 (urlencode)
+* Fix panic when you call :func() and there is a builtin, but no alias.
+* Add new status expando %{1}H which expands when in hold mode and not holding.
+* Add /set status_holdmode which controls %{1}H
+* Add %{1}H to the default status format.
+* Add split_string() which converts a general delimited string to (char **)
+* Add $splitw(delim string) which converts delimited string into a dword list
+* Use $unsplit() to convert $splitw() into a uword list (see UPDATES)
+* Fix ./configure --without-ipv6 to allow compiling on opensewer.
+* Fix apparantly bogus test that prevented .files from being /load'ed (rb wjr)
+* Release epic5-0.3.5 (Alacrity) (1509)
+* Create aliases for [url|b64][en|de]code, sedcrypt, and sha256 into builtins.
+* Comment out builtin [url|b64][en|de]code, sedcrypt, sha256 builtin functions.
+* Change /xquote -u to use xform() instead of urldecode().
+* Change dcc_url[en|de]code to use xform() instead of urldecode().
+* Change /on ssl_server_cert to use xform() isntead of urldecode().
+* This allows me to comment out old urldcode/base64decode stuff. yay!
+* Add a "rejects" variable to str_to_mask()
+* Make str_to_mask() shut up.  Callers should handle error output
+* Create a standard_level_warning() handler callers can use.
+* Make the consumers of str_to_mask() handle their own error messages. yay!
+* Refactor all lastlog stuff to use a global lastlog buffer.  Yay!
+* Comment out per-window lastlog stuff.
+* Add a bunch of functions to move lastlog items between windows.
+* No way for the user to use them yet (still thinking about it)
+* Add $windowctl(NEW) and $windowctl(NEW_HIDE)...
+* New versions of builtins, dump, and history from black
+* Fixed builtins to not return spaces at end of $xform() functions.
+* Fixed commented out lines in commandqueues for backward compatibility.
+* FINALLY cleaned up code in data_array.
+* Added some /assign handling functions to data_struct.
+* Fixed $chhops(), $nochhops(), $chvoices() $chnovoices() in script/functions.
+* Changed tabkey.ce to _also_ complete from notify list by default.
+* Changed tabkey.ce to complete recursed commands without a leading slash.
+* Updated $shift() and $pop() with multiple args to work with dword but left it
+  #ifdef'd out as per UDPATES.  Also updated regress/funcs to test these.
+* Added current package to end of $loadinfo().
+* Changed /reconnect to jump to the next server in the address list if possible.
+* If epic crashes and /xdebug crash is set, sleep and wait for a debugger.
+* Change /on listings so they tell you if a hook is "disabled".
+* Add forgotten code to move lastlog items between windows for /window number
+* Fix bug where default numeric output wouldn't go to a channel's window.
+* Remove a superfluous message_from() when parsing server stuff.
+* Add /lastlog -window for fusion.
+* New version of /load dump from black.
+* Add support for libarchive to configure
+* Everything below is from fusion (Alexander Grotewohl)
+* If libarchive is present, support zip/tar files in /load and $open() 
+* Create a new "epic load file" data type that wraps FILE or libarchive.
+* Extend uzfopen() to use the new "epic load file" data type.
+* Extend the loader to honor the new "epic load file" data type
+* Extend $open() [read only for now] to honor the epic load file data type
+* Not all operations are supported on zip files.
+* Add new function $fix_width() returns string with a guaranteed printable len
+* End of things contributed by fusion (Alexander Grotewohl)
+* Change builtins script so it doesn't /xecho -w for who replies.
+* Fix typos in dcc_ports
+* New version of tabkey.ce from fudd.
+* Make /dcc list output go to level OTHER by special request of kreca.
+* Fix build (rb zlonix)
+* $info(o) now includes 'r' for libarchive, and 'x' for iconv support
+* Unconditinally unset GREP_OPTIONS in configure (rb Pegasus)
+* Fix /oper password being shown because term_echo() not called. (rb wjr)
+* Properly handle multiple spaces between protocol tokens (rb Krisp)
+* Fix crash with standard_warning_level() when you do /window level nonsense.
+* Support /input "prompt" (args) {code}. See UPDATES. (rb kreca) (fusion)

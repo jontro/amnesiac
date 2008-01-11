@@ -1,7 +1,486 @@
+EPIC5-0.3.6
+
+*** News 01/05/2008 -- You can now use arglists with /input (fusion)
+	You can now use arglists with input, like so:
+
+	input "Enter command and arguments: " (cmd, args) {
+		xecho -b You entered [$cmd] and [$args]!
+	}
+
+*** News 01/03/2008 -- $info(o) values for libarchive, iconv support
+	If the binary supports libarchive, $info(o) will include 'r'.
+	If the binary supports iconv, $info(o) will include 'v'.
+	Libarchive support is required to /load from a .zip file
+	Iconv support is required to be able to do character set translation.
+
+*** News 11/29/2007 -- New function $fix_width()
+	The $fix_width() function takes the following arguments:
+		cols      $0    Number of columns
+		justify   $1    Justification (must be "l" for left justify)
+		fillchar  $2    Fill character (a dword, so use " " for space)
+		text      $3-   
+
+	This function returns <text> formatted so that it takes up exactly 
+	<cols> number of columns on the display.  It does this by adding
+	<fillchar> to the string on either the left or the right or both.
+
+	If <text> is already wider than <cols> then it is truncated to <cols>.
+
+	<Justify> must be either "l" for left justify, "c" for center, or "r"
+	for right justify.  Only left justify is supported.  The others are
+	for future expansion.
+
+	This function is intended for creating full width reverse toplines:
+		@ :cols = word(0 $geom())
+		@ :str = fix_width($cols l " " blah blah blah blah)
+		window topline 1 "^V$str"
+
+	You will probably want to call $fix_width() in a separate statement
+	from the /window topline in order to avoid the syntactic confusion
+	with passing a double quoted word to /window and passing a double
+	quoted word to $fix_width() (the space).  Trust me.  Don't go there.
+
+	In the future, support will be added for right justify and centered.
+	Please keep watch out in this document for more info.
+
+*** News 11/29/2007 -- Support for ZIP files from libarchive
+	Support for loading files from .zip files has been added.  This first
+	round of implementation just adds the raw ability, but it's not 
+	totaly ready to be used yet.  You're welcome to start playing with
+	it and reporting any problems you have.
+
+	You can $open() a file for reading or /load it from a zip file:
+		/load foo.zip/file
+	and
+		@fd = open(foo.zip/file R)
+
+	If you /load a zip file, it will load the file ".ircrc" in the top
+	level directory.  This might be enahanced or changed in the future:
+		/load foo.zip
+	acts like
+		/load foo.zip/.ircrc
+
+	Some operations cannot be performed on zipped files, such as $fseek()
+	and $frewind() and so forth.  This might change in the future.
+
+	All of this is based on 'libarchive' being installed.  You will need
+	to re-run configure in order to pick up libarchive support after you
+	do a cvs update.
+
+*** News 10/22/2007 -- New flag to /lastlog, /lastlog -window
+	The /lastlog -window flag lets you grep the lastlog from a different
+	window.  The output will still go to the *current* window, however!
+
+*** News 09/19/2007 -- Some built in functions now 'builtin' aliases.
+	Several functions that have been deprecated by $xform() have been
+	demoted from built in functions to aliases in the 'builtins' script.
+		encode		decode		b64encode	b64decode
+		urlencode	urldecode	sedcrypt	sha256
+
+EPIC5-0.3.5
+
+*** News 09/14/2007 -- New built in function: $splitw(<delim> <string>)
+	This function takes a <string> which has sections delimited by
+	<delim>.  The <delim> argument can only be one character.  An
+	obvious example of this is $PATH which is a <string> that uses
+	the colon as <delim>.  The <delim> is a dword, so you can use the
+	space as a delimiter if you needed to.
+
+	This function unconditionally converts <string> into a dword list.
+	You will need to xdebug dword to iterate over the return value, or
+	you can use $unsplit(" " $splitw(<delim> <string>)) to collapse it
+	to a uword list (although this is probably pointless)
+
+	Example:
+		@ directories = splitw(: $PATH)
+	might return
+		/bin /sbin /usr/bin /usr/sbin /usr/local/bin
+
+	Example:
+		@ foo = splitw(: one:two:three a berry:four:five)
+	returns
+		one two "three a berry" four five
+
+*** News 09/13/2007 -- New /SET, /SET STATUS_HOLDMODE
+	This is the value that %{1}H expands to.  The default is " (Hold)".
+	If you don't like the "(Hold)" in your status bar when your window
+	is in hold mode but not holding anything, unset this variable 
+	entirely:
+		/set -status_holdmode
+	and it will disappear.  Or remove %{1}H from your status format.
+
+*** News 09/13/2007 -- New status expando, %{1}H, hold mode indicator.
+	The %H status expando expands when your window is in hold mode
+	*and* there is something being held.  But if your window is in
+	hold mode, but nothing is held, you can't tell just by looking.
+	So the %{1}H status expando will expand whenever the window is in
+	hold mode *except* when %H will expando.  This is so you can put
+			%{1}H%H 
+	in your status format and one or the other (but not both) will 
+	expand at all times hold mode is on.
+
+	This expando has been added to the client's default status format.
+	The value of %{1}H is controlled by /set status_holdmode, and the
+	default value of that is " (Hold)"
+
+*** News 09/13/2007 -- Remember, *0 is an rvalue, but *var is an lvalue
+	The deref operator ("*") converts a token into an rvalue and then
+	uses that as an lvalue.  Example:
+		assign foo bar
+		@ *foo = [testing]
+		echo $bar
+	in the above (*foo) is the same as "bar".  But numbers are different.
+	Derefing a number yields an rvalue:
+		alias oofda { @ foo = *0 }
+		offda one
+	To convert an argument into an lvalue, deref it a second time:
+		alias booya { @ *(*0) = 'testing' }
+		booya varname
+		echo $varname
+	Does that make it clear?
+
+*** News 09/02/2007 -- New function, $is8bit(string)
+	This function find the first character of string that has the
+	eight bit set. Useful to discover Unicode-strings or other 
+	non-eight bit characters.
+
+*** News 08/22/2007 -- New xform, $xform(ICONV "from/to" text)
+	If your binary is built with iconv support (re-run configure before
+	you tell me it doesn't work!) then you will be able to use iconv()
+	to translate strings from one character encoding to another.  This
+	might be useful to experimentally convert to and from utf8 while 
+	you wait for the unicode-enabled input line to be written.
+
+*** News 08/22/2007 -- Checks for iconv in configure: --with-iconv
+	Configure will now check for libiconv support.  Normally it will
+	look for libiconv.a and iconv.h in the --prefix/lib and 
+	--prefix/include directory, or in /usr/local or /opt or /usr/opt.
+	If your iconv support is not in any of these places, then you must
+	supply the --with-iconv=/path/to/dir where that directory contains
+	"include/iconv.h" and "lib/libiconv.a"
+
+*** News 08/22/2007 -- Checks for alt place in configure: --with-localdir
+	A lot of times you'll have software installed but it won't be in
+	the places the compiler looks for it.  Usually this is /usr/local
+	or /opt or something.  You can use this flag to tell configure to
+	look in this directory in addition to the default directories.  This
+	can aid in ensuring optional dependancies don't get turned off because
+	they're in a directory the compiler doesn't look in.
+
+*** News 08/13/2007 -- New /SETs, /SET DEFAULT_REALNAME and DEFAULT_USERNAME
+	Per a discussion on the list, it was decided to introduce two new
+	sets, /SET DEFAULT_REALNAME and /SET DEFAULT_USERNAME.  These control
+	what realname and username should be sent to the server each time you
+	connect.  Although I can't stop you, you shouldn't unset these 
+	variables if you know what is good for you.
+
+	/SET DEFAULT_REALNAME replaces /SET REALNAME, which confused people
+	who though that /setting it changed their realname immediately
+
+	/SET DEFAULT_USERNAME replaces /ircuser which confused people
+	because they thought it was going to be a /set.
+
+*** News 07/20/2007 -- New /SET, /SET LASTLOG_REWRITE
+	This provides the default value to /lastlog -rewrite whenever you
+	don't use the /lastlog -rewrite flag.  If you always want the 
+	/lastlog command to timestamp each line, try this:
+		/set lastlog_rewrite $strftime($1 %T) $8-
+
+	(Remember, if you use this in a pf loaded script to double up $'s...
+		/set lastlog_rewrite $$strftime($1 %T) $$8-		)
+
+*** News 07/20/2007 -- New flag to /LASTLOG, /LASTLOG -REWRITE
+	The /LASTLOG -REWRITE flag rewrites each lastlog line with the 
+	following values for $*
+		$0  - The lastlog item's unique refnum
+		$1  - Timestamp (suitable for use with $strftime())
+		$2  - Window refnum
+		$3  - Output level
+		$4  - Reserved for future use
+		$5  - Reserved for future use
+		$6  - Reserved for future use
+		$7  - Output target
+		$8- - The logical line of output
+	Not all of these field are intended to be useful -- but I don't
+	know what sort of imaginative things people might come up with.
+
+	Example:  To put a timestamp before every line...
+		/lastlog -rewrite "$strftime($1 %T) $8-"
+
+*** News 07/04/2007 -- New $windowctl() option, $windowctl(GET refnum CHANNELS)
+	You can now fetch all of the channels in a window by using
+		$windowctl(GET <refnum> CHANNELS)
+	There is no defined order to the channels returned.
+
+*** News 07/02/2007 -- Clarification of single-indirection implied hooks
+	Earlier, I said...
+	   You may surround <string> with {}s if you wish, to avoid quoting
+	   hell.  Match sure to keep your {}s matched up if you do so.
+	   See the "loadformats" info above for how to practically use this.
+
+	But due to a mistake, this never worked correctly.  This is now 
+	fixed.  If you compare the normal two-expansion version:
+		@ var = [format_send_public]
+		@ fmt = '<%W$N%n> $1-'
+		addset $var int
+		@ hookctl(set list send_public implied \\$var);
+		set $var $fmt
+	which ties /on send_public dynamically to the value of 
+	/set format_send_public.
+
+	If you wanted to do it directly, and not tie the implied hook to a
+	variable, you can surround the format in curly braces, like so:
+		@ hookctl(set list send_public implied {<%W$N%n> $1-})
+	Remember that curly braces protect the insides from $-expansion,
+	so for all purposes the inside of {}s is a literal string that is
+	not expanded except each time the /on is thrown.
+
+*** News 07/02/2007 -- Clarification on using $'s in expression parser
+	The old expression parser used to allow you to use expandos as
+	lvalues in order to indirectly assign to variables, for example:
+		alias inc {
+			@ $0 += 1
+		}
+	But this is not supported in the new math parser.  Instead you 
+	have to use the deref operator, like so:
+		alias inc {
+			@ *0 += 1
+		}
+	which does the same thing.
+
+*** News 06/25/2007 -- New flag to /XECHO, /XECHO -AS
+	The /XECHO -AS flag will output a message to all windows on the
+	current server.  You can combine this with the -S flag if you want 
+	to output to another server.  This might be good for blasting a 
+	message when you're disconnected from the server.  For another
+	example, see below.
+
+*** News 06/25/2007 -- New window level, SYSERR
+	The SYSERR window level will now be used for all of those layered
+	"INFO --" system errors ("syserrs").  The client will make its best
+	effort to ensure that these messages go to the correct server's
+	windows, and that /on yell is hooked in the correct server context.
+
+	You can combine this with /xecho -as  [see above]...
+		on ^yell "* INFO -- *" {xecho -as $*}
+
+EPIC5-0.3.4
+
+*** News 06/02/2007 -- New tranformer: $xform(ALL)
+	The $xform(ALL) transform ignores the text and returns a list of
+	all supported tranformers.  If the user didn't compile SSL support,
+	then you won't be able to use the strong crypto transforms, so this
+	is a great way to check before trying to use crypto.
+
+	Since this is a regular old transform, you can further transform it
+	any way you want to (if you want to).
+
+*** News 06/01/2007 -- More $xform()s added to the list below
+	Please re-read the list immediately below, it's been updated!
+
+*** News 06/01/2007 -- Totaly rewritten $xform(), now actually useful!
+	Here's the plan -- we're going to do this over again a second time.
+
+	$xform("<transformations>" "meta" "meta" text)
+	     
+	Where the <transformation>s are supported by transform_string().
+	At the time i write this, they are:
+
+	Reversable encodings that convert between binary and printable data
+	and do not require a meta:
+	     URL             URL encoding           
+	     ENC             Base16 encoding        
+	     B64             Base64 encoding        
+	     CTCP            CTCP encoding          
+             NONE            Straight copy -- data not changed
+
+	Reversable encryptions that require a meta value (a password):
+	     SED             Simple Encrypt Data  
+	     BF              Blowfish-CBC         
+	     CAST            CAST5-CBC            
+	     AES             AES256-CBC
+	     AESSHA          AES256-CBC with SHA256 digest of the meta
+	     DEF             Default encryption     (NOT IMPLEMENTED YET!)
+
+	Irreversable digest operations that do not require a meta:
+	     SHA256          SHA256 message digest
+
+	You can string together multiple transformations.  Any transformation
+	that requires a meta value (ie, a cipherkey) should be supplied after
+	the transformations *in the correct order*.  After this should be the
+	plain text.  To apply a transformation, prefix its name with a plus sign
+	("+") and to remove a transformation, prefix its name with a minus sign
+	("-").  For example, +URL means url encode, and -URL means url decode.
+
+	The transformations is a dword (must be surrounded by double quotes if
+	it contains a space, which it will if you do multiple transformations).
+	The meta values are dwords (must be surrounded by double quotes if 
+	they contain a space).  These two things make this function behave 
+	differently than functions normally do, so this is a documented 
+	deviancy!
+
+	Examples:
+	     URL-encode a string     $xform(+URL this is a string)
+	     URL-decode a string     $xform(-URL this%20is%20a%20string)
+	     SED-cipher a string     $xform(+SED password this is a string)
+	     SED-decipher a string   $xform(-sed password <whatever>)
+
+	More practical examples:
+	1) Read binary data from a file, encrypt it, and url encode it again.
+	     @fd = open(file.txt R)
+	     @data = read($fd 1024)
+	     @cipher = xform("-CTCP +SED +URL" password $data)
+	     @close($fd)
+	     msg someone $cipher
+
+	Why does this work?
+	 -- $read() returns ctcp-enquoted data, so -CTCP removes it
+	 -- Now we have binary data, so +SED will cipher it
+	 -- Now we have ciphertext, so +URL will url encode it.
+
+	We can send this to someone else, and they can put it in $cipher...
+
+	     @newfd = open(newfile.txt W)
+	     @newdata = xform("-URL -SED +CTCP" password $cipher)
+	     @writeb($newfd $newdata)
+	     @close($newfd)
+
+	We did the reverse of the above:
+	 -- We -URL to recover the binary data
+	 -- We -SED to decrypt it using the password
+	 -- We +CTCP to put it in a form we can use with $writeb().
+
+	Viola!
+
+*** News 05/31/2007 -- New math operator, Unary ** operator
+	The ** unary prefix operator treats its operand as an unexpanded
+	string, permitting it to be expanded again.  This should remove
+	most any need to use /eval.  Example:
+		@ foo = 'this is a string with $var in it'
+		@ var = 'one'
+		@ val1 = **foo
+		@ var = 'two'
+		@ val2 == **foo
+	So $val1 is "this is a string with one in it" and $val2 is
+	"this is a string with two in it".  You can apply this operator
+	to any rvalue (natch):
+		@ foo = **[booya $foo booya!]
+	becomes
+		@ foo = **[booya this is a string with $var in it]
+	becomes
+		@ foo == [booya this is a string with two in it]
+	Yeah!
+
+*** News 05/17/2007 -- New script, 'dcc_ports'
+	This script adds two new sets:
+		/set dcc_port_min <number>
+	and
+		/set dcc_port_max <number>
+	which create a port range which will be used by your dcc's.  Each
+	number in the range will be chosen sequentially (this will be 
+	enhanced further in the future) and any time you change either of 
+	these values you reset the sequence and it goes back to the minimum
+	port again.  When the port range is exhausted, it will cycle back
+	again to the minimum port.
+
+*** News 05/17/2007 -- Default ports for dcc, recovering from ports-in-use
+	There are two new features, that sort of complement each other, and
+	sort of overlap each other.  Whether to use one or the other depends
+	on how your script is set up and what your needs are.
+
+	When you use /dcc chat or /dcc send, but do not use the -p flag to
+	specify a port, you can create a callback to your script to create
+	a default port:
+		@dccctl(DEFAULT_PORT <string>)
+	The <string> will be expanded with $* being the dcc refnum of the
+	dcc needing a port number.  The expanded value of <string> will be
+	used to set the WANT_PORT value (see below).  If a port cannot be 
+	used because it is already in use by someone else, this value will
+	be expanded repeatedly until it generates a port we can use.
+
+	Whenever you use /dcc chat or /dcc send and use -p to bind a port,
+	and that port is already in use, then /on dcc_lost will be thrown
+		$0	The person you're sending it to
+		$1	The dcc type (ie, send or chat)
+		$2	The filename (url encoded)
+		$3	The refnum of the dcc
+		$4	The port that we tried to use that is in use.
+		$5-	The literal string "PORT IN USE"
+	It is expected that you will catch this hook and then do
+		@dccctl(SET $4 WANT_PORT <new port>)
+	and then the client will try the new port again.  If a port cannot
+	be used because it is already in use by someone else, this hook will
+	be thrown repeatedly until you set a port we can use, or you don't
+	change the port
+
+	In either case, if a port is in use, and neither the DEFAULT_PORT
+	nor /ON DCC_LOST results in the WANT_PORT value being changed, then
+	the dcc will be considered a failure, and it will be abandoned, 
+	just as it has always been until this change.
+
+*** News 05/15/2007 -- New dccctl() value, "WANT_PORT"
+	You can now get and set the "WANT_PORT" value for a dcc, which 
+	is the value that the -p flag sets.  You can therefore use this
+	to change the -p flag for the user.  Because this value is only
+	used at the time the client tries to bind() an inbound address,
+	changing this value after the dcc has already been offered will
+	have no effect: it is too late at that point to change the port.
+
+*** News 05/15/2007 -- Normalization of the /SAY and /SEND commands
+	The old behavior:
+	- /SEND (the command used when you type text) sends a message to 
+	       1) Current Query
+	    or 2) Current Channel
+	    or 3) Nowhere
+	- /SAY (the "empty" command to overrule a query) sends a message to 
+	       1) Current Channel
+	    or 2) Nowhere
+
+	The new behavior:
+	- /SEND sends a message to 
+	       1) Current Query
+	    or 2) Current Channel
+	    or 3) Nowhere
+	- /SAY sends a message to 
+	       1) Current Channel
+	    or 2) Current Query		<--- this is the change here
+	    or 3) Nowhere
+
+	So /SAY will now send a message to the current query if you are
+	not on a channel, rather than silently failing.  Until this change,
+	there was no way to do this at all.
+
+*** News 05/13/2007 -- ***IMPORTANT*** Removal of /SET REVERSE_STATUS_LINE
+		*** IMPORTANT *** IMPORTANT *** IMPORTANT ***
+	The /set reverse_status_line variable has been removed.  This means
+	that your /set status_format* variables, and your /window status_format
+	variables will not be auto-prepended with ^Vs like they have always
+	been since time immemorial.  You ***MUST*** prepend your status_formats
+	with ^Vs (control-Vs, ie, the reverse character) if you want them to
+	appear in reverse. 
+
 EPIC5-0.3.3
 
+*** News 04/11/2007 -- New argument to /xecho, -TARGET
+	Usually if you wanted to output to a channel's window, you would do
+		/xecho -w $winchan(#channel) ....
+	but someone asked (nicely) for a -target flag to /xecho because they
+	thought that looked nicer.  So now you can do
+		/xecho -t #channel ...
+
+*** News 04/11/2007 -- New serverctl operation "ALLGROUPS"
+	The $serverctl(ALLGROUPS) operation will return a unique list of all of
+	the group names used in all your servers.  Do not pass any arguments 
+	to this operation, since that's reserved for future expansion.
+
+*** News 04/11/2007 -- New gettable serverctl value, "FULLDESC"
+	This value returns the fully qualified server description for a
+	server, suitable for writing into a servers file, or for passing
+	to /server -add or any old place.  You can only get this value; 
+	you cannot set it, although that's planned for the future.
+
 *** News 01/27/2007 -- New serverctl value, "AUTOCLOSE"
-	Normally a server is automatically closed when the last server
+	Normally a server is automatically closed when the last window
 	to it is disconnected (or killed).  Many people hate this behavior
 	and would like to have a server's connect persist even if there
 	are no windows connected to it.  You can now control this behavior.
@@ -650,6 +1129,11 @@ EPIC5-0.0.8
 	open to discussion on this), to retain backwards compatability.
 
 *** News 12/09/2005 -- New built in function, $xform()
+	    *** OBSOLETE *** THIS INFORMATION IS OLD *** OBSOLETE ***
+	This information is no longer useful.  Do not rely on it.  Please
+	            check out the new documentation up above.
+	    *** OBSOLETE *** THIS INFORMATION IS OLD *** OBSOLETE ***
+
 	The $xform() function does (symmetrical) string transformations.
 	What is a symmetrical transformation?  It is one in which all of
 	the bits in the original string are present in the result string,
@@ -1800,6 +2284,16 @@ EPIC5-0.0.4
 
 	In this example, "frobnitz" will be in the package "one" and 
 	"oofda" will be in the package "one::two".
+
+*** News 02/28/2005 -- The invite command changed here
+	This was never documented for some reason until June 2007.
+
+	You can now invite people more flexibly:
+		INVITE #chan nick1 nick2 nick3
+	or	INVITE nick #chan1 #chan2 #chan3
+	or	INVITE nick
+
+	and it will just figure out the right thing to do.
 
 *** News 02/04/2005 -- Clarification on /EXEC process output.
 	Until this time, partial lines of output from /EXEC processes

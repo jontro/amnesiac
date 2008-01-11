@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project.
+# Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # last modified by crapple 9.2.05
 # windowing stuff
@@ -54,8 +54,6 @@ alias winmsg {
 	^window refnum 1;
 };
 
-#alias query //query $0;msg $0 $1-;
-
 alias wq {
         if (#) {
                 window new_hide swap last query $0;
@@ -93,10 +91,6 @@ alias qw {wq $*;};
 alias q {query $*;};
 alias dq {window remove $*;};
 alias wadd {window add $*;};
-
-## topwin stuff for broken topwin module/some other reasons.
-alias topdel window toplines 0;
-alias rtop topdel;
 
 ## window shortcuts.
 alias wsl window swap last;
@@ -165,7 +159,8 @@ fe ($jot(0 9 1)) tt {
 	bind ^[$tt parse_command toggle.window $tt;
 };
 
-#alias /0 - /25 to swap to that window (/10 is nonexistent by purpose, use /0 instead)
+# alias /0 - /25 to swap to that window (/10 is nonexistent by purpose,
+# use /0 instead)
 fe ($jot(1 25 1)) tt {
 	@:t2= tt != 10 ? tt : 0;
 	alias $t2 ^window swap $tt;

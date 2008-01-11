@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2007 Amnesiac Software Project.
+# Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
 if (word(2 $loadinfo()) != [pf]) {
@@ -8,7 +8,7 @@ if (word(2 $loadinfo()) != [pf]) {
 
 subpackage alias;
 
-## last modified by crapple 10.02.06
+## last modified by crapple 1.11.08
 ## various commands.
 alias quit {bye $*;};
 alias ismask {return ${@pass(!@ $0) ? 1 : 0}};
@@ -92,6 +92,7 @@ alias blinky { if (@T)  msg $T $cparse("%F%G$*") ;};
 alias umode {^mode $N $*;};
 alias m {msg $*;};
 alias d {describe $*;};
+alias desc {describe $*;};
 alias j {/join $channame($0) $1-;};
 alias p {if (@) ping $*;};
 alias k {kick $*;};
@@ -102,7 +103,6 @@ alias irchost {hostname $*;};
 alias unset {set -$*;};
 alias unalias {alias -$*;};
 alias last {lastlog $*;};
-alias desc {describe $*;};
 
 ## help shortcuts.
 alias a {ahelp $*;};
@@ -140,14 +140,13 @@ alias _center {
 };
 
 ## long complex aliases below here.
+alias ibm437 fixterm;
 alias fixterm {
 	xecho -r $chr(27)\(U;
 	parsekey REFRESH_SCREEN;
 };
 
-alias ibm437 fixterm;
-
-alias latin1 {                       
+alias latin1 {
 	xecho -r $chr(27)\(B;
 	parsekey REFRESH_SCREEN;
 };
