@@ -23,6 +23,8 @@ None
 @ not exactly a high priority however we should prolly merge in a supposidly
   working/better userlist than the one we have right now.
 
+@ add possible dcc_ports toggability, somewhat based off epic5/scripts.
+
 ## lower priority requests.
 @ Finish server list module, assigned to kreca
 
