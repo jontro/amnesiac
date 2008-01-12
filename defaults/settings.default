@@ -1,5 +1,5 @@
 ## These settings only applies until you've typed /save or /setsave
-## if so they'll be saved in ~/.amn/.a.settings
+## if so they'll be saved in ~/.amn/a.settings
 set auto_reconnect off;
 set auto_reconnect_delay 30;
 set auto_reconnect_retries 3;
@@ -9,6 +9,8 @@ set high_bit_esc 0;
 set -continued_line;
 set clock_24hour on;
 set dcc_sliding_window 512;
+set dcc_port_min 1024;
+set dcc_port_max 65535;
 set auto_rejoin off;
 set auto_rejoin_delay 5;
 set lastlog 1500;

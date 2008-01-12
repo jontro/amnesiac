@@ -76,7 +76,23 @@ alias dccag {
 };
 
 osetitem misc dccag Dcc autoget:;
-## end config
+## end dcc_auto_get
+
+## dcc_ports (allows you to set which port range to use for dcc)
+## taken from epic/scripts written by hop, merged to amnesiac by zak
+
+alias dcc_ports.regen {
+   @dcc_ports.picklist = jot($dcc_port_min $dcc_port_max)
+};
+
+alias dcc_ports.nextport {
+   if (#dcc_ports.picklist == 0) {
+      dcc_ports.regen
+   };
+   @function_return = shift(dcc_ports.picklist);
+};
+
+@dccctl(DEFAULT_PORT $$dcc_ports.nextport());
 
 ## dcc menu help.
 alias dcchelp {

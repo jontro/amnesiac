@@ -131,7 +131,7 @@ alias modsave {
 		@write($savemt @mods.$xx=[$getitem(_mods $xx)]);
 	};
 	@close($savemt);
-	xecho $acban (core).. mods saved to $(savepath)$modfile;
+	xecho $acban Modules saved to $(savepath)$modfile;
 };
 
 alias _loadmod {

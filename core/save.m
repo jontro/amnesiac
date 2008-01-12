@@ -18,7 +18,7 @@ alias asave {
 		@write($savemt assign $cvar $($cvar));
 	};
 	@close($savemt);
-	xecho $acban (core).. settings saved to $(savepath)$savefile;
+	xecho $acban Amnesiac settings saved to $(savepath)$savefile;
 };
 
 alias setsave {
@@ -29,7 +29,7 @@ alias setsave {
 		@write($savemt set $cur $getset($cur));
 	}
 	@close($savemt);
-	xecho $acban (core).. /set settings saved to $(savepath)$setsavefile;
+	xecho $acban Epic settings saved to $(savepath)$setsavefile;
 };
 
 alias fsetsave {  
@@ -41,7 +41,7 @@ alias fsetsave {
 		@write($fsetsavemt ^sfset format_$a1 $(format_$a1));
 	};
 	@close($fsetsavemt);
-	xecho $acban (core).. fset settings saved to $(savepath)$fsetsavefile;
+	xecho $acban Fset settings saved to $(savepath)$fsetsavefile;
 };
 
 alias fsave {
@@ -54,7 +54,7 @@ alias fsave {
 		@write($savemt assign theme.format.$cvar $(theme.format.$cvar));
 	};
 	@close($savemt);
-	xecho $acban (core).. format settings saved to $(savepath)$fsavefile;
+	xecho $acban Format settings saved to $(savepath)$fsavefile;
 };
 
 alias csave {
@@ -66,7 +66,7 @@ alias csave {
 		@write($savemt assign $cvar $($cvar));
 	};
 	@close($savemt);
-	xecho $acban (core).. color settings saved to $(savepath)$csavefile;
+	xecho $acban Color settings saved to $(savepath)$csavefile;
 };
 
 alias igsave {
@@ -76,7 +76,7 @@ alias igsave {
 		@ write($saveig ^ignore $_igmasks $igtype($_igmasks));
 	};
 	@close($saveig);
-	xecho $acban (core).. ignores saved to $(savepath)$igsfile;
+	xecho $acban Ignores saved to $(savepath)$igsfile;
 };
 
 alias save saveall;

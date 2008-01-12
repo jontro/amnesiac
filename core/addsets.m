@@ -33,6 +33,14 @@ addset show_end_of_msgs bool;
 addset show_who_hopcount bool;
 addset auto_whowas bool;
 
+## compile dcc port min/max funcs
+addset dcc_port_min int {
+   dcc_ports.regen
+};
+addset dcc_port_max int {
+   dcc_ports.regen
+};
+
 ## sets compiled above gets set here. (do not remove)
 set auto_rejoin_delay 5;
 set auto_new_nick on;
@@ -46,3 +54,5 @@ set beep_on_msg none;
 set suppress_server_motd off;
 set paste_strip OFF;
 set paste_delay 30;
+set dcc_port_min 1024;
+set dcc_port_max 65535;

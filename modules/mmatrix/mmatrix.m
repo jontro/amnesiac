@@ -92,7 +92,7 @@ alias wordssave {
 		@write($savemt @_wordstype.$xx=[$getitem(_wordstype $xx)])
 	}
 	@close($savemt)
-	xecho $acban (mmatrix) wordlist saved to $(savepath)$wordsfile
+	xecho $acban Mmatrix wordlist(s) saved to $(savepath)$wordsfile
 }
 
 alias wordsload {
@@ -131,7 +131,7 @@ alias _pubtrap {
         if (#) {
 		@pubtrap=[$*]
 	}
-	xecho -v $acban word/phrase notify set to "$pubtrap"
+	xecho -v $acban pubtrap word/phrase notify set to "$pubtrap"
 	^assign $pubtrap
 }
 

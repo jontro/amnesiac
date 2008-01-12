@@ -105,7 +105,6 @@ alias host {//userhost $*;};
 alias irchost {hostname $*;};
 alias unset {set -$*;};
 alias unalias {alias -$*;};
-alias last {lastlog $*;};
 
 ## help shortcuts.
 alias a {ahelp $*;};
@@ -127,6 +126,7 @@ alias ioff {set -input_prompt;};
 alias tog {toggle $*;};
 alias realname {set default_realname $*;};
 alias username {set default_username $*;};
+alias clock24 {set clock_24hour toggle;};
 
 ## dumps and reload script, for scripters and advanced users in general.
 alias adump {

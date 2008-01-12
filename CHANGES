@@ -58,4 +58,28 @@
  prolly much better for multiserver, i have been on 4 different networks
  with one client the past month and have yet to really have any issues.
  //zak
+-add more funcs into compat.m from builtins we may be needing in the near
+ future or may need now, we really need to set a vote on some things ;/
+ //zak
+-add /set dcc_port_min dcc_port_max to specify ports to use. (untested at
+ this time) def: 1024/65535 //zak
+-remove format timestamps for dcc_connect and dcc_timeout as it's been
+ broken/inaccurate since the beginning of time. //zak
+-few new aliases of /lockchan/chanlock/unlock //mode $C +im (useful during
+ flooding) //zak
 
+-Make cosmetics of /save output look more saner:
+[a+c] Amnesiac settings saved to ~/.amn/a.save
+[a+c] Color settings saved to ~/.amn/a.csave
+[a+c] Format settings saved to ~/.amn/a.fsave
+[a+c] Fset settings saved to ~/.amn/a.fsetsave
+[a+c] Modules saved to ~/.amn/mod.save
+[a+c] Ignores saved to ~/.amn/a.ig.save
+[a+c] Epic settings saved to ~/.amn/a.settings
+[a+c] Mmatrix wordlist(s) saved to ~/.amn/a.words.save
+[a+c] Mjoin channel(s) saved to ~/.amn/chan.save
+[a+c] Notify module settings saved to a.notify.save
+^^ if someone has a better idea, please let me know //zak
+
+-cleanup TODO-BUGS even more, with more possible future goals. //zak
+-cleanup INSTALL documentation a bit more //zak

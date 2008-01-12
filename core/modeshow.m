@@ -9,7 +9,6 @@ subpackage modeshow;
 
 # config
 alias modeshow {vocop $*;};
-alias showmodes {vocop $*;};
 
 alias config.showop {
 	if ( *0 == '-r' )

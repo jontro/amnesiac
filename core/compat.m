@@ -1,14 +1,20 @@
 # Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
-## compat/missing functions/things to make the script work well with epic5.
+## functions/aliases/partial sets/from scripts/builtins
+
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
 	return;
 };
 subpackage compat;
 
-## addset (original addset alias from BlackJac)
+## NOTE: alot of functions/aliases/etc. in compat.m are from scripts/builtins
+## which was written by BlackJac, tho we try to use only what we really need
+## parts have also been merged/rewritten to fit in with Amnesiac.
+## Add his copyright here, to lessen the bloat in compat.m
+## Copyright (c) 2005 David B. Kratter (BlackJac@EFNet)
+
 alias addset (name, type, args) {
 	if (@name && type) {
 		@ symbolctl(create $name);
@@ -25,6 +31,8 @@ alias delset (name, void) {
 		@ symbolctl(check $name);
 	};
 };
+
+## Functions
 alias decode (...) {
 	return $xform(-ENC $*);
 };
@@ -33,9 +41,25 @@ alias encode (...) {
 	return $xform(+ENC $*);
 };
 
-# The following functions were all pulled from the 'builtins' script
-# written by David B. Kratter and distributed with EPIC5.
-# Thanks BlackJac!
+alias b64decode (...) {
+	return $xform(-B64 $*);
+};
+
+alias b64encode (...) {
+	return $xform(+B64 $*);
+};
+
+alias sha256 (...) {
+	return $xform(+SHA256 $*);
+};
+
+alias urldecode (...) {
+	return $xform(-URL $*);
+};
+
+alias urlencode (...) {
+	return $xform(+URL $*);
+};
 
 alias igmask (pattern, void) {
 	return $ignorectl(pattern $pattern);
@@ -143,6 +167,7 @@ alias winvisible (winnum default 0, void) {
 
 ## misc aliases/to go with functs that common people use.
 
+## Auto_Rejoin
 ^on #-kick 1 '$$servernick() *' {
 	if (getset(auto_rejoin) == 'on') {
 		if (:delay = getset(auto_rejoin_delay)) {
@@ -153,11 +178,7 @@ alias winvisible (winnum default 0, void) {
 	};
 };
 
-## annoying client beep functionality requested by some taken from
-## builtins src/epic5/scripts by BlackJac.
-##      Copyright (c) 2005 David B. Kratter (BlackJac@EFNet)
-
-# BEEP_ON_MSG
+## BEEP_ON_MSG
 ^on #-action 1 "*" {
 	if (getset(beep_on_msg) == 'all' || findw(action $getset(beep_on_msg)) > -1) {
 		beep;
@@ -169,7 +190,6 @@ alias winvisible (winnum default 0, void) {
 		beep;
 	};
 };
-
 
 ^on #-msg 1 "*" {
 	if (getset(beep_on_msg) == 'all' || findw(msgs $getset(beep_on_msg)) > -1) {

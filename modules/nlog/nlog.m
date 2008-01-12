@@ -39,7 +39,7 @@ alias nsotog {
 	config.nlog -s $*;
 };
 
-#notify aliases.
+# notify aliases.
 alias rnlog  {
 	if (fexist($(savepath)$nlogfile) == -1) {
 		xecho $acban notify log file does not exist.;
@@ -68,8 +68,9 @@ alias nsave {
     	@savemt = open($(savepath)$nfile W T);
        	@write($savemt @nsolog=[$nsolog]);
 	@close($savemt);
-	xecho $acban [mod] (nlog).. notify settings saved to $nfile;
+	xecho $acban Notify module settings saved to $nfile;
 };
+
 alias nload {
 	^eval load $nfile;
 };

@@ -59,7 +59,7 @@ alias ardelay {
 	config.auto_reconnect_delay -s $*;
 };
 
-alias aretries {
+alias aretry {
 	config.auto_reconnect_retries -s $*;
 };
 

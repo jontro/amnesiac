@@ -210,6 +210,7 @@ alias resp {_pubn $*;};
 alias timestamp {_tsmps $*;};
 alias stamp {timestamp $*;};
 alias extpub {modeshow $*;};
+alias showops {modeshow $*;};
 alias tform {format 3 $*};
 
 ## connect items

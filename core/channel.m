@@ -17,6 +17,9 @@ alias ik {invkick $*;};
 alias ki {invkick $*;};
 alias cmode {c $*;};
 alias lall partall;
+alias chanlock lockchan;
+alias lockchan {mode $C +im;};
+alias unlock {mode $C -im;};
 
 ## chan info.
 alias scano {sco $*;};
@@ -34,7 +37,7 @@ alias partall {
 	part $sar(g/ /,/$mychannels());
 };
 
-## oper /who in #chan
+## oper /who in #chan <-- am i the only one who thinks this is ugly? //zak
 alias cops {
 	^on who -*;
 	^on ^who * {
