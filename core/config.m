@@ -8,21 +8,21 @@ if (word(2 $loadinfo()) != [pf]) {
 subpackage config;
 
 alias config {
-	if ( @ && ! match($0 away protect misc oper relay connect)) {
+	if ( @ && ! match($0 away protect misc oper relay relaysmtp connect)) {
 		xecho -v $acban Invalid section.;
 		xecho -v $acban -> config <section> <letter> <setting>;
-		xecho -v $acban valid sections: <away|protect|misc|oper|relay|connect|query>;
+		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|connect|query>;
 	} else if (  # < 2) {
-		if (match($0 away protect misc oper relay connect query)) {
+		if (match($0 away protect misc oper relay relaysmtp connect query)) {
 			config.printsection $0;
 		}{
-			fe (away protect misc oper relay connect query) sec {
+			fe (away protect misc oper relay relaysmtp connect query) sec {
 				config.printsection $sec;
 			};
 		};
 		aecho -----------------------------------------------------------------------------;
 		xecho -v $acban -> config <section> <letter> <setting>;
-		xecho -v $acban valid sections: <away|protect|misc|oper|relay|connect|query>;
+		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|connect|query>;
 	}{
 		@:aname= "confa$0";
 		@:xx= ascii($1)-ascii(a);
@@ -60,6 +60,9 @@ alias config.printsection
 	(relay) {
 		aecho ------------------------------= Relay Settings =-----------------------------;
 	};
+	(relaysmtp) {
+		aecho ----------------------------= Relaysmtp Settings =---------------------------;
+	};
 	(oper) {
 		aecho ------------------------------= Oper Settings =------------------------------;
 	};
@@ -72,6 +75,7 @@ alias config.printsection
 	};
 	@:aname= "confa$0";
 	for (@xx=0, xx<numitems($aname), @xx=xx+2) {
+		# COMMENTS, DO YOU SPEAK THEM?
 		@ :cur1 = getitem($aname $xx);
 		@ :con1 = word(0 $cur1);
 		@ :mod1 = restw(1 $cur1);

@@ -9,13 +9,23 @@
 # a way to get email to your irc client. Many carriers support sending email
 # via sms, allowing you to use this script to relay via sms.
 
-subpackage relaysmtp
+if (word(2 $loadinfo()) != [pf]) {
+	load -pf $word(1 $loadinfo());
+	return;
+};
+
+subpackage relaysmtp;
 
 # /config stuff
+osetitem relaysmtp rsmtpstatus SMTP relay on/off:;
 alias config.rsmtpstatus {
 	if ([$0]==[-r]) {
-		return $_modsinfo.relaysmtp.phoneStatus;
-	} else if ([$0]==[-s]) {
+		if ([$_modsinfo.relaysmtp.phoneStatus]==[0]) {
+			return off;
+		} else {
+			return on;
+		};
+	} elif ([$0]==[-s]) {
 		# Change or toggle the current status (on/off)
 		switch ($1) {
 			(on) {
@@ -29,79 +39,95 @@ alias config.rsmtpstatus {
 					@_modsinfo.relaysmtp.phoneStatus = 1;
 				}{
 					@_modsinfo.relaysmtp.phoneStatus = 0;
-				}
-			}
-		}
-	}
-}
+				};
+			};
+		};
+		xecho -b relaysmtp: Current status is $_modsinfo.relaysmtp.statusType[$_modsinfo.relaysmtp.phoneStatus];
+	};
+};
 
+osetitem relaysmtp rsmtpemailuser Email username:;
 alias config.rsmtpemailuser {
 	# The username for the outgoing email
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.emailUser;
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.emailUser = "$1";
-	}
-}
+		xecho -b relaysmtp: Current email username is $_modsinfo.relaysmtp.emailUser;
+	};
+};
 
+osetitem relaysmtp rsmtpemailpass Email shared key:;
 alias config.rsmtpemailpass {
 	# The shared key we put in outgoing email
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.emailPass;
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.emailPass = "$1";
-	}
-}
+		xecho -b relaysmtp: Current email shared key is $_modsinfo.relaysmtp.emailPass;
+	};
+};
 
+osetitem relaysmtp rsmtpemaildomain Email domain:;
 alias config.rsmtpemaildomain {
 	# The domain we send email from
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.emailDomain;
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.emailDomain = "$1";
-	}
-}
+		xecho -b relaysmtp: Current email domain is $_modsinfo.relaysmtp.emailDomain;
+	};
+};
 
+osetitem relaysmtp rsmtpemailsep Email separator:;
 alias config.rsmtpemailsep {
 	# What separates the components of the email address
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.emailSep;
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.emailSep = "$1";
-	}
-}
+		xecho -b relaysmtp: Current email separator is $_modsinfo.relaysmtp.emailSep;
+	};
+};
 
+osetitem relaysmtp rsmtpdestaddress Relay destination:;
 alias config.rsmtpdestaddress {
 	# The address we relay messages to
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.destAddress;
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.destAddress = "$1";
-	}
-}
+		xecho -b relaysmtp: Current relay destination is $_modsinfo.relaysmtp.destAddress;
+	};
+};
 
+osetitem relaysmtp rsmtpsendmail Sendmail:;
 alias config.rsmtpsendmail {
 	# The location of the sendmail binary
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.sendmail;
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.sendmail = "$1";
-	}
-}
+		xecho -b relaysmtp: Current sendmail location is $_modsinfo.relaysmtp.sendmail;
+	};
+};
 
 ## Aliases refered to by the config
 alias rsmtphelp {
-	xecho -b Call 999!
-}
+	xecho -b Call 999!;
+};
 
 alias rsmtpload {
-}
+	xecho -b Not implemented (rsmtpload);
+};
 
 alias rsmtpunload {
-}
+	xecho -b Not implemented (rsmtpunload);
+};
 
 alias rsmtpsave {
-}
+	xecho -b Not implemented (rsmtpsave);
+};
 
 ## Internal aliases
 
@@ -118,7 +144,7 @@ alias _sendmail (ircDest, msg) {
 	@close($in);
 	@close($out);
 	# FIXME: Do we need error checking here?
-}
+};
 
 # The alias that processes the queue
 alias _smtpQueueProcess (void) {
@@ -132,7 +158,7 @@ alias _smtpQueueProcess (void) {
 			}
 			sleep 1;
 			@x--;
-		}
+		};
 		@smtpQueue = open("${_modsinfo.relaysmtp.cmdQueue}.work" R);
 		# FIXME: Doesn't epic have a function for this?
 		exec rm ${_modsinfo.relaysmtp.cmdQueue}.work;
@@ -142,14 +168,14 @@ alias _smtpQueueProcess (void) {
 			}
 			@line = read($smtpQueue)
 			if (strip(" " $line)!=[]) {
-				xecho -b SMS: /msg $line;
+				xecho -b relaysmtp: /msg $line;
 				msg $line;
 			}
-		}
+		};
 		@close($smtpQueue);
 	}
 	timer -ref relaysmtp 10 _smtpQueueProcess;
-}
+};
 
 # The hook to send messages to our phone.
 ^on -MSG * (ircDest, msg) {
@@ -163,8 +189,8 @@ alias _smtpQueueProcess (void) {
 		# This will eventually be for only getting msged from certain
 		# people
 		_sendmail $ircDest $msg;
-	}
-}
+	};
+};
 
 ## Configuration Aliases
 
@@ -174,9 +200,8 @@ alias relaysmtp (status) {
 		xecho -b relaysmtp: Current status is $_modsinfo.relaysmtp.statusType[$_modsinfo.relaysmtp.phoneStatus];
 	}{
 		config.rsmtpstatus -s $status;
-		relaysmtp;
-	}
-}
+	};
+};
 
 # Finish up by starting the queue
 _smtpQueueProcess;

@@ -4,7 +4,7 @@
 @_modsinfo.urlgrab.savecmd = 'rsmtpsave';
 @_modsinfo.relaysmtp.description = 'Relay /msgs to/from email';
 @_modsinfo.relaysmtp.phoneStatus = 1;
-@_modsinfo.relaysmtp.emailUser = '$N';
+@_modsinfo.relaysmtp.emailUser = "$N";
 @_modsinfo.relaysmtp.emailPass = 'amnesiac';
 @_modsinfo.relaysmtp.emailDomain = 'localhost';
 @_modsinfo.relaysmtp.emailSep = '+';
