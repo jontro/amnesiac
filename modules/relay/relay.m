@@ -1,9 +1,12 @@
 # Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # last modified by crapple 05.28.06 - commenting/cleanup/rflush/reld/m/configs
+# TODO: convert to pf-loader
 subpackage relay
+
 eval osetitem relay rsendbuf Outbound Buffer:;
 eval osetitem relay rfrombuf Inbound Buffer:;
+
 ## common relay funcs relw relm relsm reln relsn reld reldm
 ## simple relay aliases.
 alias lpaste msg $T $line(${[$0]?[$0]:1})

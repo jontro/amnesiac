@@ -1,5 +1,6 @@
 # Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
+# TODO: convert to pf-loader
 subpackage xy
 
 alias xy msg x@channels.undernet.org $*

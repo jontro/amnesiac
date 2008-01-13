@@ -83,3 +83,11 @@
 
 -cleanup TODO-BUGS even more, with more possible future goals. //zak
 -cleanup INSTALL documentation a bit more //zak
+
+1.13.08
+-add new doc MULTISERVER.txt in amn/docs //zak
+-set save cosmetics to let you know if something you saved is a module or
+ not //zak
+-add some TODO: convert to pf-loader in files that needs to be
+ converted/rewritten and or scrapped undecided at this time, but makes it
+ easier for me to GREP for it in the future.

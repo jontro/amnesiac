@@ -77,7 +77,7 @@ alias chansave {
 		@write($savemt @chans.$xx=[$getitem(chans $xx)]);
 	};
 	@close($savemt);
-	xecho $acban Mjoin channel(s) saved to $(savepath)$chansfile;
+	xecho $acban Mjoin channel(s) saved to $(savepath)$chansfile [mod];
 };
 
 alias chanload {

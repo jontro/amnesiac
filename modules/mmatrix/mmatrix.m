@@ -92,7 +92,7 @@ alias wordssave {
 		@write($savemt @_wordstype.$xx=[$getitem(_wordstype $xx)])
 	}
 	@close($savemt)
-	xecho $acban Mmatrix wordlist(s) saved to $(savepath)$wordsfile
+	xecho $acban Mmatrix wordlist(s) saved to $(savepath)$wordsfile [mod]
 }
 
 alias wordsload {

@@ -1,3 +1,4 @@
+# TODO: convert to pf-loader/cleanup uglyness.
 /*
  * ``TC'' - Tabscript Clone For EPIC
  * Copyright 1995 Jeremy Nelson
@@ -5,6 +6,7 @@
  * Originally written for Daveman's Toolbox
  * Please use and distribute this script like crazy!
  */
+
 
 #
 # (note from jfn)  The original allowed you to save up to 10 nicks to 

@@ -88,7 +88,7 @@ alias shitsave {
 		@write($savec @shitreas.$xx=[$getitem(shitreas $xx)])
 	}
 	@ close($savec)
-	xecho $acban [mod] (shitlist).. saved to ${savepath}$shitsavefile
+	xecho $acban shitlist saved to ${savepath}$shitsavefile [mod]
 }
 
 alias unshit shitdel $*

@@ -2,6 +2,7 @@
 # See the 'COPYRIGHT' file for more information.
 # Make amnesiac behave a bit more like default epic with tc and netsplit
 # loaded, just the way skullY likes it.
+# TODO: convert to pf-loader
 subpackage vanilla
 
 @ bindctl(sequence ^D set parse_command listsplit)

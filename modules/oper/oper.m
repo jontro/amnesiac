@@ -1,6 +1,8 @@
 # Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
+# TODO: convert to pf-loader
 subpackage oper
+
 eval osetitem oper ovmode Operview modes:;
 eval osetitem oper ovsize Operview win size:;
 @ bindctl(sequence ^E set parse_command _spageu)

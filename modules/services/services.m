@@ -1,6 +1,7 @@
 # Copyright (c) 2003-2007 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # nickserv/chanserv/operserv etc.. module.
+# TODO: convert to pf-loader
 subpackage services
 
 #both way aliases chanserv/nickserv.

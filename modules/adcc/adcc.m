@@ -1,8 +1,8 @@
 # Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
+# TODO: convert to pf-loader
 subpackage adcc
 @dccsavefile=word(0 $_modsinfo.adcc.savefiles)
-
 
 alias cdcc adcc
 alias xdcc adcc
@@ -60,6 +60,7 @@ alias dcc.timer {
 			}		
 		}
 }
+
 alias adcc.list {
 	if (numitems(offers.files)== 0) {
 		xecho (adcc).. no packs current on list
@@ -77,7 +78,6 @@ alias adcc.list {
 	}
 }
 
-
 alias adcc_send {
 	@dnick = sar(g/,/ /$0)
 		fe ($dnick) n1 {
@@ -86,8 +86,6 @@ alias adcc_send {
 	
 }
 		                
-
-
 alias adcc.offer {
 	@fuk=0
 		input "file to offer: " {
@@ -110,8 +108,6 @@ alias adcc.offer {
 	
 }
 	
-
-
 alias suckme {	
 	input "desc of pack: " {
 	@setitem(offers.desc $numitems(offers.desc) $*)
@@ -122,9 +118,7 @@ alias suckme {
 
 }
 
-
 ## fixsize taken from psykotyk's xdcc script
-
 alias fixsize {^local _size
 ^stack push set floating_point_math
 ^set floating_point_math on
@@ -136,7 +130,6 @@ if (_size>=1000000) {@ function_return = trunc(2 ${_size / 1048576}) ## [mb]}
 
 
 ## end 
-
 alias plist {
 	if (numitems(offers.files) == 0) {
 		xecho (adcc).. no packs being offered

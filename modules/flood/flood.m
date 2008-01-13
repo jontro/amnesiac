@@ -1,8 +1,11 @@
 # Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
+# TODO: convert to pf-loader
 subpackage flood
+
 eval osetitem protect msgflood Msgflood Sensor:;
 eval osetitem protect msgftimer Msgflood Timer:;
+
 ## vars
 @mfloodtimer=[10]
 @msgfloodsensor=[60]

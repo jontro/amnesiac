@@ -331,13 +331,13 @@ alias _usave (quiet) {
   @ close($fd);
   if (fail) {
     @ unlink($(savepath)userlist.tmp);
-    xecho -b Error while writing to $(savepath)userlist.tmp;
+    xecho $acban Error while writing to $(savepath)userlist.tmp;
   } else {
     @ ret = rename($(savepath)userlist.tmp $(savepath)userlist.conf);
     if (ret) {
-      xecho -b Error while renaming $(savepath)userlist.tmp;
+      xecho $acban Error while renaming $(savepath)userlist.tmp;
     } elsif (!quiet) {
-      xecho -b Saved $cnt entries in the userlist;
+      xecho $acban Saved $cnt entries in the userlist [mod];
       if (getset(userlist_save_auto) == [ON])
         _usave 1;
     };
@@ -415,14 +415,14 @@ alias uload {
     };
   };
   if (fail) {
-    xecho -b Parse error on userlist line $cnt;
+    xecho $acban Parse error on userlist line $cnt;
     purge userlist;
   } else {
     @ cnt = 0;
     foreach userlist i {
       @ cnt++;
     };
-    xecho -b Loaded userlist with $cnt entries;
+    xecho $acban Loaded userlist with $cnt entries;
   };
   @ close($fd);
 };

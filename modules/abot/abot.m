@@ -75,7 +75,7 @@ alias botsave {
 		@ write($savec @bot.$xx=[$getitem(bots $xx)]);
 	};
 	@ close($savec);
-	xecho $acban [mod] (abot).. saved to $(savepath)$bsavefile;
+	xecho $acban abot settings saved to $(savepath)$bsavefile [mod];
 };
 
 alias botdel {

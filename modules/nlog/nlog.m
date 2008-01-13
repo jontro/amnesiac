@@ -68,7 +68,7 @@ alias nsave {
     	@savemt = open($(savepath)$nfile W T);
        	@write($savemt @nsolog=[$nsolog]);
 	@close($savemt);
-	xecho $acban Notify module settings saved to $nfile;
+	xecho $acban Notify settings saved to $nfile [mod];
 };
 
 alias nload {

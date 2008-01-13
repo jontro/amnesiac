@@ -296,4 +296,3 @@ alias decodemore (cfile) {
 	};
 };
 #archon'96
-
