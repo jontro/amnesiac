@@ -1,7 +1,7 @@
 @_modsinfo.relaysmtp.helpcmd = 'rsmtphelp';
-@_modsinfo.urlgrab.loadcmd = 'rsmtpload';
-@_modsinfo.urlgrab.unloadcmd = 'rsmtpunload';
-@_modsinfo.urlgrab.savecmd = 'rsmtpsave';
+@_modsinfo.relaysmtp.loadcmd = 'rsmtpload';
+@_modsinfo.relaysmtp.unloadcmd = 'rsmtpunload';
+@_modsinfo.relaysmtp.savecmd = 'rsmtpsave';
 @_modsinfo.relaysmtp.description = 'Relay /msgs to/from email';
 @_modsinfo.relaysmtp.phoneStatus = 1;
 @_modsinfo.relaysmtp.emailUser = "$N";
