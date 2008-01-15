@@ -1,5 +1,0 @@
-@_modsinfo.shitlist.loadcmd =  'shitload';
-@_modsinfo.shitlist.savecmd =  'shitsave';
-@_modsinfo.shitlist.savefiles= 'a.shitlist';
-@_modsinfo.shitlist.helpcmd =  'shelp';
-@_modsinfo.shitlist.description="shitlist user";
