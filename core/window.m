@@ -163,3 +163,6 @@ fe ($jot(1 25 1)) tt {
 	@:t2= tt != 10 ? tt : 0;
 	alias $t2 ^window swap $tt;
 };
+
+## add /10
+alias 10 window swap 10;

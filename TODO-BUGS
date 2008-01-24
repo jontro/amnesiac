@@ -19,10 +19,6 @@ None
 @ not exactly a high priority however we should prolly merge in a supposidly
   working/better userlist than the one we have right now. //zak
 
-++@ add possible dcc_ports toggability, somewhat based off epic5/scripts.
-   let me or kreca know if it works/causes problems/whatnot //zak
-   (still untested for me really)
-
 @ we have too many bindings for dcc, perhaps we could set some sort of cycle
   for chat/accept/send, as i highly doubt more than one person would send
   some sort of dcc request at once in most cases, ie; use ctrl-t to accept
@@ -56,6 +52,11 @@ None
   complaint about it working or not working perhaps a vote?
 
 ## bugs fixed. / projects done.
+1.24.08 - seems to work fine, let us know if any problems.
+! add possible dcc_ports toggability, somewhat based off epic5/scripts.
+   let me or kreca know if it works/causes problems/whatnot //zak
+   (still untested for me really)
+
 1.12.08 it's been set for default_realname/user, -snapshot is more for
 	-cvs epic anyways. (were not adding backwards compat)
 ! fixup /set realname for default_realname and default_user should we

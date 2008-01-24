@@ -12,9 +12,9 @@ if (word(2 $loadinfo()) != [pf]) {
 };
 package amnesiac;
 
-if (word(0 $info(v)) != 'epic5' || V < 20050520 || info(i) < 1480) {
+if (word(0 $info(v)) != 'epic5' || V < 20070917 || info(i) < 1520) {
 	xecho -b Amnesiac has detected an old version of epic;
-	xecho -b Recommended version is epic5-0.3.4 or greater.;
+	xecho -b Recommended version is epic5-0.3.5-cvs or greater.;
 	return;
 };
 

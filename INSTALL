@@ -10,6 +10,11 @@ check the README NOTES TODO-BUGS E5-KNOWNBUGS Files if you are experiencing
 any weird problems/errors. more documents can also be found in ~/amn/docs
 check these before reporting a bug!.
 
+TEMP NOTE: amnesiac 1.5d rel 4 requires epic5 EPIC5-0.3.5 (20070917) [1520]
+or better, you can cvs epic5 or grab it from
+http://amnesiac.ircii.org/epic5/epic5-cvs.01.24.08.tgz <--filename as of
+this writing, browse the epic5 dir from time to time.
+
 install info:
 
 How to install this package:

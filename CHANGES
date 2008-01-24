@@ -91,3 +91,9 @@
 -add some TODO: convert to pf-loader in files that needs to be
  converted/rewritten and or scrapped undecided at this time, but makes it
  easier for me to GREP for it in the future.
+
+1.24.08
+-sync docs to reality/update docs //zak
+-increment version requirement  EPIC5-0.3.5-cvs (20070917) [1520] 
+ or higher commitnum [1520] being the commitnum //zak
+-make /10 work. since some get's confused between /0 and /10 //zak
