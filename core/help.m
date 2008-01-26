@@ -6,9 +6,8 @@ if (word(2 $loadinfo()) != [pf]) {
 };
 subpackage help;
 
-#Help strings below.
+## Help strings below.
 @ahelp.rn='%Wu%nsage%K:%n /rn will change nick to a random nick of 7 chars';
-@ahelp.rk='%Wu%nsage%K:%n /rk will kick a random nick out of your current channel';
 @ahelp.winhelp='%Wu%nsage%K:%n /winhelp will display help menu for windowing shortcuts.';
 @ahelp.untheme='%Wu%nsage%K:%n /untheme will make amnesiac revert back to the default theme.';
 @ahelp.unban='%Wu%nsage%K:%n /unban <nick|host> will unban nick or host from current channel';
@@ -27,7 +26,6 @@ subpackage help;
 @ahelp.mv='%Wu%nsage%K:%n /mv will mass voice everyone on current channel';
 @ahelp.more='%Wu%nsage%K:%n /more <textfile> will display text file to screen.';
 @ahelp.mdv='%Wu%nsage%K:%n /mdv will mass devoice current channel.';
-@ahelp.lsay='%Wu%nsage%K:%n /lsay <text> just try it :)';
 @ahelp.lk='%Wu%nsage%K:%n /lk will kick all non oped and voiced lusers from current channel';
 @ahelp.links='%Wu%nsage%K:%n /links will give you a server list of all the servers linked to current network';
 @ahelp.kickban='%Wu%nsage%K:%n /kickban <nick> will kick and ban nick from current channel';
@@ -72,7 +70,6 @@ subpackage help;
 @ahelp.mreop='%Wu%nsage%K:%n /mreop mass ops current ops on channel';
 @ahelp.readlog='%Wu%nsage%K:%n /readlog reads away log';
 @ahelp.wall='%Wu%nsage%K:%n /wall <msg> mass notices current ops on channel';
-@ahelp.user='%Wu%nsage%K:%n /user <-nonops> <-ops> <-sort> hostmask :scans nicks on channel';
 @ahelp.chops='%Wu%nsage%K:%n /chops scans oped nicks on channel';
 @ahelp.sv='%Wu%nsage%K:%n /sv shows current client/script version to channel';
 @ahelp.away='%Wu%nsage%K:%n /away set yourself away';
