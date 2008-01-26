@@ -99,7 +99,7 @@ alias operview {
 		^umode -$_ovmode
 	}{
 		abecho $banner toggled operview on.
-		^window new fixed on size $_ovsize name OperView level snotes,opnotes,wallops;indent on;umode +$_ovmode
+		^window new fixed on size $_ovsize name OperView level snotes,opnotes,wallops;window indent on;umode +$_ovmode
 		^set status_format [operview] %> [$servername($winserv(OperView))]
 		^window back
 	}
