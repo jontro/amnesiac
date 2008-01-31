@@ -91,6 +91,8 @@ alias cfinger {ctcp $0 finger;};
 
 ## to be annoying like xavier.
 alias blinky { if (@T)  msg $T $cparse("%F%G$*") ;};
+## for xavier with love //zak
+alias retard {echo Retard alert, pling pling pling; parsekey stop_irc; echo Retard alert, pling pling pling;};
 
 ## general user commands
 alias umode {^mode $N $*;};
@@ -124,6 +126,7 @@ alias mon {set old_math_parser on;};
 alias moff {set old_math_parser off;};
 alias ioff {set -input_prompt;};
 alias tog {toggle $*;};
+alias ircname {set default_realname $*;};
 alias realname {set default_realname $*;};
 alias username {set default_username $*;};
 alias clock24 {set clock_24hour toggle;};
