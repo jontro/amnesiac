@@ -107,3 +107,6 @@
 -sync required-version to epic5 0.3.6-release(users can remove required ver
  in amn/amn.epic, however use at your own risk on older epic5). //zak
 -add /retard for a whiner, inspired by kreca ;D //zak
+
+02.01.08
+-Fix output of /vmod (rb byron) //kreca

@@ -41,7 +41,7 @@ alias vmod {
 	fe ($sort($_modules)) aa bb cc {
 		@:outp="";
 		fe ($aa $bb $cc) cur {
-			push outp $_realpad(14 [$(aa)])$_isdefaultmod($aa)    ;
+			push outp $_realpad(14 [$(cur)])$_isdefaultmod($cur)    ;
 		};
 		//echo $outp;
 	};
