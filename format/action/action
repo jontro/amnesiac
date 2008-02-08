@@ -4,3 +4,4 @@ DESC crapple #amnesiac hi
 3 $fparse(format_timestamp_some $($_timess))* $1 $3-
 4 * $1 $3-
 5 $fparse(format_timestamp_some $($_timess))* $(hgrn)$1$(cl) $3-
+6 $fparse(format_timestamp_some $($_timess))$(c2)ð $(c1)$1 $(cl)$3-

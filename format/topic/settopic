@@ -7,3 +7,4 @@ DESC #amnesiac RTFM
 6 $fparse(format_timestamp_some $($_timess))Topic for $1: $2-
 7 $fparse(format_timestamp_some $($_timess))%K[%Wtopic%K/%n$1%K] $2-
 8 $fparse(format_timestamp_some $($_timess))$G Topic for %r[%B$1%r]%n : $2-
+9 %K\[%ntopic%K/$(c1)$1%K\]:$(wht) $2-%n

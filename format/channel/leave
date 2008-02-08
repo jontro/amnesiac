@@ -16,3 +16,4 @@ DESC crapple zak@chowned.org #amnesiac Im such an emokid
 15 $G $1 %K[%G$msar(g/@/$(hblk)@$(cl)/./$(hblk).$(cl)/$2)%K]%n has left $3 %K[%W$4-%K]%n at $Z
 16 $fparse(format_timestamp_some $($_timess))%K[%Wpart%K/%n$3%K] %W$1%K\(%n$2%K\) [%n$4-%K]%n
 17 $fparse(format_timestamp_some $($_timess))*** %y$1%n Has Left %r[%B$3%r]%n
+18 $fparse(format_timestamp_some $($_timess)) $G $(c3)part$(hblk): $(c1)$1$(hblk):$(c1)$3 $(hblk)\($(c1)$2$(hblk)\)%n

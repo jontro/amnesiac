@@ -1,4 +1,4 @@
-DESC crapple:#amnesiac hi.
+DESC criminal:#amnesiac crapple is k-r4d!@!!1!
 1 $fparse(format_timestamp_some $($_timess))%K<$pubpad(%n 0 $1 $2-)%K>%n $2-
 2 $fparse(format_timestamp_some $($_timess))%K\($pubpad(%n 0 $1 $2-)%K\)%n $2-
 3 $fparse(format_timestamp_some $($_timess))$(hmag)<$pubpad(%n 0 $1 $2-)$(hmag)>%n $2-

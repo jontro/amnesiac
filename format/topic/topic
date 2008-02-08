@@ -7,3 +7,4 @@ DESC crapple #amnesiac RTFM
 6 $fparse(format_timestamp_some $($_timess))$1 has changed the topic on channel $2 to $3-
 7 $fparse(format_timestamp_some $($_timess))%K[%Wtopic%K/%n$2%K] %W$1 %K[%n$3-%K]%n
 8 $fparse(format_timestamp_some $($_timess))** Topic On %r[%B$2%r]%n : %M$3-%n by %Y$1%n
+9 %K\[%ntopic%K/$(c1)$2%K:%K\($(c2)$1%K\)\]:$(wht) $3-%n

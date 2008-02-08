@@ -54,3 +54,4 @@ DESC crapple hi!
 53 $fparse(format_timestamp_some $($_timess))$(cl)-%W>%n%W \($(cl)$1%W\)%n $2-
 54 $fparse(format_timestamp_some $($_timess))$(cl)-%W>%n$(hblu) \($(cl)$1$(hblu)\)%n $2-
 55 $fparse(format_timestamp_some $($_timess))%Y$[9]N%n -> \%R$[9]1%n : $2-
+56 $fparse(format_timestamp_some $($_timess))$(hblk).$(c2).$(hblk)[$(wht)msg$(hblk)\($(c2)$1$(hblk)\)]$(cl) $2-

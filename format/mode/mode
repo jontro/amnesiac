@@ -9,3 +9,4 @@ DESC crapple #amnesiac -o xavier
 8 $fparse(format_timestamp_some $($_timess))%Mmode%K/%m$2 %K\[$(hwht)$3-%K\] %nby $(hwht)$1
 9 $fparse(format_timestamp_some $($_timess))%K\[%cmode%K\(%C$2%K\) %c$3 $4-%K\] %nby %C$1
 10 $fparse(format_timestamp_some $($_timess))** Mode Change %r[%C$3-%r]%n On Channel %r[%B$2%r]%n By %Y$1%n
+11 $fparse(format_timestamp_some $($_timess)) $G $(c3)mode$(hblk)\: $(c1)$1$(hblk):$(c1)$2 $(hblk)[$(c5)$3 $(hblk)\($(cl)$4-%K\)]%n
