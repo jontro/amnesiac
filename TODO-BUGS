@@ -27,19 +27,18 @@ None
 
 @ more documentation need some updating? //zak
 
-## lower priority requests.
+## lower priority requests/todo.
 @ Finish server list module, assigned to kreca
 
-@ add bans help documentation
+@ Start assigning more sane hook numerics, they're all over the place
+  which is something we pretty much inherited from oblivion. //zak
+
+@ convert modules to the PF-Loader (the ones that have yet to be done)
 
 @ add some topwin module, kreca has to start a discussion about some topwin
   script he might have permission for us to use/modify/rip ;)
 
 @ make orignick use ISON functionality.. -Rylan
-
-@ Get some variables from numeric 005 so we can finetune some displays?
-  EG, get nick length so we can have formatted publics and /who with proper
-  output? <-- i crapple vote yay. "while shielding myself from kreca"
 
 @ Add a way to match the ban/invite execption list against the current
   users in a channel. Requested by Tilt.
@@ -52,6 +51,15 @@ None
   complaint about it working or not working perhaps a vote?
 
 ## bugs fixed. / projects done.
+2.13.08 - i beleive this has been done about a year ago kreca forgot to
+	  update the file as usual. //zak
+! Get some variables from numeric 005 so we can finetune some displays?
+  EG, get nick length so we can have formatted publics and /who with proper
+  output?
+
+2.13.08 - finally got around to doing it /bhelp for info //zak
+! add bans help documentation
+
 1.24.08 - seems to work fine, let us know if any problems.
 ! add possible dcc_ports toggability, somewhat based off epic5/scripts.
    let me or kreca know if it works/causes problems/whatnot //zak

@@ -113,3 +113,16 @@
 
 02.08.08
 -Add theme baron with new formats. Submitted by criminal //kreca
+
+02.13.08
+-Remove some ppl who have been inactive for quite some time in the README
+ file and has not contributed in at least 2 years. //zak
+-add new bans help menu /bhelp //zak
+-sync TODO-BUGS to reality //zak
+-make operview window actually show the correct format when fixed/window
+ doubles is set to on this should make some ppl happy //zak
+-make ^Z now do stop_stop irc with /retard binding, for those who were using
+ ^Z in the past to switch targets/queries you may set in your .epicrc file
+ something like this /bind ^Z parse_command switchtarget //zak
+-update more copyright notices to -08 //zak
+-increment snaprel v5 //zak

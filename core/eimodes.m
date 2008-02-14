@@ -1,5 +1,6 @@
 # Copyright (c) 2003-2008 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
+# TODO: Convert to PF-loader/rewrite this uglyness
 subpackage eimodes;
 
 ## simple aliases.

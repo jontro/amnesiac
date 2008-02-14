@@ -13,7 +13,7 @@ set dcc_port_min 1024;
 set dcc_port_max 65535;
 set auto_rejoin off;
 set auto_rejoin_delay 5;
-set lastlog 1500;
+set lastlog 1000;
 set scrollback 1000;
 set num_of_whowas 2;
 set auto_whowas on;

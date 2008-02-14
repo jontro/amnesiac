@@ -7,6 +7,7 @@ if (word(2 $loadinfo()) != [pf]) {
 
 subpackage ehelp;
 
+## Main
 alias ehelp {
 //echo	-------------------------= Extended Help =----------------------------;
 
@@ -33,9 +34,11 @@ pause;
 	//echo dcchelp  <dcc help>        dcc usage/binds help menu.      [core];
 	//echo smhelp   <special modes>   exempt modes cmds help menu.    [core];
 	//echo thelp    <trickle help>    the irc swiss army knife menu.  [core];
+	//echo bhelp    <bans help>       kick/ban/bantype help menu.     [core];
 //echo	----------------------------------------------------------------------;
 };
 
+## General
 alias ghelp genhelp;
 alias genhelp {
 //echo ---------------------= General Usage Help =-------------------------;
@@ -64,6 +67,7 @@ pause;
 //echo ---------------------------------------------------------------------;
 };
 
+## Format
 alias fhelp lfhelp;
 alias lfhelp {
 //echo --------------------= Amnesiac Look/Feel Help =---------------------------;
@@ -91,6 +95,7 @@ pause;
 //echo ----------------------------------------------------------------------------;
 };
 
+## Config
 alias chelp {
 //echo ---------------------= Amnesiac Config Shortcuts =-----------------------;
 //echo cumode   /cumode <mode> will set default usermode on connect.;
@@ -110,6 +115,7 @@ alias chelp {
 //echo -------------------------------------------------------------------------;
 };
 
+## Caller ID
 alias cidhelp {
 //echo ------------------------= CID Help =-----------------------;
 //echo accept  /accept <nick> will accept msgs from specified nick;
@@ -120,6 +126,34 @@ alias cidhelp {
 //echo ------------------------------------------------------------;
 };
 
+## Bans
+alias bhelp {
+//echo ------------------------= Bans Help =-----------------------;
+//echo bki   /bki <nick> will ban/kick/ignore specified nick;
+//echo kbi   /kbi <nick> will kick/ban/ignore specified nick;
+//echo bkt   /bkt <nick> [reason] temp ban nick. /ahelp qk;
+//echo bk/kb /bk/kb <nick> [reason] will bankick or kickban nick;
+//echo unban /unban <nick|host> will unban nick or host from chan;
+//echo ub    /ub will clear bans in current chan;
+//echo sb    /sb will show bans set in current chan;
+//echo bans  /bans will show bans set in current chan;
+//echo lban  /lban will ban all hosts ip4/ip6 in current chan;
+input_char "menu paused hit the ANY key to continue ";
+pause;
+//echo ban   /ban <nick|host> will ban nick/host in current chan;
+//echo kick  /kick <nick> will kick nick from current chan;
+//echo bkh   /bkh <nick> [reason] will bankick nick with bantype host;
+//echo bkb   /bkb <nick> [reason] will bankick nick with bantype better;
+//echo bkn   /bkn <nick> [reason] will bankick nick with bantype normal;
+//echo bkd   /bkd <nick> [reason] will bankick nick with bantype domain;
+//echo iban  /iban <nick> [reason] will bankick nick with bantype ident;
+//echo bantype /bantype <Normal|Better|Host|Domain> set default bantype;
+//echo bantype info: norm:(n!*u@h.d n!*u@d.h), better:(*!*u@*.d *!*u@d.*);
+//echo                 host:(*!*@h.d *!*@d.h) domain:(*!*@*.d *!*@d.*);
+//echo ------------------------------------------------------------;
+};
+
+## Window
 alias winhelp {
 //echo	--------------------= Windowing Help =-----------------------------;
 	
@@ -130,7 +164,7 @@ alias winhelp {
 		//echo cls  <clear screen>   clears notices/dcc/publics/etc in current window.;
 		//echo wn  <window next>     window next switches to next hidden window;
 		//echo wp  <window prev>     switches to previous hidden window;
-		//echo mv  <msg window>  -hidden|split|kill <will create/kill a window bound to msgs>;
+		//echo mw  <msg window>  -hidden|split|kill <will create/kill a window bound to msgs>;
 		//echo wq  <window query>    /wq nick creates a query window with the nick;
 		//echo wka  <window kill all_hidden> attempts to kill all hidden windows.;
 		//echo wko  <window kill others> attempts to kill other windows on the screen if visible.;

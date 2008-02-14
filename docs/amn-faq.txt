@@ -95,8 +95,7 @@ A: /cig #channel or /cig for current chan.
    /tig to remove ignores.
 
 Q: How do i enable/use auto_reconnect?
-A: Auto_reconnect has been added on Tue, 29 Aug 2006 @ 21:45:33 EST
-   there are 3 different sets at the time of this writing to make the best
+A: there are 3 different sets at the time of this writing to make the best
    use of reconnect.
    AUTO_RECONNECT is ON <-- settings are on/off on means it will attempt to
    reconnect you to another server if any during timeouts/kills etc.

@@ -26,7 +26,7 @@ alias switchtarget {
 @ bindctl(sequence ^K set parse_command {@:cur = pop(invchan);if (@cur) {^join $cur};};);
 @ bindctl(sequence ^X set parse_command switchtarget);
 @ bindctl(sequence ^G set self_insert);
-@ bindctl(sequence ^Z set parse_command switchtarget);
+@ bindctl(sequence ^Z set parse_command retard);
 @ bindctl(sequence ^Wd set next_window);
 @ bindctl(sequence ^[$chr(27)[D set parse_command window previous);
 @ bindctl(sequence ^[$chr(27)[C set parse_command window next);
