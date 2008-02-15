@@ -19,11 +19,21 @@ None
 @ not exactly a high priority however we should prolly merge in a supposidly
   working/better userlist than the one we have right now. //zak
 
+@ Look into our usages of evalcat, i dunno i've not done a lot of
+benchmarking but it seems to slow down some parts of epic ie; searching
+formats and the like on some machines and uncertain as to why, perhaps
+another alternative/rewrite? //zak
+
 @ we have too many bindings for dcc, perhaps we could set some sort of cycle
   for chat/accept/send, as i highly doubt more than one person would send
   some sort of dcc request at once in most cases, ie; use ctrl-t to accept
   both chat/files and ctrl-r to reject both chat/files? something to look
   into? //zak
+
+@ cleanup oper module/rewrite portions/allow for more toggability of 
+  some things alien88 likes blocked that others may too.
+  we should discuss things among different admins/opers we know in some
+  temp irc channel //zak
 
 @ more documentation need some updating? //zak
 

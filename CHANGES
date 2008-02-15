@@ -126,3 +126,9 @@
  something like this /bind ^Z parse_command switchtarget //zak
 -update more copyright notices to -08 //zak
 -increment snaprel v5 //zak
+
+02.15.08
+-add /svadd ie; /svadd <server> <vhost> will add specified server
+w/specified host to connect with. //zak
+-sync server documentation a bit more to reality //zak
+-sync TODO-BUGS to add some requests/things //zak

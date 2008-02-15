@@ -14,6 +14,7 @@ alias disco {disconnect $*;};
 ## first crack at aliases for multiserver/connection/modifying etc..
 alias svlist server;
 alias sadd {server -add $*;};
+alias svadd {server -add $0:vhost=$1-;};
 alias sdel {server -delete $*;};
 alias snick {server -add $0:6667::$1-;};
 alias ssl {server -add $0:::::IRC-SSL;};
@@ -128,13 +129,12 @@ alias servhelp {
         if (!@) {    
 
 //echo ---------------------= Server Usage Help =-------------------------;
-//echo svlist    /svlist views currently available servers.;
-//echo sadd      /sadd <server> adds the given server to the server list;
-//echo snick     /snick <server> <nick> add the given server to the server list;
-//echo		   with specified nick;
-//echo ssl       /ssl <server> add the given server as type ssl to the server list;
+//echo svlist    /svlist views currently available servers/info.;
+//echo sadd      /sadd <server> add specified server to the server list;
+//echo svadd     /svadd <server> <vhost> add specified serv w/specified vhost;
+//echo snick     /snick <server> <nick> add specified serv/nick to the serv list;
+//echo ssl       /ssl <server> add specified server as type ssl to the server list;
 //echo snext     /snext To switch to the next server in your list;
-//echo sprev     /sprev To switch to the previous server in your list;
 //echo sprev     /sprev To switch to the previous server in your list;
 //echo wser      /wser /wser <server[:port[:password[:nick]]]> multiserver cmd;
 //echo wser      /wser To create a new window with a specified server.;

@@ -224,12 +224,12 @@ alias modunload {
 ^on ^server_notice "*locally juped channel*" #
 ^on ^server_notice "*drone flooder *dcc*" #
 ^on ^server_notice "*irc.stats.gatherer* being introduced*" #
-^on ^server_notice "*irc.stats.gatherer* split from*" #      
+^on ^server_notice "*irc.stats.gatherer* split from*" #
 ^on ^server_notice "*stats.efnet.info* being introduced*" #
-^on ^server_notice "*stats.efnet.info* split from*" #      
+^on ^server_notice "*stats.efnet.info* split from*" #
 ^on ^server_notice "*stats.blackened.com* being introduced*" #
-^on ^server_notice "*stats.blackened.com* split from*" #      
-^on ^server_notice "*Temporary K-line for*expired*" #      
+^on ^server_notice "*stats.blackened.com* split from*" #
+^on ^server_notice "*Temporary K-line for*expired*" #
 ^on ^server_notice "*I-line is full for*" #
 ^on ^server_notice "*john23*spambot*" #
 
