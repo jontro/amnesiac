@@ -247,7 +247,7 @@ alias modunload {
 }
 
 ^on ^server_notice "% % % % STATS*" {
-	aecho $fparse(format_timestamp_some $($_timess))[stats '$5'] requested by $8!$9) $10
+	aecho $fparse(format_timestamp_some $($_timess))[stats '$5'] requested by $8!$9 $10
 }
 
 ^on ^server_notice "% % % % % % % % % (O)*" {
