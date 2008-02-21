@@ -132,3 +132,7 @@
 w/specified host to connect with. //zak
 -sync server documentation a bit more to reality //zak
 -sync TODO-BUGS to add some requests/things //zak
+
+02.21.08
+-Add a hook to automatically set the correct server group to the server list
+ unless the server group name is already set by the user. //kreca

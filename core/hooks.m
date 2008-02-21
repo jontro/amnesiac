@@ -16,6 +16,18 @@ on #-exit 000 "*" {
         xecho -v -b signoff: $N \($*\);
 };
 
+# This sets the group name to
+# the value set in the NETWORK= parameter passed to us in the 005 numeric.
+# (unless the user has specified a group himself)
+# Theoretically, these should be the same across the network.
+# initially obtained from the userlist script made by kitambi
+^on #-005 450 "*"
+{
+	@:cgroup = serverctl(GET -1 GROUP);
+	if ( cgroup == "<default>")
+		@serverctl(SET -1 GROUP $serverctl(GET -1 005 NETWORK));
+};
+
 ## catch the "user is away" message and only display it once. 
 ## Thanks to fudd for this idea and inspiration from his script
 ## Note that this does not affect the output of /whois since the hook
