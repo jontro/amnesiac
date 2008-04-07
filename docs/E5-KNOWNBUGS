@@ -2,10 +2,17 @@ EPIC5 Projects, Bugs, and other Errata:
 
 KNOWN ERRATA (eg, bugs, or unresolved requests):
 ------------------------------------------------
-<none>
+* Xavier says you should be able to /ignore #chan ACTIONS
+* Configure should support --without-wserv and/or auto-grok job control.
 
 ISSUES OF INTEREST
 ------------------
+* Jm would like an /xdebug inbound type facility for dcc raw connections.
+* You should be able to /msg @logfile
+* You can't move a window to a different screen atomically (you must hide it)
+* Howl would like to shutdown/restart ruby, and trap its warnings:
+   /ruby {EPIC.echo EPIC.expr "S"}
+* Krisp wants a log that only logs what is not logged somewhere else.
 * Howl wants a temporary hold mode that expires when you reach bottom.
 * Pegasus wants a way to send italics (^I)
 * What about pastes with "rogue characters" like ³ (alt-3, ie, ^[3) ?
@@ -17,8 +24,10 @@ ISSUES OF INTEREST
 * Normalize 'proto', 'type', and 'addrfamily' values with server stuff.
 * There should be an /on send_encrypted_msg, /on send_encrypted_public, etc.
 * You should be able to move lastlog items between windows, split, merge.
+* Shattah would like something like /window omit <regex> to remove stuff.
 * IRCII supports "default" fg/bg colors, which looks intriguing.
 * Larne would like to use 256-color-support for xterm.
+  ^[[48;5;<color>m   <color> = 16 + (red * 36) + (green * 6) + blue
 * I would like to be able to /load zip files and put them into LOAD_PATH.
 * UPnP support (http://miniupnp.free.fr) would fix dcc-behind-firewall dilema.
 * If @ var = [encode] you should be able to do $($var)(args) to call it.
@@ -27,13 +36,9 @@ ISSUES OF INTEREST
 * /CTCPs over /DCCs don't match up with their queries very well. (nullie)
 * Larne wants suppression of duplicated lines (like syslog maybe?)
 * Remove all the hardcoded uses of select() so it isn't mandatory.
-* Shattah would like something like /window omit <regex> to remove stuff.
-* Kanan wants support for jabber
 * Zlonix wants a way to be notified when window geometry changes
-* Zlonix would like me to commit his /on signal patch
 * Zlonix would like per-screen toplines
 * How about base85 support for $xform() ?
-* Larne would like to have a shadow display for "ignored" stuff
 * Larne would like a ==== that appears at his last scrollback ponit.
 * Jm thinks regex support for /switch would be nice.
 
@@ -226,3 +231,55 @@ THE CHANGELOG SINCE THE LAST RELEASE:
 * Add function $check_code(), looks for unmatched parens or braces in string.
 * Add the /window command as $2 in /on window_command
 * Release EPIC5-0.3.6 (Lugubrious) (commit 1531)
+* Fix remote crash -- you really want to update right away.
+* Put 'sig.inc' in include rather than source to fix build for r/o srcdir
+* #undef strtoimax() if we are going to define our own to fix build
+* Fix printf() qualification for syserr()
+* Fix $write(@W<num> ...) so uppercase W works
+* Nix strip_control() which isn't used any more.
+* Make #define WINDOW_CREATE go away -- it's now mandatory.
+* Reorganize do_screens() in prep for future work
+* Release EPIC5-0.3.7 (Lacrimation) (commit 1534)
+* Fix way too many compile warnings I let go way too long.
+* Fixed q1cmd in command queues to address space mangling issues (rb kreca)
+* Fixed data_struct to work with dword.
+* Fixed tabkey.ce to work better with args with spaces in them.
+* Fixed tabkey.ce to not put / prefix on recursed commands (again).
+* Fixed tabkey.ce to work with 005 CHANTYPES.
+* Fixed $xdebug() to work with multiple arguments as it once did.
+* Fixed typo in elf.c
+* Minor optimisation for notify.c.
+* Added handling of the 340 numeric in numbers.c
+* Handle extraneous spaces in server MODE messages.  Austhex adds these.
+* Trigger waiting ISON's when we reconnect.
+* Added "/userhost -flush", which rms those pending send, not pending recv.
+* Extended "/ison -f" to also flush the queue of ISON's waiting to be sent.
+* Add /on signal (pegasus)
+* Fix build on interix (larne)
+* Fix compile warnings and a c99-ism
+* Fix another panic() causable by /echo. ugh.
+* $write(w-1 ....) is documented to write to the global logfile and now does.
+* Fixed a long standing notify bug where only one ISON would be sent.
+* Fixed an apparent typo in getnrolitems in data_array.
+* Fixed a bug in autoget where it wasn't actually starting a download.
+* Fixed yet another bug in commandqueues involving double quote dequoting.
+* This covers for an apparent bug in $shift() which should automatically
+  dequote quotes (unfixed).
+* Added USER1 - USER10, OPERWALL and SYSERR levels to the ignore system.
+* Roll forward portability changes from epic4-2.10 (larne)
+* This also includes term.h -> termx.h -- Make sure you rerun configure!
+* Roll in a bunch of changes from larne to make epic5 more vms-friendly
+* Rename if.h -> ifcmd.h  (larne) -- Make sure you rerun configure!
+* Run make depend to pick up name change of if.h
+* Check for <sys/param.h> in configure (larne)
+* Extern funcs are case insensitive in strict c90, fix (larne)
+* Rename options -> options.h since vms requires a dot in filename (larne)
+* Change "readonly" -> "rdonly" since "readonly" is a symbol in vms. (larne)
+* Pull in "compat.h" for gailib.c and glob.c (larne)
+* Set stdout to be explciitly line buffered at startup (larne)
+* Returning a value from void functino forbidden by strict c90. fix (larne)
+* Fix some compiler warnings that were lying around.
+* There are more changes forthcoming, these were the easy ones.
+* Phase two of larne's patch is to isolate features that require job control
+* You can #define NO_JOB_CONTROL to turn off fork/exec type stuff.
+* Soon, the configure script will auto-grok this.

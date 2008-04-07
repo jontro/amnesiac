@@ -215,24 +215,6 @@ alias modunload {
 	quote modunload $*
 }
 
-## Silence These servnotice per default for Alien88
-## We should however make this toggable as im certain not all opers/admins
-## prefer silencing this kind of behavior.
-^on ^server_notice "*TRACE requested*" #
-^on ^server_notice "*Too many clients*" #
-^on ^server_notice "*farcans*nitedog*never*leaves*" #
-^on ^server_notice "*locally juped channel*" #
-^on ^server_notice "*drone flooder *dcc*" #
-^on ^server_notice "*irc.stats.gatherer* being introduced*" #
-^on ^server_notice "*irc.stats.gatherer* split from*" #
-^on ^server_notice "*stats.efnet.info* being introduced*" #
-^on ^server_notice "*stats.efnet.info* split from*" #
-^on ^server_notice "*stats.blackened.com* being introduced*" #
-^on ^server_notice "*stats.blackened.com* split from*" #
-^on ^server_notice "*Temporary K-line for*expired*" #
-^on ^server_notice "*I-line is full for*" #
-^on ^server_notice "*john23*spambot*" #
-
 ## oper servnotice parses/hooks
 ^on ^server_notice "% % % % % % % % % /whois*" {
 	aecho $fparse(format_timestamp_some $($_timess))[$9] on you requested by $4!$5)

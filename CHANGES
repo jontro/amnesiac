@@ -1,3 +1,4 @@
+NOTE: ChangeLog is done from OLD-NEW AKA OLD Stuff on TOP Newer down below
 05.28.07
 -Fix broken /theme //kreca
 -Bind alt-[key-left] and alt-[key-right] to window prev and window next
@@ -136,3 +137,10 @@ w/specified host to connect with. //zak
 02.21.08
 -Add a hook to automatically set the correct server group to the server list
  unless the server group name is already set by the user. //kreca
+
+04.07.08
+-remove various servnotice suppression in operview, we will come up with
+ something different in the near future to toggle what one may which
+ suppress in the mean time add the stuff to your ~/.epicrc //zak
+-set version to epic5 0.3.7 release no one should be using .6 anyways //zak
+-sync epic5 cvs docs to reality //zak
