@@ -87,6 +87,7 @@ load -pf $(loadpath)core/config.m;
 
 ## load savefiles.
 @mkdir($(savepath));
+@chmod($(savepath) 700);
 
 ## Load all savefiles
 fe ($savefiles) ff {
