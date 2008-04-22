@@ -144,3 +144,6 @@ w/specified host to connect with. //zak
  suppress in the mean time add the stuff to your ~/.epicrc //zak
 -set version to epic5 0.3.7 release no one should be using .6 anyways //zak
 -sync epic5 cvs docs to reality //zak
+
+04.22.08
+-Fix /awaymsg / /config away c so it sets the reason. rb tjh. //kreca

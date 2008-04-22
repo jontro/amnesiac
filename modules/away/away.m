@@ -106,7 +106,7 @@ alias config.awaymsg (cmd, reason){
 	if ( cmd == '-r' ) {
 		return $awayr;
 	} else if (cmd == '-s') {
-		if (# >1) {
+		if (@reason) {
 			@ awayr = reason;
 		};
 		xecho -v $acban away reason set to "$awayr";
