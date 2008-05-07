@@ -60,7 +60,7 @@ on -idle * {
 
 on #-connect 1 * {
 	if (awaystat) {
-		//away $awaymsg;
+		//away away: \($(awaymsg)\) $fparse(format_away);
 	};
 };
 
@@ -69,17 +69,14 @@ alias away (msg){
 	@awaystat=1;
 	@awaymsg= @msg > 0 ? msg : awayr;
 	//away away: \($(awaymsg)\) $fparse(format_away);
-	@awaytime=time();
 };
 
 alias back {
 	if ([$A]) {
 		@awayl='off';
-		@awaystat=0;
-		@backtime=time();
-		if (awaytime > 0) {
-			@timediff=tdiff2(${backtime - awaytime});
+		if ( awaystat == 1 ) {
 			//away;
+			@awaystat=0;
 			if (fexist($(savepath)$awaysavefile)!=-1) {
 				xecho -v $acban type /readlog to view log.;
 			};

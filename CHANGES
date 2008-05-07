@@ -147,3 +147,7 @@ w/specified host to connect with. //zak
 
 04.22.08
 -Fix /awaymsg / /config away c so it sets the reason. rb tjh. //kreca
+
+05.07.08
+-Fix bug in away on connect, also get rid of some unused variables. 
+ reported by Byron. //kreca
