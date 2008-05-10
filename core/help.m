@@ -25,7 +25,6 @@ subpackage help;
 @ahelp.mw='%Wu%nsage%K:%n /mw -hidden|split|kill <will create/kill a window bound to msgs>';
 @ahelp.mv='%Wu%nsage%K:%n /mv will mass voice everyone on current channel';
 @ahelp.more='%Wu%nsage%K:%n /more <textfile> will display text file to screen.';
-@ahelp.mdv='%Wu%nsage%K:%n /mdv will mass devoice current channel.';
 @ahelp.lk='%Wu%nsage%K:%n /lk will kick all non oped and voiced lusers from current channel';
 @ahelp.links='%Wu%nsage%K:%n /links will give you a server list of all the servers linked to current network';
 @ahelp.kickban='%Wu%nsage%K:%n /kickban <nick> will kick and ban nick from current channel';

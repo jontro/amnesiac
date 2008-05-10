@@ -16,7 +16,19 @@
 #set LOAD_PATH ~/.epic:~/.irc:/usr/local/share/epic5/script:.
 set DEFAULT_REALNAME seymour butts
 set NO_FAIL_DISCONNECT ON
-# Load amn on startup.
+set DCC_PORT_MIN 2900
+set DCC_PORT_MAX 17000
+## Load amn on startup.
 load ~/amn/amn.epic
-# make epic dump core on crash
+## make epic dump core on crash
 xdebug +crash
+#xdebug unknown
+## bind old targeted ^Z switchtarget
+bind ^Z parse_command switchtarget
+#
+## auto rejoin for some other net(mjoin not multiserver compatable)
+#alias join2 wjn 16 #chan1; wjn 17 #chan2; wjn 17 #chan3;
+#
+## sample tail -f /var/log/messages output set at window 1
+alias syslog /exec -name tail1 tail -f /var/log/messages \
+	;/exec -line {xecho -window 1 $*} %tail1

@@ -63,6 +63,9 @@ alias aretry {
 	config.auto_reconnect_retries -s $*;
 };
 
+alias arjoin {
+	config.auto_rejoin_connect -s $*;
+};
 
 alias _reconn.svkey (ref, void) {
   ^local gr;

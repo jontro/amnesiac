@@ -151,3 +151,11 @@ w/specified host to connect with. //zak
 05.07.08
 -Fix bug in away on connect, also get rid of some unused variables. 
  reported by Byron. //kreca
+
+05.10.08
+-sync documents to reflect reality //byron
+-rename minor aliases zak@ ok.  //byron
+-minor cleanups no real functional changes /arjoin (rejoin on reconnect
+ to server alias) //byron
+-increment epic5 version requirement //byron
+-slight changes to default settings zak@ ok //byron
