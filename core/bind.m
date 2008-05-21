@@ -32,7 +32,7 @@ alias switchtarget {
 @ bindctl(sequence ^[$chr(27)[C set parse_command window next);
 
 ## CID stuff.
-^bind ^[y parse_command accept $pop(cidreq);
+^bind ^[y parse_command {accept $pop(cidreq);};
 
 ## home/end on some terms.
 @ bindctl(sequence ^[[1~ set scroll_start);

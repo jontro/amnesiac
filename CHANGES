@@ -159,3 +159,6 @@ w/specified host to connect with. //zak
  to server alias) //byron
 -increment epic5 version requirement //byron
 -slight changes to default settings zak@ ok //byron
+
+05.21.08
+-Fix bug in alt-y to accept cid request. rb C-5 //kreca
