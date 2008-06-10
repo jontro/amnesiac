@@ -162,3 +162,17 @@ w/specified host to connect with. //zak
 
 05.21.08
 -Fix bug in alt-y to accept cid request. rb C-5 //kreca
+
+06.10.08
+-release as rc1 since new epic breaks old stable and the current
+version is stable anyways has usually always been, and lots of bugfixes
+and features, however this does not mean an official stable will be released
+soon, but hopefully it will be. most people use snapshot anyways. //zak
+-merge in pf loader for modules/oper written by byron i have tested portions
+however more testing is needed and would be appreciated let us know of any
+bugs. //zak
+-purge out some credits/info from people who have not contributed in >2/yrs+
+mostly noticeable changes anyways. //zak feel feel to send flames to me
+-sync epic5 docs //zak
+-remove misc useless aliases //zak
+-increment /1 /2 /3 etc.. up to 30 //zak

@@ -33,7 +33,6 @@ subpackage help;
 @ahelp.ik='%Wu%nsage%K:%n /ik <nick> <reason> will set mode +i and kick nick from current channel. Removes +i after 10 secs.';
 @ahelp.inv='%Wu%nsage%K:%n /inv <nick> will invite nick to current channel.';
 @ahelp.iban='%Wu%nsage%K:%n /iban <nick> will ban nick by ident from current channel';
-@ahelp.fctcp='%Wu%nsage%K:%n /fctcp nick/channel <arguements> will send a fake ctcp to specifed nick or channel.';
 @ahelp.devoice='%Wu%nsage%K:%n /devoice <nick1 nick2 nick3> devoices nicks from current channel.';
 @ahelp.cops='%Wu%nsage%K:%n /cops to list irc operators on current channel.';
 @ahelp.cig='%Wu%nsage%K:%n /cig <channel> to ignore public from current or specified channel';

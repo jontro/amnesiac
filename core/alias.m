@@ -121,7 +121,6 @@ alias arejoin {set auto_rejoin toggle;};
 alias aww {set auto_whowas toggle;};
 alias debug {set debug $*;};
 alias lls {set lastlog $*;};
-alias sbl {set scrollback $*;};
 alias mon {set old_math_parser on;};
 alias moff {set old_math_parser off;};
 alias ioff {set -input_prompt;};
@@ -177,14 +176,6 @@ alias evalcat {
 			eval //echo $read($ansifile);
 		};
 		@close($ansifile);
-	};
-};
-
-alias fctcp {
-	if (@) {
-		notice $0 $chr(1)$1-$chr(1);
-	}{
-		xecho -v $acban Usage: /fctcp nick/channel <arguements>;
 	};
 };
 
