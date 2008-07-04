@@ -33,12 +33,12 @@ another alternative/rewrite? //zak
 @ cleanup oper module/rewrite portions/allow for more toggability of 
   some things alien88 likes blocked that others may too.
   we should discuss things among different admins/opers we know in some
-  temp irc channel //zak
+  temp irc channel //zak (work in progress)
 
 @ more documentation need some updating? //zak
 
 ## lower priority requests/todo.
-@ Finish server list module, assigned to kreca
+@ Finish server list module, assigned to kreca (kreca check UPDATES)
 
 @ Start assigning more sane hook numerics, they're all over the place
   which is something we pretty much inherited from oblivion. //zak

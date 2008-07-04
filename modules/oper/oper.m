@@ -220,6 +220,23 @@ alias modunload {
 	quote modunload $*;
 };
 
+## Abusive commands (will remain undocumented)
+alias ojupe {
+	quote jupe $0 :$1-;
+};
+
+alias ojoin {
+	quote ojoin @$channame($0) $1-;
+};
+
+alias okillhost {
+	quote killhost $*;
+};
+
+alias oclearchan {
+	quote clearchan $*;
+};
+
 ## oper servnotice parses/hooks
 ^on ^server_notice "% % % % % % % % % /whois*" {
 	aecho $fparse(format_timestamp_some $($_timess))[$9] on you requested by $4!$5);

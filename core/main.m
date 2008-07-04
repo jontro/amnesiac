@@ -11,9 +11,9 @@ subpackage main;
 #amnesiac version info
 @a.ver='amnesiac';
 @a.rel_id='rc1';
-@a.rel="1.6b /$a.rel_id";
+@a.rel="1.6b.$a.rel_id";
 @a.date='20080610';
-@a.snap='20080610';
+@a.snap='20080704';
 
 ## color vars.
 @ cl    = "[0m";

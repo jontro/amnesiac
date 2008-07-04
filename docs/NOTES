@@ -17,6 +17,7 @@
  ie; 1024x768 or 15" or less monitors, it can be grabbed from 
  http://amnesiac.ircii.org/misc/
  there are also some other fonts in there as well which may or may not work.
+ Note: artwiz-font types 'lime, smoothansi fonts works well'
 
 ## terminfo/termcap info.
 -terminfo/termcap issues on FreeBSD not sure about DragonFly... possible fix
