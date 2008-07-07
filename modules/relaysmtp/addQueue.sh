@@ -6,6 +6,7 @@ MESSAGE=''
 INBODY=0
 while read LINE; do
 	if echo $LINE | grep -q '^To: '; then
+		PASSWORD=$(echo $LINE | cut -f 1 -d @ | cut -f 2 -d -)
 		DESTNICK=$(echo $LINE | cut -f 1 -d @ | cut -f 3 -d -)
 	elif [ "$LINE" = "" ]; then
 		INBODY=1
@@ -14,4 +15,4 @@ while read LINE; do
 	fi
 done
 
-echo "$DESTNICK $MESSAGE" >> $QUEUE
+echo "$PASSWORD $DESTNICK $MESSAGE" >> $QUEUE

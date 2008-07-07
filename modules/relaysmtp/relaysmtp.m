@@ -37,7 +37,7 @@ alias config.rsmtpstatus {
 			(toggle) {
 				if (_modsinfo.relaysmtp.phoneStatus==0) {
 					@_modsinfo.relaysmtp.phoneStatus = 1;
-				}{
+				} {
 					@_modsinfo.relaysmtp.phoneStatus = 0;
 				};
 			};
@@ -114,24 +114,29 @@ alias config.rsmtpsendmail {
 
 ## Aliases refered to by the config
 alias rsmtphelp {
-	xecho -b Call 999!;
+	more $(loadpath)modules/relaysmtp/README;
 };
 
 alias rsmtpload {
-	xecho -b Not implemented (rsmtpload);
-};
-
-alias rsmtpunload {
-	xecho -b Not implemented (rsmtpunload);
+	^load $(savepath)$_modsinfo.relaysmtp.savefile;
 };
 
 alias rsmtpsave {
-	xecho -b Not implemented (rsmtpsave);
+	@rename($(savepath)$_modsinfo.relaysmtp.savefile $(savepath)$(_modsinfo.relaysmtp.savefile)~);
+	@fd = open($(savepath)$_modsinfo.relaysmtp.savefile W);
+	@write($fd @_modsinfo.relaysmtp.phoneStatus = $_modsinfo.relaysmtp.phoneStatus);
+	@write($fd @_modsinfo.relaysmtp.emailUser = $_modsinfo.relaysmtp.emailUser);
+	@write($fd @_modsinfo.relaysmtp.emailPass = $_modsinfo.relaysmtp.emailPass);
+	@write($fd @_modsinfo.relaysmtp.emailDomain = $_modsinfo.relaysmtp.emailDomain);
+	@write($fd @_modsinfo.relaysmtp.emailSep = $_modsinfo.relaysmtp.emailSep);
+	@write($fd @_modsinfo.relaysmtp.destAddress = $_modsinfo.relaysmtp.destAddress);
+	@write($fd @_modsinfo.relaysmtp.sendmail = $_modsinfo.relaysmtp.sendmail);
+	@write($fd @_modsinfo.relaysmtp.cmdQueue = $_modsinfo.relaysmtp.cmdQueue);
+	@close($fd);
+	xecho -b RelaySMTP settings saved to $(savepath)$_modsinfo.relaysmtp.savefile
 };
 
 ## Internal aliases
-
-# Send mail to the phone
 alias _sendmail (ircDest, msg) {
 	local emailAddress ${_modsinfo.relaysmtp.emailUser}${_modsinfo.relaysmtp.emailSep}${_modsinfo.relaysmtp.emailPass}${_modsinfo.relaysmtp.emailSep}${ircDest}@${_modsinfo.relaysmtp.emailDomain}
 	fe ($exec($_modsinfo.relaysmtp.sendmail -f $emailAddress $_modsinfo.relaysmtp.destAddress)) in out err {break};
@@ -143,34 +148,28 @@ alias _sendmail (ircDest, msg) {
 	@write($in, $msg);
 	@close($in);
 	@close($out);
-	# FIXME: Do we need error checking here?
 };
 
 # The alias that processes the queue
 alias _smtpQueueProcess (void) {
 	if (fexist($_modsinfo.relaysmtp.cmdQueue) == 1) {
-		exec mv $_modsinfo.relaysmtp.cmdQueue ${_modsinfo.relaysmtp.cmdQueue}.work;
-		# FIXME: Properly check for the exec's return
-		local x 5;
-		while (x > 0) {
-			if (!fexist($_modsinfo.relaysmtp.cmdQueue)) {
-				break;
-			}
-			sleep 1;
-			@x--;
-		};
+		@rename($_modsinfo.relaysmtp.cmdQueue ${_modsinfo.relaysmtp.cmdQueue}.work);
 		@smtpQueue = open("${_modsinfo.relaysmtp.cmdQueue}.work" R);
-		# FIXME: Doesn't epic have a function for this?
-		exec rm ${_modsinfo.relaysmtp.cmdQueue}.work;
+		@unlink(${_modsinfo.relaysmtp.cmdQueue}.work);
 		while (1) {
 			if (eof($smtpQueue)) {
 				break;
-			}
+			};
 			@line = read($smtpQueue)
 			if (strip(" " $line)!=[]) {
-				xecho -b relaysmtp: /msg $line;
-				msg $line;
-			}
+				@pass = word(1 $line);
+				@nick = word(2 $line);
+				@msg = afterw($nick $line);
+				if (pass==_modsinfo.relaysmtp.emailPass) {
+					xecho -b relaysmtp: /msg $nick $msg;
+					msg $line;
+				};
+			};
 		};
 		@close($smtpQueue);
 	}
@@ -192,13 +191,11 @@ alias _smtpQueueProcess (void) {
 	};
 };
 
-## Configuration Aliases
-
 # The alias that lets the user turn smtp on and off
 alias relaysmtp (status) {
 	if ([$status]==[]) {
 		xecho -b relaysmtp: Current status is $_modsinfo.relaysmtp.statusType[$_modsinfo.relaysmtp.phoneStatus];
-	}{
+	} {
 		config.rsmtpstatus -s $status;
 	};
 };

@@ -186,3 +186,5 @@ mostly noticeable changes anyways. //zak feel feel to send flames to me
 07.06.08
 -make sure ^P always turns off paste mode when in paste mode //skullY
 -add paste alias to vanilla.m. does anyone actually use relay's /paste? //skullY
+-finish the relaysmtp implementation. it should actually be fully usable
+and documented now. //skullY bug me if it breaks
