@@ -182,3 +182,7 @@ mostly noticeable changes anyways. //zak feel feel to send flames to me
 -some new undocumented oper aliases added //zak
 -sync epic5 docs //zak
 -slight documentation update //zak
+
+07.06.08
+-make sure ^P always turns off paste mode when in paste mode //skullY
+-add paste alias to vanilla.m. does anyone actually use relay's /paste? //skullY

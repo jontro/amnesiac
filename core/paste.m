@@ -11,6 +11,8 @@ bind ^P parse_command { _pastetog; };
 alias _pasteon {
 	stack push bind ^I;
 	^bind ^I self_insert;
+	stack push bind ^P;
+	^bind ^P parse_command { _pasteoff; };
 
 	stack push on input;
 	^on input -*;
@@ -30,6 +32,7 @@ alias _pasteon {
 alias _pasteoff {
 	^on input -*;
 	stack pop on input;
+	stack pop bind ^P;
 	stack pop bind ^I;
 	^timer -delete PASTEOFF;
 	xecho -s $acban PASTE mode OFF;
