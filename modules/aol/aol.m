@@ -224,7 +224,11 @@ subpackage aol
 @ setitem(aol 217 EYEARSEE IS DA SHYTT D00DZNUT!)
 @ setitem(aol 218 KEWLI0, EYEV BIN WAITNIG FER J00, WHERE ARE DOZE KIDDIESEXGIFOGRAFZ DAT J00 SAID J00D GIB MEE???/?)
 
-alias aol {msg ${# ? [$*] : T} $randaol()}
+alias aol (tgt default "$T",void) {
+  if (@tgt) {
+    msg $tgt $randaol()
+  }
+}
 alias randaol {@ function_return = getitem(aol $rand($numitems(aol)))}
 
 eval xecho $fparse(format_usage aol [<nick>|<#channel>])
