@@ -3,7 +3,7 @@
 ## constructor
 alias format.loadscan (number,void)
 {
-	if (fexist($(loadpath)format/scan/scan.$number)) {
+	if (fexist($(loadpath)format/scan/scan.$number) != -1) {
 		load ${loadpath}format/scan/scan.$number;
 		@theme.format.scan = number;
 		return 1;
