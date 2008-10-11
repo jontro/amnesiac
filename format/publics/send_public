@@ -31,3 +31,4 @@ DESC criminal:#amnesiac crapple is k-r4d!@!!1!
 30 $fparse(format_timestamp_some $($_timess))$(mag)\($spubpad(%n 0 $1)$(mag)\)%n $2-
 31 $fparse(format_timestamp_some $($_timess))$spubpad(%Y 9 $1)%n: $2-
 32 $_format.getop(" " $1)%K\(%W$_format.npad(9 $1)%K\)%w $2-
+33 $fparse(format_timestamp_some $($_timess))$spubpad(%n 0 $1)> $2-

@@ -23,7 +23,7 @@ DESC crapple hi
 22 $fparse(format_timestamp_some $($_timess))%K[$(c3)$1%K!%ndcc%K]%n $2-
 23 $fparse(format_timestamp_some $($_timess))$(c1)[%n$1$(c1)!%ndcc$(c1)]%n $2-
 24 $fparse(format_timestamp_some $($_timess))$(c3)[%n$1$(c3)!%ndcc$(c3)]%n $2-
-25 $fparse(format_timestamp_some $($_timess))=$1= $2-
+25 $fparse(format_timestamp_some $($_timess))=$1> $2-
 26 =$1= $2-
 27 $fparse(format_timestamp_some $($_timess))$zt$(hblk)[$(grn)$1$(hblk)\($(hgrn)dcc$(hblk)\)]$(cl) $2-
 28 $fparse(format_timestamp_some $($_timess))\<= (%Rdcc%n)%r$1%n : $2-

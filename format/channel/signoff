@@ -19,3 +19,4 @@ DESC crapple #amnesiac bye!
 18 $fparse(format_timestamp_some $($_timess))$zt%K[%Wquit%K/%n$1%K] %W$2 %K[%n$3-%n%K]
 19 $fparse(format_timestamp_some $($_timess))*** %y$2%n %r[%B$1%r]%n Quit Irc Because %g\($3-\)%n
 20 $fparse(format_timestamp_some $($_timess)) $G $(c3)signoff$(hblk): $(c1)$2$(hblk):$(c1)$1 $(hblk)\($(cl)$3-$(hblk)\)
+21 $fparse(format_timestamp_some $($_timess))%c.%b.%n%We%nmoquit%G.%n$1%K:%n$2> \($3-\)

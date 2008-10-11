@@ -20,3 +20,4 @@ DESC
 19 [$strftime(%x)] $strftime($time()%X)%c|%n
 20 %K[%n$left(2 $strftime(%a))$Z%K]%n 
 21 $left(2 $strftime(%a))$Z 
+22 $left(2 $strftime(%a))%K:%n$Z%c|%n
