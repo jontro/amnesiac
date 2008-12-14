@@ -6,10 +6,13 @@ KNOWN ERRATA (eg, bugs, or unresolved requests):
 
 ISSUES OF INTEREST
 ------------------
+* Document the wikihelp for lastlog with stuff like -context.
+* Re-implement /set cmdchars
 * You should be able to /msg @logfile
 * You should be able to move lastlog items between windows, split, merge.
 * Shattah would like something like /window omit <regex> to remove stuff.
 * Rewrite the input prompt to use a linked list instead of a C string.
+* There should be a SWITCH_TARGET keybinding
 * I would like to be able to /load zip files and put them into LOAD_PATH.
 * Normalize 'proto', 'type', and 'addrfamily' values with server stuff.
 * Undernet's CPRIVMSG and CNOTICE allow chanops to msg members w/o penalty
@@ -24,7 +27,7 @@ ISSUES OF INTEREST
 * IRCII supports "default" fg/bg colors, which looks intriguing.
 * Larne would like to use 256-color-support for xterm.
   ^[[48;5;<color>m   <color> = 16 + (red * 36) + (green * 6) + blue
-* Larne would like a ==== that appears at his last scrollback ponit.
+* Larne would like a ==== indicator that appears at his last scrollback point.
 * Larne wants suppression of duplicated lines (like syslog maybe?)
 * Remove all the hardcoded uses of select() so it isn't mandatory.
 * Zlonix wants a way to be notified when window geometry changes
@@ -38,6 +41,16 @@ ISSUES OF INTEREST
 * If @ var = [encode] you should be able to do $($var)(args) to call it.
 * Krisp wants a log that only logs what is not logged somewhere else.
 * UPnP support (http://miniupnp.free.fr) would fix dcc-behind-firewall dilema.
+* <twincest> hop: i would like a function that erases the last 10 lines of the
+  +display and replaces them with the output of /lastlog 10
+  <twincest> (obviously, for any number, not just 10 ;-)
+  <twincest> since i use lastlog_rewrite to timestamp the log, that would allow
+  +me to insert timestamps without duplicating text
+  <twincest> also, i would like a way to temporarily disable window updates
+  <twincest> so i can do /window upate off; /lastlog; /window update on
+  <twincest> and it outputs the lastlog without me having to wait for the entire
+  +thing to be drawn
+  <twincest> it would just appear in the scrollback
 
 [See http://www.epicsol.org/PROJECTS for things to come in the future]
 [See http://www.epicsol.org/CHANGELOG5 for things that changed in the past]
@@ -314,3 +327,29 @@ THE CHANGELOG SINCE THE LAST RELEASE:
 * Add some preliminary code for sending a /msg to a logfile.
 * Make scrollback_start/end use "scroll up/down 999,999 lines"
 * This is for future consolidation of the scrollback code.
+* Make /set input_indicator_right functional now (fusion)
+* Add stub code for a scrollback indicator in the future (rb twincest)
+* Add stub code for a ucs32 input line in the future.
+* Reformat all of the /set creation code in vars.c
+* Fix problem with ruby startup code running over and over again (howl)
+* Add script topicbar
+* Fix toplines so they don't sometimes end one column short
+* Add function $from(<count> <string>). Returns string from count bytes.
+* Add some support in configure for sun's compiler which uses -mt for threads
+* Make the status bar redraw after /window discon (nb zlonix)
+* New /SET, /SET DCC_CONNECT_TIMEOUT (see UPDATES)
+* Add /window scroll_lines, which overrules /set scroll_lines (see updates)
+* Don't include <termcap.h> if the system has <term.h>
+* And uh, <term.h> sure does have a lot of namespace pollution.
+* Change all the symbols in epic which conflict with <term.h>
+* This finally fixes intermixed termcap-vs-terminfo support. HUZZAH!
+* Add a unique refnum to every scrollback item, for the indicator someday.
+* Call function_cparse() directly for protected implied hooks to avoid { issues
+* Fix --with-warns compiler warnings and stuff.
+* The next_expr() functions can return NULL and must be handled properly
+* Remove $from() as it's the same as $rest() (approved by howl)
+* EPIC5-0.9.0 was released here (Hyperpyrexia) (commit 1572)
+* When reconnecting, /set new_server_lastlog_level should reclaim, not steal
+* Actually try to use embedded perl in configure before allowing its use.
+* Have configure check whether perl/tcl/ruby actually work the way we use them
+* This should prevent compile errors if the apis change in the future.

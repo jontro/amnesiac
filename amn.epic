@@ -12,9 +12,9 @@ if (word(2 $loadinfo()) != [pf]) {
 };
 package amnesiac;
 
-if (word(0 $info(v)) != 'epic5' || V < 20080216 || info(i) < 1530) {
+if (word(0 $info(v)) != 'epic5' || V < 20080626 || info(i) < 1560) {
 	xecho -b Amnesiac has detected an old version of epic;
-	xecho -b Recommended version is epic5-0.3.7;
+	xecho -b Recommended version is epic5-0.9.1;
 	return;
 };
 
@@ -45,7 +45,7 @@ for array in ($getarrays()) {
 @loadpath="$before(-1 / $word(1 $loadinfo()))/";
 
 ## supported modules
-@_modules='ncomp flood abot protect aol query away dict mjoin netsplit adcc oper relay relaysmtp tab tc userlist mmatrix vanilla xy nlog services urlgrab serverlist';
+@_modules='ncomp flood abot protect aol query away dict mjoin netsplit adcc oper relay relaysmtp tab tc userlist mmatrix vanilla xy nlog services urlgrab serverlist utf8';
 @_defaultmods='away dict netsplit relay tab';
 
 #progress bar

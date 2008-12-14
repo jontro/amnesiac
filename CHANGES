@@ -195,3 +195,19 @@ and documented now. //skullY bug me if it breaks
 -add a serverchan() alias that gets the channel properly, $C can break //skullY
 -change all instances of $C and similar uses to $serverchan() //skullY
 -remove some unneccesary evals //skullY
+
+12.14.08
+-sync version
+-sync docs
+-increment epic5 version requirement
+-increment amnesiac version to 2.0 rc1 (our next release will be the 2.0
+ series to be for the first official release of epic5-stable(no plans on
+ when the next release will be, but hopefully within the next two months
+ provided we get a lot of testing done)
+-added utf8, ask mongoose@errnet for info on how it works(irc.ircii.org)
+ will probably document it more whenever i actually test it however he says
+ it works its ugly i dont like it nor does kreca@, but sadly a lot of our
+ userbase wants some sort of utf8 'support' NOTE: only for
+ msgs,publics,notice, and some other hooks not everything will translate to
+ utf8 look at amn/modules/utf8 for more information /utf8 to toggle on/off
+ after one /addmod utf8 //zak

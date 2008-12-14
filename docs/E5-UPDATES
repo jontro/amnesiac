@@ -1,4 +1,65 @@
-EPIC5-0.3.10
+EPIC5-0.9.1
+
+*** News 12/12/2008 -- Configure will check for perl/ruby/tcl usability
+	Up until now, configure would include perl/ruby/tcl as long as it
+	existed and told us where its stuff was at.  That's bad if you
+	don't install the dev packages, because linking against the 
+	langauage library won't work if it's not there.  Configure will now
+	try a test-compile to use the language embedding to see if it works
+	and supports the api we expect.  Failures will cause that language
+	to be turned off.  Be sure to re-run configure!
+
+*** News 12/10/2008 -- New function, $chanlimit(#chan #chan #chan)
+	The $chanlimit() command works just like $chanmode(), but it
+	returns the +l argument -- the channel membership limit.
+	This is by special request of fusion.
+
+*** News 12/10/2008 -- Minor change to /SET NEW_SERVER_LASTLOG_LEVEL
+	Previously, each time you connected to a server (received a 001 reply)
+	the client would unconditionally assign all of the levels in 
+	/set new_server_lastlog_level to the server's current window.
+	This is rather annoying if you got disconnected from the server 
+	because the default value is ALL,-DCC and that would clobber all of
+	your window levels. 
+
+	Having this brought to my attention, this has been changed to be 
+	more reasonable.  These will now reclaim any unused levels, rather
+	than unconditionally stealing them from other windows.  Thus, what
+	/set new_server_lastlog_level ALL,-DCC means is, "each time I connect
+	to a server, please put any levels that aren't being used by any 
+	window connected to this server in the current window".   I apologize
+	for the previous behavior which was stupid and shouldn't have survived
+	as long as it did.
+
+*** News 12/10/2008 -- Minor change to /SET OLD_SERVER_LASTLOG_LEVEL
+	The same change applies when you /window server a window to a server
+	that is already connected -- it has its window level changed to
+	/set old_server_lastlog_level, but it will now NOT steal the level
+	from any other window that already claims it.
+
+EPIC5-0.9.0 (EPIC5-0.3.10)
+
+*** News 11/24/2008 -- New /window operation, /WINDOW SCROLL_LINES
+	The /WINDOW SCROLL_LINES operation overrules /SET SCROLL_LINES for
+	one particular window.  The value may be -1 (which is the default, 
+	and means use /SET SCROLL_LINES) or a positive number.
+
+*** News 11/01/2008 -- New /SET, /SET DCC_CONNECT_TIMEOUT
+	This set will control how long a nonblocking connect for a /dcc get
+	or /dcc chat can go before the client decides to abandon it.  The 
+	value is in seconds, and 0 turns this off (connects will not time out)
+	The default value is 30 seconds.  This feature uses system timers,
+	and you shouldn't change the value of this /set while a connect is 
+	pending or you'll confuse things and your connects probably won't
+	time out properly.
+
+*** News 09/24/2008 -- New script, 'topicbar'
+	The idea with this script is to use topline 1 of any window
+	with a channel to display the topic of the given channel.
+
+*** News 08/25/2008 -- /SET INPUT_INDICATOR_RIGHT now functional
+	It was documented below, but the code for it wasn't finished until
+	today.  So now it will start appearing on your input line.
 
 *** News 07/01/2008 -- Add servers from file -- $serverctl(READ_FILE filename)
 	You may now insert servers into the server list from a file using
