@@ -21,7 +21,7 @@ alias wi {whois $*;};
 alias w {whois $*;};
 alias who {//who ${ @ ? (*) : T};};
 alias links {quote links $*;};
-alias wii {if ( ! @ ) {whois $N $N} {whois $0 $0;}};
+alias wii {if ( ! @ ) {whois $servernick() $servernick()} {whois $0 $0;}};
 alias smsg {quote server :$*;};
 
 ## cid(+g)
@@ -95,7 +95,7 @@ alias blinky { if (@T)  msg $T $cparse("%F%G$*") ;};
 alias retard {echo Retard alert, pling pling pling; parsekey stop_irc; echo Retard alert, pling pling pling;};
 
 ## general user commands
-alias umode {^mode $N $*;};
+alias umode {^mode $servernick() $*;};
 alias m {msg $*;};
 alias d {describe $*;};
 alias desc {describe $*;};

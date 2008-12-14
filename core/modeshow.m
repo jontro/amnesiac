@@ -104,14 +104,14 @@ on ^public_other * (nick,chan,text) {
 
 on ^send_public * (chan, text) {
 	if ( iscurchan($chan)) {
-		//echo $fparse(format_send_public $N:$chan $text);
+		//echo $fparse(format_send_public $servernick():$chan $text);
 	} {
 ## Compensate for lame setup of send_public_other ##
 		@extravar = '';
 		if (showop == 'on') {
-			if (ischanop($N $chan)) {
+			if (ischanop($servernick() $chan)) {
 				@extravar = "$(c5)@$(cl)";
-			} else if (ischanvoice($N $chan)) {
+			} else if (ischanvoice($servernick() $chan)) {
 				@extravar = "$(c5)+$(cl)";
 			};
 		};

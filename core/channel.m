@@ -200,10 +200,10 @@ alias mdeop {
 	if (@) {
 		@:_chanm=sar(g/,/ /$rest(1 $0-))
 		xecho -b mass deoping $C minus $_chanm;
-		@_massmode($C -o $remw($N $remws($_chanm / $chops())));
+		@_massmode($C -o $remw($servernick() $remws($_chanm / $chops())));
 	}{
 		xecho -b mass deoping $C;
-		@_massmode($C -o $remw($N $chops()));
+		@_massmode($C -o $remw($servernick() $chops()));
 
 	};
 };
@@ -252,11 +252,11 @@ alias lk {
 
 alias mko {
 	if (@) {
-		fe ($remw($N $chops())) n1 {
+		fe ($remw($servernick() $chops())) n1 {
 			k $n1 $*;
 		};
 	}{
-		fe ($remw($N $chops())) n1 {
+		fe ($remw($servernick() $chops())) n1 {
 			k $n1 mass kick;
 	       	};
 	};
@@ -264,11 +264,11 @@ alias mko {
 
 alias mkn {
 	if (@) {
-		fe ($remw($N $nochops())) n1 {
+		fe ($remw($servernick() $nochops())) n1 {
 			k $n1 $*;
 		};
 	}{
-		fe ($remw($N $nochops())) n1 {
+		fe ($remw($servernick() $nochops())) n1 {
 			k $n1 mass kick;
 		};
 	};

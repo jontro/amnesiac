@@ -22,9 +22,9 @@ on ^action * (sender, recvr, body) {
 
 on ^send_action "*" {
 	switch ( $0 ) {
-        ( $C ) { //echo $fparse(format_action $N $0 $1-);};
-        ( #* ) { //echo $fparse(format_action_other $N $0 $1-);};
-        ( * )  { //echo $fparse(format_send_desc $0 $N $1-);};
+        ( $C ) { //echo $fparse(format_action $servernick() $0 $1-);};
+        ( #* ) { //echo $fparse(format_action_other $servernick() $0 $1-);};
+        ( * )  { //echo $fparse(format_send_desc $0 $servernick() $1-);};
 	};
 };
 

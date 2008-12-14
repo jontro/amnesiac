@@ -119,7 +119,7 @@ alias shitload	{
 }
 
 ^on #-join 53 * {
-		if (N != [$0]) {
+		if (servernick() != [$0]) {
 		^local shittemp1
 		^local shittemp2
 		^local shittemp3

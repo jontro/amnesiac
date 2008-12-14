@@ -245,18 +245,18 @@ on #-dcc_chat 4 "*" {
 };
 
 on #-public_other 4 "*" {
-	if (awayl=='ON'&&awaystat&&match(*$N* $2-)&&plog=='ON') {
+	if (awayl=='ON'&&awaystat&&match(*$servernick()* $2-)&&plog=='ON') {
 		^_awaylog PUBLIC <$0:$1> $2-;
 	};
 };
 
 on #-public 5 "*" {
-	if (awayl=='ON'&&awaystat&&match(*$N* $2-)&&plog=='ON') {
+	if (awayl=='ON'&&awaystat&&match(*$servernick()* $2-)&&plog=='ON') {
 		^_awaylog PUBLIC <$0:$1> $2-;
 	};
 };
 
-on #-kick 33 "$N" {
+on #-kick 33 "$servernick()" {
 	if (awayl=='ON'&&awaystat&&crapl=='ON') {
 		^_awaylog KICK $1 kicked you off $2 for reason $3-;
 	};

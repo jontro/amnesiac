@@ -142,7 +142,7 @@ alias setsec {
 }
 
 on #-join 34 * {
-	if (N != [$0]) {
+	if (servernick() != [$0]) {
 		^local ojchan $1
 		^local ojblah1 $getmatches(friends *$ojchan* iops*)
 		^local ojblah2 $getmatches(friends % \\* *iops *)
@@ -159,7 +159,7 @@ on #-join 34 * {
 		^local ojtemp4 $sar(g/,/ /$word(2 $ojtemp1))
 		if (match(iops $ojtemp4) > 0) {
 			@ojtemp3 = word(1 $ojtemp1)
-			if (ischanop($N $1) && match($ojtemp3 $1) > 0 && match($ojtemp2 $userhost($0)) > 0) {
+			if (ischanop($servernick() $1) && match($ojtemp3 $1) > 0 && match($ojtemp2 $userhost($0)) > 0) {
 				^local _opdelay $rand($_ss)
 				aecho $acban Userlist matched hostmask: $sar(g/@/%K@%n/$ojtemp2) has joined $1
 				aecho $acban Auto-oping if not oped in $_opdelay seconds.
@@ -174,7 +174,7 @@ on #-join 34 * {
 }
 
 ^on #-join 23 * {
-	if (N != [$0]) {
+	if (servernick() != [$0]) {
 		^local avchan $1
 		^local avblah1 $getmatches(friends *$avchan* voice *)
 		^local avblah2 $getmatches(friends % \\* *voice *)
@@ -189,7 +189,7 @@ on #-join 34 * {
 		^local avtemp2 $word(0 $avtemp1)
 		^local avtemp3 $word(1 $avtemp1)
 		^local avtemp4 $sar(g/,/ /$word(2 $avtemp1))
-		if (ischanop($N $avchan) && match($avtemp3 $avchan) > 0 && match(voice $avtemp4) > 0 && match($avtemp2 $userhost($0)) > 0) {
+		if (ischanop($servernick() $avchan) && match($avtemp3 $avchan) > 0 && match(voice $avtemp4) > 0 && match($avtemp2 $userhost($0)) > 0) {
 			aecho $acban Userlist matched hostmask: $sar(g/@/%K@%n/$avtemp2) voicing user on $1
 			^mode $avtemp3 +v $0;clean avhost
 		}
@@ -217,7 +217,7 @@ on #-join 34 * {
 			^local itemp3 $word(1 $itemp1)
 			^local itemp4 $sar(g/,/ /$word(2 $itemp1))
 			^local itemp5 $decode($word(3 $itemp1))
-			if (ischanop($N $ichan) && match($itemp3 $ichan) > 0 && match(invite $itemp4) > 0 && ipass == itemp5 && match($itemp2 $invhost) > 0) {
+			if (ischanop($servernick() $ichan) && match($itemp3 $ichan) > 0 && match(invite $itemp4) > 0 && ipass == itemp5 && match($itemp2 $invhost) > 0) {
 				aecho $acban $0!$invhost matches userlist, inviting him to $vchan
 				^notice $0 inviting you to $ichan 
 				^invite $0 $itemp3;clean ihost
@@ -249,7 +249,7 @@ on #-join 34 * {
 			^local otemp3 $word(1 $otemp1)
 			^local otemp4 $sar(g/,/ /$word(2 $otemp1))
 			^local otemp5 $decode($word(3 $otemp1))
-			if (ischanop($N $ochan) && match($otemp3 $ochan) > 0 && match(ops $otemp4) > 0 && opass == otemp5 && rmatch($ophost $otemp2) > 0) {
+			if (ischanop($servernick() $ochan) && match($otemp3 $ochan) > 0 && match(ops $otemp4) > 0 && opass == otemp5 && rmatch($ophost $otemp2) > 0) {
 				abecho  $0!$ophost matches userlist, oping on $ochan
 				^mode $otemp3 +o $0;clean ohost
 			}{
@@ -279,7 +279,7 @@ on #-join 34 * {
 			^local vtemp3 $word(1 $vtemp1)
 			^local vtemp4 $sar(g/,/ /$word(2 $vtemp1))
 			^local vtemp5 $decode($word(3 $vtemp1))
-			if (ischanop($N $vchan) && match($vtemp3 $vchan) > 0 && match(voice $vtemp4) > 0 && vpass == vtemp5 && rmatch($vphost $vtemp2) > 0) {
+			if (ischanop($servernick() $vchan) && match($vtemp3 $vchan) > 0 && match(voice $vtemp4) > 0 && vpass == vtemp5 && rmatch($vphost $vtemp2) > 0) {
 				aecho $acban $0%K!%n$vphost matches userlist, voicing on $vchan
 				^mode $vtemp3 +v $0;clean vhost
 			}{
@@ -290,7 +290,7 @@ on #-join 34 * {
 }
 
 ^on #-mode_stripped 3 "% % -o %" {
-	if (N != [$0]) {
+	if (servernick() != [$0]) {
 		^local odeopnick $0
 		^local deopchan $1
 		^local deopnick $3
@@ -308,7 +308,7 @@ on #-join 34 * {
 		^local deoptemp2 $word(0 $deoptemp1)
 		^local deoptemp3 $word(1 $deoptemp1)
 		^local deoptemp4 $sar(g/,/ /$word(2 $deoptemp1))
-		if (ischanop($N $deoptemp3) && deoptemp3 == deopchan && match(deop $deoptemp4) > 0 && rmatch($deophost $deoptemp2) > 0) {
+		if (ischanop($servernick() $deoptemp3) && deoptemp3 == deopchan && match(deop $deoptemp4) > 0 && rmatch($deophost $deoptemp2) > 0) {
 			aecho $acban $deopnick%K!%n$deophost matches userlist, deoping $odeopnick on $deopchan
 			^mode $deoptemp3 -o $odeopnick
 			^mode $deoptemp3 +o $deopnick;clean deopline
@@ -318,7 +318,7 @@ on #-join 34 * {
 }
 
 ^on #-mode_stripped 3 "% % +b %" {
-	if (N != [$0]) {
+	if (servernick() != [$0]) {
 		^local _obannick $0
 		^local _banchan $1
 		^local _banuhost $after(! $3)
@@ -335,7 +335,7 @@ on #-join 34 * {
 		^local _bantemp2 $word(0 $_bantemp1)
 		^local _bantemp3 $word(1 $_bantemp1)
 		^local _bantemp4 $sar(g/,/ /$word(2 $_bantemp1))
-		if (ischanop($N $_bantemp3) && match($_banchan $_bantemp3) > 0 && match(unban $_bantemp4) > 0 && comatch($_bantemp2 $_banuhost)) {
+		if (ischanop($servernick() $_bantemp3) && match($_banchan $_bantemp3) > 0 && match(unban $_bantemp4) > 0 && comatch($_bantemp2 $_banuhost)) {
 			aecho $acban %K[%na+c%K]%n $_banuhost%K!%n$_banhost matches userlist, unbanning $_banuhost on $_banchan
 			^mode $_bantemp3 -b $3
 			^mode $_bantemp3 -o $_obannick;clean _banline

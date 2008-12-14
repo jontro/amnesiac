@@ -7,8 +7,8 @@ eval osetitem protect unbanself Unbanself when banned
 
 ## unbanself protection hook
 ^on #-mode_stripped 53 "% % +b*" {
-	if (ischanop($N $1) && N != [$1]) {
-		if (_ubanself == [on] && comatch(*!*$userhost($N) $3) > 0) {
+	if (ischanop($servernick() $1) && servernick() != [$1]) {
+		if (_ubanself == [on] && comatch(*!*$userhost($servernick()) $3) > 0) {
 			^mode $1 -b $3
 				^kick $1 $0 don't ban me.
 				}			

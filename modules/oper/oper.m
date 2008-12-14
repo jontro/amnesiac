@@ -152,11 +152,11 @@ alias kill {
 
 alias mkill {
 	if (![$0]) {
-		fe ($remw($N $chanusers($C))) n1 {
+		fe ($remw($servernick() $chanusers($C))) n1 {
 		quote kill $n1 :bye;
 		};
 	}{
-		fe ($remw($N $chanusers($C))) n1 {
+		fe ($remw($servernick() $chanusers($C))) n1 {
 		quote kill $n1 :$*;
 		};
 	};
@@ -164,11 +164,11 @@ alias mkill {
 
 alias mkline {
 	if (![$0]) {
-		fe ($remw($N $chanusers($C))) n1 {
+		fe ($remw($servernick() $chanusers($C))) n1 {
 		kline $n1;
 		};
     }{
-		fe ($remw($N $chanusers($C))) n1 {
+		fe ($remw($servernick() $chanusers($C))) n1 {
 		kline $n1 $*;
 		};
 	};

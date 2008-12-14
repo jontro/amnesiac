@@ -4,7 +4,7 @@ subpackage wall;
 
 ## msg wall(hybrid/ratbox based ircds)
 alias wall {
-	if (ischanop($N $C)) {
+	if (ischanop($servernick() $C)) {
 		/msg @$C $*;
 	}{
 ## Do it the old way

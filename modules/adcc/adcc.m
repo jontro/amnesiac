@@ -141,7 +141,7 @@ alias plist {
 		}
 
 	
-		msg $pl [amn/adcc] $numitems(offers.files) file(s) offered \; /ctcp $N xdcc send #num  
+		msg $pl [amn/adcc] $numitems(offers.files) file(s) offered \; /ctcp $servernick() xdcc send #num  
 			for (@xx=0,xx<numitems(offers.files),@xx++) {
 			@pgets = getitem(gets $xx)
 				if (getitem(gets $xx) == []) {
@@ -246,7 +246,7 @@ alias adcc.doffer {
 ^on #-raw_irc 12 "% PRIVMSG % :?DCC list" {
 	if (numitems(offers.files) == 0) {
     }{                                           
-		^notice $before(! $0) [amn/adcc] $numitems(offers.files) file(s) offered \; /ctcp $N xdcc send #num  
+		^notice $before(! $0) [amn/adcc] $numitems(offers.files) file(s) offered \; /ctcp $servernick() xdcc send #num  
 			for (@:xx=0,xx<numitems(offers.desc),@xx++) {
 			@pgets = getitem(gets $xx)
 				if (getitem(gets $xx) == []) {
@@ -275,7 +275,7 @@ alias adcc.doffer {
 ^on #-raw_irc 12 "% PRIVMSG % :?DCC list" {
 	if (numitems(offers.files) == 0) {
     }{                                           
-		^notice $before(! $0) [amn/adcc] $numitems(offers.files) file(s) offered \; /ctcp $N xdcc send #num  
+		^notice $before(! $0) [amn/adcc] $numitems(offers.files) file(s) offered \; /ctcp $servernick() xdcc send #num  
 			for (@:xx=0,xx<numitems(offers.desc),@xx++) {
 			@pgets = getitem(gets $xx)
 				if (getitem(gets $xx) == []) {

@@ -64,7 +64,7 @@ alias omkick {cs mkick $0 $1}
 alias omdeop {cs mdeop $0 $1}
 alias odeop {cs deop $0 $1}
  
-alias fop if (![$0]) {^quote chanserv op $C $N} {^quote chanserv op $0 $N}
+alias fop if (![$0]) {^quote chanserv op $C $servernick()} {^quote chanserv op $0 $servernick()}
 
 #person must be in channel for most of these to work.
 #else use the longer command line of anything starting with o IE: oaop 
