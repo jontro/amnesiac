@@ -1,5 +1,42 @@
 Amnesiac TODO/BUGS/Projects/Procrastinating list.
 
+Rewrite Section:
+
+This is some notes from hop on stuff we should look at rewriting.
+
+<hop> in serverlist.m, i'd love to know why you're torturing the poor FULLDESC
+      return value like that. ;-)
+<hop> if the return value isn't usable, i'd rather fix the return value than
+      require you to murder it.
+<hop> so there is a $serverctl(READ_FILE filename)
+<hop> and if you write all of the $serverctl(GET <refnum> FULLDESC) to that
+      file, it'll Just Work(tm).
+-----
+<hop> $N is *never* what you think it is.
+<hop> $servernick() is what you should use
+-----
+<hop> btw, the same deal with $C  -- $C is the current input window's current
+      channel.  what you want is $winchan($serverwin())
+-----
+<hop> 1) You can create your own output levels with $levelctl()
+<hop> http://epicsol.org/help/levelctl
+-----
+<hop> ie, @levelctl(ADD bleh);/xecho -l bleh HAHAHAH!                           
+-----
+<hop>  /server irc.foo.com:pr=v6
+<hop> or /server ssl-irc.foo.com:type=irc-ssl
+-----
+<hop> you should begin planning for elimiating every use of /eval everywhere    
+<hop> if you need to double-expand strings, use the ** math operator            
+<hop> @ foo = 'this is a string with $var in it'                                
+<hop> @ var = "one"                                                             
+<hop> @ val1 = **foo                                                            
+<hop> @ var = "two"                                                             
+<hop> @ val2 == **foo                                                           
+<hop> val1 -> "this is a string with one in it"  val2 -> "this is a string
+      with two in it"
+
+
 Meaning of flags:
 ! = fixed/added stuff
 + = changed stuff, uncertain if complete.
