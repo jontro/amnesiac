@@ -16,10 +16,10 @@ alias fuck {
 	}{
 		if (![$1]) {
 			^bankick $0 shitted
-				^addshit $0 $C 3 shitted
+				^addshit $0 $serverchan() 3 shitted
 		}{
 			^bankick $0 $1-
-            	^addshit $0 $C 3 $1-
+            	^addshit $0 $serverchan() 3 $1-
         }                                       
 	}
 }

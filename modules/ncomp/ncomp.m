@@ -9,8 +9,8 @@ subpackage ncomp;
 
 ^on ^input "%: *" {
 	@:txt = before(: $0);
-	if (pattern($txt* $chanusers($C))) {
-		@ per = pattern($txt* $chanusers($C));
+	if (pattern($txt* $chanusers($serverchan()))) {
+		@ per = pattern($txt* $chanusers($serverchan()));
  		if (numwords($per) > 1) {
 			xecho $acban Ambiguous matches: $per;
 			//sendline $*;
@@ -19,8 +19,8 @@ subpackage ncomp;
 		};
 		return;
 	};
-	if (!pattern($txt* $chanusers($C)) && pattern(*$txt* $chanusers($C))) { 
-		@ per = pattern(*$txt* $chanusers($C));
+	if (!pattern($txt* $chanusers($serverchan())) && pattern(*$txt* $chanusers($serverchan()))) { 
+		@ per = pattern(*$txt* $chanusers($serverchan()));
 		if (numwords($per) > 1) {
 			xecho $acban Ambiguous matches: $per;
 			//sendline $*;

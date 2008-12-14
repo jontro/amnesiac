@@ -4,8 +4,8 @@ subpackage wall;
 
 ## msg wall(hybrid/ratbox based ircds)
 alias wall {
-	if (ischanop($servernick() $C)) {
-		/msg @$C $*;
+	if (ischanop($servernick() $serverchan())) {
+		/msg @$serverchan() $*;
 	}{
 ## Do it the old way
 ## format of targmax
@@ -20,10 +20,10 @@ alias wall {
 		};
 		@:rusers=chops();
 		while (#rusers > 0) {
-			^quote NOTICE $unsplit(, $leftw($mxnotice $rusers)) :\[ Wall / $C \] $*;
+			^quote NOTICE $unsplit(, $leftw($mxnotice $rusers)) :\[ Wall / $serverchan() \] $*;
 			@rusers=restw($mxnotice $rusers);
 		};
-		@_bwallform (@$C $*);
+		@_bwallform (@$serverchan() $*);
 	};
 };
 

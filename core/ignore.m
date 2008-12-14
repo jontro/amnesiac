@@ -69,7 +69,7 @@ alias cig {
 		^ignore $0 public;
 		xecho -b ignoring public from $0, /tig to unignore;
 	}{
-		^ignore $C public;
-		xecho -b ignoring public from $C , /tig to unignore;
+		^ignore $serverchan() public;
+		xecho -b ignoring public from $serverchan() , /tig to unignore;
 	};
 };

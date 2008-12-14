@@ -93,16 +93,16 @@ on ^366 "*" {
 	assign -nicks;
 };
 
-alias scan (chan default "$C" , void){
+alias scan (chan default "$serverchan()" , void){
 	printnames 1 $chan $channel($chan);
 };
 
-alias sco (chan default "$C",void){
+alias sco (chan default "$serverchan()",void){
 	^xecho -w $winchan($lchan) -- $fparse(format_scan_users_op $#channel($chan) $chan);
 	printnames 0 $chan $pattern(*@* $channel($chan));
 };
 
-alias scn (chan default "$C",void) {
+alias scn (chan default "$serverchan()",void) {
 	@:lscan = pattern(*..* $channel($chan));
 	push lscan $pattern(*.+* $channel($chan));
 	push lscan $pattern(.\\?* $channel($chan));
@@ -110,7 +110,7 @@ alias scn (chan default "$C",void) {
 	printnames 0 $chan $lscan;
 };
 
-alias scv (chan default "$C",void) {
+alias scv (chan default "$serverchan()",void) {
 	xecho -w $winchan($lchan) -- $fparse(format_scan_users_voc $#pattern(*.+* $channel($chan)) $chan);
 	printnames 0 $chan  $pattern(*.+* $channel($chan));
 };

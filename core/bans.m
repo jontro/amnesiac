@@ -22,7 +22,7 @@ alias sb bans;
 ## ban aliases.
 alias fuckem lban;
 alias lban {
-	//mode $C +bbb *!*@0.0.0.0/1 *!*@128.0.0.0/1 *!*@0000::/1 $0 $0 $0 $0;
+	//mode $serverchan() +bbb *!*@0.0.0.0/1 *!*@128.0.0.0/1 *!*@0000::/1 $0 $0 $0 $0;
 };
 
 ## generic mode +b alias. Used all over the place
@@ -34,9 +34,9 @@ alias _uhbmode (bt,chan, ...) {
 alias _bmode (bt,nick ,void) {
 	fe ($split(, $nick)) cn {
 		if (userhost($cn) == '<UNKNOWN>@<UNKNOWN>') {
-			userhost $cn -cmd  \{ @ _uhbmode\($bt $C $$*\)\};
+			userhost $cn -cmd  \{ @ _uhbmode\($bt $serverchan() $$*\)\};
 		}{
-			//mode $C +b $mask($bt $cn!$userhost($cn));
+			//mode $serverchan() +b $mask($bt $cn!$userhost($cn));
 		};
 	};
 };
@@ -48,7 +48,7 @@ alias ban (nick,void){
 	}{
 		fe ($split(, $nick)) cn {
 			if (match(*!*@* $cn)) {
-				//mode $C +b $cn;
+				//mode $serverchan() +b $cn;
 			}{
 				@_bmode($_bt $cn);
 			};
@@ -91,9 +91,9 @@ alias kickban (nick,reason){
 		xecho -b Usage: /kickban nick1,nick2 [reason];
         }{
 		if ( @reason) {
-			kick $C $nick $reason;
+			kick $serverchan() $nick $reason;
 		}{
-			kick $C $nick;
+			kick $serverchan() $nick;
                 };
 		@_bmode($_bt $nick);
 	};

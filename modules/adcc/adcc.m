@@ -135,7 +135,7 @@ alias plist {
 		xecho (adcc).. no packs being offered
 	}{
 		if (![$0]) {
-		@pl=[$C]
+		@pl=[$serverchan()]
 		}{
 		@pl=[$0]
 		}

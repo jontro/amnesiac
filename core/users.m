@@ -11,13 +11,13 @@ subpackage users;
 
 alias chops {
 	if (!@) {
-		@:chan = "$1" ? "$1" : "$C";
+		@:chan = "$1" ? "$1" : "$serverchan()";
 		fe ($chops($chan)) _foi {
 			xecho -v$fparse(format_chops $_foi $chan);
 		};
 	}{
 		if ('$0'=~'*!*@*') {
-		@:chan = "$1" ? "$1" : "$C";
+		@:chan = "$1" ? "$1" : "$serverchan()";
 		fe ($chops($chan)) _n1 {
 		if (match($0 $_n1!$userhost($_n1))) {
 			xecho -v$fparse(format_chops $_n1 $chan);
@@ -26,7 +26,7 @@ alias chops {
 };
 
 alias nops {
-	@:chan = "$1" ? "$1" : "$C";
+	@:chan = "$1" ? "$1" : "$serverchan()";
 	fe ($nochops($chan)) _foi {
 	if (!@) {
 		xecho -v$fparse(format_user_non $_foi $chan);
@@ -39,10 +39,10 @@ alias nops {
 };
 
 alias vocs {
-	@:chan = "$1" ? "$1" : "$C";
+	@:chan = "$1" ? "$1" : "$serverchan()";
 	fe ($nochops($chan)) _foi {
 	if (!@) {
-		if (ischanvoice($_foi $C)) {
+		if (ischanvoice($_foi $serverchan())) {
 		xecho -v$fparse(format_user_vocs $_foi $chan);
 		};
 	};
@@ -62,14 +62,14 @@ alias common {
 		if ([$2]) {
 			^local _channel2 $2;
 		}{
-			^local _channel2 $C;
+			^local _channel2 $serverchan();
 		};
 	}{
 		^local _channel1 $0;
 		if ([$1]) {
 			^local _channel2 $1;
 		}{
-			^local _channel2 $C;
+			^local _channel2 $serverchan();
 		};
 	};
 	if (_channel1) {
@@ -88,7 +88,7 @@ alias common {
 # props to crapple for the name. -skullY
 alias stalker {
 	fe ($mychannels()) _channel {
-		if (_channel != C) {
+		if (_channel != serverchan()) {
 			common -q $_channel;
 		};
 	};

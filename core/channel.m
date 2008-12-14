@@ -9,28 +9,28 @@ if (word(2 $loadinfo()) != [pf]) {
 subpackage channel;
 
 ## misc op funcs/alias
-alias not {^topic -$C;};
+alias not {^topic -$serverchan();};
 alias untopic not;
 alias t {topic $*;};
-alias c {//mode $C $*;};
+alias c {//mode $serverchan() $*;};
 alias ik {invkick $*;};
 alias ki {invkick $*;};
 alias cmode {c $*;};
 alias lall partall;
 alias chanlock lockchan;
-alias lockchan {mode $C +im;};
-alias unlock {mode $C -im;};
+alias lockchan {mode $serverchan() +im;};
+alias unlock {mode $serverchan() -im;};
 
 ## chan info.
 alias scano {sco $*;};
 alias scanv {scv $*;};
 alias scann {scn $*;};
-alias n {^names $C;};
+alias n {^names $serverchan();};
 
 ## misc abstract funcs/aliases
 alias epart emopart;
 alias emopart {
-	part $C $srand$randread($(loadpath)reasons/emopart.reasons);
+	part $serverchan() $srand$randread($(loadpath)reasons/emopart.reasons);
 };
 
 alias partall {
@@ -49,7 +49,7 @@ alias cops {
 	if (@) {
 		who $0;
 	}{
-		who $C;
+		who $serverchan();
 	};
 	wait;
 	^on who -*;
@@ -60,9 +60,9 @@ alias cops {
 
 alias unkey {
         if (match(*k* $chanmode())) {
-                //mode $C -k;
+                //mode $serverchan() -k;
         } else {
-                xecho -b No key on channel $C;
+                xecho -b No key on channel $serverchan();
         };
 };
 
@@ -111,18 +111,18 @@ alias _massmode (chan,mode,users) {
 	};
 };
 alias 4op {
-	@_massmode($C +oooo $*);
+	@_massmode($serverchan() +oooo $*);
 };
 
 alias 4v {
-	@_massmode($C +vvvv $*);
+	@_massmode($serverchan() +vvvv $*);
 };
 
 alias invkick {
 	if (@) {
-		//mode $C +i;
+		//mode $serverchan() +i;
 		kick $*;
-		timer 10 mode $C -i;
+		timer 10 mode $serverchan() -i;
 	};
 };
 
@@ -134,7 +134,7 @@ alias op {
 		if (match(*#* $*)) {
 			@_massmode($0 +o $1-);
 		}{
-			@_massmode($C +o $*);
+			@_massmode($serverchan() +o $*);
 		};
 	};
 };
@@ -147,7 +147,7 @@ alias voice {
 		if (match(*#* $*)) {
 			@_massmode($0 +v $1-);
 		}{
-			@_massmode($C +v $*);
+			@_massmode($serverchan() +v $*);
 		};
 	};
 };
@@ -160,7 +160,7 @@ alias devoice {
 		if (match(*#* $*)) {
 			@_massmode($0 -v $1-);
 		}{
-			@_massmode($C -v $*);
+			@_massmode($serverchan() -v $*);
 		};
 	};
 };
@@ -173,25 +173,25 @@ alias deop {
 		if (match(*#* $*)) {
 			@_massmode($0 -o $1-);
 		}{
-			@_massmode($C -o $*);
+			@_massmode($serverchan() -o $*);
 		};
 	};
 };
 
 ## mass chan modes /mv /mdv /mop /mdeop /mreop
 alias mv {
-	@_massmode($C +v $nochops());
+	@_massmode($serverchan() +v $nochops());
 };
 
 ## do we really need a massdevoice? needs to be rewritten anyways.
 
 alias mreop {
-	@_massmode($C +o $chops());
+	@_massmode($serverchan() +o $chops());
 };
 
 alias allop mop;
 alias mop {
-	@_massmode($C +o $nochops());
+	@_massmode($serverchan() +o $nochops());
 };
 
 alias alldeop mdeop;
@@ -199,11 +199,11 @@ alias mdop mdeop;
 alias mdeop {
 	if (@) {
 		@:_chanm=sar(g/,/ /$rest(1 $0-))
-		xecho -b mass deoping $C minus $_chanm;
-		@_massmode($C -o $remw($servernick() $remws($_chanm / $chops())));
+		xecho -b mass deoping $serverchan() minus $_chanm;
+		@_massmode($serverchan() -o $remw($servernick() $remws($_chanm / $chops())));
 	}{
-		xecho -b mass deoping $C;
-		@_massmode($C -o $remw($servernick() $chops()));
+		xecho -b mass deoping $serverchan();
+		@_massmode($serverchan() -o $remw($servernick() $chops()));
 
 	};
 };
@@ -280,9 +280,9 @@ alias massk {
 	}{
 		@kvar=*0;
 		xecho -b kicking all users with $kvar in version reply.;
-		^ver $C;
+		^ver $serverchan();
 		^on ^ctcp_reply "% % VERSION *" {
-			if (ischanop($0 $C)==0 || kickops == 'on') {
+			if (ischanop($0 $serverchan())==0 || kickops == 'on') {
 				if (match(*$kvar* $2-)) {
 					k $0 $kvar is leet!@#$%^&*;
 				};

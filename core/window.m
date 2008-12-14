@@ -64,8 +64,8 @@ alias wq {
 };
 
 alias wlk (void) {
-	if (@C)
-		part $C;
+	if (@serverchan())
+		part $serverchan();
 	wk;
 };
 

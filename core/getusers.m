@@ -10,7 +10,7 @@ subpackage getusers;
 ## more cleanup is surely needed. (see obfuscate below)
 ## see core/fsets.m - lines 109-125 (more preferred as it works) //crapple
 
-alias getusers (chan default "$C",void) {
+alias getusers (chan default "$serverchan()",void) {
 	if (!ischannel($chan)) {
 		^set status_user2 n/a;
 		^set status_user3 n/a;

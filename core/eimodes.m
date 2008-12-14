@@ -6,10 +6,10 @@ subpackage eimodes;
 ## simple aliases.
 alias i invs;
 alias e exs;
-alias -I {^mode $C -I $*};
-alias -E {^mode $C -e $*};
-alias +I {^mode $C +I $*};
-alias +E {^mode $C +e $*};
+alias -I {^mode $serverchan() -I $*};
+alias -E {^mode $serverchan() -e $*};
+alias +I {^mode $serverchan() +I $*};
+alias +E {^mode $serverchan() +e $*};
 alias exempt exs;
 alias invites invs;
 alias tpi tinv;
@@ -56,7 +56,7 @@ alias genterm (name dwords 1,mode,lrpl_list,lrpl_eoflist) {
 			};
 		};
 	};
-	^mode $C $mode;
+	^mode $serverchan() $mode;
 
 };
 
@@ -68,7 +68,7 @@ alias gentall (lmode,lrpl_list,lrpl_eoflist) {
 		@setitem(ubans $numitems(ubans) $2);
 		if (numitems(ubans)==4) {
 			for (@:xx=0,xx<4,@:xx+=4) {
-				//mode $C -$(mode)$(mode)$(mode)$(mode) $getitem(ubans $xx) $getitem(ubans ${xx+1}) $getitem(ubans ${xx+2}) $getitem(ubans ${xx+3});
+				//mode $serverchan() -$(mode)$(mode)$(mode)$(mode) $getitem(ubans $xx) $getitem(ubans ${xx+1}) $getitem(ubans ${xx+2}) $getitem(ubans ${xx+3});
 			};
 			@delarray(ubans);
 		};
@@ -77,11 +77,11 @@ alias gentall (lmode,lrpl_list,lrpl_eoflist) {
 		^on ^$rpl_list -"*";
 		^on ^$rpl_eoflist -"*";
 		if (:num=numitems(ubans)) {
-			//mode $C -$repeat($num $mode) $getitem(ubans 0) ${num>1?getitem(ubans 1):''} ${num>2?getitem(ubans 2):''};
+			//mode $serverchan() -$repeat($num $mode) $getitem(ubans 0) ${num>1?getitem(ubans 1):''} ${num>2?getitem(ubans 2):''};
 		};
 		@delarray(ubans);
 	};
-	//mode $C $mode;
+	//mode $serverchan() $mode;
 };
 
 alias genub (lmode,lrpl_list,lrpl_eoflist,...){
@@ -92,7 +92,7 @@ alias genub (lmode,lrpl_list,lrpl_eoflist,...){
 		@gentall($mode $rpl_list $rpl_eoflist);
 	}{
 		if (match(*!*@* $0)) {
-			//mode $C -$mode $0;
+			//mode $serverchan() -$mode $0;
 		}{
 			^on ^$rpl_list * {
 				@setitem(ubans $numitems(ubans) $2);
@@ -102,16 +102,16 @@ alias genub (lmode,lrpl_list,lrpl_eoflist,...){
 				^on ^$rpl_eoflist -"*"\;
 				^userhost $0 -cmd {
 					if (rmatchitem(ubans $0!$3@$4) != -2) {
-						mode $C -$mode $getitem(ubans $rmatchitem(ubans $0!$3@$4));
+						mode $serverchan() -$mode $getitem(ubans $rmatchitem(ubans $0!$3@$4));
 					};
 					@delarray(ubans);
 				}\;
 			\};
-			//mode $C +$mode;
+			//mode $serverchan() +$mode;
 		};
 	};
 };
-alias gens (mode, chan default "$C"){
+alias gens (mode, chan default "$serverchan()"){
 	^mode $chan $mode;
 };
 alias tban { @genterm("ban" b 367 368);};

@@ -6,29 +6,29 @@ subpackage xy
 alias xy msg x@channels.undernet.org $*
 alias xlogin xy login $*
 alias xaccess xy access $*
-alias xca xy access $C $*
+alias xca xy access $serverchan() $*
 alias xbl xy lbanlist $*
-alias xcbl xy lbanlist $C $*
+alias xcbl xy lbanlist $serverchan() $*
 alias xpart xy part $*
 alias xset xy set $*
-alias xcset xy set $C $*
-alias xajoin xy set $C autojoin $*
-alias xmdeop xy set $C massdeoppro $*
-alias xnoop xy set $C noop $*
-alias xstrictop xy set $C strictop $*
+alias xcset xy set $serverchan() $*
+alias xajoin xy set $serverchan() autojoin $*
+alias xmdeop xy set $serverchan() massdeoppro $*
+alias xnoop xy set $serverchan() noop $*
+alias xstrictop xy set $serverchan() strictop $*
 alias xjoin xy join $*
-alias xatopic xy set $C autotopic $*
-alias xtopic xy topic $C $*
-alias xdesc xy set $C desc $*
-alias xfloat xy set $C floatlim $*
-alias xfgrace xy set $C floatgrace $*
-alias xfmargin xy set $C floatmargin $*
-alias xfmax xy set $C floatmax $*
-alias xfperiod xy set $C floatperiod $*
-alias xkeyword xy set $C keywords $*
-alias xurl xy set $C url $*
-alias xflag xy set $C userflags $*
-alias xadduser xy adduser $C $*
+alias xatopic xy set $serverchan() autotopic $*
+alias xtopic xy topic $serverchan() $*
+alias xdesc xy set $serverchan() desc $*
+alias xfloat xy set $serverchan() floatlim $*
+alias xfgrace xy set $serverchan() floatgrace $*
+alias xfmargin xy set $serverchan() floatmargin $*
+alias xfmax xy set $serverchan() floatmax $*
+alias xfperiod xy set $serverchan() floatperiod $*
+alias xkeyword xy set $serverchan() keywords $*
+alias xurl xy set $serverchan() url $*
+alias xflag xy set $serverchan() userflags $*
+alias xadduser xy adduser $serverchan() $*
 alias xclear xy clearmode $*
 alias xmod xy modinfo $*
 alias xrmuser xy remuser $*
@@ -46,7 +46,7 @@ alias xinvite xy invite $*
 alias xsuspend xy suspend $*
 alias xunsuspend xy unsuspend $*
 alias xbanlist xy banlist $*
-alias xbans xy banlist $C
+alias xbans xy banlist $serverchan()
 alias xchaninfo xy chaninfo $*
 alias xinfo xy info $*
 alias xisreg xy isreg $*

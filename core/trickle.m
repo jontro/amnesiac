@@ -43,11 +43,11 @@ alias trickle {
 };
 
 ## trickle example swiss army knife features.
-alias tdeop {trickle $C $* deop;};
-alias top {trickle $C $* op;};
-alias tkick {trickle $C $* kick;};
-alias tbk {trickle $C $* bk;};
-alias tfuck {trickle $C $* fuck;};
+alias tdeop {trickle $serverchan() $* deop;};
+alias top {trickle $serverchan() $* op;};
+alias tkick {trickle $serverchan() $* kick;};
+alias tbk {trickle $serverchan() $* bk;};
+alias tfuck {trickle $serverchan() $* fuck;};
 
 alias thelp {
         if (!@) {

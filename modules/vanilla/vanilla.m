@@ -20,7 +20,7 @@ alias sc (chan) {
 	if (chan) {
 		names $chan;
 	} {
-		names $C;
+		names $serverchan();
 	};
 };
 

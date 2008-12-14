@@ -49,36 +49,36 @@ alias identify {ns identify $0 $1}
 alias ninfo {ns info $*}
 
 #some info shit.
-alias why {cs why $C $*}
+alias why {cs why $serverchan() $*}
 alias cinfo {cs info $*}
 alias count {cs count $*}
 
 #channel shit.
 alias cinvite {cs invite $0 $1}
 alias cunban {cs unban $0 $1}
-alias csop {cs op $C $*}
-alias cmkick {cs mkick $C $*}
-alias cdeop {cs deop $C $*}
-alias cmdeop {cs mdeop $C $*}
+alias csop {cs op $serverchan() $*}
+alias cmkick {cs mkick $serverchan() $*}
+alias cdeop {cs deop $serverchan() $*}
+alias cmdeop {cs mdeop $serverchan() $*}
 alias omkick {cs mkick $0 $1}
 alias omdeop {cs mdeop $0 $1}
 alias odeop {cs deop $0 $1}
  
-alias fop if (![$0]) {^quote chanserv op $C $servernick()} {^quote chanserv op $0 $servernick()}
+alias fop if (![$0]) {^quote chanserv op $serverchan() $servernick()} {^quote chanserv op $0 $servernick()}
 
 #person must be in channel for most of these to work.
 #else use the longer command line of anything starting with o IE: oaop 
 #to add an aop o meaning obsolete/old way it used to be done.
-alias slist {cs sop $C list}
-alias alist {cs aop $C list}
-alias addl {cs aop $C add $0}
-alias adds {cs sop $C add $0}
-alias dell {cs aop $C del $0}
-alias dels {cs sop $C del $0}
+alias slist {cs sop $serverchan() list}
+alias alist {cs aop $serverchan() list}
+alias addl {cs aop $serverchan() add $0}
+alias adds {cs sop $serverchan() add $0}
+alias dell {cs aop $serverchan() del $0}
+alias dels {cs sop $serverchan() del $0}
 alias oaop {cs aop $0 $1 $2-}
 alias osop {cs sop $0 $1 $2-}
-alias akick {cs akick $C add $0}
-alias akdel {cs akick $C del $0}
+alias akick {cs akick $serverchan() add $0}
+alias akdel {cs akick $serverchan() del $0}
 alias oakick {if ([$1]) {        ^quote chanserv akick $0-
                 } {             ^quote chanserv akick $0 LIST }}
 

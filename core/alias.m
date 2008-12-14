@@ -14,6 +14,7 @@ alias quit {bye $*;};
 alias ismask {return ${@pass(!@ $0) ? 1 : 0}};
 alias settings {config $*;};
 alias date {time $*;};
+alias serverchan {return $winchan($serverwin());};
 
 ## more/less info from server.
 alias ww {whowas $*;};
@@ -43,7 +44,7 @@ alias invite  {
 		};
 
 	};
-	if (!@||(haschan==0&&!ischannel($C))) {
+	if (!@||(haschan==0&&!ischannel($serverchan()))) {
 		xecho -b Usage: INVITE [#channel] nick1 nick2 nick3 ...;
 		xecho -b Usage: INVITE nick #chan1 #chan2 #chan3 ...;
 		return;
@@ -55,7 +56,7 @@ alias invite  {
 		};
 	} else if (haschan==0) {
 		fe ($*) nn {
-			quote invite $nn $C;
+			quote invite $nn $serverchan();
 		};
 	} {
 # /invite nick [#chan1 #chan2 #chan3]
@@ -210,11 +211,11 @@ alias part {
                                  //quote PART $0 :$1-;
                          };
                          (*) {
-                                 part $C $*;
+                                 part $serverchan() $*;
                          };
                  };
          }{
-                 //quote PART $C;
+                 //quote PART $serverchan();
          };
 };
 
