@@ -1,112 +1,112 @@
-xecho $cparse(%K[%n1%K]%n)
-xecho $cparse($(hwht) ฺฤฤ$(c2)ฤ$(hwht)ฤ$(c2)ฤฤฤฤ$(c1)ฤ$(c2)ฤฤ$(c1)ฤฤ-$(hblk)  -      -           ๚)
-xecho $cparse($(hblk)[$(c2)ณ$(hblk)]  $(hblk)\($(hwht)crapple$(hblk)!$(c1)zak$(hblk)@$(c1)chowned.org$(hblk)\)$(cl) $country($rightw(1 $sar(g/./ / org))))
-xecho $cparse($(hblk)[$(c2)ณ$(hblk)]  $(c2)i$(c1)rcname  $(hblk).. $(cl)crapple)
-xecho $cparse($(hblk)[$(c2)ณ$(hblk)]  $(c2)c$(c1)hannels $(hblk).. $(cl)@#amnesiac @#neoncrapple)
-xecho $cparse($(hblk)[$(c2)ณ$(hblk)]  $(c2)s$(c1)erver   $(hblk).. $(cl)irc.crap.com \(we love crap\))
-xecho $cparse($(hblk)[$(c2)ณ$(hblk)]  $(c2)a$(c1)way     $(hblk)..$(cl) is away: (life))
-xecho $cparse($(hblk)[$(c2)ณ$(hblk)]  $(c2)o$(c1)perator $(hblk).. $(cl)crapple is a jewish irc warrior)
-xecho $cparse($(hblk)[$(c2)ณ$(hblk)]  $(c2)i$(c1)dle     $(hblk).. $(cl)1 second idle)
-xecho $cparse($(c1) ภ-$(hblk) -ฤ- -     -              -          -)
-eval aecho)
-xecho $cparse(%K[%n2%K]%n)
-xecho $cparse($(c2)ฺฤฤฤฤฤฤฤฤฤฤฤ$(c1)ฤ$(c2)ฤฤ$(c1)ฤ$(c2)ฤฤฤฤฤฤฤฤฤฤฤฤ$(hblk)ฤ$(c2)ฤฤ$(hblk)ฤฤ$(c2)ฤ$(hblk)ฤฤฤฤฤฤ-ฤ ฤฤฤ-)
-xecho $cparse($(c2)ณ $(hblk)<$(hwht)kreca$(hblk)!$(c1)kreca$(hblk)@$(c1)euro.cripplekids.org$(hblk)>$(cl) $(hblk)\($(cl)$country($rightw(1 $sar(g/./ / org)))$(hblk)))
-xecho $cparse($(c2)ณ $(hwht)i$(cl)rcname  $(hblk): $(cl)kreca)
-xecho $cparse($(c1)ณ $(hwht)c$(cl)hannels $(hblk): $(cl)@#does_this_dress_make_me_look_fat? @#suicide)
-xecho $cparse($(c1)ณ $(hwht)s$(cl)erver   $(hblk): $(cl)irc.cripplekids.org (eurotrash's are cool))
-xecho $cparse($(hblk)ณ $(hwht)a$(cl)way     $(hblk):$(cl) is away: (sulk))
-xecho $cparse($(hblk)ณ $(hwht)o$(cl)perator $(hblk): $(cl)kreca reads PlayGirl on the toilet)
-xecho $cparse($(hblk)ณ $(hwht)i$(cl)dle     $(hblk): $(cl)2 seconds idle)
-xecho $cparse($(hblk). $(hwht)s$(cl)ignon   $(hblk): $(cl)Thu May 12 06:46:51 2005)
-eval aecho)
-xecho $cparse(%K[%n3%K]%n)
-xecho $cparse(ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤ-ฤ ฤฤฤ-)
-xecho $cparse(ณ \(therapist!jak@helpdesk.deathwish.net)$country($rightw(1 $sar(g/./ / net)))))
-xecho $cparse(ณ ircname  : hippocratic oaf)
-xecho $cparse(ณ channels : @#suicide @#cripplekids @#nambla @#rape)
-xecho $cparse(ณ server   : irc.deathwish.net (god hates a coward pull the fucking trigger))
-xecho $cparse(ณ away     : is away: (wifebeater in a wifebeater))
-xecho $cparse(ณ operator : therapist loves you with all his heart)
-xecho $cparse(ณ idle     : 4 seconds idle)
-xecho $cparse(. signon   : Thu May 12 06:46:51 2005)
-eval aecho)
-xecho $cparse(%K[%n4%K]%n)
-xecho $cparse( \(violence!prozac@euro.scenewhore.org\)$country($rightw(1 $sar(g/./ / org)))))
-xecho $cparse( ircname  : don't hate me cuz i'm an emokid)
-xecho $cparse( channels : @#emokids @#suicide @#failed_suicide_attempt_anonymous)
-xecho $cparse( server   : irc.deathwish.net (god kills a kitten everytime you masturbate))
-xecho $cparse( away     : is away: (killing self))
-xecho $cparse( operator : violence is as helpful to the world as ebola is)
-xecho $cparse( idle     : 10 hours 5 minutes 37 seconds idle)
-xecho $cparse( signon   : Wed Apr 20 09:46:02 2005)
-eval aecho)
-xecho $cparse(%K[%n5%K]%n)
-eval aecho)
-xecho $cparse(*** skullY is zwhite@front.arpa.org   )
-xecho $cparse(*** ircname: The work is done and then forgotten)
-xecho $cparse(*** on channels: @#amnesiac)
-xecho $cparse(*** on irc via server irc.servercentral.net (chase the dragon))
-xecho $cparse(*** away: you people suck. heh.)
-xecho $cparse(*** skullY is an IRC Operator)
-xecho $cparse(*** idle: 47 minutes 11 seconds)
-xecho $cparse(*** skullY signed on at Sat Apr  2 02:21:01 2005)
-eval aecho)
-xecho $cparse(%K[%n6%K]%n)
-eval aecho)
-xecho $cparse(%cwarjest  %n: %msk%W@%mapexsoftware.com %n\(drama is my middle name) \[Internic Commercial])
-xecho $cparse(%BChannels   %n:%C @#emokids @#nambla)
-xecho $cparse(%BServer     %n:%C irc.deathwish.net%n \(WHAT GOD WANT'S GOD GET'S\))
-xecho $cparse(%BSetAway    %n: away: (everyone hates me cuz i'm paranoid))
-xecho $cparse(%BActually   %n:%B 127.0.0.1)
-xecho $cparse(%BIrcOp      %n: warjest is an IRC Sucker)
-xecho $cparse(%BIdle       %n: 2 days 15 hours 27 seconds)
-xecho $cparse(%BSignOn     %n: Sun Aug  7 03:58:05 2005)
-eval aecho)
-xecho $cparse(%K[%n7%K]%n)
-eval aecho)
-xecho $cparse(ฺฤฤ$(c2)ฤ$(hwht)ฤ$(c2)ฤฤฤฤ$(c1)ฤ$(c2)ฤฤ$(c1)ฤฤ-$(hblk)  -      -           ๚)
-xecho $cparse($(hblk)<$(c2)ณ$(hblk)> $(hblk)\($(hwht)kreca$(hblk)!$(c1)kreca$(hblk)@$(c1)euro.cripplekids.org$(hblk)\)$(cl) $country($rightw(1 $sar(g/./ / org))))
-xecho $cparse($(hblk)<$(c2)ณ$(hblk)>  $(c2)i$(c1)rcname  $(hblk).. $(cl)kreca)
-xecho $cparse($(hblk)<$(c2)ณ$(hblk)>  $(c2)c$(c1)hannels $(hblk).. $(cl)@#does_this_dress_make_me_look_fat? @#suicide)
-xecho $cparse($(hblk)<$(c2)ณ$(hblk)>  $(c2)s$(c1)erver   $(hblk).. $(cl)irc.cripplekids.org (eurotrash's are cool))
-xecho $cparse($(hblk)<$(c2)ณ$(hblk)>  $(c2)a$(c1)way     $(hblk)..$(cl) sulk)
-xecho $cparse($(hblk)<$(c2)ณ$(hblk)>  $(c2)o$(c1)perator $(hblk).. $(cl)kreca is most likely overweight and named after a clay cartoon figure %K[%nOperator%K])
-xecho $cparse($(hblk)<$(c2)ณ$(hblk)>  $(c2)i$(c1)dle     $(hblk).. $(cl)9 minutes 11 seconds idle)
-xecho $cparse($(hblk)<$(c2)ณ$(hblk)>  $(c2)s$(c1)ignon   $(hblk).. $(cl)Thu May 12 06:46:51 2005)
-xecho $cparse($(c1) ภ-$(hblk) -ฤ- -     -              -          -)
-xecho $cparse()
-xecho $cparse(%K[%n8%K]%n)
-eval aecho)
-xecho $cparse(%G=%RWhois%G==========================================================%n)
-xecho $cparse(%G| %Ykreca%n %K\(%nkreca@euro.cripplekids.org%K\)%n %K\(%n$country($rightw(1 $sar(g/./ / org)))%K\)%n)
-xecho $cparse(%G| %WIrcname%n     : kreca)
-xecho $cparse(%G| %WChannels%n    : @#does_this_dress_make_me_look_fat? @#suicide)
-xecho $cparse(%G| %WServer%n      : irc.cripplekids.org (eurotrash's are cool))
-xecho $cparse(%G| %WAway%n        : sulk)
-xecho $cparse(%G| %WOperator%n    : Yes)
-xecho $cparse(%G| %WIdle%n        : 9 minutes 11 seconds idle)
-xecho $cparse(%G| %WSignon%n      : Thu May 12 06:46:51 2005)
-xecho $cparse(%G================================================================%n)
-eval aecho)
-xecho $cparse(%K[%n9%K]%n)
-eval aecho)
-xecho $cparse($(hwht) ___$(c2)_$(hwht)_$(c2)____$(c1)_$(c2)__$(c1)___$(hblk)  _      _           _)
-xecho $cparse($(c1)| $(hblk)\($(hwht)psk$(hblk)!$(c1)psk$(hblk)@$(c1)shows.us.luv.like.donkeys.do$(hblk)\)$(cl) $country($rightw(1 $sar(g/./ / do))))
-xecho $cparse($(c1)| $(c2)i$(c1)rcname  $(hblk).. $(cl)psk)
-xecho $cparse($(c1)| $(c2)c$(c1)hannels $(hblk).. $(cl)@#amnesiac)
-xecho $cparse($(c1)| $(c2)s$(c1)erver   $(hblk).. $(cl)irc.crap.com \(we love crap\))
-xecho $cparse($(c1)| $(c2)a$(c1)way     $(hblk)..$(cl) is away: (trying to do something useful even once in my life))
-xecho $cparse($(c1)| $(c2)o$(c1)perator $(hblk).. $(cl)crapple is a mIRC operator)
-xecho $cparse($(c1)| $(c2)i$(c1)dle     $(hblk).. $(cl)16 second idle)
-eval aecho)
-xecho $cparse(%K[%n10%K]%n)
-eval aecho)
-xecho $cparse($(hblk)ษ$(c1)ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ)
-xecho $cparse($(hblk)บ   $(hblk)[$(c2)criminal$(hblk)\($(c1)cz$(hblk)@$(c1)insanity.deathwish.net$(hblk)\)]$(cl) Internic Network)
-xecho $cparse($(hblk)บ   $(c2)i$(c1)rcname  $(hblk).$(c1). $(cl)criminal)
-xecho $cparse($(hblk)บ   $(c2)c$(c1)hannels $(hblk).$(c1). $(cl)@#wri\sts)
-xecho $cparse($(hblk)บ   $(c2)s$(c1)erver   $(hblk).$(c1). $(cl)irc.cripplekids.org (eurotrash's are cool))
-xecho $cparse($(hblk)บ   $(c2)i$(c1)dle     $(hblk).$(c1). $(cl)1 hour 4 minutes 41 seconds idle)
-xecho $cparse($(hblk)บ   $(c2)s$(c1)ignon   $(hblk).$(c1). $(cl)Wed Jan 30 10:50:08 2008)
-xecho $cparse($(hblk)ศ$(c1)ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ)
+eval echo %K[%n1%K]%n
+eval echo $(hwht) ฺฤฤ$(c2)ฤ$(hwht)ฤ$(c2)ฤฤฤฤ$(c1)ฤ$(c2)ฤฤ$(c1)ฤฤ-$(hblk)  -      -           ๚
+eval echo $(hblk)[$(c2)ณ$(hblk)]  $(hblk)\($(hwht)crapple$(hblk)!$(c1)zak$(hblk)@$(c1)chowned.org$(hblk)\)$(cl) $country($rightw(1 $sar(g/./ / org)))
+eval echo $(hblk)[$(c2)ณ$(hblk)]  $(c2)i$(c1)rcname  $(hblk).. $(cl)crapple
+eval echo $(hblk)[$(c2)ณ$(hblk)]  $(c2)c$(c1)hannels $(hblk).. $(cl)@#amnesiac @#neoncrapple
+eval echo $(hblk)[$(c2)ณ$(hblk)]  $(c2)s$(c1)erver   $(hblk).. $(cl)irc.crap.com \(we love crap\)
+eval echo $(hblk)[$(c2)ณ$(hblk)]  $(c2)a$(c1)way     $(hblk)..$(cl) is away: (life)
+eval echo $(hblk)[$(c2)ณ$(hblk)]  $(c2)o$(c1)perator $(hblk).. $(cl)crapple is a jewish irc warrior
+eval echo $(hblk)[$(c2)ณ$(hblk)]  $(c2)i$(c1)dle     $(hblk).. $(cl)1 second idle
+eval echo $(c1) ภ-$(hblk) -ฤ- -     -              -          -
+eval aecho
+eval echo %K[%n2%K]%n
+eval echo $(c2)ฺฤฤฤฤฤฤฤฤฤฤฤ$(c1)ฤ$(c2)ฤฤ$(c1)ฤ$(c2)ฤฤฤฤฤฤฤฤฤฤฤฤ$(hblk)ฤ$(c2)ฤฤ$(hblk)ฤฤ$(c2)ฤ$(hblk)ฤฤฤฤฤฤ-ฤ ฤฤฤ-
+eval echo $(c2)ณ $(hblk)<$(hwht)kreca$(hblk)!$(c1)kreca$(hblk)@$(c1)euro.cripplekids.org$(hblk)>$(cl) $(hblk)\($(cl)$country($rightw(1 $sar(g/./ / org)))$(hblk))
+eval echo $(c2)ณ $(hwht)i$(cl)rcname  $(hblk): $(cl)kreca
+eval echo $(c1)ณ $(hwht)c$(cl)hannels $(hblk): $(cl)@#does_this_dress_make_me_look_fat? @#suicide
+eval echo $(c1)ณ $(hwht)s$(cl)erver   $(hblk): $(cl)irc.cripplekids.org (eurotrash's are cool)
+eval echo $(hblk)ณ $(hwht)a$(cl)way     $(hblk):$(cl) is away: (sulk)
+eval echo $(hblk)ณ $(hwht)o$(cl)perator $(hblk): $(cl)kreca reads PlayGirl on the toilet
+eval echo $(hblk)ณ $(hwht)i$(cl)dle     $(hblk): $(cl)2 seconds idle
+eval echo $(hblk). $(hwht)s$(cl)ignon   $(hblk): $(cl)Thu May 12 06:46:51 2005
+eval aecho
+eval echo %K[%n3%K]%n
+eval echo ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤ-ฤ ฤฤฤ-
+eval echo ณ \(therapist!jak@helpdesk.deathwish.net)$country($rightw(1 $sar(g/./ / net))))
+eval echo ณ ircname  : hippocratic oaf
+eval echo ณ channels : @#suicide @#cripplekids @#nambla @#rape
+eval echo ณ server   : irc.deathwish.net (god hates a coward pull the fucking trigger)
+eval echo ณ away     : is away: (wifebeater in a wifebeater)
+eval echo ณ operator : therapist loves you with all his heart
+eval echo ณ idle     : 4 seconds idle
+eval echo . signon   : Thu May 12 06:46:51 2005
+eval aecho
+eval echo %K[%n4%K]%n
+eval echo  \(violence!prozac@euro.scenewhore.org\)$country($rightw(1 $sar(g/./ / org))))
+eval echo  ircname  : don't hate me cuz i'm an emokid
+eval echo  channels : @#emokids @#suicide @#failed_suicide_attempt_anonymous
+eval echo  server   : irc.deathwish.net (god kills a kitten everytime you masturbate)
+eval echo  away     : is away: (killing self)
+eval echo  operator : violence is as helpful to the world as ebola is
+eval echo  idle     : 10 hours 5 minutes 37 seconds idle
+eval echo  signon   : Wed Apr 20 09:46:02 2005
+eval aecho
+eval echo %K[%n5%K]%n
+eval aecho
+eval echo *** skullY is zwhite@front.arpa.org   
+eval echo *** ircname: The work is done and then forgotten
+eval echo *** on channels: @#amnesiac
+eval echo *** on irc via server irc.servercentral.net (chase the dragon)
+eval echo *** away: you people suck. heh.
+eval echo *** skullY is an IRC Operator
+eval echo *** idle: 47 minutes 11 seconds
+eval echo *** skullY signed on at Sat Apr  2 02:21:01 2005
+eval aecho
+eval echo %K[%n6%K]%n
+eval aecho
+eval echo %cwarjest  %n: %msk%W@%mapexsoftware.com %n\(drama is my middle name) \[Internic Commercial]
+eval echo %BChannels   %n:%C @#emokids @#nambla
+eval echo %BServer     %n:%C irc.deathwish.net%n \(WHAT GOD WANT'S GOD GET'S\)
+eval echo %BSetAway    %n: away: (everyone hates me cuz i'm paranoid)
+eval echo %BActually   %n:%B 127.0.0.1
+eval echo %BIrcOp      %n: warjest is an IRC Sucker
+eval echo %BIdle       %n: 2 days 15 hours 27 seconds
+eval echo %BSignOn     %n: Sun Aug  7 03:58:05 2005
+eval aecho
+eval echo %K[%n7%K]%n
+eval aecho
+eval echo ฺฤฤ$(c2)ฤ$(hwht)ฤ$(c2)ฤฤฤฤ$(c1)ฤ$(c2)ฤฤ$(c1)ฤฤ-$(hblk)  -      -           ๚
+eval echo $(hblk)<$(c2)ณ$(hblk)> $(hblk)\($(hwht)kreca$(hblk)!$(c1)kreca$(hblk)@$(c1)euro.cripplekids.org$(hblk)\)$(cl) $country($rightw(1 $sar(g/./ / org)))
+eval echo $(hblk)<$(c2)ณ$(hblk)>  $(c2)i$(c1)rcname  $(hblk).. $(cl)kreca
+eval echo $(hblk)<$(c2)ณ$(hblk)>  $(c2)c$(c1)hannels $(hblk).. $(cl)@#does_this_dress_make_me_look_fat? @#suicide
+eval echo $(hblk)<$(c2)ณ$(hblk)>  $(c2)s$(c1)erver   $(hblk).. $(cl)irc.cripplekids.org (eurotrash's are cool)
+eval echo $(hblk)<$(c2)ณ$(hblk)>  $(c2)a$(c1)way     $(hblk)..$(cl) sulk
+eval echo $(hblk)<$(c2)ณ$(hblk)>  $(c2)o$(c1)perator $(hblk).. $(cl)kreca is most likely overweight and named after a clay cartoon figure %K[%nOperator%K]
+eval echo $(hblk)<$(c2)ณ$(hblk)>  $(c2)i$(c1)dle     $(hblk).. $(cl)9 minutes 11 seconds idle
+eval echo $(hblk)<$(c2)ณ$(hblk)>  $(c2)s$(c1)ignon   $(hblk).. $(cl)Thu May 12 06:46:51 2005
+eval echo $(c1) ภ-$(hblk) -ฤ- -     -              -          -
+eval echo 
+eval echo %K[%n8%K]%n
+eval aecho
+eval echo %G=%RWhois%G==========================================================%n
+eval echo %G| %Ykreca%n %K\(%nkreca@euro.cripplekids.org%K\)%n %K\(%n$country($rightw(1 $sar(g/./ / org)))%K\)%n
+eval echo %G| %WIrcname%n     : kreca
+eval echo %G| %WChannels%n    : @#does_this_dress_make_me_look_fat? @#suicide
+eval echo %G| %WServer%n      : irc.cripplekids.org (eurotrash's are cool)
+eval echo %G| %WAway%n        : sulk
+eval echo %G| %WOperator%n    : Yes
+eval echo %G| %WIdle%n        : 9 minutes 11 seconds idle
+eval echo %G| %WSignon%n      : Thu May 12 06:46:51 2005
+eval echo %G================================================================%n
+eval aecho
+eval echo %K[%n9%K]%n
+eval aecho
+eval echo $(hwht) ___$(c2)_$(hwht)_$(c2)____$(c1)_$(c2)__$(c1)___$(hblk)  _      _           _
+eval echo $(c1)| $(hblk)\($(hwht)psk$(hblk)!$(c1)psk$(hblk)@$(c1)shows.us.luv.like.donkeys.do$(hblk)\)$(cl) $country($rightw(1 $sar(g/./ / do)))
+eval echo $(c1)| $(c2)i$(c1)rcname  $(hblk).. $(cl)psk
+eval echo $(c1)| $(c2)c$(c1)hannels $(hblk).. $(cl)@#amnesiac
+eval echo $(c1)| $(c2)s$(c1)erver   $(hblk).. $(cl)irc.crap.com \(we love crap\)
+eval echo $(c1)| $(c2)a$(c1)way     $(hblk)..$(cl) is away: (trying to do something useful even once in my life)
+eval echo $(c1)| $(c2)o$(c1)perator $(hblk).. $(cl)crapple is a mIRC operator
+eval echo $(c1)| $(c2)i$(c1)dle     $(hblk).. $(cl)16 second idle
+eval aecho
+eval echo %K[%n10%K]%n
+eval aecho
+eval echo $(hblk)ษ$(c1)ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
+eval echo $(hblk)บ   $(hblk)[$(c2)criminal$(hblk)\($(c1)cz$(hblk)@$(c1)insanity.deathwish.net$(hblk)\)]$(cl) Internic Network
+eval echo $(hblk)บ   $(c2)i$(c1)rcname  $(hblk).$(c1). $(cl)criminal
+eval echo $(hblk)บ   $(c2)c$(c1)hannels $(hblk).$(c1). $(cl)@#wri\sts
+eval echo $(hblk)บ   $(c2)s$(c1)erver   $(hblk).$(c1). $(cl)irc.cripplekids.org (eurotrash's are cool)
+eval echo $(hblk)บ   $(c2)i$(c1)dle     $(hblk).$(c1). $(cl)1 hour 4 minutes 41 seconds idle
+eval echo $(hblk)บ   $(c2)s$(c1)ignon   $(hblk).$(c1). $(cl)Wed Jan 30 10:50:08 2008
+eval echo $(hblk)ศ$(c1)ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
