@@ -3,8 +3,8 @@
 # TODO: convert to pf-loader
 subpackage flood
 
-eval osetitem protect msgflood Msgflood Sensor:;
-eval osetitem protect msgftimer Msgflood Timer:;
+osetitem protect msgflood Msgflood Sensor:;
+osetitem protect msgftimer Msgflood Timer:;
 
 ## vars
 @mfloodtimer=[10]

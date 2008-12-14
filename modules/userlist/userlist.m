@@ -29,10 +29,8 @@ set userlist_save_auto off;
   # */#channel:                   flags for a channel on all networks
 };
 
-eval {
-  @ userlist_flags = [aovhcikr];
-  @ userlist_prefixes = [#&!];
-};
+@ userlist_flags = [aovhcikr];
+@ userlist_prefixes = [#&!];
 
 alias purge {
   foreach $0 ii {

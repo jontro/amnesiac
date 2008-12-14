@@ -194,3 +194,4 @@ and documented now. //skullY bug me if it breaks
 -change all instances of $N and similar uses to $servernick() //skullY
 -add a serverchan() alias that gets the channel properly, $C can break //skullY
 -change all instances of $C and similar uses to $serverchan() //skullY
+-remove some unneccesary evals //skullY

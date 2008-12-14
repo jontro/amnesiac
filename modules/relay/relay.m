@@ -4,8 +4,8 @@
 # TODO: convert to pf-loader
 subpackage relay
 
-eval osetitem relay rsendbuf Outbound Buffer:;
-eval osetitem relay rfrombuf Inbound Buffer:;
+osetitem relay rsendbuf Outbound Buffer:;
+osetitem relay rfrombuf Inbound Buffer:;
 
 ## common relay funcs relw relm relsm reln relsn reld reldm
 ## simple relay aliases.

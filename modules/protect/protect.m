@@ -3,7 +3,7 @@
 # TODO: convert to pf-loader
 
 subpackage protect
-eval osetitem protect unbanself Unbanself when banned
+osetitem protect unbanself Unbanself when banned
 
 ## unbanself protection hook
 ^on #-mode_stripped 53 "% % +b*" {

@@ -20,7 +20,6 @@ This is some notes from hop on stuff we should look at rewriting.
 -----
 <hop> 1) You can create your own output levels with $levelctl()
 <hop> http://epicsol.org/help/levelctl
------
 <hop> ie, @levelctl(ADD bleh);/xecho -l bleh HAHAHAH!                           
 -----
 <hop>  /server irc.foo.com:pr=v6

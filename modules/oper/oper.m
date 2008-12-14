@@ -8,8 +8,8 @@ if (word(2 $loadinfo()) != [pf]) {
 
 subpackage oper;
 
-eval osetitem oper ovmode Operview modes:;
-eval osetitem oper ovsize Operview win size:;
+osetitem oper ovmode Operview modes:;
+osetitem oper ovsize Operview win size:;
 @ bindctl(sequence ^E set parse_command _spageu);
 @ bindctl(sequence ^D set parse_command _spaged);
 

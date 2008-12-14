@@ -30,4 +30,4 @@ set new_server_lastlog_level none;
 set switch_channels_between_windows off;
 
 ## hack to not break URLS.
-eval set word_break $strip(. $word_break);
+set word_break $strip(. $word_break);

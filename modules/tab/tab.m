@@ -44,7 +44,7 @@ alias gendisp (sl dwords 1,user,void) {
 		@:denom="$denom ";
 	}{
 		fe ($uulist) $_nlist {
-			eval xecho -v $_nlist2;
+			xecho -v $_nlist2;
 		};
 	};
 	@:ret = rest(${strlen($user)} $denom);
