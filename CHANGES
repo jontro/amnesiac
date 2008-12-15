@@ -211,3 +211,7 @@ and documented now. //skullY bug me if it breaks
  msgs,publics,notice, and some other hooks not everything will translate to
  utf8 look at amn/modules/utf8 for more information /utf8 to toggle on/off
  after one /addmod utf8 //zak
+
+12.15.08
+-add new remote module. Connect to your client with another client. //skullY
+-increment snap //skullY
