@@ -170,7 +170,7 @@ alias _remoteClientHandler (remoteFD, remoteIP, remotePort) {
 		_recho $1 claims to be $4@$5 \($7-\);
 	};
 	^on #^dcc_raw 13 "$_modsinfo.remote.clientFD % D PASS *" {
-		if (_modsinfo.remote.password == [$5]) {
+		if (_modsinfo.remote.password == [$4]) {
 			@_modsinfo.remote.authenticated = 1;
 		} {
 			_cleanup Invalid password;
@@ -182,6 +182,7 @@ alias _remoteClientHandler (remoteFD, remoteIP, remotePort) {
 		if (! _modsinfo.remote.registered) {
 			if (_modsinfo.remote.authenticated != 1) {
 				_cleanup password required;
+				_recho $1 didn't authenticate.
 			} {
 				_rsend :$_modsinfo.remote.hostname 001 $servernick() :Welcome to IRC!;
 				_rsend :$_modsinfo.remote.hostname 002 $servernick() :Your host is $_modsinfo.remote.hostname running ircII $J \($V\) [$info(i)] $a.ver/$a.rel \($a.snap\);
