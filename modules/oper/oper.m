@@ -118,6 +118,10 @@ alias operwall {
 	quote operwall :$*;
 };
 
+alias adminwall {
+	quote adminwall :$*;
+};
+
 alias locops {
 	quote locops :$*;
 };
