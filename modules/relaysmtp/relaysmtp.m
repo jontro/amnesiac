@@ -51,6 +51,8 @@ alias config.rsmtpemailuser {
 	# The username for the outgoing email
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.emailUser;
+	} else if ([$0]==[-l]) {
+		@_modsinfo.relaysmtp.emailUser = "$1";
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.emailUser = "$1";
 		xecho -b relaysmtp: Current email username is $_modsinfo.relaysmtp.emailUser;
@@ -62,6 +64,8 @@ alias config.rsmtpemailpass {
 	# The shared key we put in outgoing email
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.emailPass;
+	} else if ([$0]==[-l]) {
+		@_modsinfo.relaysmtp.emailPass = "$1";
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.emailPass = "$1";
 		xecho -b relaysmtp: Current email shared key is $_modsinfo.relaysmtp.emailPass;
@@ -73,6 +77,8 @@ alias config.rsmtpemaildomain {
 	# The domain we send email from
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.emailDomain;
+	} else if ([$0]==[-l]) {
+		@_modsinfo.relaysmtp.emailDomain = "$1";
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.emailDomain = "$1";
 		xecho -b relaysmtp: Current email domain is $_modsinfo.relaysmtp.emailDomain;
@@ -84,6 +90,8 @@ alias config.rsmtpemailsep {
 	# What separates the components of the email address
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.emailSep;
+	} else if ([$0]==[-l]) {
+		@_modsinfo.relaysmtp.emailSep = "$1";
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.emailSep = "$1";
 		xecho -b relaysmtp: Current email separator is $_modsinfo.relaysmtp.emailSep;
@@ -95,6 +103,8 @@ alias config.rsmtpdestaddress {
 	# The address we relay messages to
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.destAddress;
+	} else if ([$0]==[-l]) {
+		@_modsinfo.relaysmtp.destAddress = "$1";
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.destAddress = "$1";
 		xecho -b relaysmtp: Current relay destination is $_modsinfo.relaysmtp.destAddress;
@@ -106,6 +116,8 @@ alias config.rsmtpsendmail {
 	# The location of the sendmail binary
 	if ([$0]==[-r]) {
 		return $_modsinfo.relaysmtp.sendmail;
+	} else if ([$0]==[-l]) {
+		@_modsinfo.relaysmtp.sendmail = "$1";
 	} else if ([$0]==[-s]) {
 		@_modsinfo.relaysmtp.sendmail = "$1";
 		xecho -b relaysmtp: Current sendmail location is $_modsinfo.relaysmtp.sendmail;
@@ -118,22 +130,21 @@ alias rsmtphelp {
 };
 
 alias rsmtpload {
-	^load $(savepath)$_modsinfo.relaysmtp.savefile;
+	^load $(savepath)relaysmtp.save;
 };
 
 alias rsmtpsave {
-	@rename($(savepath)$_modsinfo.relaysmtp.savefile $(savepath)$(_modsinfo.relaysmtp.savefile)~);
-	@fd = open($(savepath)$_modsinfo.relaysmtp.savefile W);
-	@write($fd @_modsinfo.relaysmtp.phoneStatus = $_modsinfo.relaysmtp.phoneStatus);
-	@write($fd @_modsinfo.relaysmtp.emailUser = $_modsinfo.relaysmtp.emailUser);
-	@write($fd @_modsinfo.relaysmtp.emailPass = $_modsinfo.relaysmtp.emailPass);
-	@write($fd @_modsinfo.relaysmtp.emailDomain = $_modsinfo.relaysmtp.emailDomain);
-	@write($fd @_modsinfo.relaysmtp.emailSep = $_modsinfo.relaysmtp.emailSep);
-	@write($fd @_modsinfo.relaysmtp.destAddress = $_modsinfo.relaysmtp.destAddress);
-	@write($fd @_modsinfo.relaysmtp.sendmail = $_modsinfo.relaysmtp.sendmail);
-	@write($fd @_modsinfo.relaysmtp.cmdQueue = $_modsinfo.relaysmtp.cmdQueue);
+	@rename($(savepath)relaysmtp.save $(savepath)relaysmtp.save~);
+	@fd = open($(savepath)relaysmtp.save W);
+	@write($fd config.rsmtpstatus -l $_modsinfo.relaysmtp.phoneStatus);
+	@write($fd config.rsmtpemailuser -l $_modsinfo.relaysmtp.emailUser);
+	@write($fd config.rsmtpemailpass -l $_modsinfo.relaysmtp.emailPass);
+	@write($fd config.rsmtpemaildomain -l $_modsinfo.relaysmtp.emailDomain);
+	@write($fd config.rsmtpemailsep -l $_modsinfo.relaysmtp.emailSep); 
+	@write($fd config.rsmtpemaildestaddress -l $_modsinfo.relaysmtp.destAddress);
+	@write($fd config.rsmtpsendmail -l $_modsinfo.relaysmtp.sendmail); 
 	@close($fd);
-	xecho -b RelaySMTP settings saved to $(savepath)$_modsinfo.relaysmtp.savefile
+	xecho -b RelaySMTP settings saved to $(savepath)relaysmtp.save;
 };
 
 ## Internal aliases

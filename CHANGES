@@ -221,3 +221,6 @@ and documented now. //skullY bug me if it breaks
 12.23.08
 -add psk to greets, maybe he will do something ;(
 -make Alien88 also stop crying with the addition of adminwall too //zak
+
+12.30.08
+-fix relaysmtp and remote so that settings are saved on load //skullY

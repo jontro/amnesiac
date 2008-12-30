@@ -78,6 +78,8 @@ osetitem remote remotehostname Hostname:;
 alias config.remotehostname (command, hostname) {
 	if (command==[-r]) {
 		return $_modsinfo.remote.hostname;
+	} else if (command==[-l]) {
+		@_modsinfo.remote.hostname = "$hostname";
 	} else if (command==[-s]) {
 		@_modsinfo.remote.hostname = "$hostname";
 		xecho -b remote: Current Hostname is $_modsinfo.remote.hostname;
@@ -88,6 +90,8 @@ osetitem remote remotelistenport Port:;
 alias config.remotelistenport (command, port) {
 	if (command==[-r]) {
 		return $_modsinfo.remote.listenPort;
+	} else if (command==[-l]) {
+		@_modsinfo.remote.listenPort = "$port";
 	} else if (command==[-s]) {
 		@_modsinfo.remote.listenPort = "$port";
 		xecho -b remote: Current Port is $_modsinfo.remote.listenPort;
@@ -98,6 +102,8 @@ osetitem remote remotepassword Password:;
 alias config.remotepassword (command, password) {
 	if (command==[-r]) {
 		return $_modsinfo.remote.password;
+	} else if (command==[-l]) {
+		@_modsinfo.remote.password = "$password";
 	} else if (command==[-s]) {
 		@_modsinfo.remote.password = "$password";
 		xecho -b remote: Current Password is $_modsinfo.remote.password;
@@ -110,18 +116,17 @@ alias remotehelp (void) {
 };
 
 alias remoteload (void) {
-	_recho Loading $(savepath)$_modsinfo.remote.savefile;
-	^load $(savepath)$_modsinfo.remote.savefile;
+	^load $(savepath)remote.save;
 };
 
 alias remotesave (void) {
-	@rename($(savepath)$_modsinfo.remote.savefile $(savepath)$(_modsinfo.remote.savefile)~);
-	@fd = open($(savepath)$_modsinfo.remote.savefile W);
-	@write($fd @_modsinfo.remote.hostname = "$_modsinfo.remote.hostname");
-	@write($fd @_modsinfo.remote.listenPort = $_modsinfo.remote.listenPort);
-	@write($fd @_modsinfo.remote.password = "$_modsinfo.remote.password");
+	@rename($(savepath)remote.save $(savepath)remote.save~);
+	@fd = open($(savepath)remote.save W);
+	@write($fd config.remotehostname -l $_modsinfo.remote.hostname);
+	@write($fd config.remotelistenport -l $_modsinfo.remote.listenPort);
+	@write($fd config.remotepassword -l $_modsinfo.remote.password);
 	@close($fd);
-	xecho -b Remote settings saved to $(savepath)$_modsinfo.remote.savefile;
+	xecho -b Remote settings saved to $(savepath)remote.save;
 };
 
 ## Control aliases

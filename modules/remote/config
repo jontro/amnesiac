@@ -1,7 +1,7 @@
 @_modsinfo.remote.helpcmd = "remotehelp";
 @_modsinfo.remote.loadcmd = "remoteload";
 @_modsinfo.remote.savecmd = "remotesave";
-@_modsinfo.remote.savefile = "remote.save";
+@_modsinfo.remote.savefiles = "remote.save";
 @_modsinfo.remote.description = "Connect to your client using another irc client";
 @_modsinfo.remote.hostname = "localhost";
 @_modsinfo.remote.listening = 0;
