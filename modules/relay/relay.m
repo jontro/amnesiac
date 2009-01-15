@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2008 Amnesiac Software Project.
+# Copyright (c) 2003-2009 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # last modified by crapple 05.28.06 - commenting/cleanup/rflush/reld/m/configs
 # TODO: convert to pf-loader

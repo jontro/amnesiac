@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2008 Amnesiac Software Project.
+# Copyright (c) 2003-2009 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # taken from enigma. nutbar.
 # moved lsay here on 10.2.05 - crapple

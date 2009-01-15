@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2008 Amnesiac Software Project.
+# Copyright (c) 2003-2009 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
 if (word(2 $loadinfo()) != [pf]) {
@@ -13,7 +13,7 @@ subpackage main;
 @a.rel_id='rc1';
 @a.rel="2.0b.$a.rel_id";
 @a.date='20080610';
-@a.snap='20081230';
+@a.snap='20090115';
 
 ## color vars.
 @ cl    = "[0m";

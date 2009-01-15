@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2008 Amnesiac Software Project.
+# Copyright (c) 2003-2009 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # most of this taken from crackrock and made a lot better. server var
 # taken from pv.

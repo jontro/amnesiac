@@ -47,6 +47,7 @@ $ = knownbug.
 $ Supposedly texp will break under certain circumstances
 $ userlist is buggy/has been having issues for years it's really not a
   priority for us but we may work on it soon.
+$ protect module is borked, fix? remove?
 
 ## high priority knownbugs.
 None

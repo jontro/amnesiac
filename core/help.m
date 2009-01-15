@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2008 Amnesiac Software Project.
+# Copyright (c) 2003-2009 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -94,8 +94,6 @@ subpackage help;
 @ahelp.sping = '%Wu%nsage%K:%n  /sping <server> pings server and returns lag time to it';
 @ahelp.stalker = '%Wu%nsage%K:%n  /stalker does a /common for every channel you are in against the current channel';
 @ahelp.ub = '%Wu%nsage%K:%n  /ub <nick> ub by itself will clear all bans on current channel , /ub nick will unban nick from current channel';
-@ahelp.ps = '%Wu%nsage%K:%n  /ps <arguments> equivelent to shell command';
-@ahelp.ls = '%Wu%nsage%K:%n /ls <arguements> equivelent to shell command';
 @ahelp.cd = '%Wu%nsage%K:%n /cd <dir> equivelent to shell command';
 @ahelp.dns = '%Wu%nsage%K:%n /dns <nick> domain nameserver request to given nick';
 @ahelp.nslookup = '%Wu%nsage%K:%n /nslookup <ip> domain nameserver request to given ip';

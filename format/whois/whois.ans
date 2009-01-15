@@ -97,7 +97,7 @@ eval echo $(c1)| $(c2)i$(c1)rcname  $(hblk).. $(cl)psk
 eval echo $(c1)| $(c2)c$(c1)hannels $(hblk).. $(cl)@#amnesiac
 eval echo $(c1)| $(c2)s$(c1)erver   $(hblk).. $(cl)irc.crap.com \(we love crap\)
 eval echo $(c1)| $(c2)a$(c1)way     $(hblk)..$(cl) is away: (trying to do something useful even once in my life)
-eval echo $(c1)| $(c2)o$(c1)perator $(hblk).. $(cl)crapple is a mIRC operator
+eval echo $(c1)| $(c2)o$(c1)perator $(hblk).. $(cl)psk is a mIRC operator
 eval echo $(c1)| $(c2)i$(c1)dle     $(hblk).. $(cl)16 second idle
 eval aecho
 eval echo %K[%n10%K]%n

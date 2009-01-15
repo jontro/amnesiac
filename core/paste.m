@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2008 Amnesiac Software Project.
+# Copyright (c) 2003-2009 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # hops little paste script so you can paste shit without worrying about
 # commands....ctrl-p to toggle.. /set paste for some other shit.

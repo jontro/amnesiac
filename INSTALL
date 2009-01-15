@@ -1,5 +1,5 @@
-# Copyright (c) 2003-2008 Amnesiac Software Project.        
-# See the 'COPYRIGHT' file for more information.     
+# Copyright (c) 2003-2009 Amnesiac Software Project.
+# See the 'COPYRIGHT' file for more information.
 
 before installing amnesiac remember this script is for epic5 it's not a
 bitchx and or scrollz script or any other ircii based client but epic
@@ -10,7 +10,7 @@ check the README NOTES TODO-BUGS E5-KNOWNBUGS Files if you are experiencing
 any weird problems/errors. more documents can also be found in ~/amn/docs
 check these before reporting a bug!.
 
-NOTE: amnesiac 1.5d/ r5+ requires epic5 EPIC5-0.3.8-rel+
+NOTE: amnesiac 2.0x/rc1+ requires epic5 EPIC5-1.0-rel+
 
 install info:
 
