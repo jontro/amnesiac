@@ -12,11 +12,12 @@ alias format.loadwhois (number,void) {
 	};
 };
 alias whoisform.show (void) {
-	@:currentwhois=theme.format.whois;
-	for (@:mm=1, mm <= 10, @mm++) {
-		aecho %K\[%n$mm%K\]%n;
+	fe ($glob($(loadpath)format/whois/whois.*)) ii { 
+		@:i = after(. $ii);
+		load ${loadpath}format/whois/whois.$i;
+		xecho -v whois  [$(i)];
 		echo;
-		@format.loaditem(whois $mm);
+		@format.loaditem(whois $i);
 		//shook 311 . zak cum i.love.androgyns@san.francisco * crapple;
 		//shook 301 . Crying while eating;
 		//shook 319 . . @#bearcave +#bignuts #freebsd;
@@ -26,17 +27,13 @@ alias whoisform.show (void) {
 		//shook 318;
 		echo;
 	};
-	@format.loaditem(whois $currentwhois);
 };
 
 alias whoisform (number,void) {
 	if (@number) {
-		if (format.loaditem(whois $number)) {
-			xecho $acban whois format set to $theme.format.whois;
-		}{
-			xecho -b please make a valid selection.;
-		};
+		@format.loaditem(whois $number);
 	}{
 		whoisform.show;
 	};
+	xecho $acban whois format set to $(theme.format.whois);
 };

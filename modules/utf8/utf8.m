@@ -43,49 +43,13 @@ on ^action "*" (sender, recvr, body) {
 };
 
 
-## funcs
-alias _utfc2latin (pos, text) {
-	# Remove 0xC2 character.
-	return $(mid(0 ${pos} $text))$(mid(${pos+1} $strlen($text) $text));
-};
-
-alias _utfc3latin (pos, text) {
-	# Remove 0xC3 character and increment the value of left char with 64.
-	return $(mid(0 ${pos} $text))$(chr(${ascii($mid(${pos+1} 1 $text))+64}))$(mid(${pos+2} $strlen($text) $text));
-};
 
 alias _utf_to_latin (text) {
 	if (getset(encode_utf8_to_latin) == "off") {
 		return $text;
 	};
 
-	@:strpos = 0;
-	while (strpos <= strlen($text)) {
-		@:pos = index($chr(194) $mid($strpos ${strlen($text)-strpos} $text));
-		if (pos > -1) {
-			@:pos += strpos;
-			@:val = ascii($mid(${pos+1} 1 $text));
-			if (val >= 128 && val <= 191)
-			{
-				@:text = {_utfc2latin $pos $text};
-			};
-		} else {
-			@:pos = index($chr(195) $mid($strpos ${strlen($text)-$strpos} $text));
-			if (pos > -1) {
-				@:pos += strpos;
-				@:val = ascii($mid(${pos+1} 1 $text));
-				if (val >= 128 && val <= 191) {
-					@:text = {_utfc3latin $pos $text};
-				};
-			};
-		};
 
-		if (pos == -1) {
-			break;
-		} else {
-			@:strpos = pos + 1;
-		};
-        };
 
-	return $text;
+	return $xform(ICONV "utf-8/iso-8859-1" $text);
 };
