@@ -3,8 +3,8 @@ subpackage stat4
 ^set input_prompt $(sc2)A$(sc1)A$(hblk)[$(cl)amnesiac$(hblk)] 
 alias stat4 {
 
-^set status_format1 $(sc2)Ú$(sc1)Ä$(hblk)[%*%=%@$(cl)%N%#$(hblk)] %A%M %> %Q $(hblk)[$(sc1)T$(cl)ime$(hblk)/$(cl)%T$(hblk)] $(hblk)[$(sc1)L$(cl)ag$(hblk)/$(cl)%1$(hblk)]$(sc1)Ä$(sc2)¿
-^set status_format2 $(sc1)À$(hblk)Ä[$(cl)%C$(hblk)%+$(hblk)] $(hblk)[$(sc1)o$(hblk)/$(cl)%2 $(sc1)n$(hblk)/$(cl)%3 $(sc1)v$(hblk)/$(cl)%4$(hblk)] %> %F $(hblk)[$(cl)%{2}S$(hblk)]$(sc1)Ä$(sc2)Ù
+^set status_format1 $(sc2)$(ld.ul_corner)$(sc1)$(ld.hline)$(hblk)[%*%=%@$(cl)%N%#$(hblk)] %A%M %> %Q $(hblk)[$(sc1)T$(cl)ime$(hblk)/$(cl)%T$(hblk)] $(hblk)[$(sc1)L$(cl)ag$(hblk)/$(cl)%1$(hblk)]$(sc1)$(ld.hline)$(sc2)$(ld.ur_corner)
+^set status_format2 $(sc1)$(ld.ll_corner)$(hblk)$(ld.hline)[$(cl)%C$(hblk)%+$(hblk)] $(hblk)[$(sc1)o$(hblk)/$(cl)%2 $(sc1)n$(hblk)/$(cl)%3 $(sc1)v$(hblk)/$(cl)%4$(hblk)] %> %F $(hblk)[$(cl)%{2}S$(hblk)]$(sc1)$(ld.hline)$(sc2)$(ld.lr_corner)
 ^set status_notify $(hblk)[$(sc1)A$(cl)ct$(hblk)/$(cl)%F$(hblk)]
 ^set status_umode $(sc1)<$(cl)+%#$(sc1)>
 ^set status_server %S

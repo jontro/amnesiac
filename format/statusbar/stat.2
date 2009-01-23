@@ -1,8 +1,8 @@
 subpackage stat2
 ^set -input_prompt
 alias stat2 {
-^set status_format1 $(sc2)Ú$(sc1)Ä$(hblk)-$(cl)> %*%=%@$(cl)%N %# %C %+ %! $(sc1)[$(cl)o$(hblk)/$(hwht)%2 $(cl)n$(hblk)/$(hwht)%3 $(cl)v$(hblk)/$(hwht)%4$(sc1)] %> $(sc1)\($(cl)lag$(sc1)/$(cl)%1$(sc1)) $(sc1)\($(cl)act/$(hwht)%F$(sc1)) $(sc1)-$(sc2)Ä¿
-^set status_format2 $(sc2)À$(sc1)Ä$(hblk)-$(cl)> time$(hblk)$(hwht) %T%A %Q $(sc1)[$(wht)win$(sc1)/$(hwht)%R$(sc1)] %> %{2}S$(cl) $(cl)<$(sc1)Ä$(sc2)Ù
+^set status_format1 $(sc2)$(ld.ul_corner)$(sc1)$(ld.hline)$(hblk)-$(cl)> %*%=%@$(cl)%N %# %C %+ %! $(sc1)[$(cl)o$(hblk)/$(hwht)%2 $(cl)n$(hblk)/$(hwht)%3 $(cl)v$(hblk)/$(hwht)%4$(sc1)] %> $(sc1)\($(cl)lag$(sc1)/$(cl)%1$(sc1)) $(sc1)\($(cl)act/$(hwht)%F$(sc1)) $(sc1)-$(sc2)$(ld.hline)$(ld.ur_corner)
+^set status_format2 $(sc2)$(ld.ll_corner)$(sc1)$(ld.hline)$(hblk)-$(cl)> time$(hblk)$(hwht) %T%A %Q $(sc1)[$(wht)win$(sc1)/$(hwht)%R$(sc1)] %> %{2}S$(cl) $(cl)<$(sc1)$(ld.hline)$(sc2)$(ld.lr_corner)
 ^set status_umode $(sc1)[$(cl)+%#$(sc1)]
 ^set status_server %S
 ^set status_oper $(hblk)*

@@ -6,7 +6,7 @@ DESC crapple zak@chowned.org #amnesiac Im such an emokid
 5 $G %K.%c.%K[%Wp%nart%c.%n$3%K]%n %K\(%n$1%K[%n$msar(g/@/$(hblk)@$(cl)/./$(hblk).$(cl)/$2)%K]\)%n %K[%n$4-%K]%n at $Z
 6 $fparse(format_timestamp_some $($_timess))%K.%m.%K[%Wp%nart%m.%n$1%K\(%n$msar(g/@/$(hblk)@$(cl)/$(hblk).$(cl)/$2)%K\)]%n of %m$3 %K[%n$4-%K]
 7 $fparse(format_timestamp_some $($_timess))%K\(%Wpart%K/%W$3%K\)%n - %W$1%K[$(c1)$before(@ $2)%K@$(c1)$after(@ $2)%K] \(%n$4-%K\)
-8 $fparse(format_timestamp_some $($_timess))%K\($(c1)p%Kú$(c2)$3%K\)%n $1%K[%n$2%K] \(%n$4-%K\)%n
+8 $fparse(format_timestamp_some $($_timess))%K\($(c1)p%K$(ld.smalldot)$(c2)$3%K\)%n $1%K[%n$2%K] \(%n$4-%K\)%n
 9 $G $(c1)part$(hblk)\([0m$3$(hblk)\).. $(cl)$1$(hwht)!$(c1)$2%n $Z
 10 $fparse(format_timestamp_some $($_timess))%K[%npart%K!%c$3%K]%n $1%W.%n.%c$2%n
 11 $G part%K/%n$3 %K[%n$1%K!%n$before(@ $2)%K@%n$after(@ $2)%K]%n $Z

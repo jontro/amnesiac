@@ -4,7 +4,7 @@ alias stat15 {
 
 ^set status_format1 $(red)\[%T$(red)] $(red)[$(cl)%*%=%@$(c1)%N$(cl)$(red)\($(cl)%#$(red)\)$(cl)%A$(red)]$(cl) %M %C%+ %!$(red)\($(c1)o$(hblk)/$(c2)%2 $(c1)v$(hblk)/$(c2)%4 $(c1)n$(hblk)/$(c2)%3$(red)\)$(red)] $(cl) $(sc1) %> %F %{2}S
 ^set status_format2 $(red)\[$(cl)$(c1)Lag $(c2)%1$(cl)$(red)\]$(cl) %Q %> $(red)\[$(c1)Win$(cl): $(c2)%R$(red)]$(cl)
-#$(hblk)ю$(sc2)ы$(sc1)ды $(sc1)s$(hblk)/$(sc2)%{2}S$(cl) $(sc1)time$(hblk)/$(sc2)%T %F %Q %> %A $(hblk)[$(sc1)win$(hblk)/$(sc2)%R$(hblk)] $(sc1)юд$(sc2)ю$(hblk)ы
+#$(hblk)$(ld.ll_corner)$(sc2)$(ld.lr_corner)$(sc1)$(ld.hline)$(ld.lr_corner) $(sc1)s$(hblk)/$(sc2)%{2}S$(cl) $(sc1)time$(hblk)/$(sc2)%T %F %Q %> %A $(hblk)[$(sc1)win$(hblk)/$(sc2)%R$(hblk)] $(sc1)$(ld.ll_corner)$(ld.hline)$(sc2)$(ld.ll_corner)$(hblk)$(ld.lr_corner)
 ^set status_umode $(c2)+%#$(cl)
 ^set status_notify $(red)\[$(c1)Act$(cl): $(c2)%F$(cl)$(red)]$(cl)
 ^set status_server $(red)\[$(c1)%S$(red)]$(cl)

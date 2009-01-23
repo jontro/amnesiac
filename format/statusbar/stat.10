@@ -5,8 +5,8 @@ subpackage stat10
 alias stat10 {
 
 ^set -input_prompt
-^set status_format1 $(sc2)зд $(hwht)U$(wht)ser$(sc2): %*$(sc1)%N%#%A %F %> %{2}S $(sc2)д©
-^set status_format2 $(sc2)Ё  $(hwht)C$(wht)hannel$(sc2): $(wht)%@%C%+%W %M%Q %>%T  $(hwht)L$(wht)ag$(sc2): $(sc1)%1 $(sc2)ды
+^set status_format1 $(sc2)$(ld.ul_corner)$(ld.hline) $(hwht)U$(wht)ser$(sc2): %*$(sc1)%N%#%A %F %> %{2}S $(sc2)$(ld.hline)$(ld.ur_corner)
+^set status_format2 $(sc2)$(ld.vline)  $(hwht)C$(wht)hannel$(sc2): $(wht)%@%C%+%W %M%Q %>%T  $(hwht)L$(wht)ag$(sc2): $(sc1)%1 $(sc2)$(ld.hline)$(ld.lr_corner)
 ^set status_notify $(hwht)N$(wht)otify$(hblk): $(sc1)%F
 ^set status_umode $(hblk)\($(hwht)%#$(hblk)\)
 ^set status_server $(hwht)S$(wht)erver$(hblk): $(sc1)%S

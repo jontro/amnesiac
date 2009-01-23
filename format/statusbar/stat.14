@@ -8,8 +8,8 @@ alias stat14 {
 ^set status_chanop $(mag)@$(cl)
 ^set status_clock $(hblk)\[$(cyn)time$(mag)\($(cl)%T$(mag)\)$(hblk)\]
 ^set status_cpu_saver $(mag)\($(cl)%J$(mag)\)
-^set status_format 57Ä50Ä %U%*%=%@$(cyn)%N$(cl)%# %A%C%+ %>%F$(hblk)\[$(cyn)lag$(mag)\($(cl)%1$(mag)\)$(hblk)\] 50ÄÄ57·
-^set status_format1 57ÖÄ50Ä %U%*%=%@$(cyn)%N$(cl)%# %Q%A%8 %>%T$(hblk)\[$(cyn)lag$(mag)\($(cl)%1$(mag)\)$(hblk)\] 50ÄÄ57·
+^set status_format 57$(ld.hline)50$(ld.hline) %U%*%=%@$(cyn)%N$(cl)%# %A%C%+ %>%F$(hblk)\[$(cyn)lag$(mag)\($(cl)%1$(mag)\)$(hblk)\] 50$(ld.hline)$(ld.hline)57·
+^set status_format1 57Ö$(ld.hline)50$(ld.hline) %U%*%=%@$(cyn)%N$(cl)%# %Q%A%8 %>%T$(hblk)\[$(cyn)lag$(mag)\($(cl)%1$(mag)\)$(hblk)\] 50$(ld.hline)$(ld.hline)57·
 ^set status_format2 Ì50Í  %C%+ $(hblk)\[$(cl)%2$(mag)/$(cyn)o $(cl)%3$(mag)/$(cyn)n $(cl)%4$(mag)/$(cyn)v$(hblk)\]$(cl) %>%F$(hblk)\[$(cyn)win$(mag)\($(cl)%R$(mag)\)$(hblk)\]  50Í¼
 ^set status_hold $(mag)\($(cl)hold$(mag)\)
 ^set status_hold_lines $(hblk)\[$(cl)%B$(mag)/$(cyn)hold$(hblk)\]
