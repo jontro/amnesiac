@@ -18,9 +18,9 @@ alias whoisform.show (void) {
 		xecho -v whois  [$(i)];
 		echo;
 		@format.loaditem(whois $i);
-		//shook 311 . zak cum i.love.androgyns@san.francisco * crapple;
-		//shook 301 . Crying while eating;
-		//shook 319 . . @#bearcave +#bignuts #freebsd;
+		//shook 311 . zak ramsey@assault.cripplekids * krecas bitch;
+		//shook 301 . she moans, then cries, i smile and get high;
+		//shook 319 . . @#bearcave @#amnesiac @#suicidekit;
 		//shook 312 . . irc.cripplekids.org eurotrash's are cool;
 		//shook 313 . zak;
 		//shook 317 . zak 666 0;

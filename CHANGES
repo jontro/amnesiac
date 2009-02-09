@@ -5,3 +5,6 @@ ChangeLog amnesiac 2.0 -> current
 -start of new release for amnesiac 2.0, may be a few days before
 its officially completed. //zak
 -Add termtitle(msg) alias which sets the terminal title to msg. //kreca
+-sync whois format to my liking ;p, and a slight version change
+-add a @a.commitid (currently unused but devs should update during changes
+to help track down bugs in the future) //zak
