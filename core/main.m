@@ -10,10 +10,10 @@ subpackage main;
 
 #amnesiac version info
 @a.ver='amnesiac';
-@a.rel_id='rc1';
-@a.rel="2.0b.$a.rel_id";
-@a.date='20080610';
-@a.snap='20090123';
+@a.rel_id='r1';
+@a.rel="2.0.$a.rel_id";
+@a.date='20090209';
+@a.snap='20090209';
 
 ## color vars.
 @ cl    = "[0m";
