@@ -32,6 +32,9 @@ alias rmcid { quote accept -$*;};
 alias aclist { quote accept * ;};
 alias clist aclist;
 alias cdel {rmcid $*;};
+alias termtitle (msg) {
+      //xecho -r $chr(27)]2\;${msg}$chr(7)
+};
 
 # input allowed:
 # /invite nick [#chan1 #chan2 #chan3]

@@ -4,3 +4,4 @@ ChangeLog amnesiac 2.0 -> current
 02.09.09
 -start of new release for amnesiac 2.0, may be a few days before
 its officially completed. //zak
+-Add termtitle(msg) alias which sets the terminal title to msg. //kreca
