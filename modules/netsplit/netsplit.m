@@ -80,6 +80,7 @@ alias netbroke {
 		xecho $fparse(format_join $0 $1 $2);
 		# If you change anything here, change it in core/fsets.m too.
 		if (clonecheck == 'on') {
+			@clonelist = '';
 			@userhost($1);
 			wait;
 			fe ($channel($1)) channick {

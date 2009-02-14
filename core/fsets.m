@@ -98,6 +98,7 @@ alias fparse {return ${**cparse($($*))};};
 	# If you change anything here, change it in modules/netsplit/netsplit.m 
 	# too.
 	if (clonecheck == 'on') {
+		@clonelist = '';
 		@userhost($1);
 		wait;
 		fe ($channel($1)) channick {
