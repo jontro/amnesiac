@@ -193,6 +193,15 @@ alias config.windowdoubles {
 	};
 };
 
+## clone checker
+alias config.clonecheck {
+	if ( *0 == '-r' ) {
+		return $clonecheck;
+	} else if (*0 == '-s') {
+		config.matchinput on|off clonecheck '$1' clone checker;
+	};
+};
+
 ## wrappers
 alias setumode {
 	config.umode -s $*;
@@ -230,3 +239,4 @@ osetitem misc pubnick Pubstring:;
 osetitem misc auto_rejoin Auto rejoin:;
 osetitem misc auto_rejoin_delay Auto rejoin delay:;
 osetitem misc windowdoubles Double fixed window:;
+osetitem misc clonecheck Clone Check:;

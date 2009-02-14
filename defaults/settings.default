@@ -31,3 +31,6 @@ set switch_channels_between_windows off;
 
 ## hack to not break URLS.
 set word_break $strip(. $word_break);
+
+## script defaults
+@clonecheck = 'on';

@@ -95,6 +95,19 @@ alias fparse {return ${**cparse($($*))};};
 
 ^on ^join * {
 	xecho $fparse(format_join $0 $1 $2);
+	if (clonecheck == 'on') {
+		xecho -b Checking for clones of $0!$userhost($0);
+		fe ($channel($1)) channick {
+			@nicklength = (strlen($channick) - 2);
+			@channick = right($nicklength $channick);
+			if (userhost($channick)==userhost($0)) {
+				@clonelist = "$channick $clonelist";
+			};
+		};
+		if (clonelist != '') {
+			xecho -b Clones detected: $clonelist;
+		};
+	};
 	defer getusers;
 };
 

@@ -8,3 +8,7 @@ its officially completed. //zak
 -sync whois format to my liking ;p, and a slight version change
 -add a @a.commitid (currently unused but devs should update during changes
 to help track down bugs in the future) //zak
+
+02.14.09
+-happy vd$!@#! here's a new feature for everyone.
+-check for clones when a client joins. toggle in /config misc. //skullY
