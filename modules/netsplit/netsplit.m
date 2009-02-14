@@ -78,12 +78,14 @@ alias netbroke {
 	@nj = netjoined($encode($tolower($1)) $encode($0) $1 $0 $USERHOST());
 	if (nj == 1) {
 		xecho $fparse(format_join $0 $1 $2);
+		# If you change anything here, change it in core/fsets.m too.
 		if (clonecheck == 'on') {
-			xecho -b Checking for clones of $0!$userhost($0);
+			@userhost($1);
+			wait;
 			fe ($channel($1)) channick {
 				@nicklength = (strlen($channick) - 2);
 				@channick = right($nicklength $channick);
-				if (userhost($channick)==userhost($0)) {
+				if (userhost($channick)==userhost()) {
 					@clonelist = "$channick $clonelist";
 				};
 			};
