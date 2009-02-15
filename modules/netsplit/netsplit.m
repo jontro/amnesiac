@@ -84,11 +84,11 @@ alias netbroke {
 			@userhost($1);
 			wait;
 			fe ($channel($1)) channick {
+				@nicklength = (strlen($channick) - 2);
+				@channick = right($nicklength $channick);
 				if (channick==[$0]) {
 					continue;
 				};
-				@nicklength = (strlen($channick) - 2);
-				@channick = right($nicklength $channick);
 				if (userhost($channick)==userhost()) {
 					@clonelist = "$channick $clonelist";
 				};
