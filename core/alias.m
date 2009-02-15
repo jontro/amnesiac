@@ -88,10 +88,10 @@ alias allow {dccallow $*;};
 alias dccallow {quote dccallow $*;};
 
 ## ctcp user aliases
-alias ctime {ctcp $0 time;};
-alias ctinfo {ctcp $0 clientinfo;};
-alias ctuinfo {ctcp $0 userinfo;};
-alias ctfinger {ctcp $0 finger;};
+alias clientime {ctcp $0 time;};
+alias clientinfo {ctcp $0 clientinfo;};
+alias userinfo {ctcp $0 userinfo;};
+alias finger {ctcp $0 finger;};
 
 ## to be annoying like xavier.
 alias blinky { if (@T)  msg $T $cparse("%F%G$*") ;};

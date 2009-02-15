@@ -14,7 +14,8 @@ alias svf (void) {
 
 alias sv (void) {
 	if (@T)
-	        msg $T ircII $J \($V\) [$info(i)] $a.ver/$a.rel \($a.snap\);
+	        msg $T ircII $J \($V\) [$info(i)] $a.ver/$a.rel\
+		\($a.snap\) [cvs \($a.commitid\)];
 };
 
 alias supt (void) {
