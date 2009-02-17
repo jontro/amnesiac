@@ -176,3 +176,25 @@ on #-connect 50 * {
 ^on ^324 "% % +" {
 	xecho -b Mode for channel $1 is not set;
 };
+
+# Check for clones
+^on #-join 69 "*" {
+	if (clonecheck == 'on') {
+		@clonelist = '';
+		@userhost($1);	# Pre-seed the userhost cache
+		wait;
+		fe ($channel($1)) channick {
+			@nicklength = (strlen($channick) - 2);
+			@channick = right($nicklength $channick);
+			if (channick==[$0]) {
+				continue;
+			};
+			if (userhost($channick)==userhost()) {
+				@clonelist = "$channick $clonelist";
+			};
+		};
+		if (clonelist != '') {
+			xecho -b Clones of $0 detected: $clonelist;
+		};
+	};
+};

@@ -5,6 +5,7 @@
 # integration into amnesiac by crapple/kreca some simplifications
 # and adaption with amnesiac formats
 # crapple/kreca 05 rylan 06
+# fixed by skullY 09
 
 if (word(2 $loadinfo()) != [pf]) {
         load -pf $word(1 $loadinfo());
@@ -20,10 +21,6 @@ alias nclean netclean;
 
 ## shows the current time in HH:MM:SS format
 alias currtime { return $strftime(%T); };
-
-## suppress the default on join that conflicts with netsplit and use the
-## netsplit on join instead.... //zak
-^on join -;
 
 # This function tests for bogus splits.
 alias isbogus {
@@ -66,7 +63,7 @@ alias netbroke {
 	@ signoffs[$0][$1] = *2;
 	@ splittime[$2] = time();
 	if ( !isbroke[$2] ) {
-		xecho -level OPNOTES *** Netsplit at $currtime() \($3-\);
+		xecho -b -level OPNOTES Netsplit at $currtime() \($3-\);
 		@ isbroke[$2] = 1;
 		@ splitname[$2] = "$3-";
 	};
@@ -78,25 +75,7 @@ alias netbroke {
 	@nj = netjoined($encode($tolower($1)) $encode($0) $1 $0 $USERHOST());
 	if (nj == 1) {
 		xecho $fparse(format_join $0 $1 $2);
-		# If you change anything here, change it in core/fsets.m too.
-		if (clonecheck == 'on') {
-			@clonelist = '';
-			@userhost($1);
-			wait;
-			fe ($channel($1)) channick {
-				@nicklength = (strlen($channick) - 2);
-				@channick = right($nicklength $channick);
-				if (channick==[$0]) {
-					continue;
-				};
-				if (userhost($channick)==userhost()) {
-					@clonelist = "$channick $clonelist";
-				};
-			};
-			if (clonelist != '') {
-				xecho -b Clones detected: $clonelist;
-			};
-		};
+		defer getusers;
 	};
 };
 
@@ -119,7 +98,7 @@ alias netjoined {
 alias netclean {
 	foreach splittime ii {
 		foreach splittime.$ii jj {
-			if ( time() - splittime[$ii][$jj] > 300 ) {
+			if ( time() - splittime[$ii][$jj] > 900 ) {
 				foreach signcross.$(ii).$jj xx {
 					foreach signcross.$(ii).$(jj).$xx yy {
 						@ signcross[$ii][$jj][$xx][$yy] = signoffs[$xx][$yy] = '';

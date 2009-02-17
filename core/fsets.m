@@ -93,31 +93,6 @@ alias fparse {return ${**cparse($($*))};};
 	defer getusers;
 };
 
-^on ^join * {
-	xecho $fparse(format_join $0 $1 $2);
-	# If you change anything here, change it in modules/netsplit/netsplit.m 
-	# too.
-	if (clonecheck == 'on') {
-		@clonelist = '';
-		@userhost($1);
-		wait;
-		fe ($channel($1)) channick {
-			@nicklength = (strlen($channick) - 2);
-			@channick = right($nicklength $channick);
-			if (channick==[$0]) {
-				continue;
-			};
-			if (userhost($channick)==userhost()) {
-				@clonelist = "$channick $clonelist";
-			};
-		};
-		if (clonelist != '') {
-			xecho -b Clones detected: $clonelist;
-		};
-	};
-	defer getusers;
-};
-
 ^on ^part * {
 	xecho $fparse(format_leave $0 $userhost() $1 $3-);
 	defer getusers;

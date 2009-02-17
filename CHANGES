@@ -15,3 +15,7 @@ to help track down bugs in the future) //zak
 -remove adcc module, remove irritating shortened ctcp aliases, ie;
  now its /clientinfo nick, /userinfo nick for exp, minor cleanups elsewhere
  i forget. //zak
+
+02.16.09
+-Pull netsplit into core. You might want to '/delmod netsplit' to remove
+ it from the list of loaded modules. //skullY
