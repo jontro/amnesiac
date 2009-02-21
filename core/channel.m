@@ -30,7 +30,8 @@ alias n {^names $serverchan();};
 ## misc abstract funcs/aliases
 alias epart emopart;
 alias emopart {
-	part $serverchan() $srand$randread($(loadpath)reasons/emopart.reasons);
+	@srand()
+	part $serverchan() $randread($(loadpath)reasons/emopart.reasons);
 };
 
 alias partall {
@@ -78,7 +79,7 @@ alias kick {
 	};
 	
 	if (!numwords($reason)) {
-		@:reason=randread($(loadpath)reasons/kick.reasons);
+		@:reason=srand()randread($(loadpath)reasons/kick.reasons);
 	};
 
 	fe ($split(, $people)) cur {

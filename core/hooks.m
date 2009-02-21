@@ -113,7 +113,7 @@ on #-connect 50 * {
 	_relag;
 	^timer 1 ^mode $servernick() +$getumode;
 	_updatesbar;
-        ^set quit_message $(J)[$info(i)] - $(a.ver) : $randread($(loadpath)reasons/quit.reasons);
+        ^set quit_message $(J)[$info(i)] - $(a.ver) : $srand()$randread($(loadpath)reasons/quit.reasons);
 };
  
 ## server hooks.

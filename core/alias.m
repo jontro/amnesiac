@@ -199,7 +199,7 @@ alias bye {
 	if (@) {
 		//quit $(J)[$info(i)] - $(a.ver) : $*;
 	}{
-		//quit $(J)[$info(i)] - $(a.ver) : $randread($(loadpath)reasons/quit.reasons);
+		//quit $(J)[$info(i)] - $(a.ver) : $srand()$randread($(loadpath)reasons/quit.reasons);
 	};
 };
 
