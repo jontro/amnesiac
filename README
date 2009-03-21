@@ -5,6 +5,12 @@
   THE AMNESIAC IRC CHANNEL IS:	 #amnesiac on EFNet
   ALT IRC NET: #amnesiac on irc.ircii.org (Small Network)
 
+* Amnesiac Mailing list: at this time, users who wishes to be added to the
+  mailing list, please e-mail zak@ircii.org, or kreca@ircii.org to be added
+  to the list(the primary list shows cvs changes, general discussions etc)
+  or feel free to send questions, ask to be added via
+  amnesiac@nospam.ircii.org, naturally remove the nospam. in the e-mail.
+
 * Amnesiac has came a long ways in the past year, it was previously ALPHA.
   unless there are any complaints in the near future it will be considered
   BETA(fairly stable, however some bugs will probably still arise)
@@ -24,6 +30,9 @@
 * The CHANGES file contains any amendments to the help files since the 
   last release of amnesiac
 * The CHANGES.rel file contains changes between releases.
+
+* NOTES file contains common questions and possible solution, please
+  also see amn/docs for more documentation.
 
 * If you want a feature in amnesiac or anything else, please let 
   crapple/kreca/skullY@efnet know.

@@ -26,7 +26,6 @@ set mode_stripper on;
 set client_information I get my kicks on channel six;
 set user_information Are you from the FBI?;
 set notify_on_termination off;
-set new_server_lastlog_level none;
 set switch_channels_between_windows off;
 
 ## hack to not break URLS.

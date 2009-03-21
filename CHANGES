@@ -22,3 +22,14 @@ to help track down bugs in the future) //zak
 
 02.21.09
 -Seed the random number generator where needed. //skullY
+
+03.21.09
+-rename some server helper aliases /svadd /svdel /ssl etc to name a few
+ also make /ssl for adding ssl servers actually work, sync some
+ documentation to reality //zak
+-add more documentation into docs/NOTES, also put NOTES in primary amn
+ directory, as more users may view it before asking questions about
+ common documented things in NOTES
+-remove new_server_lastlog_level from default settings as its fixed in latest
+ epic5 release, apparently the behavior has been broken for some time that
+ forced us to override it. //zak
