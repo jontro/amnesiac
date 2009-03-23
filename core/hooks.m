@@ -182,7 +182,6 @@ on #-connect 50 * {
 	if (clonecheck == 'on') {
 		@clonelist = '';
 		@userhost($1);	# Pre-seed the userhost cache
-		wait;
 		fe ($channel($1)) channick {
 			@nicklength = (strlen($channick) - 2);
 			@channick = right($nicklength $channick);
