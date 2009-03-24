@@ -14,7 +14,7 @@ subpackage main;
 @a.rel="2.0.$a.rel_id";
 @a.date='20090221';
 @a.snap='20090324';
-@a.commitid='10';
+@a.commitid='11';
 
 ## color vars.
 @ cl    = "[0m";
@@ -84,3 +84,6 @@ subpackage main;
 
 # load default theme
 load $(loadpath)/themes/main.th;
+
+# Seed the RNG for cases where it's necessary
+@srand();

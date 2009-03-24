@@ -30,7 +30,6 @@ alias n {^names $serverchan();};
 ## misc abstract funcs/aliases
 alias epart emopart;
 alias emopart {
-	@srand()
 	part $serverchan() $randread($(loadpath)reasons/emopart.reasons);
 };
 

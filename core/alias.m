@@ -199,7 +199,7 @@ alias bye {
 	if (@) {
 		//quit $(J)[$info(i)] - $(a.ver) : $*;
 	}{
-		//quit $(J)[$info(i)] - $(a.ver) : $srand()$randread($(loadpath)reasons/quit.reasons);
+		//quit $(J)[$info(i)] - $(a.ver) : $randread($(loadpath)reasons/quit.reasons);
 	};
 };
 
@@ -211,14 +211,14 @@ alias part {
          if (@) {
                  switch ($0) {
                          (#*) (&*) (0) (-*) (!*) (+*) {
-                                 //quote PART $0 :$1-;
+                                 //part $*;
                          };
                          (*) {
-                                 part $serverchan() $*;
+                                 //part $serverchan() $*;
                          };
                  };
          }{
-                 //quote PART $serverchan();
+                 //part $serverchan();
          };
 };
 
