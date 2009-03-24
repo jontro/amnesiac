@@ -166,6 +166,10 @@ alias devoice {
 	};
 };
 
+alias mdv (chan default "$C", void) {
+        @_massmode($serverchan() -v $remw($servernick() $onchannel($chan)));
+};
+
 alias dop {deop $*;};
 alias deop {
 	if (!@) {

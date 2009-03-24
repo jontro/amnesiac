@@ -45,3 +45,6 @@ sir skullY's fault, blame him
 -merge in various tabkey autocomplete via david@efnet,wicked@efnet
 -add a /wlc window list channel to output current channels listed in current
  window, should be useful for some //zak
+
+03.24.09
+-bring back massdevoice, -- minimally tested /mdv //zak
