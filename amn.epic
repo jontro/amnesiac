@@ -4,7 +4,7 @@
 /* amnesiac by crapple, kreca and skullY
 pr0pz and thanks go to void!, xavier!, fudd, BlackJac, hop, criminal, krimson,
 violence, skullY, Alien88, kreca, adam, ryan, sirko, klepto, bioterror, psk
-curse and any others out there who have helped out.
+curse, wicked, david and any others out there who have helped out.
 */
 
 if (word(2 $loadinfo()) != [pf]) {
