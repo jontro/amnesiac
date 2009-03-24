@@ -2,6 +2,7 @@
 ^sfset format_whois_nick $(ld.vline) \($1!$2@$3)$country($rightw(1 $sar(g/./ / $3))))
 ^sfset format_whois_name $(ld.vline) ircname  : $1-
 ^sfset format_whois_channels $(ld.vline) channels : $1-
+^sfset format_whois_security $(ld.vline) security : connection to server is encrypted
 ^sfset format_whois_server $(ld.vline) server   : $1 \($2-\)
 ^sfset format_whois_away $(ld.vline) away     : $1-
 ^sfset format_whois_actual $(ld.vline) actual   : $2 $msar(g/[/%K[%n/]/%K]%n/ $3)

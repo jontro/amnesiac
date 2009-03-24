@@ -247,3 +247,7 @@ on ^313 * {
 	xecho $fparse(format_whowas_header);
 	xecho $fparse(format_whowas_unknown $1);
 };
+
+## for encrypted connections (ie. ssl)
+on ^671 * {xecho $fparse(format_whois_security $2-);};
+

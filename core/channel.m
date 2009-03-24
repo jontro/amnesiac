@@ -79,7 +79,7 @@ alias kick {
 	};
 	
 	if (!numwords($reason)) {
-		@:reason=srand()randread($(loadpath)reasons/kick.reasons);
+		@:reason=randread($(loadpath)reasons/kick.reasons);
 	};
 
 	fe ($split(, $people)) cur {

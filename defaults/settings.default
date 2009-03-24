@@ -32,4 +32,4 @@ set switch_channels_between_windows off;
 set word_break $strip(. $word_break);
 
 ## script defaults
-@clonecheck = 'on';
+@clonecheck = 'off';

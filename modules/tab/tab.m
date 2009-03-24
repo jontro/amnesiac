@@ -110,6 +110,7 @@ switch ($L) {
 	($(K)load %)
 	($(K)dcc send % %)
 	($(K)send % %)
+	($(K)exec *)
 	($(K)xdcc offer %) {
 	@lw=twiddle($rightw(1 $L));
 	if (:temp = pattern(${lw}% $glob(${lw}*))) {
@@ -222,6 +223,10 @@ switch ($L) {
 	($(K)notice ?#%)
 	($(K)ctcp #)
 	($(K)ctcp #%)
+	($(K)j #)
+	($(K)j #%)
+	($(K)join #)
+	($(K)join #%)
 	($(K)inv #)
 	($(K)inv #%)
 	($(K)inv * #)
