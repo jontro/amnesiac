@@ -42,4 +42,6 @@ i will keep this in tree for now, see if anyone complains *hides in corner*
 -disable clonecheck per default
 -fix kick to make show reasons again and remove srand usage, this is
 sir skullY's fault, blame him
--merge in various tabkey autocomplete via david@efnet,wicked@efnet //zak
+-merge in various tabkey autocomplete via david@efnet,wicked@efnet
+-add a /wlc window list channel to output current channels listed in current
+ window, should be useful for some //zak

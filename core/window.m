@@ -54,6 +54,8 @@ alias winmsg {
 	^window refnum 1;
 };
 
+alias wlc {echo $windowctl(GET 0 CHANNELS);};
+
 alias wq {
         if (#) {
                 window new_hide swap last query $0;
