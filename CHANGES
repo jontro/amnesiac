@@ -50,3 +50,6 @@ sir skullY's fault, blame him
 -bring back massdevoice, -- minimally tested /mdv //zak
 -eliminate the possibility of a /part infinite loop //skullY
 -fix the srand() nonsense //skullY
+
+03.25.09
+-sync docs to reality //zak

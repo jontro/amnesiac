@@ -1,9 +1,9 @@
 # Copyright (c) 2003-2009 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
-* THE AMNESIAC HOME PAGE IS:     http://amnesiac.ircii.org
-  THE AMNESIAC IRC CHANNEL IS:	 #amnesiac on EFNet
-  ALT IRC NET: #amnesiac on irc.ircii.org (Small Network)
+* AMNESIAC HOME PAGE:	http://amnesiac.ircii.org
+  IRC Support channel: #amnesiac on EFnet @ irc.efnet.org
+		       #amnesiac on errnet @ irc.ircii.org
 
 * Amnesiac Mailing list: at this time, users who wishes to be added to the
   mailing list, please e-mail zak@ircii.org, or kreca@ircii.org to be added
@@ -11,9 +11,16 @@
   or feel free to send questions, ask to be added via
   amnesiac@nospam.ircii.org, naturally remove the nospam. in the e-mail.
 
-* Amnesiac has came a long ways in the past year, it was previously ALPHA.
-  unless there are any complaints in the near future it will be considered
-  BETA(fairly stable, however some bugs will probably still arise)
+* people who wish to see amnesiac source via cvsweb may do so here:
+  http://cvs.epicsol.org/cgi/viewcvs.cgi/amn/
+
+* As of 2.0.x release of amnesiac, it is now considered BETA, I dont
+  expect to change this anytime soon, even in our releases ive always
+  considered it BETA, When we make a release its usually for people
+  who are paranoid, and want 'release' and package managers of various
+  distributions usually need release where -current/-snapshot, may be
+  frowned upon, regular users should probably update from cvs from time
+  to time for bugfixes, cleanups etc. -cvs is considerd 'BETA/stable'
 
 * The INSTALL file gives detailed instructions how to install amnesiac.
 
@@ -21,11 +28,15 @@
   as well as the todo list, and knownbugs.
 
 * The pasture directory, contains stuff some people may still want but has
-  been removed. or for reference usages.
+  been removed. or for reference purpose.
 
-* If you find a bug in amnesiac, please mail it to <zak@ircii.org> cc to
-					         <kreca@ircii.org>
+* If you find a bug in amnesiac, please join one of our support channels
+  primarily on efnet, to report a bug, or drop an email to the mailing
+  list: amnesiac@<nospam>ircii.org
   this may help speed up fixing a bug in case i am not around or vice versa.
+
+* If you want a feature in amnesiac or anything else, please let
+  crapple/kreca/skullY@efnet know, or drop an e-mail to the mailing list.
 
 * The CHANGES file contains any amendments to the help files since the 
   last release of amnesiac
@@ -33,12 +44,6 @@
 
 * NOTES file contains common questions and possible solution, please
   also see amn/docs for more documentation.
-
-* If you want a feature in amnesiac or anything else, please let 
-  crapple/kreca/skullY@efnet know.
-  <zak@ircii.org> (crapple)
-  <kreca@ircii.org> (kreca)
-  <zwhite@ircii.org> (skullY)
 
 I would like to thank the following people for contributing
 in some way to this project.
@@ -48,10 +53,8 @@ in some way to this project.
 	Xavier	       <jak at epicsol dot org>
 	Jonas Trollvik <kreca at ircii dot org>
 	Zach White     <zwhite at ircii dot org>
-        Eli Sand       <nutbar at innocent dot com>
 	Void	       <void at mindcryme dot com>
 	ryan	       <ryan at slipgate dot org>
-	krimson	       <matt at roguesix dot org>
 	violence       <prozac at scenewhore dot org>
 	adam	       <adam at d62 dot net>
 	Mike Garrison    <Alien88 at EFnet>

@@ -19,7 +19,9 @@ A: /ahelp for general amnesiac help, /ehelp to see what other help commands
 Q: How can I contribute?
 A: We need documentation and testing. Come to EFNet #amnesiac if you find
    a bug. Even better if you can isolate it and provide a patch. If you
-   write some documentation come to #amnesiac to get it included.
+   write some documentation come to #amnesiac to get it comitted into the
+   tree, if you used cvs to grab amnesiac, you can create recursive diffs
+   (patches) for amnesiac: cd ~/amn && cvs -q diff -uR > amnesiac.patch
 
 Q: Where can I get help?
 A: The official amnesiac channel is on EFNet, #amnesiac. Don't ask if anyone
@@ -105,11 +107,6 @@ A: there are 3 different sets at the time of this writing to make the best
 Q: why do the colours/font display properly?
 A: see docs/NOTES for more detailed info, one can however try /fixterm or
    /latin1(european)
-
-Q: I want to make this really great theme but I need to add some formats. How
-   do I do this?
-A: You need to add the appropriate format in amn/arrays. If you add a new
-   whois or scan you need to add some example output to amn/wis or amn/scan.
 
 Q: How do i disable/toggle certain window notification?
 A: /wnlevel none <-- disables notification
