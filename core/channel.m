@@ -95,6 +95,14 @@ alias _massmode (chan,mode,users) {
 	};
 	@:cs="";
 	@:cm="";
+	if (substr(* $users) != -1 ) {
+		@:tmp = users;
+		@users = "";
+		while (@tmp ) {
+		      @:curUser= pop(tmp);
+		      @push(users $pattern($curUser $chanusers($chan)));
+		};
+	};
 	while (@users) {
 		@:cu = pop(users);
 		fe ($jot(1 $strlen($s))) dummy {

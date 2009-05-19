@@ -53,3 +53,8 @@ sir skullY's fault, blame him
 
 03.25.09 // 04.11.09
 -sync docs to reality //zak
+
+05.19.09
+-Add pattern matching to op deop voice devoice. 
+ I.e. you can now do /op *kreca* and it will op all nick matching kreca.
+ Suggested by wicked, david and others, inspired by irssi apparently. //kreca
