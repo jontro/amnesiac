@@ -13,8 +13,8 @@ subpackage main;
 @a.rel_id='1';
 @a.rel="2.0.$a.rel_id";
 @a.date='20090221';
-@a.snap='20090519';
-@a.commitid='14';
+@a.snap='20090520';
+@a.commitid='15';
 
 ## color vars.
 @ cl    = "[0m";

@@ -8,21 +8,21 @@ if (word(2 $loadinfo()) != [pf]) {
 subpackage config;
 
 alias config {
-	if ( @ && ! match($0 away protect misc oper relay relaysmtp remote connect)) {
+	if ( @ && ! match($0 away protect misc oper relay relaysmtp remote tab connect)) {
 		xecho -v $acban Invalid section.;
 		xecho -v $acban -> config <section> <letter> <setting>;
-		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|remote|connect|query>;
+		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|remote|tab|connect|query>;
 	} else if (  # < 2) {
-		if (match($0 away protect misc oper relay relaysmtp remote connect query)) {
+		if (match($0 away protect misc oper relay relaysmtp remote tab connect query)) {
 			config.printsection $0;
 		}{
-			fe (away protect misc oper relay relaysmtp remote connect query) sec {
+			fe (away protect misc oper relay relaysmtp remote tab connect query) sec {
 				config.printsection $sec;
 			};
 		};
 		aecho -----------------------------------------------------------------------------;
 		xecho -v $acban -> config <section> <letter> <setting>;
-		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|remote|connect|query>;
+		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|remote|tab|connect|query>;
 	}{
 		@:aname= "confa$0";
 		@:xx= ascii($1)-ascii(a);
@@ -65,6 +65,9 @@ alias config.printsection
 	};
 	(remote) {
 		aecho ----------------------------= Remote Settings =---------------------------;
+	};
+	(tab) {
+		aecho ------------------------------= Tab Settings =----------------------------;
 	};
 	(oper) {
 		aecho ------------------------------= Oper Settings =------------------------------;
