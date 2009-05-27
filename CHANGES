@@ -67,3 +67,8 @@ sir skullY's fault, blame him
 
 05.26.09
 -Fix /ignore which apparently hasn't worked in at least 2 years. //skullY
+
+05.27.09
+-Add case correction to tab completion. 
+ Requested by: inittab. With help from: Skully
+ //kreca

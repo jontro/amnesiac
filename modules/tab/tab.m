@@ -77,7 +77,7 @@ alias disp {
 alias cmddisp {
 	@ :mm = symbolctl(pmatch builtin_command $0*);
 	^push mm $symbolctl(pmatch alias $0*);
-	return $gendisp("$tolower($mm)" $*);
+	return /$gendisp("$tolower($mm)" $*);
 };
 
 alias gendisp (sl dwords 1,user,void) {
@@ -93,6 +93,9 @@ alias gendisp (sl dwords 1,user,void) {
 	fe ($ulist) nu {
 		^push uulist $nu;
 	};
+	if ( #ulist == 0) {
+	   return;
+	};
 
 	if ( #ulist == 1) {
 		@:denom="$denom ";
@@ -101,14 +104,16 @@ alias gendisp (sl dwords 1,user,void) {
 			xecho -v ${**_nlist2};
 		};
 	};
-	@:ret = rest(${strlen($user)} $denom);
+	parsekey delete_to_previous_space;
+	
+#	@:ret = rest(${strlen($user)} $denom);
 
-	#remove additional white space
-	if (right(1 $user)== ' '&&ret == ' ') {
-		@:ret='';
-	};
+#remove additional white space
+#	if (right(1 $user)== ' '&&ret == ' ') {
+#		@:ret='';
+#	};
 
-	return $ret;
+	return $denom;
 };
 
 alias _getlast {
@@ -180,9 +185,9 @@ alias get.msg {
 				xtype -l $rest(${strlen($lw)} $ovar);
 				if (#temp > 1) {
 					fe ($temp) kdisp {
-						@filename=$split(/ $kdisp);
+						@filename=split(/ $kdisp);
 						@filename=rightw(1 $filename);
-						xecho -c $filename;
+						xecho -v $filename;
 					};
 				} else if (right(1 $ovar) != '/') {
 					type $chr(32);
