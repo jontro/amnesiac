@@ -93,8 +93,9 @@ alias gendisp (sl dwords 1,user,void) {
 	fe ($ulist) nu {
 		^push uulist $nu;
 	};
+	parsekey delete_to_previous_space;
 	if ( #ulist == 0) {
-	   return;
+	   return $user;
 	};
 
 	if ( #ulist == 1) {
@@ -104,7 +105,7 @@ alias gendisp (sl dwords 1,user,void) {
 			xecho -v ${**_nlist2};
 		};
 	};
-	parsekey delete_to_previous_space;
+	
 	
 #	@:ret = rest(${strlen($user)} $denom);
 
