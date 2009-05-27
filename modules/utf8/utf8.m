@@ -48,6 +48,9 @@ alias _utf_to_latin (text) {
 	if (getset(encode_utf8_to_latin) == "off") {
 		return $text;
 	};
+	if (isutf8($text) <= 0) {
+		return $text;
+	};
 
 
 
