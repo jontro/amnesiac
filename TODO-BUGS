@@ -60,6 +60,7 @@ $ Supposedly texp will break under certain circumstances
 $ userlist is buggy/has been having issues for years it's really not a
   priority for us but we may work on it soon.
 $ protect module is borked, fix? remove?
+  @skullY I vote remove
 
 ## high priority knownbugs.
 None
@@ -106,6 +107,7 @@ None
 @ finish up or scrap the adcc module, i really hate to touch this myself
   i have never heard of a request for this module nor have i heard a single
   complaint about it working or not working perhaps a vote?
+  @skullY I vote remove. If they need this they can run an eggdrop.
 
 ## bugs fixed. / projects done.
 2.13.08 - i beleive this has been done about a year ago kreca forgot to
