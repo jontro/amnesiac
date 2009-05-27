@@ -64,3 +64,6 @@ sir skullY's fault, blame him
  This opens the door to make other commands the default. Suggested by inittab.
  //skullY
 -Make a new "user requests" section in TODO-BUGS. //skullY
+
+05.26.09
+-Fix /ignore which apparently hasn't worked in at least 2 years. //skullY

@@ -38,7 +38,7 @@ alias _ighost (uh,void){
 		return $uh;
 	}{
 		if (:uhost=getuhost($uh)) {
-                        return $uhost;
+                        return *!$uhost;
 		}{
 			return $uh;
 		};
