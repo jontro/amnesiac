@@ -9,6 +9,7 @@ if (word(2 $loadinfo()) != [pf]) {
 
 subpackage users;
 
+alias chop { chops $*; };
 alias chops {
 	if (!@) {
 		@:chan = "$1" ? "$1" : "$serverchan()";
@@ -25,6 +26,7 @@ alias chops {
 	};};
 };
 
+alias nop { nops $*; };
 alias nops {
 	@:chan = "$1" ? "$1" : "$serverchan()";
 	fe ($nochops($chan)) _foi {

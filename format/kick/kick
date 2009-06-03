@@ -7,3 +7,4 @@ DESC crapple adam #amnesiac .
 6 $G $1 was kicked off $3 by $2 %K[%n$4-%K]
 7 $fparse(format_timestamp_some $($_timess))%m$1%n Was kicked off %r[%B$3%r]%n by %Y$2%n \(%g$4-%n\)
 8 $fparse(format_timestamp_some $($_timess)) $G $(c2)$1$(cl) was kicked off $(c3)$3 $(cl)by $(hblk)$(c1)$2 $(hblk)\($(cl)$4-%K\)%n
+9 $fparse(format_timestamp_some $($_timess))$(c3)[$(c4)kick%n/$(c2)$3$(c3)]%n $(c3)-%n $2 kicked $1$(c1)%n $(c3)[%n$4-$(c3)]%n

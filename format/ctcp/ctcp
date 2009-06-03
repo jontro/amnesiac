@@ -12,3 +12,4 @@ DESC crapple zak@chowned.org #amnesiac 910492823 PING
 11 $G CTCP $4 from $1 to $3: $5-
 12 $fparse(format_timestamp_some $($_timess))$G (%GCTCP%n) %C$1%r[%c$2%r]%n requested %g$4 $5%n from %r[%B$3%r]%n
 13 $(cl).$(c2).$(hblk)[$(wht)ctcp%K\($(c2)$1%K!$(c1)$before(@ $2)%K@$(c1)$after(@ $2)%K\)] \($(c1)$3%K\)$(wht) $4-%n
+14 $fparse(format_timestamp_some $($_timess))$(c3)\($(c4)ctcp%n/$(c2)$3$(c3)\)%n $(c3)from%n $1!$2 $(c3)[%n$4 $5-$(c3)]%n

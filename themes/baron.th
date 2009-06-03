@@ -36,6 +36,7 @@ assign theme.format.notice 27
 assign theme.format.send_notice 38
 assign theme.format.public_notice 5
 assign theme.format.ctcp 13
+assign theme.format.ctcp_reply 1
 assign theme.format.send_ctcp 15
 assign theme.format.mode 11
 assign theme.format.nick_comp 1

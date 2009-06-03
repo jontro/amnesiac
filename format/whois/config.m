@@ -12,7 +12,7 @@ alias format.loadwhois (number,void) {
 	};
 };
 alias whoisform.show (void) {
-	fe ($glob($(loadpath)format/whois/whois.*)) ii { 
+	fe ($numsort($glob($(loadpath)format/whois/whois.*))) ii { 
 		@:i = after(-1 . $ii);
 		load ${loadpath}format/whois/whois.$i;
 		xecho -v whois  [$(i)];

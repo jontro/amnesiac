@@ -37,3 +37,4 @@ DESC crapple hi
 36 -$1-> $2-
 37 $fparse(format_timestamp_some $($_timess))* %R$1 $2-%n
 38 $fparse(format_timestamp_some $($_timess))$(hblk).$(c2).$(hblk)[$(c5)not$(hblk)\($(c2)$1$(hblk)\)]$(cl) $2-
+39 $fparse(format_timestamp_some $($_timess))$(c3)-[$(c4)sn%n/$(c2)$1$(c3)]-%n $2-

@@ -22,3 +22,4 @@ DESC crapple #amnesiac zak@chowned.org
 21 $fparse(format_timestamp_some $($_timess))%K[%Wjoin%K/%n$2%K]%W $1 %K[%n$3%K]%n
 22 $fparse(format_timestamp_some $($_timess)) $(hblk)[$(c1)$1%K\($(c2)$3$(c1)%K\)]%n has joined $(c2)$2
 23 $fparse(format_timestamp_some $($_timess)) $G $(c3)join$(hblk): $(c1)$1$(hblk):$(c1)$2 $(hblk)\($(c1)$3$(hblk)\)%n
+24 $fparse(format_timestamp_some $($_timess))$(c3)[$(c4)join%n/$(c2)$2$(c3)]%n $(c3)-%n $1$(c1)!%n$3

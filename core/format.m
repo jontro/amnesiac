@@ -197,6 +197,7 @@ alias format (choice,value,void) {
 			(2) { whoform$extra};
 			(3) { timeform$extra};
 			(4) { kickform$extra};
+			(5) { ctcprform$extra};
 		};
 	}{
 //echo;
@@ -212,6 +213,7 @@ alias format (choice,value,void) {
 //echo  [h] channel leaves      [r] nick completion [2] who formats;
 //echo  [i] modes               [s] version reply   [3] timestamp formats;
 //echo  [j] notices             [t] channel scans   [4] kick formats;
+//echo  [5] ctcp replies;
 //echo;
 //echo ----------------------------------------------------------------;
 	};

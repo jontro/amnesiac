@@ -149,6 +149,9 @@ alias get.msg {
 		($(K)kick *)
 		($(K)kb *)
 		($(K)deop *)
+		($(K)mdeop *)
+		($(K)mdop *)
+		($(K)mop *)
 		($(K)op *)
 		($(K)voice *)
 		($(K)v *)
@@ -400,6 +403,9 @@ on #-input 3 "/msg #*" {
 	@add.msg($1);
 };
 
+on -input "/accept *" {
+        @add.msg($1);
+};
 
 fe (msg send_msg) cur {
 	on #-$cur 2 * {

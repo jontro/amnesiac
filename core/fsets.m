@@ -64,7 +64,7 @@ alias fparse {return ${**cparse($($*))};};
 
 ## ctcp fsets.
 ^on ^ctcp * {xecho $fparse(format_ctcp $0 $userhost() $1 $2 $3 $4);};
-^on ^ctcp_reply * {//echo $fparse(format_ctcp_reply $0 $2 $3-);};
+^on ^ctcp_reply * {xecho $fparse(format_ctcp_reply $0 $2 $3-);};
 ^on ^send_ctcp * {
 	if ( *0 == 'privmsg' && *2 != 'action') { 
 		//echo $fparse(format_send_ctcp $0 $1 $2 $3-);
@@ -113,12 +113,12 @@ alias fparse {return ${**cparse($($*))};};
 ^on ^kick * {//echo $fparse(format_kick $0 $1 $2 $3-);};
 
 ## non-moduler fsets. (perm)
-^on ^471 * {xecho -b $1: Channel is full;};
-^on ^475 * {xecho -b $1: Incorrect key;};
-^on ^473 * {xecho -b $1: Invite required;};
-^on ^329 * {xecho -b Channel $1 created at $strftime($2 %a %b %d %T %Z %Y);};
-^on ^221 * {xecho -b Current user mode is "$1";};
-^on ^341 * {xecho -b Inviting $1 to $2;};
+^on ^471 * {xecho $fparse(format_timestamp_some $($_timess)) $1: Channel is full;};
+^on ^475 * {xecho $fparse(format_timestamp_some $($_timess)) $1: Incorrect key;};
+^on ^473 * {xecho $fparse(format_timestamp_some $($_timess)) $1: Invite required;};
+^on ^329 * {xecho $fparse(format_timestamp_some $($_timess)) Channel $1 created at $strftime($2 %a %b %d %T %Z %Y);};
+^on ^221 * {xecho $fparse(format_timestamp_some $($_timess)) Current user mode is "$1";};
+^on ^341 * {xecho $fparse(format_timestamp_some $($_timess)) Inviting $1 to $2;};
 
 ## knocks.
 ^on ^710 * {
@@ -137,26 +137,26 @@ alias fparse {return ${**cparse($($*))};};
 };
 
 ## topic stuff
-^on ^331 * {xecho -b $fparse(format_notopic $1-);};
-^on ^332 * {xecho -b $fparse(format_settopic $1-);};
-^on ^333 * {xecho -b $fparse(format_topicby $1 $2 $stime($3));};
+^on ^331 * {xecho $fparse(format_notopic $1-);};
+^on ^332 * {xecho $fparse(format_settopic $1-);};
+^on ^333 * {xecho $fparse(format_topicby $1 $2 $stime($3));};
 ^on ^315 * #;
 ^on ^305 * #;
 ^on ^topic * {
         if (! @*2) {
-                xecho -b Topic unset by $0 on $1 at $strftime(%a %b %d %T %Z);
+                xecho $fparse(format_topic $0 $1 (unset topic));
 	}{
-                xecho -b $fparse(format_topic $0 $1 $2-);
+                xecho $fparse(format_topic $0 $1 $2-);
         };
 };
 
 ## banlist hooks
-^on ^433 * {xecho -b $1 $sar(g/:/$(hblk):$(cl) /$2) $3 $4 $5 $6;};
+^on ^433 * {xecho $fparse(format_timestamp_some $($_timess)) $1 $sar(g/:/$(hblk):$(cl) /$2) $3 $4 $5 $6;};
 ^on ^306 * #;
-^on ^405 * {xecho -b $1: You have joined too many channels;};
-^on ^441 * {xecho -b $1 isn't on channel $2 ;};
-^on ^482 * {xecho -b $1: You are not oped;};
-^on ^474 * {xecho -b $1: You are banned;};
+^on ^405 * {xecho $fparse(format_timestamp_some $($_timess)) $1: You have joined too many channels;};
+^on ^441 * {xecho $fparse(format_timestamp_some $($_timess)) $1 isn't on channel $2 ;};
+^on ^482 * {xecho $fparse(format_timestamp_some $($_timess)) $1: You are not oped;};
+^on ^474 * {xecho $fparse(format_timestamp_some $($_timess)) $1: You are banned;};
 
 ## whois stuff
 on ^311 * {

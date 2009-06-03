@@ -201,22 +201,25 @@ alias mreop {
 	@_massmode($serverchan() +o $chops());
 };
 
-alias allop mop;
-alias mop {
-	@_massmode($serverchan() +o $nochops());
+alias allop { mop $*; };
+alias mop (skippers) {
+	if (@skippers) {
+                xecho -b mass oping $serverchan() skipping $skippers;
+		@_massmode($serverchan() +o $remws($skippers / $nochops()));
+	}{
+		@_massmode($serverchan() +o $nochops());
+	};
 };
 
-alias alldeop mdeop;
-alias mdop mdeop;
-alias mdeop {
-	if (@) {
-		@:_chanm=sar(g/,/ /$rest(1 $0-))
-		xecho -b mass deoping $serverchan() minus $_chanm;
-		@_massmode($serverchan() -o $remw($servernick() $remws($_chanm / $chops())));
+alias alldeop { mdeop $*; };
+alias mdop { mdeop $*; };
+alias mdeop (keepers) {
+	if (@keepers) {
+		xecho -b mass deoping $serverchan() minus $keepers;
+		@_massmode($serverchan() -o $remw($servernick() $remws($keepers / $chops())));
 	}{
 		xecho -b mass deoping $serverchan();
 		@_massmode($serverchan() -o $remw($servernick() $chops()));
-
 	};
 };
 

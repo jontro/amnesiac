@@ -4,3 +4,4 @@ DESC crapple #amnesiac hi
 3 -$1:$2- $3-
 4 $fparse(format_timestamp_some $($_timess))* %r[%B$2%r]%n %G$1 %G$3-
 5 $fparse(format_timestamp_some $($_timess))$(hblk)®$(wht)$1$(hblk):$(wht)$2$(hblk)¯$(cl) $3-
+6 $fparse(format_timestamp_some $($_timess))$(c3)-\($(c4)n%n/$(c2)$2%n/$1$(c3)\)-%n $3-

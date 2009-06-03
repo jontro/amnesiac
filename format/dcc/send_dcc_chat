@@ -28,3 +28,4 @@ DESC crapple hi
 27 $fparse(format_timestamp_some $($_timess))$zt$(hblk)[$(hgrn)dcc$(hblk)\($(grn)$1$(hblk)\)]$(cl) $2-
 28 $fparse(format_timestamp_some $($_timess))\=> (%gdcc%n)%Y$1%n : $2-
 29 $fparse(format_timestamp_some $($_timess))$(hblk).$(c2).$(hblk)[$(wht)dcc$(hblk)\($(c2)$1$(hblk)\)]$(cl) $2-
+30 $fparse(format_timestamp_some $($_timess))$(c3)[$(c4)sd%n/$(c1)=$(c2)$1$(c3)]%n $2-

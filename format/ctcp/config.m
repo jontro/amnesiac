@@ -6,6 +6,14 @@ alias ctcpform (number) {
 	};
 };
 
+alias ctcprform (number) {
+	if (@number) {
+		@format.setformat(ctcp_reply $number ctcp reply);
+	}{
+		@format.printformats(ctcp_reply 5 ctcp reply);
+	};
+};
+
 alias sctcpform (number) {
 	if (@number) {
 		@format.setformat(send_ctcp $number send ctcp);

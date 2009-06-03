@@ -5,3 +5,4 @@ DESC crapple #amnesiac hi
 4 $fparse(format_timestamp_some $($_timess))* $(hyel)$2$(cl):$(hyel)$1$(cl) $3-
 5 $fparse(format_timestamp_some $($_timess))* $(hgrn)$1$(hwht):%n$2$(cl) $3-
 6 $fparse(format_timestamp_some $($_timess))$(c2)ð $(c1)$1$(hblk):$(cl)$2 $3-
+7 $fparse(format_timestamp_some $($_timess))$(c2)*%n $2/$1 $3-

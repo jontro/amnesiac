@@ -104,7 +104,7 @@ alias m {msg $*;};
 alias d {describe $*;};
 alias desc {describe $*;};
 alias j {/join $channame($0) $1-;};
-alias p {if (@) ping $*;};
+alias p {if (@) { ping $*; }{ ping $serverchan() }; };
 alias k {kick $*;};
 alias l {part $*;};
 alias host {//userhost $*;};

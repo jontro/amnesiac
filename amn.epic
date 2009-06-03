@@ -40,7 +40,7 @@ for array in ($getarrays()) {
 @modfile='mod.save';
 
 @savefiles="$savefile $fsavefile $setsavefile $igsfile $csavefile $fsetsavefile $modfile";
-@format_strings='action action_other desc send_desc dcc_chat send_dcc_chat away banner kick leave join signoff msg send_msg public send_public public_other notice send_notice public_notice ctcp send_ctcp mode nick_comp nickname wall bwall who who_footer timestamp_some topic notopic settopic topicby statusbar version_reply whois scan';
+@format_strings='action action_other desc send_desc dcc_chat send_dcc_chat away banner kick leave join signoff msg send_msg public send_public public_other notice send_notice public_notice ctcp send_ctcp ctcp_reply mode nick_comp nickname wall bwall who who_footer timestamp_some topic notopic settopic topicby statusbar version_reply whois scan';
 
 ## load comptability functs
 @loadpath="$before(-1 / $word(1 $loadinfo()))/";

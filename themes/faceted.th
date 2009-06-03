@@ -23,6 +23,7 @@
 @theme.format.settopic = [1]
 @theme.format.topicby = [1]
 @theme.format.ctcp=10
+@theme.format.ctcp_reply=1
 @theme.format.send_ctcp=8
 @theme.format.banner=19
 @theme.format.nick_comp=15

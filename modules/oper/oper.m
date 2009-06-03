@@ -394,7 +394,7 @@ alias ohelp {
 //echo specified minutes.;
 //echo /unkline <ident@host> will remove kline from server list.;
 //echo /operwall <text> will send a operwall with specified text to the server.;
-//echo /ov will open up a split window will the level WALLOPS OPNOTES SNOTES;
+//echo /ov will open up a split window with the level WALLOPS OPNOTES SNOTES;
 //echo so all server msgs will go to that window.;
 //echo /mkline <reason> will mass kline current channel for specified reason;
 //echo /mkill <reason> will mass kill current channel;

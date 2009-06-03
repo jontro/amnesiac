@@ -17,9 +17,9 @@ alias topform (number) {
 		for (@mm=1, mm <= fni, @mm++) {
 				fe (topic notopic settopic topicby) cf {
 					if (cf == 'topic') {
-						xecho $cparse(%K[%n$mm%K]%n) $G $format.fshow($cf $mm $cf $format.readitem($cf DESC));
+						xecho $cparse(%K[%n$mm%K]%n) $format.fshow($cf $mm $cf $format.readitem($cf DESC));
 					}{
-						xecho     $G $format.fshow($cf $mm $cf $format.readitem($cf DESC));
+						xecho     $format.fshow($cf $mm $cf $format.readitem($cf DESC));
 					};
 				};
 		};

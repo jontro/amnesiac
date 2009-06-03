@@ -13,11 +13,11 @@ alias format.loadscan (number,void)
 };
 
 alias scanform.show (void) {
-	fe ($glob($(loadpath)format/scan/scan.*)) ii { 
+	fe ($numsort($glob($(loadpath)format/scan/scan.*))) ii { 
 		@i = after(-1 . $ii);
 		load ${loadpath}format/scan/scan.$i;
 		xecho -v scan  [$(i)];
-		@printnames(2 #amnesiac @azel @billhicks @brandonl @criminal @eyeless @HIVlntine @kreca @krimson @ku @pisqon @ruiner @rumball @rylan @skriver @skullY @twez @warjest @warjest` @Xavier @xcrapple @xpsycho @Ylluks liam  violence +zak +persiac crapple hayzus);
+		@printnames(2 #amnesiac @azel @billhicks @brandonl @criminal @eyeless @HIVlntine @kreca @krimson @ku @pisqon @ruiner @rumball @rylan @skriver @skullY @twez @warjest @warjest` @Xavier @xcrapple @xpsycho @Ylluks @wicked @david liam  violence +zak +persiac crapple hayzus);
 		xecho -v;
 	};
 	load ${loadpath}format/scan/scan.$theme.format.scan;

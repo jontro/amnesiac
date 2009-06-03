@@ -10,8 +10,8 @@ DESC
 9 $Z%c|%n
 10 $strftime($time()%X)%c|%n
 11 %K[%n$Z%K]%n
-12 %K[%n$strftime($time()%X)%K]%n
-13 %r[%c$strftime($time()%X)%r]%n 
+12 $(c1)[$(c2)$strftime($time()%X)$(c1)]%n 
+13 $(c1)[$(c2)$strftime($time()%X)$(c1)]%n
 14 \($Z)\ 
 15 \($strftime($time()%X)\) 
 16 [$strftime(%x) $Z] 
@@ -20,4 +20,4 @@ DESC
 19 [$strftime(%x)] $strftime($time()%X)%c|%n
 20 %K[%n$left(2 $strftime(%a))$Z%K]%n 
 21 $left(2 $strftime(%a))$Z 
-22 $left(2 $strftime(%a))%K:%n$Z%c|%n
+22 $left(2 $strftime(%a))%K:%n$Z$(c1)|%n
