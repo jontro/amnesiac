@@ -96,17 +96,38 @@ alias gi {
 };
 
 ## operview func
-alias ov operview;
-alias operview {
-	if (winnum(operview) != -1) {
-		abecho $banner toggled operview off.;
-		^window OperView kill;
-		^umode -$_ovmode;
+alias ov {operview $*};
+alias operview (command,number default 0,void){
+	@:properties = "name OperView level snotes,opnotes,wallops indent on";
+	if (@command) {
+		switch ($command) {
+			(-hidden) {
+				abecho $banner operview is turned on.;
+				@new_window_with_properties($number $properties);
+				umode +$_ovmode;
+			};
+			(-split) {
+				abecho $banner operview is turned on.;
+				@:refnum = windowctl(NEW);
+				^window 
+					$refnum
+					double off 
+					fixed on 
+					size $_ovsize
+					$properties
+					status_format "[operview] %> [$servername($winserv(OperView))]";
+			
+					umode +$_ovmode;
+					^window back;
+			};
+			(-kill) {
+				abecho $banner operview is turned off.;
+				^window Operview kill;
+				^umode -$_ovmode;
+			};
+		};
 	}{
-		abecho $banner toggled operview on.;
-		^window new double off fixed on size $_ovsize name OperView level snotes,opnotes,wallops;window indent on;umode +$_ovmode;
-		^set status_format [operview] %> [$servername($winserv(OperView))];
-		^window back;
+		xecho -v $acban /operview -hidden|split|kill [number] <will create/kill a window bound to OperView>;
 	};
 };
 

@@ -72,3 +72,15 @@ sir skullY's fault, blame him
 -Add case correction to tab completion. 
  Requested by: inittab. With help from: Skully
  //kreca
+
+06.05.09
+-Load amnesiac saved sets after all modules are loaded. 
+ This makes sure that module added sets will save and load automatically. 
+ Make use of this in the utf8 module. //kreca
+-Add the ability to operview and mw to specify window number 
+ (for hidden windows). Give operview the same syntax as mw 
+ (-split,-hidden,-kill). If the window at that given already exists the flags 
+ will be added to that specified window, otherwise it will be created at that
+ number. 
+ Requested by Alien88, hopefully he'll now fullfill my request/condition. 
+ //kreca

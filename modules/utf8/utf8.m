@@ -1,7 +1,7 @@
 # Copyright (c) 2003-2009 Amnesiac Software Project.
 # Copyright (c) 2007 hokkaido <jzzskijj gmail com>
 # See the 'COPYRIGHT' file for more information.
-
+# Modifications by kreca
 if (word(2 $loadinfo()) != [pf]) {
         load -pf $word(1 $loadinfo());
         return;
@@ -51,8 +51,5 @@ alias _utf_to_latin (text) {
 	if (isutf8($text) <= 0) {
 		return $text;
 	};
-
-
-
 	return $xform(ICONV "utf-8/iso-8859-1" $text);
 };

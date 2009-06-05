@@ -34,16 +34,53 @@ alias wjn (n , cn, ...){
 		xecho -v $acban usage: /wj <number> <channel> [key];
         };
 };
-
-alias mw {
-	if (@) {
-		switch ($0) {
-			(-hidden) {^window new hide swap last level msgs,dccs name msgs;};
-			(-split) {^window new double off fixed on size 7 level msgs,dccs status_format %>[msgs] name msgs;^window back;};
-			(-kill) {^window msgs kill;};
+alias new_window_with_properties (number,properties) {
+	@:new_window=1;
+	if (number > 0) {
+		if (windowctl(GET $number REFNUM) > 0) {
+			@new_window=0;
+			^window 
+				$number
+				$properties;
+		};
+	};
+	if (new_window == 1) {
+		@:refnum = windowctl(NEW);
+		^window 
+			$refnum 
+			hide 
+			swap last 
+			$properties
+			;
+		if (number > 0) {
+			^window $refnum number $number;
+		};
+	};
+};
+alias mw (command,number default 0,void){
+	@:properties = "level msgs,dccs name msgs";
+	if (@command) {
+		switch ($command) {
+			(-hidden) {
+				@new_window_with_properties($number $properties);
+			};
+			(-split) {
+				@:refnum = windowctl(NEW);
+				^window 
+					$refnum
+					double off 
+					fixed on 
+					size 7 
+					status_format %>[msgs] 
+					$properties;
+				^window back;
+			};
+			(-kill) {
+				^window msgs kill;
+			};
 		};
 	}{
-		xecho -v $acban /mw -hidden|split|kill <will create/kill a window bound to msgs>;
+		xecho -v $acban /mw -hidden|split|kill [number] <will create/kill a window bound to msgs>;
 	};
 };
 
