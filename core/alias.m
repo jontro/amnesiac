@@ -79,7 +79,7 @@ alias chanserv {cs $*;};
 alias nickserv {ns $*;};
 alias memoserv {ms $*;};
 ## Some stupid networks w/services requires messages
-alias mserv {msg memorserv $*;};
+alias mserv {msg memoserv $*;};
 alias nserv {msg nickserv $*;};
 alias cserv {msg chanserv $*;};
 
