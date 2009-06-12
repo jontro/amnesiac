@@ -136,9 +136,10 @@ alias clock24 {set clock_24hour toggle;};
 
 ## dumps and reload script, for scripters and advanced users in general.
 alias adump {
-	dump all;
+	//dump all;
 	fe ($getarrays()) n1 {@delarray($n1)};
 	unload * fe;
+	bind -defaults;
 	load ~/.epicrc;
 };
 
