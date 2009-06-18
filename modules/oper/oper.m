@@ -1,12 +1,13 @@
 # Copyright (c) 2003-2009 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
-# TODO: convert to pf-loader
+
 if (word(2 $loadinfo()) != [pf]) {
         load -pf $word(1 $loadinfo());
         return;
 };
 
 subpackage oper;
+load -pf ${loadpath}modules/oper/easykline.m;
 
 osetitem oper ovmode Operview modes:;
 osetitem oper ovsize Operview win size:;
