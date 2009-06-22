@@ -104,7 +104,7 @@ alias fparse {return ${**cparse($($*))};};
 };
 
 ## other fsets.
-^on ^nickname * {//echo $fparse(format_nickname $0 $1);};
+^on ^channel_nick * {//echo $fparse(format_nickname $1 $2);};
 ^on ^invite * {
 	//echo $fparse(format_invite $0 $1);
 	//echo $G press Ctrl-K to join;
