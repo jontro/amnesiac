@@ -6,24 +6,28 @@ if (word(2 $loadinfo()) != [pf]) {
 	return;
 };
 subpackage linedrawing;
+
 @ld.e = '';
 @ld.asc_chars = getcap(TERM acs_chars 0 0);
+
+# Hard coded vars for ibm437. Above does not play well with status bars
+@ld.asc_chars ="j$chr(217)k$chr(191)l$chr(218)m$chr(192)q$chr(196)t$chr(195)u$chr(180)v$chr(193)w$chr(194)x$chr(179)~$chr(250)";
+@ld.e = '';
 fec ($ld.asc_chars) vt cme {
 	@:me="${ld.e}${cme}${ld.e}";
 	switch ($vt) {
-		(w) { @ld.tee_down = me; };
-		(u) { @ld.tee_left = me; };
-		(t) { @ld.tee_right = me; };
-		(v) { @ld.tee_up = me; };
-		(l) { @ld.ul_corner = me; };
-		(k) { @ld.ur_corner = me; };
-		(m) { @ld.ll_corner = me; };
-		(j) { @ld.lr_corner = me; };
-		(x) { @ld.vline = me; };
-		(q) { 
-			@ld.hline = me; 
-			@ld.hline_e = cme; 
-		};
-		(~) { @ld.smalldot = me; };
+		(w) { @:cVar ='tee_down'; };
+		(u) { @:cVar ='tee_left'; };
+		(t) { @:cVar ='tee_right'; };
+		(v) { @:cVar ='tee_up'; };
+		(l) { @:cVar ='ul_corner'; };
+		(k) { @:cVar ='ur_corner'; };
+		(m) { @:cVar ='ll_corner'; };
+		(j) { @:cVar ='lr_corner'; };
+		(x) { @:cVar ='vline'; };
+		(q) { @:cVar ='hline'; };
+		(~) { @:cVar ='smalldot'; };
 	};
+	@ld[$cVar]=me;
+	@ld[$(cVar)_e]=cme;
 };
