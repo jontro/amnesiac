@@ -228,7 +228,7 @@ on ^313 * {
 	xecho $fparse(format_whois_unknown $1);
         xecho $fparse(format_whois_footer);
 	if (getset(auto_whowas) == 'on' && !ischannel($1)) {
-		whowas $1;
+		whowas $1 $getset(auto_whowas_limit);
 	};
 };
 

@@ -1,0 +1,102 @@
+NOTE: ChangeLog is done from OLD-NEW AKA OLD Stuff on TOP Newer down below
+ChangeLog amnesiac 2.0 -> current
+
+02.09.09
+-start of new release for amnesiac 2.0, may be a few days before
+its officially completed. //zak
+-Add termtitle(msg) alias which sets the terminal title to msg. //kreca
+-sync whois format to my liking ;p, and a slight version change
+-add a @a.commitid (currently unused but devs should update during changes
+to help track down bugs in the future) //zak
+
+02.14.09
+-happy vd$!@#! here's a new feature for everyone.
+-check for clones when a client joins. toggle in /config misc. //skullY
+-remove adcc module, remove irritating shortened ctcp aliases, ie;
+ now its /clientinfo nick, /userinfo nick for exp, minor cleanups elsewhere
+ i forget. //zak
+
+02.16.09
+-Pull netsplit into core. You might want to '/delmod netsplit' to remove
+ it from the list of loaded modules. //skullY
+
+02.21.09
+-Seed the random number generator where needed. //skullY
+
+03.21.09
+-rename some server helper aliases /svadd /svdel /ssl etc to name a few
+ also make /ssl for adding ssl servers actually work, sync some
+ documentation to reality //zak
+-add more documentation into docs/NOTES, also put NOTES in primary amn
+ directory, as more users may view it before asking questions about
+ common documented things in NOTES
+-remove new_server_lastlog_level from default settings as its fixed in latest
+ epic5 release, apparently the behavior has been broken for some time that
+ forced us to override it. //zak
+
+03.23.09
+-merge in whois fixes for ssl client connections(encryption) credits to
+david@efnet for this, thanks!
+-merge in an statbar 4 customizations, cosmetic changes by wicked@efnet,
+i will keep this in tree for now, see if anyone complains *hides in corner*
+-disable clonecheck per default
+-fix kick to make show reasons again and remove srand usage, this is
+sir skullY's fault, blame him
+-merge in various tabkey autocomplete via david@efnet,wicked@efnet
+-add a /wlc window list channel to output current channels listed in current
+ window, should be useful for some //zak
+
+03.24.09
+-bring back massdevoice, -- minimally tested /mdv //zak
+-eliminate the possibility of a /part infinite loop //skullY
+-fix the srand() nonsense //skullY
+
+03.25.09 // 04.11.09
+-sync docs to reality //zak
+
+05.19.09
+-Add pattern matching to op deop voice devoice. 
+ I.e. you can now do /op *kreca* and it will op all nick matching kreca.
+ Suggested by wicked, david and others, inspired by irssi apparently. //kreca
+
+05.20.09
+-Make putting /msg onto the blank input line when tab is pressed optional.
+ This opens the door to make other commands the default. Suggested by inittab.
+ //skullY
+-Make a new "user requests" section in TODO-BUGS. //skullY
+
+05.26.09
+-Fix /ignore which apparently hasn't worked in at least 2 years. //skullY
+
+05.27.09
+-Add case correction to tab completion. 
+ Requested by: inittab. With help from: Skully
+ //kreca
+
+06.05.09
+-Load amnesiac saved sets after all modules are loaded. 
+ This makes sure that module added sets will save and load automatically. 
+ Make use of this in the utf8 module. //kreca
+-Add the ability to operview and mw to specify window number 
+ (for hidden windows). Give operview the same syntax as mw 
+ (-split,-hidden,-kill). If the window at that given already exists the flags 
+ will be added to that specified window, otherwise it will be created at that
+ number. 
+ Requested by Alien88, hopefully he'll now fullfill my request/condition. 
+ //kreca
+
+06.06.12
+-Reset keybindings on /adump. //skullY
+
+06.18.09
+-Add easykline script to oper module. To use this type /klineview [number] 
+ and a special window for klines is created. Type help in that window (no slash)
+ to see how it works. It's good for mass klining / fast klining. Inspired
+ by http://www.garion.org/hosc/. (Public domain)
+ //kreca
+
+10.10.09
+-Attempt to avoid flooding users with /whowas notifications per hop's
+ recommendation. //skullY
+-Fix kreca's wording (something in the public domain has no license.) //skullY
+-Stylistic cleanups. //skullY

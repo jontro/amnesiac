@@ -105,8 +105,11 @@ fe ($glob($(loadpath)format/*)) ii {
 };
 
 ## load core files
-fe ($glob($(loadpath)core\/*.m)) mod {
-	if ( mod != "$(loadpath)core/compat.m" && mod != "$(loadpath)core/addsets.m" && mod != "$(loadpath)core/main.m" && mod != "$(loadpath)core/config.m" ) {
+fe ($glob($(loadpath)core/*.m)) mod {
+	if ( mod != "$(loadpath)core/compat.m" && 
+	     mod != "$(loadpath)core/addsets.m" && 
+	     mod != "$(loadpath)core/main.m" && 
+	     mod != "$(loadpath)core/config.m" ) {
         	load -pf $mod;
 		_progress;
 	};
