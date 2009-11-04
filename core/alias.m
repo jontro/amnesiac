@@ -107,10 +107,15 @@ alias j {/join $channame($0) $1-;};
 alias p {if (@) { ping $*; }{ ping $serverchan() }; };
 alias k {kick $*;};
 alias l {part $*;};
+alias hop {part $C join $*;};
 alias host {//userhost $*;};
 alias irchost {hostname $*;};
 alias unset {set -$*;};
 alias unalias {alias -$*;};
+alias ll {lastlog $*;};
+alias lll {lastlog -literal $*;};
+alias llw {lastlog -window $*;};
+alias llt {lastlog -target $*;};
 
 ## help shortcuts.
 alias a {ahelp $*;};

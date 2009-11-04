@@ -100,3 +100,12 @@ sir skullY's fault, blame him
  recommendation. //skullY
 -Fix kreca's wording (something in the public domain has no license.) //skullY
 -Stylistic cleanups. //skullY
+
+11.04.09
+-increment window swapping via /1 /2 to 40 to keep houzzie happy
+-slight changes to default settings ie; dcc rejcts, dcc_window
+-enable auto-reconnect per default *cringe* however its set to 120 secs
+ instead of the previous 30, /ardelay 'int' to toggle reconnect delay.
+-slight new aliasing in regards to  lastloging /lls llw lll see
+ cvs diff for more changeinfo. //zak
+ 
