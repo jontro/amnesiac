@@ -108,4 +108,7 @@ sir skullY's fault, blame him
  instead of the previous 30, /ardelay 'int' to toggle reconnect delay.
 -slight new aliasing in regards to  lastloging /lls llw lll see
  cvs diff for more changeinfo. //zak
- 
+
+12.12.09
+-remove the hop alias which never worked. people should use /cycle instead. 
+ thanks to slocate for finding this. //skullY
