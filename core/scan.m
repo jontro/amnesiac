@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -40,12 +40,12 @@ alias printnames (printstats,lchan,lnick) {
 	@:nicks.ops = pattern(*@* $lnick);
 	@:nicks.voc = pattern(*+* $lnick);
 	@:nicks.non = filter(*+* $filter(*@* $lnick));
- 	
-	if (@printstats) {
-		xecho $xevars -- $fparse(format_scan_users $#nicks.ops $#nicks.non $#nicks.voc $lchan);
+ 	@:finfo = "$#nicks.ops $#nicks.non $#nicks.voc $lchan";
+	if (@printstats && @format_scan_users) {
+		xecho $xevars -- $fparse(format_scan_users $finfo);
 	};
 	if (@format_scan_header) {
-		xecho $xevars -- $fparse(format_scan_header);
+		xecho $xevars -- $fparse(format_scan_header $finfo);
 	};
 	if (format_scan_width > 1) {
 		@_swidth=word(0 $geom()) / format_scan_width;
@@ -82,7 +82,7 @@ alias printnames (printstats,lchan,lnick) {
 		};
 	};
 	if (format_scan_footer) {
-		xecho $xevars -- $fparse(format_scan_footer);
+		xecho $xevars -- $fparse(format_scan_footer $finfo);
 	};
 };
 

@@ -112,3 +112,8 @@ sir skullY's fault, blame him
 12.12.09
 -remove the hop alias which never worked. people should use /cycle instead. 
  thanks to slocate for finding this. //skullY
+
+-01.05.10
+-Happy new year!
+-Add scan_users info to all scan format so it's easier to customize. 
+ rb mongoose. //kreca
