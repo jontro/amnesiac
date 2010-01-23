@@ -36,6 +36,7 @@
 @theme.format.desc=1
 @theme.format.send_desc=1
 @theme.format.statusbar=[16]
+assign theme.format.whois 10
 @c1=[$(grn)
 @c2=[$(hgrn)
 @c3=[$(grn)

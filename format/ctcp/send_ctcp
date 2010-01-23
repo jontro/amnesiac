@@ -15,3 +15,4 @@ DESC crapple #amnesiac 910492823 PING
 14 $fparse(format_timestamp_some $($_timess))$G (%GCTCP%n) Sent %g$3 $4%n to %r[%B$2%r]%n
 15 $(cl).$(c2).$(hblk)[$(wht)ctcp$(hblk)\($(c2)$2$(hblk)\)]$(wht) $3-%n
 16 $fparse(format_timestamp_some $($_timess))$(c3)[$(c4)ctcp%n/$(c2)outgoing$(c3)]%n $(c3)to%n $2 $(c3)[%n$3-$(c3)]%n
+17 $fparse(format_timestamp_some $($_timess))$(blu)>$(cyn)>$(hcyn)> $(c1)ctcp$(blu)!$(c1)$2$(cl): $3 $4 $5 $6

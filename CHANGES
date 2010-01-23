@@ -133,3 +133,7 @@ and put them in proper module/core for easier future debugging purposes.
 -I would be pleasantly surprised if this commit does not come with some
 - obvious screwup i probably made somewhere, users may want to test
 before upgrading. //zak
+-new statbar and themes and a whois, as well as some other format changes
+ rb mongoose, if anything breaks, be sure to blame him TYVM
+-remove protect module its junk, i have a better idea for a rewrite to be
+planned before 2012, honest! //zak

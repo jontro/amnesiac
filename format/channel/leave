@@ -18,3 +18,6 @@ DESC crapple zak@chowned.org #amnesiac Im such an emokid
 17 $fparse(format_timestamp_some $($_timess))*** %y$1%n Has Left %r[%B$3%r]%n
 18 $fparse(format_timestamp_some $($_timess)) $G $(c3)part$(hblk): $(c1)$1$(hblk):$(c1)$3 $(hblk)\($(c1)$2$(hblk)\)%n
 19 $fparse(format_timestamp_some $($_timess))$(c3)[$(c4)part%n/$(c2)$3$(c3)]%n $(c3)-%n $1$(c1)!%n$2 $(c3)[%n$4-$(c3)]%n
+20 $fparse(format_timestamp_some $($_timess))$(c4)$1 %m[$2]%n has left $(hwht)$3 %m\[%n$4-%m\]
+21 $fparse(format_timestamp_some $($_timess))$G $(c1)$1$(cl)!$(c1)$2 %nhas left $3: $4-
+

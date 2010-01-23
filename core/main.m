@@ -14,7 +14,7 @@ subpackage main;
 @a.rel="2.0.$a.rel_id";
 @a.date='20091104';
 @a.snap='20100123';
-@a.commitid='25';
+@a.commitid='26';
 
 ## color vars.
 @ cl    = "[0m";
@@ -78,7 +78,6 @@ subpackage main;
 @getumode='iw';
 @showop='off';
 @autoget='off';
-@_ubanself='off';
 @_pubnick=N;
 @_tss='on';
 

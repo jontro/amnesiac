@@ -56,8 +56,6 @@ $ = knownbug.
 $ Supposedly texp will break under certain circumstances
 $ userlist is buggy/has been having issues for years it's really not a
   priority for us but we may work on it soon.
-$ protect module is borked, fix? remove?
-  @skullY I vote remove
 
 ## high priority knownbugs.
 None
@@ -107,6 +105,11 @@ None
   @skullY I vote remove. If they need this they can run an eggdrop.
 
 ## bugs fixed. / projects done.
+01.23.10
+! protect module is borked, fix? remove?
+  @skullY I vote remove, Metoo, dead,gone junk useless not even pasture
+  worthy //zak
+  
 2.13.08 - i beleive this has been done about a year ago kreca forgot to
 	  update the file as usual. //zak
 ! Get some variables from numeric 005 so we can finetune some displays?

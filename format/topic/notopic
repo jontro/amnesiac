@@ -9,3 +9,4 @@ DESC #amnesiac No topic is set.
 8 $G $fparse(format_timestamp_some $($_timess))$G No Topic Set On Channel %r[%B$1%r]%n
 9 $G %K\[%ntopic%K/$(c1)$1%K\]: %Rtopic not set%n
 10 $fparse(format_timestamp_some $($_timess))$(c3)[$(c4)topic%n/$(c2)$1$(c3)]%n No Topic Set
+11 $G No topic is set for $(c1)$1

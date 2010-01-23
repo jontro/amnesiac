@@ -44,3 +44,5 @@ DESC crapple zak@chowned.org hi!
 43 $fparse(format_timestamp_some $($_timess))%R$[9]1%n -> \%Y$[9]N%n : $3-
 44 $fparse(format_timestamp_some $($_timess))$(hblk).$(c2).$(hblk)[$(wht)msg$(hblk)\($(c2)$1$(hblk)\!$(c1)$before(@ $2)$(hblk)@$(c1)$after(@ $2)$(hblk)\)]$(cl) $3-
 45 $fparse(format_timestamp_some $($_timess))$(c3)\($(c4)m%n/$(c2)$1$(c1)!$%n$2$(c3)\)%n $3-
+46 $fparse(format_timestamp_some $($_timess))%m\($(hblu)$1%K\!$(cyn)$2%m\)%n $3-
+47 $fparse(format_timestamp_some $($_timess))%K[$(c2)$1%n!$(c1)$2%K]%n $3-

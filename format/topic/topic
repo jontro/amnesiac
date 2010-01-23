@@ -9,3 +9,4 @@ DESC crapple #amnesiac RTFM
 8 $G $fparse(format_timestamp_some $($_timess))** Topic On %r[%B$2%r]%n : %M$3-%n by %Y$1%n
 9 $G %K\[%ntopic%K/$(c1)$2%K:%K\($(c2)$1%K\)\]:$(wht) $3-%n
 10 $fparse(format_timestamp_some $($_timess))$(c3)[$(c4)topic%n/$(c2)$2%n/$1$(c3)]%n $3-
+11 $1 has changed the topic of $2 to $3-

@@ -15,7 +15,7 @@ alias stat16 {
 ^set status_mail $(hblk) $(hwht)m$(cl)ai$(hblk)l $(hwht)%M
 ^set status_user5 $(sc1)s$(hblk)/$(sc2)$S
 ^set status_voice +
-^set status_away -$(hblk)\($(sc1)zZzZ$(hblk)\)
+^set status_away -$(hblk)\($(sc2)zZzZ$(hblk)\)
 ^set status_hold_lines $(hblk)\($(hwht)%B$(hblk)\)-
 ^set status_query $(hblk)\($(sc1)Q$(wht): $(wht)%Q$(hblk)\)
 }

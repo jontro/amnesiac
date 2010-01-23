@@ -21,3 +21,4 @@ DESC
 20 %K[%n$left(2 $strftime(%a))$Z%K]%n 
 21 $left(2 $strftime(%a))$Z 
 22 $left(2 $strftime(%a))%K:%n$Z$(c1)|%n
+23 $(c1)$left(2 $strftime(%a))$Z$(hblu)|%n

@@ -21,3 +21,6 @@ DESC crapple #amnesiac bye!
 20 $fparse(format_timestamp_some $($_timess)) $G $(c3)signoff$(hblk): $(c1)$2$(hblk):$(c1)$1 $(hblk)\($(cl)$3-$(hblk)\)
 21 $fparse(format_timestamp_some $($_timess))%c.%b.%n%We%nmoquit%G.%n$1%K:%n$2> \($3-\)
 22 $fparse(format_timestamp_some $($_timess))$(c3)[$(c4)quit%n/$(c2)$1$(c3)]%n $(c3)-%n $2$(c1)%n $(c3)[%n$3-$(c3)]%n
+23 $fparse(format_timestamp_some $($_timess))%M$2%n has quit %m\[%n$3-%m\]
+24 $fparse(format_timestamp_some $($_timess))$G $(c1)$2$(cl) has quit: $3-
+
