@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -14,18 +14,6 @@ on #-exit 000 "*" {
         xecho -v -b Signoff time :    $stime($time());
         xecho -v -b Total uptime :    $tdiff(${time() - F});
         xecho -v -b signoff: $N \($*\);
-};
-
-# This sets the group name to
-# the value set in the NETWORK= parameter passed to us in the 005 numeric.
-# (unless the user has specified a group himself)
-# Theoretically, these should be the same across the network.
-# initially obtained from the userlist script made by kitambi
-^on #-005 450 "*"
-{
-	@:cgroup = serverctl(GET -1 GROUP);
-	if ( cgroup == "<default>")
-		@serverctl(SET -1 GROUP $serverctl(GET -1 005 NETWORK));
 };
 
 ## catch the "user is away" message and only display it once. 
@@ -44,15 +32,6 @@ on ^301 "*"
 		xecho $fparse(format_whois_away $1-);
 	};
 	@setitem(away_users_ts $itemno $time());
-};
-
-## notify hook.
-^on ^notify_signon * {
-	xecho -v $G SignOn by $0!$sar(g/@/@/$1-) at $Z;
-};
-
-^on ^notify_signoff * {
-	xecho -v $G SignOff by $0 at $Z;
 };
 
 ## edit topic stuff from the epic5 source tree.. used for the /topic_input
@@ -104,8 +83,7 @@ alias uptime {
 	//echo -----------------------------------------------------------------;
 };
 
-## umode hook
-
+## umode connect
 on #-connect 50 * {
 	if (!_pubnick) {
 		@_pubnick=N;
@@ -115,9 +93,17 @@ on #-connect 50 * {
 	_updatesbar;
         ^set quit_message $(J)[$info(i)] - $(a.ver) : $randread($(loadpath)reasons/quit.reasons);
 };
+
+## notify hook. 
+^on ^notify_signon * {
+	xecho -v $G SignOn by $0!$sar(g/@/@/$1-) on $strftime(%x at %X))
+};
+
+^on ^notify_signoff * {
+	xecho -v $G SignOff by $0 on $strftime(%x at %X))
+};
  
-## server hooks.
-#connect notice.
+## snotices
 ^on ^server_notice "% % % connect to*" {
 	abecho $fparse(format_timestamp_some $($_timess))$2-;
 };
@@ -158,20 +144,6 @@ on #-connect 50 * {
 	abecho $2-;
 };
 
-## disable certain servnumerics here.
-#/End of MOTD
-^on ^376 * #;
-
-## disable you've got mail!.
-^on ^mail * #;
-
-## disable nonesential annoying ctcp's.
-^on ^raw_irc "% PRIVMSG % :FINGER*";
-^on ^raw_irc "% PRIVMSG % :CLIENTINFO*";
-^on ^raw_irc "% PRIVMSG % :SOUND*";
-^on ^raw_irc "% PRIVMSG % :ECHO*";
-^on ^raw_irc "% PRIVMSG % :MP3*";
-
 # Deal with modes when they're not set
 ^on ^324 "% % +" {
 	xecho -b Mode for channel $1 is not set;
@@ -197,3 +169,19 @@ on #-connect 50 * {
 		};
 	};
 };
+
+## Silence common IRC/Epic annoyances
+
+#/End of MOTD
+^on ^376 * #;
+
+## disable you've got mail!.
+^on ^mail * #;
+
+## disable annoying ctcp's.
+## should never raw_irc change to on ctcp?
+^on ^raw_irc "% PRIVMSG % :AFINGER*";
+^on ^raw_irc "% PRIVMSG % :ACLIENTINFO*";
+^on ^raw_irc "% PRIVMSG % :ASOUND*";
+^on ^raw_irc "% PRIVMSG % :AECHO*";
+^on ^raw_irc "% PRIVMSG % :AMP3*";

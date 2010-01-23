@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -28,12 +28,14 @@ alias getusers (chan default "$serverchan()",void) {
 ## ^^ will probably make people who look at this comment feel good
 ## about our scripting pratices.. (i would be pleasantly surprised
 ## if someone actually notices)
+
 on ^switch_channels * {^getusers;};
 on #-switch_windows 43 * {
 	xeval -s $winserv($3) ^getusers;
 };
+on #-channel_sync 23 * {^getusers;};
+
 ## grep -aR 353 *
 ## core/getusers.m:^on #-353 2 * {^getusers}
 ## core/scan.m:on #^353 1 * {@nicks#=[$3-]}
 on #-353 2 * {^getusers;};
-on #-channel_sync 23 * {^getusers;};

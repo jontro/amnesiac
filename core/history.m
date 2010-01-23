@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
 if (word(2 $loadinfo()) != [pf]) {
@@ -10,15 +10,12 @@ subpackage history;
 @ history.index = '';
 
 #	Copyright (c) 2005 David B. Kratter (BlackJac@EFNet)
-#		/history [<indexnum>]
-#			Returns a list of all commands in the history buffer, or
-#			all commands up to <indexnum>.
-#		/!<indexnum|pattern>
-#			Retrieves history buffer entries and outputs them to the
-#			input line. Use /!<indexnum> to retrieve <indexnum> or
-#			/!<pattern> to retrieve the most recent entry matching
-#			<pattern>.
-#
+#  /history [<indexnum>]
+#	Returns a list of all commands in the history buffer, or
+#	all commands up to <indexnum>. 
+#  /!<indexnum|pattern> Retrieves history buffer entries and outputs them 
+#	to the input line. Use /!<indexnum> to retrieve <indexnum>
+#	or /!<pattern> to retrieve the most recent entry matching <pattern>.
 
 ## flush the history buffer
 alias hflush (void) { 

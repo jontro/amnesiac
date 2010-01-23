@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -15,11 +15,11 @@ subpackage help;
 @ahelp.theme='%Wu%nsage%K:%n /theme will display all amnesiac themes and you can choose which one you want.';
 @ahelp.supt='%Wu%nsage%K:%n /supt will paste client version and uptime to current channel';
 @ahelp.staynick='%Wu%nsage%K:%n /staynick will cancel /orignick.';
-@ahelp.qk='%Wu%nsage%K:%n /qk <nick> <reason> - will bankick specified nick then unban them after 5 seconds.';
-@ahelp.bkt='%Wu%nsage%K:%n /bkt same as qt.';
+@ahelp.bkt='%Wu%nsage%K:%n bkt <nick> <reason> - will bankick specified nick then unban them after 5 seconds.';
 @ahelp.dldir='%Wu%nsage%K:%n /dldir </path/to/dir> sets download path.';
 @ahelp.partall='%Wu%nsage%K:%n /partall will part all current channels.';
 @ahelp.not='%Wu%nsage%K:%n /not will unset topic on current channel.';
+@ahelp.chops='%Wu%nsage%K:%n /chops will display all ops on current channel.';
 @ahelp.nops='%Wu%nsage%K:%n /nops will display all nonops on current channel.';
 @ahelp.vocs='%Wu%nsage%K:%n /vocs will display all voiced members on current channel.';
 @ahelp.mw='%Wu%nsage%K:%n /mw -hidden|split|kill <will create/kill a window bound to msgs>';
@@ -40,9 +40,7 @@ subpackage help;
 @ahelp.q='%Wu%nsage%K:%n /q nick querys nick';
 @ahelp.bans='%Wu%nsage%K:%n /bans shows current banlist on channel';
 @ahelp.wii='%Wu%nsage%K:%n /wii nick whois nick ';
-@ahelp.mdop='%Wu%nsage%K:%n /mdop <nick1> <nick2> <nick3> <...> mass deops current channel minus nicks specified.';
 @ahelp.mdeop='%Wu%nsage%K:%n /mdeop <nick1> <nick2> <nick3> <...> mass deops current channel minus nicks specified.';
-@ahelp.dop='%Wu%nsage%K:%n /dop <nick> deops nick';
 @ahelp.dv='%Wu%nsage%K:%n /dv <nick> devoices nick';
 @ahelp.v='%Wu%nsage%K:%n /v <nick> voices nick';
 @ahelp.scano='%Wu%nsage%K:%n /scano scans for current ops on channel';
@@ -68,7 +66,6 @@ subpackage help;
 @ahelp.mreop='%Wu%nsage%K:%n /mreop mass ops current ops on channel';
 @ahelp.readlog='%Wu%nsage%K:%n /readlog reads away log';
 @ahelp.wall='%Wu%nsage%K:%n /wall <msg> mass notices current ops on channel';
-@ahelp.chops='%Wu%nsage%K:%n /chops scans oped nicks on channel';
 @ahelp.sv='%Wu%nsage%K:%n /sv shows current client/script version to channel';
 @ahelp.away='%Wu%nsage%K:%n /away set yourself away';
 @ahelp.back='%Wu%nsage%K:%n /back turns away off.';
@@ -94,7 +91,6 @@ subpackage help;
 @ahelp.sping = '%Wu%nsage%K:%n  /sping <server> pings server and returns lag time to it';
 @ahelp.stalker = '%Wu%nsage%K:%n  /stalker does a /common for every channel you are in against the current channel';
 @ahelp.ub = '%Wu%nsage%K:%n  /ub <nick> ub by itself will clear all bans on current channel , /ub nick will unban nick from current channel';
-@ahelp.cd = '%Wu%nsage%K:%n /cd <dir> equivelent to shell command';
 @ahelp.dns = '%Wu%nsage%K:%n /dns <nick> domain nameserver request to given nick';
 @ahelp.nslookup = '%Wu%nsage%K:%n /nslookup <ip> domain nameserver request to given ip';
 @ahelp.orignick = '%Wu%nsage%K:%n /orignick will check the specified nick for the amount of seconds you specify in the config. (default is 3) and change to it when that nick signs off';

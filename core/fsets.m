@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -41,23 +41,23 @@ alias fparse {return ${**cparse($($*))};};
 ^on ^who * {
 	xecho $fparse(format_who $*);
 };
+
 ^on ^315 "*" {
 	xecho $fparse(format_who_footer $*);
 };
+## NOTE: Confusions as to why some are using //echo or xecho
+## Im certain there is a valid reason but we should probably
+## be consistent for sanitys sake if possible //zak
 
 ## msg fsets.
 ^on ^msg_group * {//echo $fparse(format_msg_group $0 $1 $2-);};
 ^on ^msg * {//echo $fparse(format_msg $0 $userhost() $1-);};
 ^on ^send_msg * {//echo $fparse(format_send_msg $0 $1-);};
 
-## notice fsets.
+## wallop/notice
 ^on ^wallop * {//echo $fparse(format_wallop $0 $1 $2-);};
-^on ^notice * {
-	 xecho $fparse(format_notice $0 $userhost() $1-);
-};
+^on ^notice * {xecho $fparse(format_notice $0 $userhost() $1-);};
 ^on ^send_notice * {//echo $fparse(format_send_notice $0 $1-);};
-
-## public fsets.
 ^on ^public_notice * {
 	xecho -w $winchan($1) $fparse(format_public_notice $0 $1 $2-);
 };
@@ -66,28 +66,28 @@ alias fparse {return ${**cparse($($*))};};
 ^on ^ctcp * {xecho $fparse(format_ctcp $0 $userhost() $1 $2 $3 $4);};
 ^on ^ctcp_reply * {xecho $fparse(format_ctcp_reply $0 $2 $3-);};
 ^on ^send_ctcp * {
-	if ( *0 == 'privmsg' && *2 != 'action') { 
+	if ( *0 == 'privmsg' && *2 != 'action') {
 		//echo $fparse(format_send_ctcp $0 $1 $2 $3-);
 	};
 };
 
 ## dcc fsets.
-^on ^send_dcc_chat * {//echo $fparse(format_send_dcc_chat $0 $1-);};
-^on ^dcc_chat * {//echo $fparse(format_dcc_chat $0 $1-);};
+^on ^dcc_request * {
+	//echo $fparse(format_dcc_request $0 $1 $2 $3 $4 $5 $6);
+};
 ^on ^dcc_connect * {
 	if ( *1 != 'RAW') {
 		//echo $fparse(format_dcc_connect $0 $1 $2 $3 $4 $5);
 	};
 };
-
-^on ^dcc_request * {//echo $fparse(format_dcc_request $0 $1 $2 $3 $4 $5 $6);};
-
-## nutbars dcc lost hook
 ^on ^dcc_lost "% CHAT *" {
-        xecho $fparse(format_dcc_lost_chat $*);
+	xecho $fparse(format_dcc_lost_chat $*);
 };
 
-## fsets with getusers here...
+^on ^send_dcc_chat * {//echo $fparse(format_send_dcc_chat $0 $1-);};
+^on ^dcc_chat * {//echo $fparse(format_dcc_chat $0 $1-);};
+
+## fsets to defer getusers(status_update)
 ^on ^channel_signoff * {
 	xecho $fparse(format_signoff $0 $1 $2-);
 	defer getusers;
@@ -103,14 +103,20 @@ alias fparse {return ${**cparse($($*))};};
 	defer getusers;
 };
 
-## other fsets.
-^on ^channel_nick * {//echo $fparse(format_nickname $1 $2);};
+^on ^kick * {
+	xecho $fparse(format_kick $0 $1 $2 $3-);
+	defer getusers;
+};
+
+^on ^channel_nick * {
+	xecho $fparse(format_nickname $1 $2);
+};
+
 ^on ^invite * {
-	//echo $fparse(format_invite $0 $1);
-	//echo $G press Ctrl-K to join;
+	xecho $fparse(format_invite $0 $1);
+	xecho $G press Ctrl-K to join;
 	//push invchan $1;
 };
-^on ^kick * {//echo $fparse(format_kick $0 $1 $2 $3-);};
 
 ## non-moduler fsets. (perm)
 ^on ^471 * {xecho $fparse(format_timestamp_some $($_timess)) $1: Channel is full;};
@@ -136,7 +142,10 @@ alias fparse {return ${**cparse($($*))};};
 	xecho -l msg $fparse(format_timestamp_some $($_timess))$(hwht)\<$(cl)CID$(hwht)\>$(cl) Press alt-Y to accept from $1;
 };
 
-## topic stuff
+## topic stuff 
+## NOTE: Need to investigate if we really need to suppress
+## some of these numerics with so many changes to the ircd in the past
+## 8 years //zak
 ^on ^331 * {xecho $fparse(format_notopic $1-);};
 ^on ^332 * {xecho $fparse(format_settopic $1-);};
 ^on ^333 * {xecho $fparse(format_topicby $1 $2 $stime($3));};
@@ -201,7 +210,8 @@ on ^330 * {
 on ^307 * {
         xecho $fparse(format_whois_ident $*);
 };
-## Unreal ircd stuff for fikle.
+## Unreal ircd stuff for fikle. ## gonna remove unrealircd shit
+## in the near future, such uglyness, perhaps could modularize it?
 on ^310 * {
         xecho $fparse(format_whois_active $*);
 };
@@ -223,6 +233,7 @@ on ^308 * {
 on ^313 * {
 	xecho $fparse(format_whois_operator $1 $randread($(loadpath)reasons/oper.reasons));
 };
+
 ^on ^401 * { 
         xecho $fparse(format_whois_header);
 	xecho $fparse(format_whois_unknown $1);
@@ -232,7 +243,7 @@ on ^313 * {
 	};
 };
 
-## for /wii or whois nick nick
+## for /wii aka whois nick nick
 ^on ^402 * {
         xecho $fparse(format_whois_header);
         xecho $fparse(format_whois_unknown $1);
@@ -248,6 +259,5 @@ on ^313 * {
 	xecho $fparse(format_whowas_unknown $1);
 };
 
-## for encrypted connections (ie. ssl)
+## ssl client format for whois
 on ^671 * {xecho $fparse(format_whois_security $2-);};
-

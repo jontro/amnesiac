@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # Copyright (c) 2007 hokkaido <jzzskijj gmail com>
 # See the 'COPYRIGHT' file for more information.
 # Modifications by kreca

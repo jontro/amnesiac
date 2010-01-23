@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
 if (word(2 $loadinfo()) != [pf]) {
@@ -17,7 +17,7 @@ alias ik {invkick $*;};
 alias ki {invkick $*;};
 alias cmode {c $*;};
 alias lall partall;
-alias chanlock lockchan;
+alias lockdown lockchan;
 alias lockchan {mode $serverchan() +im;};
 alias unlock {mode $serverchan() -im;};
 
@@ -194,8 +194,6 @@ alias deop {
 alias mv {
 	@_massmode($serverchan() +v $nochops());
 };
-
-## do we really need a massdevoice? needs to be rewritten anyways.
 
 alias mreop {
 	@_massmode($serverchan() +o $chops());

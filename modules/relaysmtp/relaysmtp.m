@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 # last modified by skullY 01.12.08 - initial commit
 # relaysmtp - Relay messages to and from irc using email

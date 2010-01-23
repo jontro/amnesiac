@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
 if (word(2 $loadinfo()) != [pf]) {
@@ -71,19 +71,16 @@ alias invite  {
 
 alias inv {invite $*;};
 
-## chan/mem/nickserv
+## chan/mem/nickserv/services/irritating ircd stuff
 alias ms {quote MemoServ $*;};
 alias ns {quote NickServ $*;};
 alias cs {quote ChanServ $*;};
 alias chanserv {cs $*;};
 alias nickserv {ns $*;};
 alias memoserv {ms $*;};
-## Some stupid networks w/services requires messages
 alias mserv {msg memoserv $*;};
 alias nserv {msg nickserv $*;};
 alias cserv {msg chanserv $*;};
-
-## dalnets dcc bullshit so called "protection"
 alias allow {dccallow $*;};
 alias dccallow {quote dccallow $*;};
 
@@ -115,14 +112,11 @@ alias ll {lastlog $*;};
 alias lll {lastlog -literal $*;};
 alias llw {lastlog -window $*;};
 alias llt {lastlog -target $*;};
-
-## help shortcuts.
+alias llm {lastlog -mangle ALL $*;};
+alias verk {massk $*;};
+alias csc {clear;sc;}; 
 alias a {ahelp $*;};
 alias about {more $(loadpath)ans/about.ans;};
-
-## compat aliases from other irc clients to emulate the same thing.
-alias verk {massk $*;};
-alias csc {clear;sc;};
 
 ## toggable aliases
 alias arejoin {set auto_rejoin toggle;};
@@ -138,7 +132,7 @@ alias realname {set default_realname $*;};
 alias username {set default_username $*;};
 alias clock24 {set clock_24hour toggle;};
 
-## dumps and reload script, for scripters and advanced users in general.
+## dumps and reload script, for scripters and adv users
 alias adump {
 	//dump all;
 	fe ($getarrays()) n1 {@delarray($n1)};

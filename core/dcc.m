@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -30,10 +30,7 @@ alias get {dcc get $*;};
 alias uldir {cd $*;};
 alias bchat {ctcp $* chat;};
 
-## config alias.
-alias autoget {dccag $*;};
-
-## hooks.
+## dcc bind hook
 on -dcc_request "% CHAT *" {
 	push dccchats $0;
 	xecho -b DCC $0 has sent a dcc chat request.;
@@ -44,7 +41,9 @@ on #-dcc_request 22 "% SEND*"  {
 	@dccnick = *0;
 	xecho -b press ctrl-T to accept file or ctrl-R to reject;
 };
+## end dcc bind
 
+## dcc auto-get toggle
 on #-dcc_request 23 "% SEND*"  {
 	@dccnick = *0;
 	@dccfile = *5;
@@ -71,6 +70,7 @@ alias config.dccag {
 	};
 };
 
+alias autoget {dccag $*;};
 alias dccag {
 	config.dccag -s $*;
 };
@@ -93,7 +93,7 @@ alias dcc_ports.nextport {
 };
 
 @dccctl(DEFAULT_PORT $$dcc_ports.nextport());
-
+## end dcc portrange
 ## dcc menu help.
 alias dcchelp {
         if (!@) {

@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
 if (word(2 $loadinfo()) != [pf]) {
@@ -56,5 +56,5 @@ set beep_on_msg none;
 set suppress_server_motd off;
 set paste_strip OFF;
 set paste_delay 30;
-set dcc_port_min 1024;
-set dcc_port_max 65535;
+set dcc_port_min 10000;
+set dcc_port_max 15000;

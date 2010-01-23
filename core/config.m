@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
@@ -124,9 +124,6 @@ alias config.matchinput {
 	};
 };
 
-
-## end timestamp stuff.
-
 ## pubnick highlight
 alias config.pubnick {
 	if ( *0 == '-r' )
@@ -144,7 +141,7 @@ alias _pubn {
 	config.pubnick -s $*;
 };
 
-## other misc configs
+## misc script toggles
 alias config.umode {
 	if ( *0 == '-r' ) {
 		return $getumode;
@@ -235,7 +232,7 @@ osetitem connect auto_reconnect_delay Auto-reconnect delay:;
 osetitem connect auto_reconnect_retries Auto-reconnect retry:;
 osetitem connect auto_rejoin_connect Auto-rejoin connect:;
 
-## misc config items
+## misc items
 osetitem misc origdelay Orignick Timer:;
 osetitem misc timestamp Timestamps:;
 osetitem misc pubnick Pubstring:;

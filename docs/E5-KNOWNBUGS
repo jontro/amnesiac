@@ -2,25 +2,33 @@ EPIC5 Projects, Bugs, and other Errata:
 
 KNOWN ERRATA (eg, bugs, or unresolved requests):
 ------------------------------------------------
-<twincest> here 
-<twincest>
-+[@twincest]-[serv(criten)]-[act(4,2,3,10,11,5,7,6,12,22,14,21,18,15,19,16,20--
-+-----------------------------------------[win(13)]-[time(09:18PM)] 
--> (#epic) are you using %> in your status format, right?
--> (#epic) can you show me your status_format ?  i'd like to see where the %>
-+is.
-<twincest> ::: Current value of STATUS_FORMAT is
-+[%*%=%@%N%#]%S%H%B%Q%A%I%O%M%F%L%D%U%W-%>[win(%R)]%T 
--> (#epic) ok. you know, despite what it might appear from the symptoms, i'm
-+more likely to believe this is a bug in the %> code.
-------------
-A ~/.ircrc if it exists but isn't readable is treated as existing.
-: This is because load_ircrc() can't know if the /load will fail.
-: This probably requires turning /load into a wrapper with a retval
+* There needs to be an /on switch_query for wuf/sjhoran
+* Need to have a script that implements per-channel FiSH support
+* Need to have a script that implements per-channel iconv() support.
+* The configure check for libarchive is weak.
+* wuf says that fred!user@machine.domain.com.au should not be
+	*!*user@*.com.au but instead *!*user@*.domain.com.au
+* Howl would like to retain the /window server <X>  value
+* va_list is iffy on amd64 and you must use va_copy() diligently.
+* What about a facility to do "command completion", like /window <tab>
+  brings up all /window operations?
+* A way to auto-log channels by channel, irc.<channel>.log
+* What about a facility to do auto-off-hold-mode ?
+* There should be a fake level for "channel stuff"
+* Curse would like an outbound protocol queue to avoid flooding the server
+* Larne wants syntactic word extraction like $foo{3} or $foo{1,4}
+* Perl build errors still are not discovered properly by configure
+  ld: symbol(s) not found for architecture ppc
+  collect2: ld returned 1 exit status
+  lipo: can't open input file: /var/folders/sR/sRghWCavFoKpLOHlqsuFNU+++TI/-Tmp-//ccHkWjIQ.out (No such file or directory)
+  make[1]: *** [epic5] Error 1
+  make: *** [epic5] Error 2
 
 ISSUES OF INTEREST
 ------------------
 * The four projects of the UTF8 effort are the primary focus for now.
+* Fusion wants /xecho -sec 10 this goes away in 10 seconds
+* What about scrolling back to some point in time?
 [I moved the old list to the file "WISHLIST" to keep this file short]
 
 [See http://www.epicsol.org/PROJECTS for things to come in the future]
@@ -39,3 +47,101 @@ THE CHANGELOG SINCE THE LAST RELEASE:
 * This fixes /ignore user@host.com which was lamely broken.
 * Make /window channel output all channels in the window
 * Don't call update_all_status() if /set -status_clock (by Oliver Fromme)
+* Comment out strtol() compat stuff, causing people problems.
+* More graciously handle snprintf() returning -1 (rb twincest)
+* Do not use /usr/include/ep on hpux
+* Mark lastlog items as "dead" and check for them to avoid dangling ptrs
+* Handle (graciously) when /set scroll_lines is > size of the window. (rb CE)
+* Properly handle remove_lastlog_item() for the very last item.
+* Fixes /eval defer window new kill;defer window new;defer window kill_others
+* Add $hookctl(ARGS <recursive> <args>) allows you to replace $* in /on.
+* Add $hookctl(USERINFO <recursive> <info>) allows you to set dynamic info.
+* Don't lamely malloc_strcpy() over non-malloced strings in hookctl.
+* Add $iconvctl() to control iconv stuff. (See UPDATES.)
+* Add $xform(iconv +<iconv id>) functionality. (See UPDATES.)
+* Fix bug where /window number could lead to confused lastlogs
+* Generalize base64 encoding so it doesn't hardcode the base64 string.
+* Add $xform(+FISH64 ...) which does FiSH's base64 encoding.
+* Make a better test for embedded perl support by calling SvTRUE().
+* Fix /bind -defaults so it actually removes all keybindings first. doh.
+* Fix /window double so it actually shows you the current double status.
+* Make the expression error for too many operands output the expression.
+* Rewrite the iconv() configure checks to deal with libiconv's #define's.
+* Rewrite the strtoimax() tests so they don't fail lamely to detect (intmax_t)
+* Rewrite the perl and ruby runtime configure tests so they work right with gcc
+* Fix various warnings revealed by gcc warnings
+* Make a very preliminary attempt to write some fish decoding stuff. Not Ready!
+* Fix for configure to handle perl's non-existance (kreca)
+* Fix wserv4 dependencies so you can do make -j4 on multi-cpu.
+* Rework the ruby checking in configure so it builds on freebsd-7
+* Add CTCP FISH support (this is _not_ fish support!), see UPDATES
+* Make an initial stab at proper support for FiSH's base64 converter.
+* I took the "fish64" entry out of $xform() for now while it's broken.
+* Capture stdout of ruby scripts and send it to an epic window. yay!
+* This means you can do regular old 'puts' in ruby script and it'll Just Work.
+* Finish $xform() for +fish64 and -fish64, verified against actual FiSH code
+* Try to make the perl configure check more robust for non-working perls.
+* Start a project to convert things to use transform_string().
+* Fix show_lastlog() to return the rewritten result (so -mangle works)
+* Actually de-orbit [en|de]code().
+* Create transform_string_dyn, a pleasant api in front of transform_string.
+* Create a bunch of global vars for transform_string to avoid lookups.
+* Add hints to how big destination buffers should be for xforming.
+* Fix transforms by initializing the expander and overhead items.
+* Make various sanity checks for transforms to fix amn.
+* Ensure all the users of transform_string_dyn are prepared to handle NULLs
+* Ensure all the xform encoder/decoders can handle zero dest buffer sizes
+* Add code to configure to fail if OpenSSL is not found.  No turning back!
+* Split the notion of "iv size" and "blocksize" in crypto support
+* This is needed because FiSH does not use an IV, being an ECB cipher
+* It's also needed because the notion that the IV *must* be blocksize is lame.
+* Add notion of "trimmable bytes" to end of crypto message
+* Again, this is for FiSH, because it doesn't trim bytes on last packet.
+* Support for assissting valgrind in helping us find memory leaks (caf)
+* Fix memory leaks found by valgrind (caf)
+* GC function_[en|de]code() and function_sha256 (superceded by $xform())
+* GC unused [en|de]code(), enquote_it, dequote_it, and dequote_buffer().
+* Fix display calcs when adding 1st window to 1st screen
+* This allows you to change 'status.number' for default # of status lines
+* Start tracking timestamps for scrollback items
+* Full generalization of scrollback/scrollforward functions
+* Implement scrollback/forward based on lines
+* Implement scrollback/forward based on regex
+* Begin thinking about implementing scrollback/forward based on time (not done)
+* Windows that are hidden from birth have a fake height of 24 lines
+* This fixes a bug where doing /window double on hold_slider 0 in a 
+  never-visible window caused it to get stuck in an infinite loop.
+* Add new scripts, "help.irc", "history.rb", "locale", and "tabkey.sjh"
+* I need to document these in UPDATE!
+* Add /exec -closeout, to send EOF to the exec'd process
+* Add $dccctl(FD_TO_REFNUM <fd>) to convert $connect() to a refnum for dccctl.
+* Remember $dccctl(GET refnum WRITABLE) detects a connected socket, by rule
+* Change /on 322 handler so output always goes to OTHER, not to the window.
+* Add an /on switch_query, but it's incomplete, so don't use it yet.
+* Rewrite malloc_sprintf() so it can be used by do_hook_internal().
+* Revamp do_hook() so it returns the final value of $*
+* This will allow future use of do_hook() to rewrite text.
+* Don't test for /usr/local/lib/libiconv.a because os x doesn't have it
+* Prototype malloc_vsnprintf().
+* Don't test uninitialized variables, you dummy.
+* Have to be more aggressive using va_copy() for 64-bit sake
+* Add /xeval -n {...} which un-does the ^ operation.
+* Fix the 'ambig' script to use /xeval -n.
+* Fix the command mode support in 'builtins' to use /xeval -n
+* Reorganize open_log(), add support for double quotes around filenames
+* Verify that logfiles are now working as I Hope they would.
+* Make 'global' load ambig and newnick, since those recently came up
+* Change a variable name to avoid conflicts with a global symbol
+* Create a stub function to calculate how long the input line could be.
+* Fix a bug with /who -real (i forgot who reported this, sorry!)
+* Fix the redonkulous spurious errors when using $convert().
+* Add a configure check for strtoimax() being a macro (ugh)
+* Apparently strings in configure are supposed to be [quote]d.
+* Check for strtoimax() separately in inttypes.h and stdint.h
+* This hopefully fixes the build on hpux
+* Add @E<win> as a /msg target so you can /msg a window.
+* Fix lame compile error in wserv() if we need yell().
+* Improve the test for libarchive in configure
+* Fix /bind -default because it whacked the bindings themselves. doh!
+* Normalize the copyright notice on scripts BlackJac wrote, per his request
+* Fix 439 handling for inspircd (rb twincest)

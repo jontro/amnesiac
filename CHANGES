@@ -117,3 +117,19 @@ sir skullY's fault, blame him
 -Happy new year!
 -Add scan_users info to all scan format so it's easier to customize. 
  rb mongoose. //kreca
+
+01.23.10
+-No such thing as a new year while there sync copyrights
+-Various cleanups-sorting of functions aliases.
+-remove useless duplicate aliases we got too many shortened up
+aliases that does the same thing, if someone really does use some short
+'tough shit'. add to .epicrc
+-remove core/more.m merge to core/exec.m slightly more appropriate.
+-sync documentation to reality
+-comment on ambiguous functionality that needs to be rewritten/cleaned up
+and or thrown out alltogether. as we need to clean up a lot of objects
+and put them in proper module/core for easier future debugging purposes.
+-cvs diff to see minor changes not worthy of mentioning in CHANGES
+-I would be pleasantly surprised if this commit does not come with some
+- obvious screwup i probably made somewhere, users may want to test
+before upgrading. //zak
