@@ -137,3 +137,19 @@ before upgrading. //zak
  rb mongoose, if anything breaks, be sure to blame him TYVM
 -remove protect module its junk, i have a better idea for a rewrite to be
 planned before 2012, honest! //zak
+
+-would have saveed me some trouble if kreca documented this somewhere
+on people having some line drawing issues where i had to cvs log.
+THANKS KRECA
+Info below. for those using utf-8 and iso-latin-1
+----------------------------
+revision 1.3
+date: 2009/06/23 17:52:43;  author: kreca;  state: Exp;  lines: +32 -21
+Oki, did a bugfix to the old code
+Can someone that _was_ affected by the bug please type /set_line_drawing 1
+and check how the sbars look after that.
+please switch between
+/eval set_line_drawing 1;sbar 1;
+and
+/eval set_line_drawing 0;sbar 1;
+to see if there is any difference
