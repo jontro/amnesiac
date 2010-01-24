@@ -320,6 +320,18 @@ alias ospy {
 	aecho $4$fparse(format_timestamp_some $($_timess))$5 $6 $7 from $9;
 };
 
+^on ^wallop '% % LOCOPS *' {
+        aecho $fparse(format_timestamp_some $($_timess))%bLOCOPS%n: $0%G!%n$userhost()%G/%n$servername() - $4-;
+};
+
+^on ^wallop '% % ADMINWALL *' {
+        aecho $fparse(format_timestamp_some $($_timess))%bADMINWALL%n: $0%G!%n$userhost()%G/%n$servername() - $4-;
+};
+
+^on ^wallop '% % OPERWALL *' {
+        aecho $fparse(format_timestamp_some $($_timess))%bOPERWALL%n: $0%G!%n$userhost()%G/%n$servername() - $4-;
+};
+
 ## elite format to determine diffs on kills in opervision
 ^on ^server_notice "* removed * ?-Line *" {
 	switch ($8) {

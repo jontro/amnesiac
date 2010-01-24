@@ -153,3 +153,14 @@ please switch between
 and
 /eval set_line_drawing 0;sbar 1;
 to see if there is any difference
+
+-By popular demand add slight cosmetic - so it timestamps
+- adminwall/locops/operwall - see amn/modules/oper/oper.m for current
+setting feel free to modify it to your convienience and i will probably
+commit the different cosmetic handling of it.
+current output now shows something like.
+
+Sa:22:19|LOCOPS: zak!zak@hippocratic.oaf/hub.deathwish.net - test
+Sa:22:19|ADMINWALL: zak!zak@hippocratic.oaf/hub.deathwish.net - test
+Sa:22:20|OPERWALL: zak!zak@hippocratic.oaf/hub.deathwish.net - test
+Note: Timestamp conforms to /tform. //zak

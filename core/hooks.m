@@ -96,11 +96,11 @@ on #-connect 50 * {
 
 ## notify hook. 
 ^on ^notify_signon * {
-	xecho -v $G SignOn by $0!$sar(g/@/@/$1-) on $strftime(%x at %X))
+	xecho -v $G SignOn by $0!$sar(g/@/@/$1-) on $strftime(%x at %X);
 };
 
 ^on ^notify_signoff * {
-	xecho -v $G SignOff by $0 on $strftime(%x at %X))
+	xecho -v $G SignOff by $0 on $strftime(%x at %X);
 };
  
 ## snotices
