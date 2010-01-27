@@ -321,15 +321,15 @@ alias ospy {
 };
 
 ^on ^wallop '% % LOCOPS *' {
-        aecho $fparse(format_timestamp_some $($_timess))%bLOCOPS%n: $0%G!%n$userhost()%G/%n$servername() - $4-;
+        aecho $fparse(format_timestamp_some $($_timess))$g %WWALLOP $0%n LOCOPS - $4-;
 };
 
 ^on ^wallop '% % ADMINWALL *' {
-        aecho $fparse(format_timestamp_some $($_timess))%bADMINWALL%n: $0%G!%n$userhost()%G/%n$servername() - $4-;
+        aecho $fparse(format_timestamp_some $($_timess))$g %WWALLOP $0%n ADMINWALL - $4-;
 };
 
 ^on ^wallop '% % OPERWALL *' {
-        aecho $fparse(format_timestamp_some $($_timess))%bOPERWALL%n: $0%G!%n$userhost()%G/%n$servername() - $4-;
+        aecho $fparse(format_timestamp_some $($_timess))$g %WWALLOP $0%n OPERWALL - $4-;
 };
 
 ## elite format to determine diffs on kills in opervision

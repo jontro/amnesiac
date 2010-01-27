@@ -164,3 +164,7 @@ Sa:22:19|LOCOPS: zak!zak@hippocratic.oaf/hub.deathwish.net - test
 Sa:22:19|ADMINWALL: zak!zak@hippocratic.oaf/hub.deathwish.net - test
 Sa:22:20|OPERWALL: zak!zak@hippocratic.oaf/hub.deathwish.net - test
 Note: Timestamp conforms to /tform. //zak
+
+01.27.10
+-Cosmetic adjustment to operwall/adminwall/etc by mongoose!
+-addition of quit/kick reasons rb mongoose!
