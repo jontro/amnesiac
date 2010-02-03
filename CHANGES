@@ -168,3 +168,21 @@ Note: Timestamp conforms to /tform. //zak
 01.27.10
 -Cosmetic adjustment to operwall/adminwall/etc by mongoose!
 -addition of quit/kick reasons rb mongoose!
+
+02.03.10
+-Major overhaul of eimodes.m(Now renamed to chanmodes.m along with bans.m)
+ while there also complete the transform to the pf loader.
+-added some new features this is just the beginning of quick mode handling
+of +I/+e, built into the script, basic invite-exempts is complete, however
+/iexempt rely's on /bantype until i get around to making a /invtype,
+iexempt /iexempt <nick|nick1,nick2> adds invite exempt in current chan
+ieh /ieh <nick|nick1,nick2> adds invite exempt of host on the fly
+ieb /ieb <nick|nick1,nick2> adds invite exempt of better on the fly
+ied /ied <nick|nick1,nick2> adds invite exempt of domain on the fly
+iiexp /iiexp <nick|nick1,nick2> adds invite exempt of ident on the fly
+see /smhelp for more info.
+-remove ugly banners in recent addition into adminwal/operwall/locops
+timestamping, however if one wants to use abecho or something, let me
+know //zak
+-some other minor cleanups of cruft that has no functional changes //zak
+-sync some TODO-BUGS a bit more to reality //zak

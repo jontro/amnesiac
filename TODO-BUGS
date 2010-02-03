@@ -53,9 +53,14 @@ $ = knownbug.
 ? = undecided/closed votes.
 
 ## low priority knownbugs.
-$ Supposedly texp will break under certain circumstances
+$ Supposedly texp will break under certain circumstances <-- vague 
+  kreca motherland speak, a little clarification here would 
+  be nice //zak
+
 $ userlist is buggy/has been having issues for years it's really not a
-  priority for us but we may work on it soon.
+  priority for us but we may work on it soon. <- 02.03.10, eh mon, we
+  love to talk about it, it comes up almost every time i come on irc,
+  2015, it will be done in 2015. //zak
 
 ## high priority knownbugs.
 None
@@ -82,6 +87,8 @@ None
 
 ## lower priority requests/todo.
 @ Finish server list module, assigned to kreca (kreca check UPDATES)
+  ^ Still incomplete as of 02.03.10 marking the date/year down should
+   speed up kreca's slackness or maybe not //zak
 
 @ Start assigning more sane hook numerics, they're all over the place
   which is something we pretty much inherited from oblivion. //zak
@@ -96,15 +103,21 @@ None
 @ Add a way to match the ban/invite execption list against the current
   users in a channel. Requested by Tilt.
 
+
 ## Procrastinated requests.
 @ add support to bwk to allow usage of wildcards.
 @ fixdouble/fixwin or equiv for doublestats
-@ finish up or scrap the adcc module, i really hate to touch this myself
+
+
+## bugs fixed. / projects done.
+02.03.10
+! finish up or scrap the adcc module, i really hate to touch this myself
   i have never heard of a request for this module nor have i heard a single
   complaint about it working or not working perhaps a vote?
   @skullY I vote remove. If they need this they can run an eggdrop.
+  gone for some time now i beleive, i forget how long, dont care, me
+  happy //zak
 
-## bugs fixed. / projects done.
 01.23.10
 ! protect module is borked, fix? remove?
   @skullY I vote remove, Metoo, dead,gone junk useless not even pasture
@@ -130,30 +143,9 @@ None
   if < ver, or break compatability? i vote for if < somever when it was
   added then do the old way of set realname.
 
-4.17.07
-! refix /wall fix formats to make use of + or the like for on
-  public_other "% @*" may get rid of /wall2 and the current notice hook
-  as apparently a lot of ircd's now support /msg @#chan for walls.
-  //kreca . See ChangeLog for more info
-
-3.20.07 - i beleive kreca fixed this as well as above.
-! merge in the new userlist more cleanly some errors i have ran into:
-  /save sometimes shows usersave nonexistent when its not loaded? or loaded?
-  /addmod userlist sometimes spew weird help/something errors i forget.
-  savefile issues with a line that needs to be remove manually to fix.
-
-3.20.07
-! possible way to make /delmod urlgrab actually unload completely?? for
-  some of us who runs multiple epic clients on the same box. a la on hook
-  unloading issue???
-  Fixed by adding unload hook to the module framework //kreca
-
 1.31.07
 ! mmatrix module, /addword foobar #chan will not ban and kick user, just kick
   ^^ fixed prolly about a month or two ago //zak
-
-1.30.07
-! add auto_rejoin_on_connect toggability [on/off] (reconnect script)
 
 10.21.06 - fixed by kreca 'getuhost' issue in alias.m -Rylan
 ! /ign seems to have interesting issues, recursion?? /ign foo-bar(nonexistent

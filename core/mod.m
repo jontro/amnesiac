@@ -145,13 +145,9 @@ alias _loadmod {
 	if (fexist($(loadpath)modules/$(cmod)/config)==1) {
 		load -pf $(loadpath)modules/$(cmod)/config;
 		if (@_modsinfo[$cmod][helpcmd]) {
-#			^alias ${cmod}.help $_modsinfo[$cmod][helpcmd];
 			@:bhelp=1;
 		};
 	};
-#	if (bhelp==0) {
-#		^alias ${cmod}.help xecho -b No help exists for module $cmod;
-#	};
 	load $(loadpath)modules/$(cmod)/$(cmod).m;
 	if ( _modsinfo[$cmod][savefiles]) {
 #if the script has a loadcmd, use it
