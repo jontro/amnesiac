@@ -1,9 +1,0 @@
-^eval aecho $(hwht) ÚÄÄ$(c2)Ä$(hwht)Ä$(c2)ÄÄÄÄ$(c1)Ä$(c2)ÄÄ$(c1)ÄÄ-$(hblk)  -      -           ú 
-^eval aecho $(hblk)[$(c2)³$(hblk)] $(hwht)am$(cl)nes$(hblk)iac $(hwht)x$(cl)dc$(hblk)c $(cl)stats 
-^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl)ptimer        - $(hblk)[$(cl)$pts$(hblk)]
-^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl)sent          - $(hblk)[$(cl)$fixsize($getitem(total 0))$(hblk)]
-^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl)top speed     - $(hblk)[$(cl)$getitem(speed 0)kbs$(hblk)]
-^eval aecho $(hblk)[$(c2)³$(hblk)] $(cl)dcc chans     - $(hblk)[$(cl)$dccchans$(hblk)]
-^eval aecho $(hblk)[$(c2)³$(hblk)] 
-^eval aecho $(hblk)[$(c2)³$(hblk)] 
-^eval aecho $(c1) À-$(hblk) -Ä- -     -              -          -

@@ -186,3 +186,6 @@ timestamping, however if one wants to use abecho or something, let me
 know //zak
 -some other minor cleanups of cruft that has no functional changes //zak
 -sync some TODO-BUGS a bit more to reality //zak
+
+02.04.10
+-remove adcc for good from pasture //zak
