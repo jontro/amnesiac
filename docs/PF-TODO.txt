@@ -1,1 +1,21 @@
 Modules has to be converted to use the pf loader
+
+modules/aol
+modules/dict
+modules/flood
+modules/mmatrix
+modules/relay
+
+modules/services //not a priority may put up for
+		removal, due to lack of feedbacks on
+		if anyone actually uses this
+
+modules/tc
+modules/vanilla
+
+modules/xy	//see comment above about services, 
+		which also applies to this module.
+
+core/wall.m	//interestingly this is the last one of our
+		core modules that needs to be converted, yet
+		was never done

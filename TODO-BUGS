@@ -61,6 +61,11 @@ $ userlist is buggy/has been having issues for years it's really not a
   priority for us but we may work on it soon. <- 02.03.10, eh mon, we
   love to talk about it, it comes up almost every time i come on irc,
   2015, it will be done in 2015. //zak
+  addenum to the above, flags aor */* however does work, for auto-ops
+  just everything else ctcp etc is broken.
+
+$ serverlist module is actually incomplete, kreca says he will finish it
+  timeline unknown.
 
 ## high priority knownbugs.
 None
@@ -81,9 +86,11 @@ None
 @ cleanup oper module/rewrite portions/allow for more toggability of 
   some things alien88 likes blocked that others may too.
   we should discuss things among different admins/opers we know in some
-  temp irc channel //zak (work in progress)
-
-@ more documentation need some updating? //zak
+  temp irc channel //zak (work in progress) 02.04.10 - recent work of
+  interest in improving our oper functonality has started up somewhat
+  again, however it would be nice if opers big/small/medium networks
+  of this script would stop by and ask what they would like to see or
+  adjusted,removed if anything, feel free to drop us an e-mail even.
 
 ## lower priority requests/todo.
 @ Finish server list module, assigned to kreca (kreca check UPDATES)
@@ -93,15 +100,30 @@ None
 @ Start assigning more sane hook numerics, they're all over the place
   which is something we pretty much inherited from oblivion. //zak
 
-@ convert modules to the PF-Loader (the ones that have yet to be done)
+@ convert modules to the PF-Loader 02.04.10 see docs/PF-TODO //zak
 
 @ add some topwin module, kreca has to start a discussion about some topwin
   script he might have permission for us to use/modify/rip ;)
+  02.04.10 - due to the ugliness of toplines, and most of the scripters
+  do not use/want topic modules, and the brave few who have attempted
+  to do so, they all have their own little quirks, bugs, irritation,
+  its not so much of doing, its how to actually properly design one,
+  users who wants it, should check the epic5 source for topic scripts
+  and load it, they do co-exist with amnesiac, they're however buggy.
 
 @ make orignick use ISON functionality.. -Rylan
+  02.04.10 - i honestly think i like the idea of this however i
+  forget the reason behind why we should use this other than,
+  hijacking nicks quicker?, ISON functionality of epic is something
+  not well understood for me //zak
 
 @ Add a way to match the ban/invite execption list against the current
-  users in a channel. Requested by Tilt.
+  users in a channel. Requested by Tilt. 10.04.10 i can totally see
+  this happening within the next decade, i like the concept, however
+  i can see this taking some time if someone even succeeded in scripting
+  up that there are going to be a lot of complicated bugs, unforseen
+  bugs cropping up over time, unless by chance someone else has
+  some actual draft of how this could be implimented safely. //zak
 
 
 ## Procrastinated requests.
@@ -110,6 +132,16 @@ None
 
 
 ## bugs fixed. / projects done.
+02.04.10
+! more documentation need some updating?
+  we have probably extensively documented more things in amnesiac
+  more than any other irc script in history im sure, they may not
+  all be in the client helpfiles itself, users of amn please to
+  check out amn/docs for help as well before assuming amnesiac
+  has a bug, or questions that may NOT be documented on client side
+  due to in verbatim, ergo it goes in amn/docs though i admit there
+  are some that still needs tweaking progress has been made //zak
+
 02.03.10
 ! finish up or scrap the adcc module, i really hate to touch this myself
   i have never heard of a request for this module nor have i heard a single
@@ -164,5 +196,6 @@ None
 - maybe? for - glines...
   <@skullY> you could if ([$0]==[y] || [$0]==[yes]) //vote?
 
-and of course!
-UNSURPRISING BUG FIXES.
+Last but not least, dont forget to report any unsurprising bugs no matter
+how trivial they may appear, if you think something is a bug, please let
+us know.

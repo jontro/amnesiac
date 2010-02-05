@@ -1,7 +1,7 @@
 ## These settings only applies until you've typed /save or /setsave
 ## if so they'll be saved in ~/.amn/a.settings
 set auto_reconnect on;
-set auto_reconnect_delay 120;
+set auto_reconnect_delay 60;
 set auto_reconnect_retries 2;
 set auto_rejoin_connect on;
 set history_circleq on;

@@ -3,8 +3,8 @@
 
 /* amnesiac by crapple, kreca and skullY
 pr0pz and thanks go to void!, xavier!, fudd, BlackJac, hop, criminal, krimson,
-violence, skullY, Alien88, kreca, adam, ryan, sirko, klepto, bioterror, psk
-curse, wicked, david and any others out there who have helped out.
+violence, skullY, Alien88, kreca, adam, ryan, sirko, klepto, psk, curse, david
+bioterror(mongoose), wicked and any others out there who have helped out.
 */
 
 if (word(2 $loadinfo()) != [pf]) {
@@ -125,6 +125,8 @@ if (fexist($(savepath)$setsavefile)==1) {
    load $(savepath)$setsavefile;
 };
 
+# i do not see the setting in epic5 cvs for quite some time,
+# is it still in release? else we should remove this //zak
 ^set reverse_status_line off; ## We dont use this set any more
 
 ## XXX hack to make Xavier happy. If the environment variable IRCNAME is set
@@ -147,4 +149,4 @@ load $(loadpath)ans/startup.ans;
 # Im not sure why we need wait here, but we do :) //kreca
 wait;
 
-_center Amnesiac/$a.rel \($a.snap\) for $(J) \($V\) [$info(i)] loaded..;
+_center Amnesiac/$a.rel \($a.snap\) [cvs \($a.commitid\)] for $(J) \($V\) [$info(i)] loaded..;

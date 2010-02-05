@@ -8,7 +8,7 @@ Amnesiac Update using CVS
   CVS password: anoncvs
   
   Finally, to update amnesiac just type:
-  $ cvs update
+  $ cvs -q up -Pd
 
 NOTE: if you get a pass error, and or if you are running cvs for the
       first time on a particular account, you may need to touch ~/.cvspass
