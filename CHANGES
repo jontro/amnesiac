@@ -192,3 +192,14 @@ know //zak
 -sync documents to reality, esp docs/PF-TODO
 -sync epic5 UPDATES docs to reality, i guess somehow i must have
  missed this awhile back, or cvs ate it. //zak
+
+02.18.10
+-somehow during the merge of eimodes/bans.m into chanmodes.m bans.m did
+not make it, also merge channel.m into chanmodes.m purging more duplicates
+*sigh*, now amnesiac has /bk /bantype ban support etc again sorry for
+the mess. //zak
+-Also another note, between epic5 cvs 1620-21(server handling names got broken,
+ it's fixed in 1622, but other bugs have now popped up cvs users of epic5 
+ should stick with 1619, until the bugs are corrected. you can find a copy
+ at http://amnesiac.ircii.org/epic5/cvs if you dont know how to revert with
+ cvs.  //zak
