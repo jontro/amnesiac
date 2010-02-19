@@ -203,3 +203,7 @@ the mess. //zak
  should stick with 1619, until the bugs are corrected. you can find a copy
  at http://amnesiac.ircii.org/epic5/cvs if you dont know how to revert with
  cvs.  //zak
+
+02.19.10
+-sync document to reality (mostly mailing list information), no functional
+ changes //zak

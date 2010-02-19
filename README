@@ -5,11 +5,7 @@
   IRC Support channel: #amnesiac on EFnet @ irc.efnet.org
 		       #amnesiac on XSIRC(www.xsirc.net) @ irc.ircii.org
 
-* Amnesiac Mailing list: at this time, users who wishes to be added to the
-  mailing list, please e-mail zak@ircii.org, or kreca@ircii.org to be added
-  to the list(the primary list shows cvs changes, general discussions etc)
-  or feel free to send questions, ask to be added via
-  amnesiac@nospam.ircii.org, naturally remove the nospam. in the e-mail.
+* Amnesiac Mailing list: http://epicsol.org/mailman/listinfo/amnesiac
 
 * people who wish to see amnesiac source via cvsweb may do so here:
   http://cvs.epicsol.org/cgi/viewcvs.cgi/amn/
@@ -32,7 +28,7 @@
 
 * If you find a bug in amnesiac, please join one of our support channels
   primarily on efnet, to report a bug, or drop an email to the mailing
-  list: amnesiac@<nospam>ircii.org
+  list: amnesiac@<nospam>epicsol.org if you have subscribed
   this may help speed up fixing a bug in case i am not around or vice versa.
 
 * If you want a feature in amnesiac or anything else, please let
