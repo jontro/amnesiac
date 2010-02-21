@@ -65,7 +65,7 @@ alias listbot {
 
 	};
 	xecho -v -- ---------------------------------------------------------------;
-}
+};
 
 alias botsave {
 	@ rename($(savepath)$bsavefile $(savepath)$bsavefile~);

@@ -207,3 +207,9 @@ the mess. //zak
 02.19.10
 -sync document to reality (mostly mailing list information), no functional
  changes //zak
+
+02.21.10
+-arrggghhh fix abot.m(specifically botsave) which has been broken for
+ centuries yet no one reported it. also fix /bans output, _massmode* is
+ slower than molasses, which kreca will be slapped and forced to rewrite.
+ while in general area undo krecaisms. //zak
