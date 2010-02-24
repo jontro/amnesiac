@@ -160,7 +160,7 @@ alias whold window hold_mode toggle;
 ## window toggle simplification.
 :{
 /*
-	Copyright (c) 2003 David B. Kratter (BlackJac@EFNet)
+	Copyright (c) 2003 (BlackJac@EFNet)
 	This will allow you to toggle between hidden windows 1 through 20 more
 	easily. Press Esc+1 to toggle between windows 1 and 11, Esc+2 for win-
 	dows 2 and 12, etc., up through Esc+0 for windows 10 and 20.

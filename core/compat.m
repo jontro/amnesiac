@@ -13,7 +13,7 @@ subpackage compat;
 ## which was written by BlackJac, tho we try to use only what we really need
 ## parts have also been merged/rewritten to fit in with Amnesiac.
 ## Add his copyright here, to lessen the bloat in compat.m
-## Copyright (c) 2005 David B. Kratter (BlackJac@EFNet)
+## Copyright (c) 2005 (BlackJac@EFNet)
 
 alias addset (name, type, args) {
 	if (@name && type) {

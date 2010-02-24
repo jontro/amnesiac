@@ -66,7 +66,7 @@ alias _maxmodes {
 };
 
 ## Newnick from src/epic5/scripts by BlackJac.
-## Copyright (c) 2005 David B. Kratter (BlackJac@EFNet)
+## Copyright (c) 2005 (BlackJac@EFNet)
 
 alias newnick.mangle (nick, void) {
 	@ :length = getset(auto_new_nick_length);

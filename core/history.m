@@ -9,7 +9,7 @@ subpackage history;
 
 @ history.index = '';
 
-#	Copyright (c) 2005 David B. Kratter (BlackJac@EFNet)
+#	Copyright (c) 2005 (BlackJac@EFNet)
 #  /history [<indexnum>]
 #	Returns a list of all commands in the history buffer, or
 #	all commands up to <indexnum>. 
