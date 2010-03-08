@@ -118,34 +118,33 @@ alias kick {
 };
 
 alias _massmode (chan,mode,users) {
-	@:mm=_maxmodes();
-	@:ch=left(1 $mode);
-	@:s=rest(1 $mode);
+	@:maxModes=_maxmodes();
+	@:modePrefix=left(1 $mode);
+	@:mode=rest(1 $mode);
 	if (!@s) {
 		return;
 	};
-	@:cs="";
-	@:cm="";
 	if (substr(* $users) != -1 ) {
 		@:tmp = users;
 		@users = "";
-		while (@tmp ) {
-		      @:curUser= pop(tmp);
+		fe ( $tmp ) curUser {
 		      @push(users $pattern($curUser $chanusers($chan)));
 		};
 	};
-	while (@users) {
-		@:cu = pop(users);
-		fe ($jot(1 $strlen($s))) dummy {
-			^push cs $cu;
+	@:cs="";
+	@:cm="";
+	@:countHelper = jot(1 $strlen($mode));
+	fe ( $users ) curUser {
+		fe ($countHelper) dummy {
+			^push cs $curUser;
 		};
-		@cm= "$(cm)$s";
+		@cm= "$(cm)$mode";
 	};
 	while (@cm)
 	{
-		^quote mode $chan $(ch)$left($mm $cm) $leftw($mm $cs);
-		@cs=restw($mm $cs);
-		@cm = rest($mm $cm);
+		^quote mode $chan $(modePrefix)$left($maxModes $cm) $leftw($maxModes $cs);
+		@cs = restw($maxModes $cs);
+		@cm = rest($maxModes $cm);
 
 	};
 };
