@@ -140,13 +140,16 @@ alias _massmode (chan,mode,users) {
 		};
 		@cm= "$(cm)$mode";
 	};
-	while (@cm)
-	{
-		^quote mode $chan $(modePrefix)$left($maxModes $cm) $leftw($maxModes $cs);
+
+	while (@cm) {
+		^queue massmode \{
+			//quote mode $chan $(modePrefix)$left($maxModes $cm) $leftw($maxModes $cs)\;
+		\};
 		@cs = restw($maxModes $cs);
 		@cm = rest($maxModes $cm);
 
 	};
+	^queue -do massmode;
 };
 alias 4op {
 	@_massmode($serverchan() +oooo $*);

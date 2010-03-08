@@ -213,3 +213,8 @@ the mess. //zak
  centuries yet no one reported it. also fix /bans output, _massmode* is
  slower than molasses, which kreca will be slapped and forced to rewrite.
  while in general area undo krecaisms. //zak
+
+03.08.10
+-queue up commands in _massmode alias and execute them all at once. this fixes
+ the performance problems reported with mop/mdeop. Thanks to hop for
+ helping me with the queue command //kreca
