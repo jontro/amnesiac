@@ -15,7 +15,3 @@ modules/vanilla
 
 modules/xy	//see comment above about services, 
 		which also applies to this module.
-
-core/wall.m	//interestingly this is the last one of our
-		core modules that needs to be converted, yet
-		was never done
