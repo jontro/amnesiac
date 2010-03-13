@@ -51,8 +51,8 @@ the same question over and over will guarantee you a ban.
 
 Q: How do i load amnesiac?
 A: presuming that you have epic5 installed and downloaded the script.
-tar zxvf amnesiac*.tgz;cat load ~/amn/amn.epic >> ~/.epicrc;
-epic -B -H somevhost.com somenick irc.someserver.com
+tar zxvf amnesiac*.tgz;cat 'load ~/amn/amn.epic' >> ~/.epicrc;
+epic5 -H somevhost.com somenick irc.someserver.com
 or if the client is already loaded and the script is untarred
 /load ~/amn/amn.epic.
 
@@ -89,7 +89,7 @@ A: http://amnesiac.ircii.org/ac-snap.tgz or http://amnesiac.ircii.org
 
 Q: my backspace key in the xterm spews out ~~ or does not work does that 
    mean im lame?
-A: try set term=vt100 then restart the client.
+A: try export/setenv TERM=vt100 [rxvt,xterm,screen] then restart the client.
 
 Q: how do I start epic+amnesiac?
 A: HEY LOOK AT ME IM A MORON!
@@ -112,7 +112,7 @@ A: http://amnesiac.ircii.org
 
 Q: how do I make msgs go into a window for when people private msg me?
 A: syntax of /mw
-/mw -hidden|split|kill <will create/kill a window bound to msgs>
+/mw -hidden|split|kill [num] <will create/kill a window bound to msgs>
 
 Q: Why Are thre Spelng Erors in ths fuq?.
 A: GO FUCK YOURSELF WE DONT CARE.
@@ -144,7 +144,7 @@ A: make some windows with /wc then do alt-1-9 to change windows or
  esc 1-9 or /1 /2 /3 /4 etc.. to change windows
  in the window you want to dcc chat do /dcc chat nick /q =nick will them in 
  a query the = does matter its the switch for dcc or if you dont use windows
- use /msg =nick 
+ use /msg =nick
 
 Q: how do I make epic/amn add a bunch of windows on startup?
 A: add ^window new double on hide. in your ~/.epicrc for as many

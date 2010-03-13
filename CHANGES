@@ -218,3 +218,16 @@ the mess. //zak
 -queue up commands in _massmode alias and execute them all at once. this fixes
  the performance problems reported with mop/mdeop. Thanks to hop for
  helping me with the queue command //kreca
+
+03.13.10
+-gearing up for a release, while gearing up cleanup documentation, some
+ serious bugs needs to be rectified see TODO-BUGS /ub broken, tab blankline
+ does not load saved settings or something from $(savepath).tab.save //zak
+-new toggability of /clones /btab //zak
+-adjust our default fkey which we basically inherited from oblivion, set to
+ use aliases that are in base or defaultmodules //zak
+-remove core/users.m -> merged to scan.m which is more appropriate imho.
+-remove core/version.m -> merged to core/hooks.m for very little lines in
+ version.m, hooks.m seems like a better fit. //zak
+-various cleanups //zak
+ 

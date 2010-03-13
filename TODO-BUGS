@@ -68,20 +68,16 @@ $ serverlist module is actually incomplete, kreca says he will finish it
   timeline unknown.
 
 ## high priority knownbugs.
-None
+$  blankmsg tabkey does not save settings. (variable missing?)
+$  /ub nick is broken, over further debugging - /ub nick /bans will also
+   break.
 
 ## high priority todo. (stuff that needs to done before upcoming release)
-@ not exactly a high priority however we should prolly merge in a supposidly
-  working/better userlist than the one we have right now. //zak
-
-@ We need to fix the getusers handling, hell it needs an overhaul, any
-  takers? //zak
-
 @ we have too many bindings for dcc, perhaps we could set some sort of cycle
   for chat/accept/send, as i highly doubt more than one person would send
   some sort of dcc request at once in most cases, ie; use ctrl-t to accept
   both chat/files and ctrl-r to reject both chat/files? something to look
-  into? //zak
+  into? 03.12.10 no interest?, perhaps to look into after our release //zak
 
 @ cleanup oper module/rewrite portions/allow for more toggability of 
   some things alien88 likes blocked that others may too.
@@ -91,6 +87,8 @@ None
   again, however it would be nice if opers big/small/medium networks
   of this script would stop by and ask what they would like to see or
   adjusted,removed if anything, feel free to drop us an e-mail even.
+  (will evualuate after our real-first release) so we can fuck up so
+  many cleanups while the current cvs is pretty stable/mature.
 
 ## lower priority requests/todo.
 @ Finish server list module, assigned to kreca (kreca check UPDATES)
@@ -99,6 +97,9 @@ None
 
 @ Start assigning more sane hook numerics, they're all over the place
   which is something we pretty much inherited from oblivion. //zak
+
+@ We need to fix the getusers handling, hell it needs an overhaul, any
+  takers? (some slight improvement in the past few months) 03.12.10 //zak
 
 @ convert modules to the PF-Loader 02.04.10 see docs/PF-TODO //zak
 

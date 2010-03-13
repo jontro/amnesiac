@@ -240,9 +240,9 @@ and documented now. //skullY bug me if it breaks
 -Make scanformat and whoisformat work for amnesiac dirs that has a . in 
  their path. //kreca
 -Convert all ibm437 that are represented in the portable graphics charachter
- set by using ^Echr^E instead. This makes a lot of the formats nicer when using
- latin-1 or utf. 
- There are still a few characters left, specifically in a few sbars, 
- bannerformats, awayformats and pubnotices. I havnt noticed any others, 
+ set by using ^Echr^E instead. This makes a lot of the formats nicer when 
+ using latin-1 or utf. 
+ There are still a few characters left, specifically in a few sbars,
+ bannerformats, awayformats and pubnotices. I havnt noticed any others,
  please report if you find any and I'll see if I can find a representation
  //kreca

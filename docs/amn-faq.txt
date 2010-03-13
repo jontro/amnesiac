@@ -50,7 +50,7 @@ A: /wj to join a channel in a new window, ^Wc to create a new window, ^Wn to
    NOTE: see also /winhelp
 
 Q: How do i create a window dedicated to msgs?
-A: /mw -hidden|split|kill <-- this should be self explanatory.
+A: /mw -hidden|split|kill [num] <-- this should be self explanatory.
 
 Q: Where is the annoying ambiguous nickcomplete feature?
 A: Under a ideal world we would like to see users use tab to complete
@@ -105,18 +105,42 @@ A: there are 3 different sets at the time of this writing to make the best
    AUTO_RECONNECT_RETRIES is 3 <-- how many times to try before giving up
 
 Q: why do the colours/font display properly?
-A: see docs/NOTES for more detailed info, one can however try /fixterm or
-   /latin1(european)
+A: see docs/NOTES for more detailed info, since amnesiac 2.0.x cvs 30 or
+   higher, try /set_line_drawing 0, /set_line_drawing 1 or /fixterm (vga)
+   /latin1(characters)
+
+Q: does amnesiac support utf-8?
+A: since epic5 1.0.x release or better yet -cvs, if libiconv is installed
+   and properly working, try /addmod utf8 and /save (this has been minimal
+   tested by the amnesiac core scripters, we rely on reports from users of
+   amnesiac for improving utf8 and utf8 related issues)
 
 Q: How do i disable/toggle certain window notification?
 A: /wnlevel none <-- disables notification
    /wnlevel publics,join,part <-- notify on public, join and parts
 
-Q: how do i make use of the new userlist as of 02.27.07(approx)?
-A: /adduser someuser *!someone@host1.com *!*other@host2.com
-   /chflags someone aor <-- flags are auto-op, op, reop on deop on all
-   channels/networks (as of this writing the multiserver capabilities are
-   buggy, best to use global and or */#channel)
-   also see: /userhelp /userlevels
-   NOTE: the userlist of 02.27.07 apx, is buggy, a replacement is in the
-   works.
+Q: how come amnesiac doesnt have a current working userlist?
+A: bluntly put we dont care, however there is discussion about it
+   from time to time, epic is a bit limited in terms of scripting something
+   as complex such as a userlist, if anyone wish to write one or improve
+   an existing userlist script in the wild, it may motivate some to look
+   at and improve upon it, if the author has no issues with putting it
+   under a license that is compatable with ours.
+
+Q: how do you enable extended publics to show voice/op from users speaking
+   in public channels?
+A: /extpub on
+
+Q: how can i make tabkey cycle nicks on blank tabs?
+A: /config tab a on
+
+Q: how come amnesiac does not have a topicbar feature?
+   [excerpts from TODO-BUGS below]
+A add some topwin module, kreca has to start a discussion about some topwin
+  script he might have permission for us to use/modify/rip ;)
+  02.04.10 - due to the ugliness of toplines, and most of the scripters
+  do not use/want topic modules, and the brave few who have attempted
+  to do so, they all have their own little quirks, bugs, irritation,
+  its not so much of doing, its how to actually properly design one,
+  users who wants it, should check the epic5 source for topic scripts
+  and load it, they do co-exist with amnesiac, they're however buggy.

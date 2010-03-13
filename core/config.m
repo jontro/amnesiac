@@ -215,12 +215,16 @@ alias _double {
 	config.windowdoubles -s $*;
 };
 
+alias clone {
+	config.clonecheck -s $*;
+};
+
 ## cmd line config aliases.
 alias cumode {setumode $*;};
 alias kickops {kops $*;};
 alias resp {_pubn $*;};
 alias timestamp {_tsmps $*;};
-alias stamp {timestamp $*;};
+alias stamp {_tsmps $*;};
 alias extpub {modeshow $*;};
 alias showops {modeshow $*;};
 alias tform {format 3 $*};

@@ -8,10 +8,8 @@ if (word(2 $loadinfo()) != [pf]) {
 subpackage dcc;
 
 ## binds.
-#@ bindctl(sequence ^[t set parse_command dcc chat $pop(dccchats))
-#@ bindctl(sequence ^[r set parse_command dcc close chat $pop(dccchats))
-^bind ^[t parse_command {dcc chat $pop(dccchats);};
-^bind ^[r parse_command {dcc close chat $pop(dccchats);};
+@ bindctl(sequence ^[t set parse_command {dcc chat $pop(dccchats)};);
+@ bindctl(sequence ^[r set parse_command {dcc close chat $pop(dccchats)};);
 @ bindctl(sequence ^T set parse_command _dcc.get);
 @ bindctl(sequence ^R set parse_command _dcc.reject);
 
@@ -22,7 +20,6 @@ alias dcx {dcc close chat $*;};
 alias dca dcc closeall;
 alias dcn {dcc close * $0;};
 alias dcr {dcc rename -chat $*;};
-alias dkill {dcn $*;};
 alias nochat {dcx $*;};
 alias chat {dcc chat $*;};
 alias send {dcc send $*;};

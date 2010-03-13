@@ -90,7 +90,7 @@ pause;
 //echo fkeys   /fkeys shows which fkeys are bound to which and can be changed by;
 //echo           by /fkey 1 <command> /fkey 2 <command>;
 //echo sbar    /sbar <number> changes sbar to desired number.;
-//echo mw      /mw -hidden|split|kill <will create/kill a window bound to msgs>;
+//echo mw      /mw -hidden|split|kill [num] <will create/kill a window bound to msgs>;
 //echo extpub  /extpub <on|off> <will turn on/off <@nick> and <+nick> in public.;
 //echo indent  /indent will indent on newline as opposed to linewrap.;
 //echo ----------------------------------------------------------------------------;
@@ -113,6 +113,10 @@ alias chelp {
 //echo autoget  /autoget will attempt to grab files sent to you automatically.;
 //echo bantype  /bantype <Normal|Better|Host|Domain|> when a ban is done on a nick;
 //echo          it uses <bantype>;
+//echo aconnect  /aconnect <on|off> auto-reconnect on timeouts;
+//echo ardelay   /ardelay <num> delay in seconds before reconnecting;
+//echo aretry    /aretry <num>  how many retry attempts before giving up;
+//echo arjoin    /arjoin <on|off> auto-rejoin channels on connect;
 //echo -------------------------------------------------------------------------;
 };
 
@@ -133,7 +137,7 @@ alias bhelp {
 //echo bki   /bki <nick> will ban/kick/ignore specified nick;
 //echo kbi   /kbi <nick> will kick/ban/ignore specified nick;
 //echo bkt   /bkt <nick> [reason] temp ban nick. /ahelp qk;
-//echo bk/kb /bk/kb <nick> [reason] will bankick or kickban nick;
+//echo bk/kb /bk/kb <nick> [nick1,nick2] [reason] will bankick or kickban nick(s);
 //echo unban /unban <nick|host> will unban nick or host from chan;
 //echo ub    /ub will clear bans in current chan;
 //echo sb    /sb will show bans set in current chan;
@@ -142,7 +146,7 @@ alias bhelp {
 input_char "menu paused hit the ANY key to continue ";
 pause;
 //echo ban   /ban <nick|host> will ban nick/host in current chan;
-//echo kick  /kick <nick> will kick nick from current chan;
+//echo kick  /kick <nick> [nick1,nick2] will kick nick(s) from current chan;
 //echo bkh   /bkh <nick> [reason] will bankick nick with bantype host;
 //echo bkb   /bkb <nick> [reason] will bankick nick with bantype better;
 //echo bkn   /bkn <nick> [reason] will bankick nick with bantype normal;
@@ -162,10 +166,9 @@ alias winhelp {
 		//echo wj  <window join>     creates new hidden window and joins specified channel;
 		//echo wk  <window kill>     kills current window;
 		//echo wlk  <window leave kill> kills current window and parts channel;
-		//echo cls  <clear screen>   clears notices/dcc/publics/etc in current window.;
 		//echo wn  <window next>     window next switches to next hidden window;
 		//echo wp  <window prev>     switches to previous hidden window;
-		//echo mw  <msg window>  -hidden|split|kill <will create/kill a window bound to msgs>;
+		//echo mw  <msg window>  -hidden|split|kill [num] <will create/kill a window bound to msgs>;
 		//echo wq  <window query>    /wq nick creates a query window with the nick;
 		//echo wka  <window kill all_hidden> attempts to kill all hidden windows.;
 		//echo wko  <window kill others> attempts to kill other windows on the screen if visible.;
@@ -173,12 +176,13 @@ alias winhelp {
 		input_char "menu paused hit the ANY key to continue ";
 		pause;
 		//echo wsa  <window swap act> swaps to your activity window(s) from statbar. ie: act(3,4);
+		//echo wlc  <window list chan> list channels in current window;
 		//echo wl  <window list>     lists windows in use;
 		//echo wsg  <window grow>    grows current window ie: /wsg 7;
 		//echo wss  <window shrink>  shrinks current window ie: /wss 7;
-		//echo 1-25  <swap windows>  swap windows ie: /1 for window 1 /2 for window 2 etc..;
+		//echo 1-40  <swap windows>  swap windows ie: /1 for window 1 /2 for window 2 etc..;
 		//echo wlog  <window log>    toggles window logging;
-		//echo wflush <window flush> window flush the scroll back epic5-0.0.6 and higher.;
+		//echo wflush <window flush> window flush scrollback in current window;
 	    	//echo wlevel  <window levels>  changes level of current window;
 		//echo msgwin  <msg window>  wsl's then it wc's a window bound to msgs,notices;
 		//echo BINDS: ESC: <num> ALT: <num> ^W<func> <-- like unix screen cmds;

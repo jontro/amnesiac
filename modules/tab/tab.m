@@ -54,6 +54,10 @@ alias config.blankmsg {
 	};
 };
 
+alias btab {
+	config.blankmsg -s $*;
+};
+
 alias tabload {
 	^load $(savepath)tab.save;
 };

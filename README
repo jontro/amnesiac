@@ -7,7 +7,15 @@
 
 * Amnesiac Mailing list: http://epicsol.org/mailman/listinfo/amnesiac
 
-* people who wish to see amnesiac source via cvsweb may do so here:
+* common faq's,documents etc can be accessed via from the following.
+  http://amnesiac.ircii.org/doc/amn-faq.txt (the faq)
+  http://amnesiac.ircii.org/doc/amn-fuq.txt (freq unanswered questions)
+  http://amnesiac.ircii.org/doc/NOTES (various troubleshooting info)
+  http://amnesiac.ircii.org/doc/ (to browse various documents)
+  http://amnesiac.ircii.org/bugs.html (for any unsurprising knwon bug
+  report(s) in epic5, or amnesiac)
+
+* people who wish to see amnesiac source via cvsweb may do so @
   http://cvs.epicsol.org/cgi/viewcvs.cgi/amn/
 
 * As of 2.0.x release of amnesiac, it is now considered BETA, I dont

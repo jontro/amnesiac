@@ -83,6 +83,37 @@ alias uptime {
 	//echo -----------------------------------------------------------------;
 };
 
+## notify hook.
+^on ^notify_signon * {
+	xecho -v $G SignOn by $0!$sar(g/@/@/$1-) on $strftime(%x at %X);
+};
+
+^on ^notify_signoff * {
+	xecho -v $G SignOff by $0 on $strftime(%x at %X);
+};
+
+## aliases/hooks for script version
+alias svf (void) {
+	if (@T)
+		msg $T $fparse(format_version_reply);
+};
+
+alias sv (void) {
+	if (@T)
+	        msg $T ircII $J \($V\) [$info(i)] $a.ver/$a.rel\
+		\($a.snap\) [cvs \($a.commitid\)];
+};
+
+alias supt (void) {
+	if (@T)
+		msg $T ircII $(J) \($V\) [$info(i)] client uptime: $tdiff2(${time() - F});
+};
+
+## version hook
+^on ^ctcp_request "% % VERSION *" {
+	^quote notice $0 :VERSION $fparse(format_version_reply) ${client_information} ;
+};
+
 ## umode connect
 on #-connect 50 * {
 	if (!_pubnick) {
@@ -94,15 +125,6 @@ on #-connect 50 * {
         ^set quit_message $(J)[$info(i)] - $(a.ver) : $randread($(loadpath)reasons/quit.reasons);
 };
 
-## notify hook. 
-^on ^notify_signon * {
-	xecho -v $G SignOn by $0!$sar(g/@/@/$1-) on $strftime(%x at %X);
-};
-
-^on ^notify_signoff * {
-	xecho -v $G SignOff by $0 on $strftime(%x at %X);
-};
- 
 ## snotices
 ^on ^server_notice "% % % connect to*" {
 	abecho $fparse(format_timestamp_some $($_timess))$2-;
@@ -178,8 +200,7 @@ on #-connect 50 * {
 ## disable you've got mail!.
 ^on ^mail * #;
 
-## disable annoying ctcp's.
-## should never raw_irc change to on ctcp?
+## disable annoying ctcp's. TODO: raw_irc change to on ctcp?
 ^on ^raw_irc "% PRIVMSG % :AFINGER*";
 ^on ^raw_irc "% PRIVMSG % :ACLIENTINFO*";
 ^on ^raw_irc "% PRIVMSG % :ASOUND*";

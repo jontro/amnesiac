@@ -49,9 +49,30 @@ even if one selects ansi/oem modes and set font translation character set to
 'use font encoding' in that case try the terminal font. if all else fails
 one can try /fixterm and or /latin1
 
+[snippit from amn-faq.txt about utf-8]
+Q: does amnesiac support utf-8?
+A: since epic5 1.0.x release or better yet -cvs, if libiconv is installed
+   and properly working, try /addmod utf8 and /save (this has been minimal
+   tested by the amnesiac core scripters, we rely on reports from users of
+   amnesiac for improving utf8 and utf8 related issues)
+   'ldd /path/to/bin/epic5' to make sure it is linked to libiconv
+   an output may look similar to this.
+
+	/usr/local/bin/epic5:
+        Start    End      Type Open Ref GrpRef Name
+        1c000000 3c039000 exe  1    0   0      /usr/local/bin/epic5
+        02dd4000 22dde000 rlib 0    2   0      /usr/lib/libm.so.5.2
+        02413000 22417000 rlib 0    1   0      /usr/lib/libutil.so.11.0
+        065e6000 2661f000 rlib 0    1   0      /usr/lib/libc.so.53.1
+        0a4dc000 2a4ed000 rlib 0    1   0      /usr/lib/libncurses.so.11.0
+        0c676000 2c683000 rlib 0    1   0      /usr/lib/libssl.so.15.1
+        06841000 26881000 rlib 0    1   0      /usr/lib/libcrypto.so.18.0
+        0d510000 2d5ef000 rlib 0    1   0      /usr/local/lib/libiconv.so.6.0
+
 ## additional information provided from 'outputhelp' straight from 
 epic5/documentation source
 
+## About gnu screen
 People have often commented how they can get color and/or eight bit
 characters working when running epic linked against ncurses and running
 under gnu screen.
@@ -69,7 +90,6 @@ terminfo vt102 'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
 If screen does not default to 'vt102', make sure you set TERM to vt102 before
 you run epic.
 
-
 EIGHT BIT CHARS:
 ---------------
 If epic is linked against ncurses (it is by default), you can set some
@@ -82,9 +102,6 @@ set output-meta on
 
 Then in EPIC, you may need to:
 	/set high_bit_escape 0
-and you should be on your way.  EPIC4 used to require
-	/SET EIGHT_BIT_CHARACTERS ON
-but this is now unnecessary in epic5.
 
 If you are using GNU screen, make sure you have "defc1 off" in your 
 screenrc file, because screen won't even display characters 128-159
@@ -95,8 +112,8 @@ DRAWING CHARACTERS:
 Fonts come with multiple character sets.  Usually there is a character
 set with european national characters ("latin-1"), and another character 
 set with box drawing characters ("vga").  These character sets are mutually
-exclusive, and epic never forces you to use one or the other (unlike bx, which
-forces you into vga mode unconditionally)
+exclusive, and epic never forces you to use one or the other (unlike bx, or
+amnesiac which forces you into vga mode unconditionally)
 
 So if your font is in latin-1 mode, and your script wants vga mode, then you
 will see lots of strange vowels and stuff.  Exit epic, run this command
@@ -104,5 +121,4 @@ at your shell:
 	echo "X(U" | tr 'X' '\033'
 and restart epic.
 
-Good luck!
-Jeremy
+Good luck! Jeremy, Zak, Kreca

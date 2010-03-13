@@ -13,8 +13,8 @@ subpackage main;
 @a.rel_id='1';
 @a.rel="2.0.$a.rel_id";
 @a.date='20091104';
-@a.snap='20100308';
-@a.commitid='36';
+@a.snap='20100313';
+@a.commitid='37';
 
 ## color vars.
 @ cl    = "[0m";
@@ -63,11 +63,11 @@ subpackage main;
 @fke4='scan';
 @fke5='uptime';
 @fke6='dcc';
-@fke7='listchan';
-@fke8='listbot';
+@fke7='arejoin';
+@fke8='svlist';
 @fke9='config';
-@fke10='userlist';
-@fke11='shitlist';
+@fke10='topic';
+@fke11='ahelp';
 @fke12='ehelp';
 @crapl='on';
 @msgl='on';

@@ -41,9 +41,11 @@ ipv6 to an ipv4 user do /hostname host.of.your.primary.ipv4.ip
 you should get something like this.
 *** IPv4 vhost changed to [blah.deathwish.net], IPv6 vhost unchanged
 from [helpdesk.deathwish.net]
-/chat nick foo should now work if user foo is on IPv4 *in cases of
-firewalls/nat/etc* if you have a port forwarded/set for dcc, /chat nick foo
--p portnum should work.
+
+/chat nick foo, if user foo is on IPv4 *in cases of firewalls/nat/etc* 
+if you have a port forwards/firewall set for dcc, /chat nick foo -p portnum.
+alternatively /set DCC_PORT_MAX highport DCC_PORT_MIN minport. /save, to
+save your settings permanently.
 
 As of this writing, i have been on 4 different networks with one client for
 about a month and have not seen many issues of reporting to date, but if

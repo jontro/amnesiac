@@ -3,7 +3,10 @@
 ## made by nullie/weirdo
 ## modified by kreca -06
 
-if (word(2 $loadinfo()) != [pf]) { load -pf $word(1 $loadinfo()); return; };
+if (word(2 $loadinfo()) != [pf]) {
+	load -pf $word(1 $loadinfo());
+	return;
+};
 
 package reconnect;
 
