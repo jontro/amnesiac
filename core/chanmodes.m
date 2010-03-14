@@ -343,13 +343,14 @@ alias genterm (name dwords 1,mode,lrpl_list,lrpl_eoflist) {
 	@gmode=mode;
 	@rpl_list=lrpl_list;
 	@rpl_eoflist=lrpl_eoflist;
-	^on $rpl_list -;
+	^stack push on $rpl_list;
+	^stack push on $rpl_eoflist;
 	^on ^$rpl_list * {
 		@setitem(term.$1 $numitems(term.$1) $2-);
 	};
 	^on ^$rpl_eoflist * {
-		^on $rpl_list -;
-		^on $rpl_eoflist -;
+		^stack pop on $rpl_list;
+		^stack pop on $rpl_eoflist;
 		if (numitems(term.$2)) {
 			@chan=*2;
 			for (@:xx=0,xx<numitems(term.$chan),@xx++) {
@@ -385,6 +386,8 @@ alias gentall (lmode,lrpl_list,lrpl_eoflist) {
 	@mode=lmode;
 	@rpl_list=lrpl_list;
 	@rpl_eoflist=lrpl_eoflist;
+	^stack push on $rpl_list;
+	^stack push on $rpl_eoflist;
 	^on ^$rpl_list * {
 		@setitem(ubans $numitems(ubans) $2);
 		if (numitems(ubans)==4) {
@@ -395,8 +398,9 @@ alias gentall (lmode,lrpl_list,lrpl_eoflist) {
 		};
 	};
 	^on ^$rpl_eoflist * {
-		^on ^$rpl_list -"*";
-		^on ^$rpl_eoflist -"*";
+		^stack pop on $rpl_list;
+		^stack pop on $rpl_eoflist;
+
 		if (:num=numitems(ubans)) {
 			//mode $serverchan() -$repeat($num $mode) $getitem(ubans 0) ${num>1?getitem(ubans 1):''} ${num>2?getitem(ubans 2):''};
 		};
@@ -416,12 +420,14 @@ alias genub (lmode,lrpl_list,lrpl_eoflist,...){
 			//mode $serverchan() -$mode $0;
 		}{
 			@nick = *0;
+			^stack push on $rpl_list;
+			^stack push on $rpl_eoflist;
 			^on ^$rpl_list * {
 				@setitem(ubans $numitems(ubans) $2);
 			};
 			^on ^$rpl_eoflist * {
-				^on ^$rpl_list -"*";
-				^on ^$rpl_eoflist -"*";
+				^stack pop on $rpl_list;
+				^stack pop on $rpl_eoflist;
 				^userhost $nick -cmd {
 					if (rmatchitem(ubans $0!$3@$4) != -2) {
 						mode $serverchan() -$mode $getitem(ubans $rmatchitem(ubans $0!$3@$4));
