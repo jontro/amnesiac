@@ -415,20 +415,21 @@ alias genub (lmode,lrpl_list,lrpl_eoflist,...){
 		if (match(*!*@* $0)) {
 			//mode $serverchan() -$mode $0;
 		}{
+			@nick = *0;
 			^on ^$rpl_list * {
 				@setitem(ubans $numitems(ubans) $2);
-			}
+			};
 			^on ^$rpl_eoflist * {
 				^on ^$rpl_list -"*";
 				^on ^$rpl_eoflist -"*";
-				^userhost $0 -cmd {
+				^userhost $nick -cmd {
 					if (rmatchitem(ubans $0!$3@$4) != -2) {
 						mode $serverchan() -$mode $getitem(ubans $rmatchitem(ubans $0!$3@$4));
 					}
 					@delarray(ubans);
 				}
-			}
-			//mode $serverchan() +$mode;
+			};
+			//mode $serverchan() $mode;
 		};
 	};
 };
