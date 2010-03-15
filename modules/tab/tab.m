@@ -34,10 +34,10 @@ alias config.blankmsg {
 		switch ($1) {
 			(on) {
 				@_modsinfo.tab.blankmsg = 1;
-			}
+			};
 			(off) {
 				@_modsinfo.tab.blankmsg = 0;
-			}
+			};
 			(toggle) {
 				if (_modsinfo.tab.blankmsg == 0) {
 					@_modsinfo.tab.blankmsg = 1;
@@ -47,9 +47,9 @@ alias config.blankmsg {
 			};
 		};
 		if (_modsinfo.tab.blankmsg == 0) {
-			xecho -b tab: /msg will not be placed on a blank input line
+			xecho -b tab: /msg will not be placed on a blank input line;
 		}{
-			xecho -b tab: /msg will be placed on a blank input line
+			xecho -b tab: /msg will be placed on a blank input line;
 		};
 	};
 };
@@ -67,7 +67,7 @@ alias tabsave {
 	@fd = open($(savepath)tab.save W);
 	@write($fd config.blankmsg -l $_modsinfo.tab.blankmsg);
 	@close($fd);
-	xecho -b Tab settings saved to $(savepath)tab.save;
+	abwecho Tab settings saved to $(savepath)tab.save;
 };
 
 # Bind our key(s)

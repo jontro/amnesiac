@@ -68,9 +68,7 @@ $ serverlist module is actually incomplete, kreca says he will finish it
   timeline unknown.
 
 ## high priority knownbugs.
-$  blankmsg tabkey does not save settings. (variable missing?)
-$  /ub nick is broken, over further debugging - /ub nick /bans will also
-   break.
+NONE KNOWN
 
 ## high priority todo. (stuff that needs to done before upcoming release)
 @ we have too many bindings for dcc, perhaps we could set some sort of cycle
@@ -133,6 +131,13 @@ $  /ub nick is broken, over further debugging - /ub nick /bans will also
 
 
 ## bugs fixed. / projects done.
+! 03.15.10 
+  blankmsg tabkey does not save settings. (variable missing?) 
+  -missing some stupid pf-loading crap for brokeness //zak
+! 03.15.10
+  /ub nick is broken, over further debugging - /ub nick /bans will also break.
+  -fixed by kreca in previous commit(yesterday) //kreca
+
 02.04.10
 ! more documentation need some updating?
   we have probably extensively documented more things in amnesiac

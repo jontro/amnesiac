@@ -233,3 +233,27 @@ the mess. //zak
  
 03.14.10
 -fix /ub alias. rb zak. //kreca
+
+03.15.10
+-fix tabblankmsg not loading save on startup, also replace xecho -b -> abwecho
+ in tabsave //zak
+-major changes to oper.m, with many help from a major irc network oper name
+ tba for credits if given the ok, many functionalities not tested in oper.m
+ brand new g-line handling, new config output in /config when oper module is
+ loaded, new config options of /skills /srkline /srkbots /owcopy /dateconv
+ shiney new who handling(unformatted) /wholist /whotrace /chantrace latter
+ two are are aliased to /wholist, another of /operspy, /cleargi(clear
+ glines) many cosmetic additions/adjustments to server notice outputs. //zak
+-IMPORTANT: amnesiac will only load on epic5(currently cvs) commit id
+ 1626 or better, for those who do not have cvs you may grab via web @
+ http://amnesiac.ircii.org/epic5.cvs.id1626.tgz, or for those who are
+ willing to risk a serious bug that came up in some previous epic5 releases
+ you may comment the client check in amn/amn.epic, USE ARE YOUR OWN RISK.
+ //zak
+-purge out our old shitlist/userlist from pasture it's useless/broken
+ inherited from obvlivion //zak
+-sync minor docs to reflect reality. //zak
+-please test the oper module functionality, it does not mean it will stay it
+ could very well be reverted, it needs testing, if its too much problems
+ introduced the previous version of oper.m will come back, unchanged oper.m
+ has been moved to pasture in case problems arises. //zak
