@@ -14,7 +14,7 @@ subpackage main;
 @a.rel="2.0.$a.rel_id";
 @a.date='20091104';
 @a.snap='20100315';
-@a.commitid='40';
+@a.commitid='41';
 
 ## color vars.
 @ cl    = "[0m";
@@ -55,9 +55,9 @@ subpackage main;
 @_ss='15';
 @_ovsize='5';
 @_ovmode='fibxwzZsy';
-@skills='off';
-@srkline='off';
-@srkbots='off';
+@skills='on';
+@srkline='on';
+@srkbots='on';
 @owcopy='off';
 @dateconv='off';
 @kickops='off';

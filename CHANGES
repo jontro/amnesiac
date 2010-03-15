@@ -257,3 +257,16 @@ the mess. //zak
  could very well be reverted, it needs testing, if its too much problems
  introduced the previous version of oper.m will come back, unchanged oper.m
  has been moved to pasture in case problems arises. //zak
+
+03.15.10
+-convert aol module to pf-loader. //zak
+// shrink remove a bunch of irritating small files see more below. //
+-remove xy module no one uses this AFAIK, and i dont use undernet to
+ bother testing for conversions. //zak
+-merge lag.m -> core/server.m //zak
+-merge fkey.m -> core/binds.m where appropriate //zak
+-merge getusers.m -> core/server.m for a lack of a better place
+ for small aliases //zak
+-merge lusers.m -> core/server.m more appropriate here methinks //zak
+-move server notices(connection hooks) or basic hooks without opermodule
+ from core/hooks.m -> core/server.m for appropriation. //zak

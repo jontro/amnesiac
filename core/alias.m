@@ -84,12 +84,6 @@ alias cserv {msg chanserv $*;};
 alias allow {dccallow $*;};
 alias dccallow {quote dccallow $*;};
 
-## ctcp user aliases
-alias clientime {ctcp $0 time;};
-alias clientinfo {ctcp $0 clientinfo;};
-alias userinfo {ctcp $0 userinfo;};
-alias finger {ctcp $0 finger;};
-
 ## to be annoying like xavier.
 alias blinky { if (@T)  msg $T $cparse("%F%G$*") ;};
 ## for xavier with love //zak
@@ -116,6 +110,7 @@ alias llm {lastlog -mangle ALL $*;};
 alias verk {massk $*;};
 alias csc {clear;sc;}; 
 alias a {ahelp $*;};
+alias finger {ctcp $0 finger;};
 alias about {more $(loadpath)ans/about.ans;};
 
 ## toggable aliases

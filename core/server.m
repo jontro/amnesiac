@@ -124,6 +124,198 @@ for i in (372 375 376 377) {
 };
 ## hop'y2k+3
 
+## from psykotyk's orb
+## This code does not support multiple servers
+alias _relag {
+	@ _rlt = time();
+	//quote ping $S;
+};
+
+^on ^pong * {
+	if (*1 == S) {
+		if (time()-_rlt > 400) {
+			^set status_user1 ??;
+		}{ 
+			^set status_user1 ${time()-_rlt};
+		};
+	};
+	^assign -_rlt;
+	timer -window -1 -refnum 43 15 _relag;
+};
+_relag;
+## end psykotyk's orb.
+
+alias sping (svar default "$S", void) {
+	@pstart = time();
+	//quote ping $svar :$svar;
+	@_pong($svar);
+};
+
+alias _pong (svar) {
+	^on #-pong 10 "$svar *" {
+		xecho -b your lag to $0 is: ${time() - pstart} second(s);
+		^on #-pong 10 -"$0 *";
+	};
+};
+
+## getusers handling
+## Last modified by rylan 10.3.06 - RIP buddy
+## more cleanup is surely needed. (see obfuscate below)
+## see core/fsets.m - lines 109-125 (more preferred as it works) //crapple
+
+alias getusers (chan default "$serverchan()",void) {
+	if (!ischannel($chan)) {
+		^set status_user2 n/a;
+		^set status_user3 n/a;
+		^set status_user4 n/a;
+		^set status_user7 n/a;
+	}{
+		^set status_user2 $#chops();
+		^set status_user3 $#nochops();
+		^set status_user4 $#pattern(*+* $channel());
+		^set status_user7 $#pattern(* $channel());
+	};
+};
+
+## stupid obfuscated hooks (it might break something if removed)
+## ^^ will probably make people who look at this comment feel good
+## about our scripting pratices.. (i would be pleasantly surprised
+## if someone actually notices)
+
+on ^switch_channels * {^getusers;};
+on #-switch_windows 43 * {
+	xeval -s $winserv($3) ^getusers;
+};
+on #-channel_sync 23 * {^getusers;};
+
+## grep -aR 353 *
+## core/getusers.m:^on #-353 2 * {^getusers}
+## core/scan.m:on #^353 1 * {@nicks#=[$3-]}
+on #-353 2 * {^getusers;};
+
+## end getusers
+
+## /lusers stuff
+## last modified by rylan on 2006 Oct 03 - RIP buddy
+## Ok, so how we're doing this is completely broken. I'm going to just redo it
+## so it's not all broken. -skullY
+
+# /lusers server server is completely retarded. Fix it.
+alias lusers {
+	if (@) {
+		//lusers $0 $0;
+	}{
+		//lusers;
+	};
+};
+
+# Fucking loose-ass ircii protocol can bite me.
+alias _getnum {
+	@_number = *0;
+	fe ($1-) _word {
+		if (isnumber($_word)) {
+			if (_number < 1) {
+				@function_return = _word;
+				break;
+			}{
+				@_number--;
+			};
+		};
+	};
+};
+
+on ^251 * {
+	@lusers.gvisible = *3;
+	@lusers.ginvisible = *6;
+	@lusers.servernum = *9;
+};
+
+on ^252 * {
+	@lusers.gopers = *1;
+};
+
+on ^253 * {
+	@lusers.unknown = *1;
+};
+
+on ^254 * {
+	@lusers.channels = *1;
+};
+
+on ^255 * {
+	@lusers.lusers = *3;
+	@lusers.lservers = *6;
+};
+
+on ^265 * {
+	@lusers.lusers = _getnum(0 $strip(, $1-));
+	@lusers.lusersmax = _getnum(1 $strip(, $1-));
+};
+
+on ^266 * {
+	@lusers.gusers = _getnum(0 $strip(, $1-));
+	@lusers.gusersmax = _getnum(1 $strip(, $1-));
+};
+
+on ^250 * {
+	@lusers.lconnectionmax = *4;
+	@lusers.lconnectionstotal = strip(\( $7);
+	xecho -b Statistics for $0:;
+	if (lusers.unknown) {
+		xecho -b Unknown:       $lusers.unknown unknown connection(s);
+	};
+	xecho -b Global Users:  ${lusers.gusers}, $lusers.gusersmax max \($lusers.ginvisible invisible, $lusers.gopers opers\);
+	xecho -b Local Users:   ${lusers.lusers}, $lusers.lusersmax max \($trunc(5 ${100 * (lusers.lusers / lusers.gusers)})%\);
+	xecho -b Servers:       ${lusers.servernum} \(${lusers.gusers / lusers.servernum} avg users per server\);
+	xecho -b Channels:      ${lusers.channels} \(${lusers.gusers / lusers.channels} avg users per channel\);
+	xecho -b Connect Count: $lusers.lconnectionmax max \($lusers.lusersmax clients\) \($lusers.lconnectionstotal received\);
+	^assign -lusers;
+};
+
+## end /lusers
+
+## basic server notice hooks (snotices)
+^on ^server_notice "% % % connect to*" {
+	abecho $fparse(format_timestamp_some $($_timess))$2-;
+};
+
+^on ^server_notice "% % Processing connection*" {
+	abecho $fparse(format_timestamp_some $($_timess))$2-;
+};
+
+^on ^server_notice "% % Looking up your hostname*" {
+	abecho $fparse(format_timestamp_some $($_timess))$2-;
+};
+ 
+^on ^server_notice "% % Checking Ident*" {
+	abecho $fparse(format_timestamp_some $($_timess))$2-;
+};
+ 
+^on ^server_notice "% % Found your hostname*" {
+	abecho $fparse(format_timestamp_some $($_timess))$2-;
+};
+ 
+^on ^server_notice "% % Got ident response*" {
+	abecho $fparse(format_timestamp_some $($_timess))$2-;
+};
+  
+^on ^server_notice "% % No Ident response*" {
+	abecho $fparse(format_timestamp_some $($_timess))$2-;
+};
+
+^on ^server_notice "% % Spoofing your*" {
+	abecho $fparse(format_timestamp_some $($_timess))$2-;
+};
+
+^on ^server_notice "% % You are exempt*" {
+	abecho $fparse(format_timestamp_some $($_timess))$2-;
+};
+
+^on ^server_notice "% % Your host is*" {
+	abecho $2-;
+};
+## end server connect cosmetics
+
 alias svhelp servhelp;
 alias servhelp {
         if (!@) {    

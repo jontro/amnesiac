@@ -125,47 +125,6 @@ on #-connect 50 * {
         ^set quit_message $(J)[$info(i)] - $(a.ver) : $randread($(loadpath)reasons/quit.reasons);
 };
 
-## snotices
-^on ^server_notice "% % % connect to*" {
-	abecho $fparse(format_timestamp_some $($_timess))$2-;
-};
-
-^on ^server_notice "% % Processing connection*" {
-	abecho $fparse(format_timestamp_some $($_timess))$2-;
-};
-
-^on ^server_notice "% % Looking up your hostname*" {
-	abecho $fparse(format_timestamp_some $($_timess))$2-;
-};
- 
-^on ^server_notice "% % Checking Ident*" {
-	abecho $fparse(format_timestamp_some $($_timess))$2-;
-};
- 
-^on ^server_notice "% % Found your hostname*" {
-	abecho $fparse(format_timestamp_some $($_timess))$2-;
-};
- 
-^on ^server_notice "% % Got ident response*" {
-	abecho $fparse(format_timestamp_some $($_timess))$2-;
-};
-  
-^on ^server_notice "% % No Ident response*" {
-	abecho $fparse(format_timestamp_some $($_timess))$2-;
-};
-
-^on ^server_notice "% % Spoofing your*" {
-	abecho $fparse(format_timestamp_some $($_timess))$2-;
-};
-
-^on ^server_notice "% % You are exempt*" {
-	abecho $fparse(format_timestamp_some $($_timess))$2-;
-};
-
-^on ^server_notice "% % Your host is*" {
-	abecho $2-;
-};
-
 # Deal with modes when they're not set
 ^on ^324 "% % +" {
 	xecho -b Mode for channel $1 is not set;
