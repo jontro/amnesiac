@@ -270,3 +270,7 @@ the mess. //zak
 -merge lusers.m -> core/server.m more appropriate here methinks //zak
 -move server notices(connection hooks) or basic hooks without opermodule
  from core/hooks.m -> core/server.m for appropriation. //zak
+
+04.16.10
+-Fix silencing of ctcps. The control codes were lost once upon a time and 
+ havent worked since. Now use on ctcp_reply instead to silence it. //kreca

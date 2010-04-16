@@ -159,9 +159,9 @@ on #-connect 50 * {
 ## disable you've got mail!.
 ^on ^mail * #;
 
-## disable annoying ctcp's. TODO: raw_irc change to on ctcp?
-^on ^raw_irc "% PRIVMSG % :AFINGER*";
-^on ^raw_irc "% PRIVMSG % :ACLIENTINFO*";
-^on ^raw_irc "% PRIVMSG % :ASOUND*";
-^on ^raw_irc "% PRIVMSG % :AECHO*";
-^on ^raw_irc "% PRIVMSG % :AMP3*";
+## disable annoying ctcp's.
+^on ^ctcp_request "% % FINGER*";
+^on ^ctcp_request "% % CLIENTINFO*";
+^on ^ctcp_request "% % SOUND*";
+^on ^ctcp_request "% % ECHO*";
+^on ^ctcp_request "% % MP3*";
