@@ -274,3 +274,7 @@ the mess. //zak
 04.16.10
 -Fix silencing of ctcps. The control codes were lost once upon a time and 
  havent worked since. Now use on ctcp_reply instead to silence it. //kreca
+
+04.28.10
+-Fix bug in chanmodes which made a user unable to op people with \ in their
+ names //kreca

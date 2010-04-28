@@ -142,8 +142,9 @@ alias _massmode (chan,mode,users) {
 	};
 
 	while (@cm) {
+		@:var = b64encode($chan $(modePrefix)$left($maxModes $cm) $leftw($maxModes $cs));
 		^queue massmode \{
-			//quote mode $chan $(modePrefix)$left($maxModes $cm) $leftw($maxModes $cs)\;
+			//quote mode \$b64decode\($var\)\;
 		\};
 		@cs = restw($maxModes $cs);
 		@cm = rest($maxModes $cm);

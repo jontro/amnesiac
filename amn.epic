@@ -16,7 +16,7 @@ package amnesiac;
 if (word(0 $info(v)) != 'epic5' || V < 20081225 || info(i) < 1626) {
 	xecho -b Amnesiac has detected an old version of epic;
 	xecho -b Recommended version is epic5-1.0+;
-	return;
+#	return;
 };
 
 ## dump all
