@@ -1,6 +1,5 @@
 Modules has to be converted to use the pf loader
 
-modules/aol
 modules/dict
 modules/flood
 modules/mmatrix
@@ -12,6 +11,3 @@ modules/services //not a priority may put up for
 
 modules/tc
 modules/vanilla
-
-modules/xy	//see comment above about services, 
-		which also applies to this module.

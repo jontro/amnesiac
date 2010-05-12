@@ -1,21 +1,22 @@
 # Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
-/* amnesiac by crapple, kreca and skullY
+/* amnesiac by crapple(zak), kreca and skullY
 pr0pz and thanks go to void!, xavier!, fudd, BlackJac, hop, criminal, krimson,
-violence, skullY, Alien88, kreca, adam, ryan, sirko, klepto, psk, curse, david
-bioterror(mongoose), wicked, and any others out there who have helped out.
+violence, skullY, Alien88, kreca, adam, ryan, sirko, klepto, david, wicked
+bioterror(mongoose) and any others out there who have helped out.
 */
 
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());
 	return;
 };
+
 package amnesiac;
 
 if (word(0 $info(v)) != 'epic5' || V < 20081225 || info(i) < 1626) {
 	xecho -b Amnesiac has detected an old version of epic;
-	xecho -b Recommended version is epic5-1.0+;
+	xecho -b Recommended version is epic5-1.0.1+;
 #	return;
 };
 
@@ -46,7 +47,7 @@ for array in ($getarrays()) {
 @loadpath="$before(-1 / $word(1 $loadinfo()))/";
 
 ## supported modules
-@_modules='ncomp flood abot aol query away dict mjoin oper relay relaysmtp remote tab tc userlist mmatrix vanilla nlog services urlgrab serverlist utf8';
+@_modules='ncomp flood abot aol query away dict mjoin oper relay relaysmtp remote tab tc userlist mmatrix vanilla nlog services urlgrab serverlist utf8 loper';
 @_defaultmods='away dict relay tab';
 
 #progress bar

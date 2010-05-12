@@ -36,41 +36,6 @@ alias termtitle (msg) {
       //xecho -r $chr(27)]2\;${msg}$chr(7)
 };
 
-# input allowed:
-# /invite nick [#chan1 #chan2 #chan3]
-# /invite [#chan] nick1 nick2 nick3
-alias invite  {
-	@:haschan=0;
-	fe ($* ) cc {
-		if (ischannel($cc)) {
-			@:haschan=1;
-		};
-
-	};
-	if (!@||(haschan==0&&!ischannel($serverchan()))) {
-		xecho -b Usage: INVITE [#channel] nick1 nick2 nick3 ...;
-		xecho -b Usage: INVITE nick #chan1 #chan2 #chan3 ...;
-		return;
-	};
-# /invite [#chan] nick1 nick2 nick3
-	if (ischannel($0)) {
-		fe ($1-) nn {
-			quote invite $nn $0;
-		};
-	} else if (haschan==0) {
-		fe ($*) nn {
-			quote invite $nn $serverchan();
-		};
-	} {
-# /invite nick [#chan1 #chan2 #chan3]
-		fe ($1-) cc {
-			quote invite $0 $cc;
-		};
-	};
-};
-
-alias inv {invite $*;};
-
 ## chan/mem/nickserv/services/irritating ircd stuff
 alias ms {quote MemoServ $*;};
 alias ns {quote NickServ $*;};
@@ -102,6 +67,7 @@ alias host {//userhost $*;};
 alias irchost {hostname $*;};
 alias unset {set -$*;};
 alias unalias {alias -$*;};
+alias not {notice $*;};
 alias ll {lastlog $*;};
 alias lll {lastlog -literal $*;};
 alias llw {lastlog -window $*;};
@@ -199,21 +165,6 @@ alias bye {
 
 alias ping (target default "$T") {
 	//ping $target;
-};
-
-alias part {
-         if (@) {
-                 switch ($0) {
-                         (#*) (&*) (0) (-*) (!*) (+*) {
-                                 //part $*;
-                         };
-                         (*) {
-                                 //part $serverchan() $*;
-                         };
-                 };
-         }{
-                 //part $serverchan();
-         };
 };
 
 alias toggle (cset,void) { 

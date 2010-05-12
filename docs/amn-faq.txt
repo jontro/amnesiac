@@ -21,7 +21,7 @@ A: We need documentation and testing. Come to EFNet #amnesiac if you find
    a bug. Even better if you can isolate it and provide a patch. If you
    write some documentation come to #amnesiac to get it comitted into the
    tree, if you used cvs to grab amnesiac, you can create recursive diffs
-   (patches) for amnesiac: cd ~/amn && cvs -q diff -uR > amnesiac.patch
+   (patches) for amnesiac: cd ~/amn && cvs -q diff -auR > amnesiac.patch
 
 Q: Where can I get help?
 A: The official amnesiac channel is on EFNet, #amnesiac. Don't ask if anyone
@@ -110,7 +110,7 @@ A: see docs/NOTES for more detailed info, since amnesiac 2.0.x cvs 30 or
    /latin1(characters)
 
 Q: does amnesiac support utf-8?
-A: since epic5 1.0.x release or better yet -cvs, if libiconv is installed
+A: since epic5 1.0.1 release if libiconv(something else in linux) is installed
    and properly working, try /addmod utf8 and /save (this has been minimal
    tested by the amnesiac core scripters, we rely on reports from users of
    amnesiac for improving utf8 and utf8 related issues)
@@ -132,7 +132,7 @@ Q: how do you enable extended publics to show voice/op from users speaking
 A: /extpub on
 
 Q: how can i make tabkey cycle nicks on blank tabs?
-A: /config tab a on
+A: /config tab a on or /btab on
 
 Q: how come amnesiac does not have a topicbar feature?
    [excerpts from TODO-BUGS below]

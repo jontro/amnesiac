@@ -278,3 +278,21 @@ the mess. //zak
 04.28.10
 -Fix bug in chanmodes which made a user unable to op people with \ in their
  names //kreca
+
+05.12.10
+-sync docs to reflect reality (amnesiac/epic5)
+-finish up exempt modes we now have exempt for +e +I features
+ see /exhelp
+-remove curse,psk from current greets/credits as they had not contributed
+anything for years if much at all, nor anything to do with the upcoming
+release
+-re-add our old oper module as loper NOTE: you cannot load both oper
+ and loper at once, it will break!! as the new one still has some bugs
+ which needs fixing
+-add /etype for exempt type like bantype for bans
+-move things to do with chanmodes from alias.m (invite/part) -> chanmodes.m
+-even though we had /not set to remove topic for a long time, it has now
+ been changed to /cot|/untopic (dont ask), blame xavier, /not is now aliased
+ as /notice 
+-fix clonechecking, it now works again. 
+-minor cleanups //zak

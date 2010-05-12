@@ -9,8 +9,8 @@ if (word(2 $loadinfo()) != [pf]) {
 subpackage chanmodes;
 
 ## misc op funcs/alias
-alias not {^topic -$serverchan();};
-alias untopic not;
+alias cot {^topic -$serverchan();};
+alias untopic cot;
 alias t {topic $*;};
 alias c {//mode $serverchan() $*;};
 alias ik {invkick $*;};
@@ -20,21 +20,9 @@ alias lall partall;
 alias lockdown lockchan;
 alias lockchan {mode $serverchan() +im;};
 alias unlock {mode $serverchan() -im;};
-alias i invs;
-alias e exs;
-alias -I {^mode $serverchan() -I $*};
-alias -E {^mode $serverchan() -e $*};
-alias +I {^mode $serverchan() +I $*};
-alias +E {^mode $serverchan() +e $*};
-alias exempt exs;
-alias invites invs;
-alias tpi tinv;
-alias tpe texp;
-alias pinv ui;
-alias pexp ue;
-alias smhelp rathelp;
+alias inv {invite $*;};
 
-## bans. (functionality neear the end of the line!)
+## bans/exempt. (functionality neear the end of the line!)
 alias bki {bk $*;ignore $0 msgs;};
 alias kbi {kb $*;ignore $0 msgs;};
 alias bkt {qk $*;};
@@ -42,9 +30,19 @@ alias bk {bankick $*;};
 alias kb {bankick $*;};
 alias unban {ub $*;}
 alias clearbans {ub $*;};
-
 alias banstat bans;
 alias sb bans;
+alias btype {bantype $*;};
+alias etype {exempttype $*;};
+alias i invs;
+alias e exs; 
+alias exempt exs;
+alias invites invs;
+alias tpi tinv;
+alias tpe texp;
+alias pinv ui; 
+alias pexp ue; 
+alias exhelp exempthelp;
 
 ## ban aliases.
 alias fuckem lban;
@@ -253,6 +251,54 @@ alias mdeop (keepers) {
 		xecho -b mass deoping $serverchan();
 		@_massmode($serverchan() -o $remw($servernick() $chops()));
 	};
+};
+
+# input allowed:
+# /invite nick [#chan1 #chan2 #chan3]
+# /invite [#chan] nick1 nick2 nick3
+alias invite  {
+	@:haschan=0;
+	fe ($* ) cc {
+		if (ischannel($cc)) {
+			@:haschan=1;
+		};
+
+	};
+	if (!@||(haschan==0&&!ischannel($serverchan()))) {
+		xecho -b Usage: INVITE [#channel] nick1 nick2 nick3 ...;
+		xecho -b Usage: INVITE nick #chan1 #chan2 #chan3 ...;
+		return;
+	};
+# /invite [#chan] nick1 nick2 nick3
+	if (ischannel($0)) {
+		fe ($1-) nn {
+			quote invite $nn $0;
+		};
+	} else if (haschan==0) {
+		fe ($*) nn {
+			quote invite $nn $serverchan();
+		};
+	} {
+# /invite nick [#chan1 #chan2 #chan3]
+		fe ($1-) cc {
+			quote invite $0 $cc;
+		};
+	};
+};
+
+alias part {
+         if (@) {
+                 switch ($0) {
+                         (#*) (&*) (0) (-*) (!*) (+*) {
+                                 //part $*;
+                         };
+                         (*) {
+                                 //part $serverchan() $*;
+                         };
+                 };
+         }{
+                 //part $serverchan();
+         };
 };
 
 ## cycle chan
@@ -478,18 +524,20 @@ fe (346 348 367) cc {
 };
 
 
-## generic mode +I alias. Used all over the place
-alias _uhimode (bt,chan, ...) {
+### Exempt functionality ###
+
+## generic mode +I alias
+alias _uhimode (et,chan, ...) {
 	if ("$3@$4"!='<UNKNOWN>@<UNKNOWN>') {
-		//mode $chan +I $mask($bt $0!$3@$4);
+		//mode $chan +I $mask($et $0!$3@$4);
 	};
 };
-alias _imode (bt,nick ,void) {
+alias _imode (et,nick ,void) {
 	fe ($split(, $nick)) cn {
 		if (userhost($cn) == '<UNKNOWN>@<UNKNOWN>') {
-			userhost $cn -cmd  \{ @ _uhimode\($bt $serverchan() $$*\)\};
+			userhost $cn -cmd  \{ @ _uhimode\($et $serverchan() $$*\)\};
 		}{
-			//mode $serverchan() +I $mask($bt $cn!$userhost($cn));
+			//mode $serverchan() +I $mask($et $cn!$userhost($cn));
 		};
 	};
 };
@@ -503,19 +551,19 @@ alias iexempt (nick,void){
 			if (match(*!*@* $cn)) {
 				//mode $serverchan() +I $cn;
 			}{
-				@_imode($_bt $cn);
+				@_imode($_et $cn);
 			};
 		};
 	};
 };
 
 # Generic iexempt alias. Used below
-alias _iexp (aliasname,bt,nick){
-	if (!@bt || !@nick) {
+alias _iexp (aliasname,et,nick){
+	if (!@et || !@nick) {
 		xecho -b Usage: /$aliasname nick1,nick2;
 		return;
 	};
-		@_imode($bt $nick);
+		@_imode($et $nick);
 		/iexempt $nick;
 	};
 };
@@ -526,13 +574,72 @@ alias invexempt (nick) {
 
 
 ## basically this allows you to specify the inv exempt type you want to
-## use on the fly without needing to set /invtype instead now we have
+## use on the fly without needing to set /exempttype instead now we have
 ## /ieh(host) /ieb(better) /ied(domain) /iiexp(ident) followed by nick.
 ## Numbers used below is $mask(...) types
 alias ieh (nick){@_iexp(ieh 2 $nick);};
 alias ieb (nick){@_iexp(ieb 3 $nick);};
 alias ied (nick){@_iexp(ied 4 $nick);};
 alias iiexp (nick){@_iexp(iiexp 10 $nick);};
+
+
+## generic mode +e alias.
+alias _uhemode (et,chan, ...) {
+	if ("$3@$4"!='<UNKNOWN>@<UNKNOWN>') {
+		//mode $chan +e $mask($et $0!$3@$4);
+	};
+};
+alias _emode (et,nick ,void) {
+	fe ($split(, $nick)) cn {
+		if (userhost($cn) == '<UNKNOWN>@<UNKNOWN>') {
+			userhost $cn -cmd  \{ @ _uhemode\($et $serverchan() $$*\)\};
+		}{
+			//mode $serverchan() +e $mask($et $cn!$userhost($cn));
+		};
+	};
+};
+
+## ban exempt stuff here.
+alias bexempt (nick,void){
+	if (!@nick) {
+		xecho -b Usage: /bexempt nick;
+	}{
+		fe ($split(, $nick)) cn {
+			if (match(*!*@* $cn)) {
+				//mode $serverchan() +e $cn;
+			}{
+				@_emode($_et $cn);
+			};
+		};
+	};
+};
+
+# Generic iexempt alias. Used below
+alias _bexp (aliasname,et,nick){
+	if (!@bt || !@nick) {
+		xecho -b Usage: /$aliasname nick1,nick2;
+		return;
+	};
+		@_emode($et $nick);
+		/bexempt $nick;
+	};
+};
+
+alias banexempt (nick) {
+	@_bexp(banexempt $_bexp $nick);
+};
+
+
+## basically this allows you to specify the ban exempt type you want to
+## use on the fly without needing to set /exempttype instead now we have
+## /beh(host) /beb(better) /bed(domain) /biexp(ident) followed by nick.
+## Numbers used below is $mask(...) types
+alias beh (nick){@_bexp(beh 2 $nick);};
+alias beb (nick){@_bexp(beb 3 $nick);};
+alias bed (nick){@_bexp(bed 4 $nick);};
+alias biexp (nick){@_bexp(biexp 10 $nick);};
+
+## end exempt functions
 
 ## ban functionality
 
@@ -665,11 +772,36 @@ alias config.bantype {
 	};
 };
 
+alias exempttype {
+	config.exempttype -s $*;
+};
+
+## exempttype config. [Norm/Better/Host/Domain]
+alias config.exempttype {
+	if ( *0 == '-r' ) {
+		return $et_;
+	} else if (*0 == '-s') {
+		if (# == 1) {
+			xecho -v $acban exempt type set to $et_;
+			xecho -v $acban /exempttype <Normal|Better|Host|Domain>;
+		}{
+			switch ($1) {
+			(normal){@et_='normal';@_et=6;xecho -v $acban exempt type set to normal (n!*u@h.d n!*u@d.h);}
+			(better) {@et_='better';@_et=3;xecho -v $acban exempt type set to better (*!*u@*.d *!*u@d.*);}
+			(host) {@et_='host';@_et=2;xecho -v $acban exempt type set to host (*!*@h.d *!*@d.h);}
+			(domain) {@et_='domain';@_et=4;xecho -v $acban exempt type set to domain (*!*@*.d *!*@d.*);}
+			() {xecho -v $acban invalid choice <Normal|Better|Host|Domain>;}
+			};
+		};
+	};
+};
+
 osetitem protect kickops Kick ops:;
 osetitem protect bantype Ban Type:;
+osetitem protect exempttype Exempt Type:;
 
-alias rathelp {
-//echo -----------------= Special Modes Help =----------------------------;
+alias exempthelp {
+//echo -----------------= Exempt Modes Help =----------------------------;
 //echo tpi /tpi invite exempt menu -I ie: /tpi 3-6 removes;
 //echo       invite exempts 3 4 5 and 6 shown in the menu.;
 //echo tpe /tpe ban exempt menu +e ie: /tpe 4 to remove one exempt.;
@@ -682,10 +814,12 @@ alias rathelp {
 //echo ieb /ieb <nick|nick1,nick2> adds invite exempt of better on the fly;
 //echo ied /ied <nick|nick1,nick2> adds invite exempt of domain on the fly;
 //echo iiexp /iiexp <nick|nick1,nick2> adds invite exempt of ident on the fly;
+//echo beh /beh <nick|nick1,nick2> adds ban exempt of host on the fly;
+//echo beb /beb <nick|nick1,nick2> adds ban exempt of better on the fly;
+//echo bed /bed <nick|nick1,nick2> adds ban exempt of domain on the fly;
+//echo biexp /biexp <nick|nick1,nick2> adds ban exempt of ident on the fly;
+//echo etype /etype <Normal|Better|Host|Domain> set default exempt type;
 //echo                      -----= Other Aliases =----;
-//echo pinv  /pinv - same as /ui cleans invite exempt list.;
-//echo pexp  /pexp - same as /ue cleans ban exempt list.;
-//echo tinv  /tinv - same as /tpi invite exempt menu.;
-//echo texp  /texp - same as /tpe ban exempt menu.;
+//echo /pinv [/ui], /pexp [/ue], /tinv [/tpi], /texp [/tpe];
 //echo ---------------------------------------------------------------------;
 };

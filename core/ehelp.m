@@ -13,7 +13,6 @@ alias ehelp {
 
 	//echo uhelp     <userlist help>   userlist help menu.             [module];
 	//echo awayhelp  <away help>       away module help menu.          [module];
-	//echo shelp     <shitlist help>   shitlist help menu.             [module];
 	//echo urlhelp   <urlgrab help>    urlgrab help menu.              [module];
 	//echo mmhelp    <multi-matrix help> bwk/ptrap/misc help menu.     [module];
 	//echo mjhelp    <mjoin help>      mjoin/ajoin help menu.          [module];
@@ -22,7 +21,6 @@ alias ehelp {
 	//echo rhelp     <relay help>      relay/paste help menu.          [module];
         //echo rsmtphelp <relaysmtp help>  relay msgs via email help.      [module];
 	//echo svhelp    <services help>   nserv/cserv/etc.. help menu.    [module];
-	//echo xyhelp    <xy services>     undernet x service help menu.   [module];
 	//echo chelp     <config help>     config shortcut help menu.      [core];
 input_char "menu paused hit the ANY key to continue";
 pause;
@@ -33,7 +31,7 @@ pause;
 	//echo mhelp     <module help>     module help menu.               [core];
 	//echo winhelp   <window help>     window shortcuts help menu.     [core];
 	//echo dcchelp   <dcc help>        dcc usage/binds help menu.      [core];
-	//echo smhelp    <special modes>   exempt modes cmds help menu.    [core];
+	//echo exhelp    <exempt modes>    exempt modes cmds help menu.    [core];
 	//echo thelp     <trickle help>    the irc swiss army knife menu.  [core];
 	//echo bhelp     <bans help>       kick/ban/bantype help menu.     [core];
 //echo	----------------------------------------------------------------------;

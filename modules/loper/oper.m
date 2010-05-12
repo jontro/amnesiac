@@ -6,7 +6,7 @@ if (word(2 $loadinfo()) != [pf]) {
         return;
 };
 
-subpackage oper;
+subpackage loper;
 load -pf ${loadpath}modules/oper/easykline.m;
 
 osetitem oper ovmode Operview modes:;
@@ -421,7 +421,7 @@ alias ospy {
 ^on ^219 * #;
 
 ## oper help menu
-alias ohelp {
+alias lohelp {
 //echo -----------------------= Oper Help =--------------------------;
 
 //echo /tkline <minutes> [nick|ident@host] <reason> will temp kline for;

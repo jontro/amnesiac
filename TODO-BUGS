@@ -53,6 +53,10 @@ $ = knownbug.
 ? = undecided/closed votes.
 
 ## low priority knownbugs.
+$ \ doesn't work well in tab, \nick\ in channel breaks causes problems..
+
+$ /format 1, doesnt output the proper whois parses ircname/away mixup
+
 $ Supposedly texp will break under certain circumstances <-- vague 
   kreca motherland speak, a little clarification here would 
   be nice //zak
@@ -131,6 +135,11 @@ NONE KNOWN
 
 
 ## bugs fixed. / projects done.
+! 05.12.10
+  clonechecking broken
+  -seems like it got missing/broken from the netsplit.m merge into
+   core somehow, and some genius tried to make a duplicate hook
+   which would not trigger regardless. now fixed! //zak
 ! 03.15.10 
   blankmsg tabkey does not save settings. (variable missing?) 
   -missing some stupid pf-loading crap for brokeness //zak

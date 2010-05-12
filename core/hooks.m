@@ -71,7 +71,7 @@ alias uptime {
 	//echo Client Uptime: $tdiff2(${time() - F}) - PID: $pid(), PPID: $ppid();
 	//echo $info(c);
 	//echo Compile-time options: $info(o);
-	//echo Amnesiac release id: $a.rel;
+	//echo Amnesiac release/cvs id: $a.rel [cvs \($a.commitid\)];
 	//echo Amnesiac snap date: $a.snap;
 	//echo Last Recv Message: \($lrmn\) $lrm;
 	//echo Last Recv Notice: \($lrnn\) $lrn;
@@ -128,27 +128,6 @@ on #-connect 50 * {
 # Deal with modes when they're not set
 ^on ^324 "% % +" {
 	xecho -b Mode for channel $1 is not set;
-};
-
-# Check for clones
-^on #-join 69 "*" {
-	if (clonecheck == 'on') {
-		@clonelist = '';
-		@userhost($1);	# Pre-seed the userhost cache
-		fe ($channel($1)) channick {
-			@nicklength = (strlen($channick) - 2);
-			@channick = right($nicklength $channick);
-			if (channick==[$0]) {
-				continue;
-			};
-			if (userhost($channick)==userhost()) {
-				@clonelist = "$channick $clonelist";
-			};
-		};
-		if (clonelist != '') {
-			xecho -b Clones of $0 detected: $clonelist;
-		};
-	};
 };
 
 ## Silence common IRC/Epic annoyances

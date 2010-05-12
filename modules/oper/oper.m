@@ -165,33 +165,33 @@ alias _dateconv {
 
 ## amazing gline functions
 alias gi {
-	^local zz;
+	^local zz
 	if (numitems(glineTargets)<2) { 
 		abecho %CGline%n list is empty!;
 		return;
 	};
 	for (@zz=1, zz<numitems(glineTargets), @zz++) {
 		aecho $cparse(%K[%C$(zz)%K]%n %W$getitem(glineTargets $zz)%n for $getitem(glineReasons $zz));
-	};
+	}
 	if ([$0] != [-l]) {
 		input "[enter which line(s) to gline (ENTER to cancel)]: " {
 			fe ($*) xx {
 				@ aa = substr ("-" $xx);
-				if ( aa !=  -1)
+				if ( aa !=  -1);
 				{
 					@start = left($aa $xx);
 					@end = rest(${aa+1} $xx);
-				};
+				}
 				{
 					@start = xx;
 					@end = xx;
-				};
-				for (@cc=start,cc<=end, @cc++);
+				}
+				for (@cc=start,cc<=end, @cc++)
 				{
                                 	/quote gline $getitem(glineTargets $cc) :$lsnip($getitem(glineReasons $cc));
 					$delitem(glineTargets $cc);
 					$delitem(glineReasons $cc);
-				};
+				}
 			};
 		};
 	};

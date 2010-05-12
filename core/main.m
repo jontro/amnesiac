@@ -13,8 +13,8 @@ subpackage main;
 @a.rel_id='1';
 @a.rel="2.0.$a.rel_id";
 @a.date='20091104';
-@a.snap='20100428';
-@a.commitid='42';
+@a.snap='20100512';
+@a.commitid='43';
 
 ## color vars.
 @ cl    = "[0m";
@@ -46,7 +46,9 @@ subpackage main;
 ## default assigns
 @_ort='3';
 @_bt='3';
+@_et='3';
 @bt_='better';
+@et_='better';
 @awayt='60';
 @awayl='on';
 @awayr='Not Here';
@@ -85,6 +87,7 @@ subpackage main;
 @autoget='off';
 @_pubnick=N;
 @_tss='on';
+@clonecheck='off';
 
 # load default theme
 load $(loadpath)/themes/main.th;

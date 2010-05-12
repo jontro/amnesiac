@@ -2,54 +2,23 @@ EPIC5 Projects, Bugs, and other Errata:
 
 KNOWN ERRATA (eg, bugs, or unresolved requests):
 ------------------------------------------------
-* There needs to be an /on switch_query for wuf/sjhoran
+<none>
+
+MEDIUM-TERM PROJECTS
+--------------------
 * Need to have a script that implements per-channel FiSH support
 * Need to have a script that implements per-channel iconv() support.
-* The configure check for libarchive is weak.
+* There needs to be an /on switch_query for wuf/sjhoran
+* What about scrolling back to some point in time?
+* What about a facility to do auto-off-hold-mode ?
 * wuf says that fred!user@machine.domain.com.au should not be
 	*!*user@*.com.au but instead *!*user@*.domain.com.au
-* Howl would like to retain the /window server <X>  value
-* What about a facility to do "command completion", like /window <tab>
-  brings up all /window operations?
-* A way to auto-log channels by channel, irc.<channel>.log
-* What about a facility to do auto-off-hold-mode ?
 * There should be a fake level for "channel stuff"
-* Curse would like an outbound protocol queue to avoid flooding the server
-* <zlonix> i did my own research yesterday, if you mind. 
-<zlonix> it's line 5794 of ircaux.c, seem it adds expansion_overhead for 2
-+bytes, while doing -CTCP xform 
-<zlonix> and sometimes, i see "isn't multiple of 16! (is 66)", and i force to
-+delete those two bytes in blocksize check, all decipher works fine. 
-<zlonix> if i* 
-* Larne wants syntactic word extraction like $foo{3} or $foo{1,4}
-* Using a serverdesc for an existing server should refresh other values 
-  (like the nickname or password)
-* serverinfo_to_servref() should be able to "update"
-  - str_to_servref() calls it
-	- /XEVAL -S uses it
-	- /XQUOTE -S uses it
-	- /MSG -nick/SERV uses it
-	- $winchan() uses it
-	- /LOG SERVER uses it
-	- 010 handler uses it
-	- /SERVER -DELETE uses it
-	- /SERVER -ADD uses it 		<-----
-	- /SERVER +sdesc uses it 	<-----
-	- /SERVER uses it 		<----
-	- /SERVER -UPDATE should use it <-----
-	- password_sendline() uses it.
-	- /DISCONNECT uses it
-	- $serverctl(REFNUM) uses it
-	- $serverctl(UPDATE ...)  should exist.
-	- /TIMER -S uses it
-	- /WINDOW SERVER uses it 	<-----
-  - add_servers() calls it
-
-ISSUES OF INTEREST
-------------------
 * The four projects of the UTF8 effort are the primary focus for now.
 * Fusion wants /xecho -sec 10 this goes away in 10 seconds
-* What about scrolling back to some point in time?
+* Curse would like an outbound protocol queue to avoid flooding the server
+* Larne wants syntactic word extraction like $foo{3} or $foo{1,4}
+* See if I can convert FiSH() to a64l() and l64a().
 [I moved the old list to the file "WISHLIST" to keep this file short]
 
 [See http://www.epicsol.org/PROJECTS for things to come in the future]
@@ -178,4 +147,42 @@ THE CHANGELOG SINCE THE LAST RELEASE:
 * Revert the string insensitive comparison changes for now.
 * Use PRIdMAX and PRIuMAX for printing (intmax_t), for hpux, or larne
 * Fix my brokenness of my_stricmp().  Time to go hide under a rock.
-
+* Fix the bug where the right indicator appeared when it should not.
+* Add the 'logman' script which does per-server, and per-channel logging
+* Handle inspired's BBC 351 numeric, for larne.
+* Fix bug with /encrypt complaining "X is not a multiple of Y!" (rb zlonix)
+* Add a bunch more scripts I've been sitting on that were contributed.
+* Add 'cycle', 'set_color', 'ban', and 'speak.irc' scripts. i need to doc them
+* Create some internal funcs to allow updating a server desc on the fly
+* Allow add_servers() to update server descriptions
+* Allow /server -add to update server descriptions
+* Allow /server -update to update server descriptions
+* Allow plain old /server to update server descriptions
+* Allow $serverctl(READ_FILE filename) to update server descriptions
+* Add $serverctl(UPDATE refnum stuff) to update server descriptions
+* Allow /window server to update server descriptions
+* Add $windowctl(GET x SERVER_STRING) returns last good /window server value
+* Release epic5-1.1.1 (commit 1631) (Prolixity)
+* Fixes so /server <group> doesn't clobber <host> with <group> (rb howl)
+* Add support for /server refnum:<other flags> which I noticed
+* For example, this means, /server 0:type=irc-ssl now works! yay!
+* Add special check for OS X (Zach)
+* Fix configure check for perl so it doesn't segfault.
+* Fix configure check for iconv, so it doesn't bork the freebsd port
+* Iconv support really is mandatory now! I mean it!
+* Fix transform_string_dyn().  How did nobody catch this??
+* Add a function findchar_quoted() like strchr(), but honors \.s
+* Use this in server descriptions to find the unquoted : after a PASS.
+* This means you can \ a : in a password. yay!
+* Nuke the "URLPASS" support.  Let us never speak of this again.
+* Two changes to timer.c from caf.
+* Fix bugs found by --with-warns.
+* Add a check in configure for -fno-strict-aliasing; could be used with -O2?
+* Fix /parsekey reset_line so it sets the cursor to the end (for howl)
+* Add /on unknown_set for howl (see UPDATES)
+* Fix set_input(), which fixes history. yay!
+* When /dcc causes nonblocking connect, tell the user so they know we tried
+* Add 'c' option to $sar() and $msar() (see UPDATES)
+* Revamp substitute_string() so $sar() and $msar() work as intended.
+* Add a NONE_xform const to do null transformations.
+* Release epic5-1.1.2 (commit 1638) (Trencherman)

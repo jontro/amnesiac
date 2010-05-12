@@ -13,7 +13,7 @@ alias asave {
         @savemt = open($(savepath)$savefile W T);
         @write($savemt ** amnesiac config file - saved $strftime($time() %D %T));
 	@write($savemt notify $notify());
-	@:vars = 'fke1 fke2 fke3 fke4 fke5 fke6 fke7 fke8 fke9 fke10 fke11 fke12 plog crapl msgl notl dccl page awayt awayr showop kickops getumode msgfloodsensor mfloodtimer togaway autoget windowdoubles clonecheck bt_ _bt _ss _ort _pubnick _tss _ovsize _ovmode _ubanself acban rfrombuf rsendbuf';
+	@:vars = 'fke1 fke2 fke3 fke4 fke5 fke6 fke7 fke8 fke9 fke10 fke11 fke12 plog crapl msgl notl dccl page awayt awayr showop kickops getumode msgfloodsensor mfloodtimer togaway autoget windowdoubles clonecheck bt_ _bt et_ _et _ss _ort _pubnick _tss _ovsize _ovmode _ubanself acban rfrombuf rsendbuf';
 	fe ($vars ) cvar {
 		@write($savemt assign $cvar $($cvar));
 	};
