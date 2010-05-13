@@ -299,6 +299,7 @@ release
 -minor cleanups //zak
 
 [cvs 44]
+05.12.10
 - doh, loper.m not oper.m for the loper module. now the module should work
 - convert module/dict to PF-loader
 - somewhat fixup whois format aka /format 1, eh, its better than before
@@ -314,3 +315,7 @@ release
   in particular have no interest in doing.
 - various cleanups one functional change /clone check option has been
   changed to /ccheck to toggle on/off and or use /config //zak
+
+[cvs 45]
+05.12.10
+- oops forgot to completely destroy the flood module leftovers.
