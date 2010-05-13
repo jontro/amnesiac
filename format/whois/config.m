@@ -1,4 +1,4 @@
-# Copyright (c) 2003-2009 Amnesiac Software Project.
+# Copyright (c) 2003-2010 Amnesiac Software Project.
 # See the 'COPYRIGHT' file for more information.
 
 ## constructor
@@ -18,12 +18,12 @@ alias whoisform.show (void) {
 		xecho -v whois  [$(i)];
 		echo;
 		@format.loaditem(whois $i);
-		//shook 311 . zak ramsey@assault.cripplekids * krecas bitch;
-		//shook 301 . she moans, then cries, i smile and get high;
-		//shook 319 . . @#bearcave @#amnesiac @#suicidekit;
-		//shook 312 . . irc.cripplekids.org eurotrash's are cool;
+		//shook 311 . crapple zak@psychedelic.hallucinogen.ca . . I am the hate you try to hide;
+		//shook 319 . . @#epic @#amnesiac @#ceilingcat;
+		//shook 312 . . hub.deathwish.net what god wants, god gets, god help us all;
+		//shook 301 . Amused to death;
 		//shook 313 . zak;
-		//shook 317 . zak 666 0;
+		//shook 317 . zak 6666666 0;
 		//shook 318;
 		echo;
 	};

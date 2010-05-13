@@ -72,8 +72,24 @@ alias more {
 
 ## archon'96 rylan'06 kreca'06
 ## end of pager
+
 ## cmd exec shit.
-alias ls {^exec ls $*;};
-alias osv {^exec -o uname -amnv;};
-alias hosts {exec host $*;};
-alias dig {exec dig $*;};
+alias ps (...) {
+	exec -direct ps $*;
+};
+
+alias ls (...) {
+	exec -direct ls $*;
+};
+
+alias osv (...) {
+	exec -o uname -amnv;
+};
+
+alias hosts (...) {
+	exec -direct host $*;
+};
+
+alias dig (...) {
+	exec -direct dig $*;
+};

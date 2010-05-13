@@ -215,7 +215,7 @@ alias _double {
 	config.windowdoubles -s $*;
 };
 
-alias clone {
+alias ccheck {
 	config.clonecheck -s $*;
 };
 

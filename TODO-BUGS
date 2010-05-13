@@ -55,8 +55,6 @@ $ = knownbug.
 ## low priority knownbugs.
 $ \ doesn't work well in tab, \nick\ in channel breaks causes problems..
 
-$ /format 1, doesnt output the proper whois parses ircname/away mixup
-
 $ Supposedly texp will break under certain circumstances <-- vague 
   kreca motherland speak, a little clarification here would 
   be nice //zak
@@ -103,8 +101,6 @@ NONE KNOWN
 @ We need to fix the getusers handling, hell it needs an overhaul, any
   takers? (some slight improvement in the past few months) 03.12.10 //zak
 
-@ convert modules to the PF-Loader 02.04.10 see docs/PF-TODO //zak
-
 @ add some topwin module, kreca has to start a discussion about some topwin
   script he might have permission for us to use/modify/rip ;)
   02.04.10 - due to the ugliness of toplines, and most of the scripters
@@ -136,13 +132,25 @@ NONE KNOWN
 
 ## bugs fixed. / projects done.
 ! 05.12.10
+ convert modules to the PF-Loader 02.04.10 see docs/PF-TODO
+ All has finally been converted over to PF-L, cept for modules/services
+ which isnt exactly of importance at this time, only took us 4 years! //zak
+
+! 05.12.10
+  /format 1, doesnt output the proper whois parses ircname/away mixup
+  fixed better than it was before and looks better, not perfect but i'll
+  settle for the cosmetic adjustment compared to our previous output //zak
+
+! 05.12.10
   clonechecking broken
   -seems like it got missing/broken from the netsplit.m merge into
    core somehow, and some genius tried to make a duplicate hook
    which would not trigger regardless. now fixed! //zak
+
 ! 03.15.10 
   blankmsg tabkey does not save settings. (variable missing?) 
   -missing some stupid pf-loading crap for brokeness //zak
+
 ! 03.15.10
   /ub nick is broken, over further debugging - /ub nick /bans will also break.
   -fixed by kreca in previous commit(yesterday) //kreca

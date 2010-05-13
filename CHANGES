@@ -279,6 +279,7 @@ the mess. //zak
 -Fix bug in chanmodes which made a user unable to op people with \ in their
  names //kreca
 
+[cvs 43]
 05.12.10
 -sync docs to reflect reality (amnesiac/epic5)
 -finish up exempt modes we now have exempt for +e +I features
@@ -296,3 +297,20 @@ release
  as /notice 
 -fix clonechecking, it now works again. 
 -minor cleanups //zak
+
+[cvs 44]
+- doh, loper.m not oper.m for the loper module. now the module should work
+- convert module/dict to PF-loader
+- somewhat fixup whois format aka /format 1, eh, its better than before
+- *sigh* enable /extpub aka show voice/op on nicks in public on default
+- in theory converted the tc module properly over to the PF-load hopefully
+  skullY can verify, or fix my fuckups ;p
+- remove flood module, broken, will script up something in the near future
+  perhaps
+- mmatrix module converted to PF-Loader.
+- major overhaul of modules/relay conversion cleanup of serious unreadable
+  code inherited from oblivion, now PF-loader converted, all our stuff has
+  finally been updated for PF-load, cept for modules/services, which i
+  in particular have no interest in doing.
+- various cleanups one functional change /clone check option has been
+  changed to /ccheck to toggle on/off and or use /config //zak

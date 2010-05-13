@@ -14,7 +14,7 @@ subpackage main;
 @a.rel="2.0.$a.rel_id";
 @a.date='20091104';
 @a.snap='20100512';
-@a.commitid='43';
+@a.commitid='44';
 
 ## color vars.
 @ cl    = "[0m";
@@ -56,7 +56,7 @@ subpackage main;
 @rsendbuf='10';
 @_ss='15';
 @_ovsize='5';
-@_ovmode='fibxwzZsy';
+@_ovmode='bfiklrsuwxyzZ';
 @skills='on';
 @srkline='on';
 @srkbots='on';
@@ -83,7 +83,7 @@ subpackage main;
 @dccl='on';
 @togaway='off';
 @getumode='iw';
-@showop='off';
+@showop='on';
 @autoget='off';
 @_pubnick=N;
 @_tss='on';

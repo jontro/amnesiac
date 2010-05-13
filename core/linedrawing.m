@@ -42,3 +42,16 @@ alias set_line_drawing (mode, void) {
 
 
 @set_line_drawing(0);
+
+## other stuff for terms
+
+alias ibm437 fixterm;
+alias fixterm {
+	xecho -r $chr(27)\(U;
+	parsekey REFRESH_SCREEN;
+};
+
+alias latin1 {
+	xecho -r $chr(27)\(B;
+	parsekey REFRESH_SCREEN;
+};

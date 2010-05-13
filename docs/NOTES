@@ -77,6 +77,12 @@ People have often commented how they can get color and/or eight bit
 characters working when running epic linked against ncurses and running
 under gnu screen.
 
+## wicked comment
+Th:14:46|<@wicked> export LANG=C works for me mostly
+Th:14:46|<@wicked> crtl+a+: c1 off  
+Th:14:46|<@wicked> and
+Th:14:46|<@wicked> crtl+a+: utf8 off off
+
 All of this information was graciously provided by johnnie_doe@hotmail.com
 (Starv@ircnet)
 
