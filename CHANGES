@@ -320,6 +320,7 @@ release
 05.12.10
 - oops forgot to completely destroy the flood module leftovers.
 
+05.15.10
 [cvs 46]
 - add byron to greets for he has helped with cleanups the past few years
 - add a new shiney logger module 'elog' /addmod elog /loghelp, the savefile
@@ -327,3 +328,13 @@ release
 - minor cleanups of crufts that byron saw i had missed
 - add functionality from builtins to compat.m that is needed in the script,
   perhaps the function is what broke userlist? any testers? //zak
+
+05.15.10
+[cvs 47]
+-revert our current 'enhanced oper module as 'eoper' module to be improved
+ upon after release to iron out the bugs, keep the more 'sane' oper as
+ primary oper module for the time being. the oper module is now our original
+ stable version, the eoper is the current problematic version feel free to
+ send diffs!, NOTE: some who may have been using the 'loper' module may wish
+ to /delmod loper before loading the original oper module or the enhanced
+ oper module, pick your poison. //zak

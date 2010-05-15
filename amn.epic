@@ -48,7 +48,7 @@ for array in ($getarrays()) {
 @loadpath="$before(-1 / $word(1 $loadinfo()))/";
 
 ## supported modules
-@_modules='ncomp abot aol query away dict mjoin oper relay relaysmtp remote tab tc userlist mmatrix vanilla nlog services urlgrab serverlist utf8 loper elog';
+@_modules='ncomp abot aol query away dict mjoin oper relay relaysmtp remote tab tc userlist mmatrix vanilla nlog services urlgrab serverlist utf8 eoper elog';
 @_defaultmods='away dict relay tab';
 
 #progress bar
