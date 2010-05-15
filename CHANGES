@@ -319,3 +319,11 @@ release
 [cvs 45]
 05.12.10
 - oops forgot to completely destroy the flood module leftovers.
+
+[cvs 46]
+- add byron to greets for he has helped with cleanups the past few years
+- add a new shiney logger module 'elog' /addmod elog /loghelp, the savefile
+  at this time is hardcoded into ~/.amn/logs/
+- minor cleanups of crufts that byron saw i had missed
+- add functionality from builtins to compat.m that is needed in the script,
+  perhaps the function is what broke userlist? any testers? //zak

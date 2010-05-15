@@ -21,6 +21,7 @@ alias ehelp {
 	//echo rhelp     <relay help>      relay/paste help menu.          [module];
         //echo rsmtphelp <relaysmtp help>  relay msgs via email help.      [module];
 	//echo svhelp    <services help>   nserv/cserv/etc.. help menu.    [module];
+	//echo loghelp   <elog help >      enhanced irc logger             [module];
 	//echo chelp     <config help>     config shortcut help menu.      [core];
 input_char "menu paused hit the ANY key to continue";
 pause;

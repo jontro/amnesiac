@@ -8,21 +8,21 @@ if (word(2 $loadinfo()) != [pf]) {
 subpackage config;
 
 alias config {
-	if ( @ && ! match($0 away protect misc oper relay relaysmtp remote tab connect)) {
+	if ( @ && ! match($0 away protect misc oper relay relaysmtp remote tab connect log)) {
 		xecho -v $acban Invalid section.;
 		xecho -v $acban -> config <section> <letter> <setting>;
-		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|remote|tab|connect|query>;
+		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|remote|tab|connect|query|log>;
 	} else if (  # < 2) {
-		if (match($0 away protect misc oper relay relaysmtp remote tab connect query)) {
+		if (match($0 away protect misc oper relay relaysmtp remote tab connect query log)) {
 			config.printsection $0;
 		}{
-			fe (away protect misc oper relay relaysmtp remote tab connect query) sec {
+			fe (away protect misc oper relay relaysmtp remote tab connect query log) sec {
 				config.printsection $sec;
 			};
 		};
 		aecho -----------------------------------------------------------------------------;
 		xecho -v $acban -> config <section> <letter> <setting>;
-		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|remote|tab|connect|query>;
+		xecho -v $acban valid sections: <away|protect|misc|oper|relay|relaysmtp|remote|tab|connect|query|log>;
 	}{
 		@:aname= "confa$0";
 		@:xx= ascii($1)-ascii(a);
@@ -49,34 +49,37 @@ alias config.printsection
 {
 	switch ($0) {
 	(away) {
-		aecho ------------------------------= Away Settings =------------------------------;
+		aecho ------------------------------= Away Settings =----------------------------;
 	};
 	(protect) {
-		aecho ---------------------------= Protection Settings =---------------------------;
+		aecho ---------------------------= Protection Settings =-------------------------;
 	};
 	(misc) {
-		aecho ------------------------------= Misc Settings =------------------------------;
+		aecho ------------------------------= Misc Settings =----------------------------;
 	};
 	(relay) {
-		aecho ------------------------------= Relay Settings =-----------------------------;
+		aecho ------------------------------= Relay Settings =---------------------------;
 	};
 	(relaysmtp) {
-		aecho ----------------------------= Relaysmtp Settings =---------------------------;
+		aecho ----------------------------= Relaysmtp Settings =-------------------------;
 	};
 	(remote) {
-		aecho ----------------------------= Remote Settings =---------------------------;
+		aecho ----------------------------= Remote Settings =----------------------------;
 	};
 	(tab) {
-		aecho ------------------------------= Tab Settings =----------------------------;
+		aecho ------------------------------= Tab Settings =-----------------------------;
 	};
 	(oper) {
-		aecho ------------------------------= Oper Settings =------------------------------;
+		aecho ------------------------------= Oper Settings =----------------------------;
 	};
 	(connect) {
-		aecho ------------------------------= Connect Settings =---------------------------;
+		aecho ------------------------------= Connect Settings =-------------------------;
 	};
 	(query) {
 		aecho ------------------------------= Query Settings =---------------------------;
+	};
+	(log)	{
+		aecho ------------------------------= logging Settings =-------------------------;
 	};
 	};
 	@:aname= "confa$0";
