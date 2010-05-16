@@ -34,7 +34,7 @@ on ^301 "*"
 	@setitem(away_users_ts $itemno $time());
 };
 
-## edit topic stuff from the epic5 source tree.. used for the /topic_input
+## edit topic stuff from the epic scripts.. used for /topic_input
 ## by kreca.
 alias edit_topic
 {
@@ -56,6 +56,7 @@ alias edit_topic
         stack pop on 332;
         stack pop on 333;
 };
+## end edit topic
 
 ## uptime hooks.
 on #-msg 22 * {@lrm=[$1-];@lrmn=[$0]};
@@ -82,8 +83,9 @@ alias uptime {
 	//echo Current Servername: ${S};
 	//echo -----------------------------------------------------------------;
 };
+## end uptime functionality
 
-## notify hook.
+## notify/signon cosmetics
 ^on ^notify_signon * {
 	xecho -v $G SignOn by $0!$sar(g/@/@/$1-) on $strftime(%x at %X);
 };
@@ -91,6 +93,7 @@ alias uptime {
 ^on ^notify_signoff * {
 	xecho -v $G SignOff by $0 on $strftime(%x at %X);
 };
+## end notify/signon cosmetics
 
 ## aliases/hooks for script version
 alias svf (void) {
@@ -113,8 +116,9 @@ alias supt (void) {
 ^on ^ctcp_request "% % VERSION *" {
 	^quote notice $0 :VERSION $fparse(format_version_reply) ${client_information} ;
 };
+## end version functionality
 
-## umode connect
+## set umode on connect
 on #-connect 50 * {
 	if (!_pubnick) {
 		@_pubnick=N;
@@ -125,7 +129,7 @@ on #-connect 50 * {
         ^set quit_message $(J)[$info(i)] - $(a.ver) : $randread($(loadpath)reasons/quit.reasons);
 };
 
-# Deal with modes when they're not set
+## Deal with modes when they're not set
 ^on ^324 "% % +" {
 	xecho -b Mode for channel $1 is not set;
 };

@@ -71,6 +71,14 @@ alias igtype (pattern, void) {
 	};
 };
 
+alias rigmask (pattern, void) {
+	return $ignorectl(rpattern $pattern);
+};
+
+alias rigtype (...) {
+	return $ignorectl(with_type $*);
+};
+
 alias sedcrypt (encode, who, ...) {
 	if (!(:val = encryptparm(who))) {
 		return;
@@ -191,6 +199,11 @@ alias winvisible (winnum default 0, void) {
 		return $visible;
 	};
 	return -1;
+};
+
+## auto-whowas
+alias whowas (nick, number default "$num_of_whowas", void) {
+	//whowas $nick $number;                             
 };
 
 ## Auto_Rejoin

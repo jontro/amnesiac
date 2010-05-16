@@ -18,7 +18,7 @@ alias stat5 {
 ^set status_voice +
 ^set status_away  $(hblk)\($(sc3)away$(hblk)\)
 ^set status_hold_lines $(hblk)\[$(hwht)%B$(hblk)]
-^set status_query $(sc1)query$(hblk)\($(sc1)=%Q$(hblk))
+^set status_query $(sc1)query$(hblk)\($(sc1)%Q$(hblk))
 }
 stat5
 ^timer -del 14

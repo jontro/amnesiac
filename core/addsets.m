@@ -55,6 +55,6 @@ set history_timestamp on;
 set beep_on_msg none;
 set suppress_server_motd off;
 set paste_strip OFF;
-set paste_delay 30;
+set paste_delay 20;
 set dcc_port_min 10000;
 set dcc_port_max 15000;

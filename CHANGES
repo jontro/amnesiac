@@ -338,3 +338,17 @@ release
  send diffs!, NOTE: some who may have been using the 'loper' module may wish
  to /delmod loper before loading the original oper module or the enhanced
  oper module, pick your poison. //zak
+
+[cvs 48]
+05.16.10
+-add rgreen theme by ryan, stat19 by ryan, a patch to stat.5 also by ryan
+-merge orignick.m -> server.m which seems more appropriate //z
+-merger various server functionalities from alias.m -> server.m //z
+-merger ignore.m -> alias.m //z
+-merge the whowas to thecompat.m where it belongs //zak
+-add rigmask/rigtype() into compat.m in case needed *sigh* //zak
+-minor commenting cleanups //zak
+-adjust minor changes into default stock amnesiac settings, most
+ will probably not notice the impact //zak
+-add /unig /rmignore to /tig to remove ignores for those that gets confused
+-merge ehelp.m -> help.m small file more appropriate //zak

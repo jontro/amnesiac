@@ -8,7 +8,7 @@ if (word(2 $loadinfo()) != [pf]) {
 
 subpackage alias;
 
-## last modified by crapple 1.11.08
+## last modified by crapple 05.16.10 - Cleanups/sort
 ## various commands.
 alias quit {bye $*;};
 alias ismask {return ${@pass(!@ $0) ? 1 : 0}};
@@ -32,27 +32,16 @@ alias rmcid { quote accept -$*;};
 alias aclist { quote accept * ;};
 alias clist aclist;
 alias cdel {rmcid $*;};
+
 alias termtitle (msg) {
       //xecho -r $chr(27)]2\;${msg}$chr(7)
 };
 
-## chan/mem/nickserv/services/irritating ircd stuff
-alias ms {quote MemoServ $*;};
-alias ns {quote NickServ $*;};
-alias cs {quote ChanServ $*;};
-alias chanserv {cs $*;};
-alias nickserv {ns $*;};
-alias memoserv {ms $*;};
-alias mserv {msg memoserv $*;};
-alias nserv {msg nickserv $*;};
-alias cserv {msg chanserv $*;};
-alias allow {dccallow $*;};
-alias dccallow {quote dccallow $*;};
-
 ## to be annoying like xavier.
 alias blinky { if (@T)  msg $T $cparse("%F%G$*") ;};
+
 ## for xavier with love //zak
-alias retard {echo Retard alert, pling pling pling; parsekey stop_irc; echo Retard alert, pling pling pling;};
+alias retard {echo Retard alert, pling pling; parsekey stop_irc; echo Retard alert, pling pling;};
 
 ## general user commands
 alias umode {^mode $servernick() $*;};
@@ -111,7 +100,7 @@ alias _center {
 	xecho -v $repeat($trunc(0 $number)  )$*;
 };
 
-## long complex aliases below here.
+## long complex aliases below here. this used for anything? //zak
 alias cat {
 	if (@) {
 		@:ansifile = open($0 R T);
@@ -121,7 +110,7 @@ alias cat {
 		@close($ansifile);
 	};
 };
-
+## we use this for anything? //zak
 alias evalcat {
 	if (@) {
 		@:ansifile = open($0 R T);
@@ -132,64 +121,74 @@ alias evalcat {
 	};
 };
 
-alias getuhost {
-	if (userhost($0)=='<UNKNOWN>@<UNKNOWN>') {
-		wait for userhost $0 -cmd {
-			if (*4 != '<UNKNOWN>')
-				return $3@$4;
-			return;
+## ignore functionality
+alias ign {ignore $*;};
+alias cloak {ignore *!*@* ctcp;};
+alias unig tig;
+alias rmignore tig;
+## end short aliases.
+
+alias tig {
+	@igns=numsort($ignorectl(REFNUMS));
+
+	if ( strlen($igns) ) {
+		fe ($igns) ignores {
+			xecho -b [$ignores] $ignorectl(GET $ignores NICK) $ignorectl(GET $ignores LEVEL);
 		};
-	}{
-		return $userhost($0);
+		input "enter # of which ignore to takeoff: " {
+			if ( ( "$0" >= word(0 $igns)) && "$0" <= word(${numwords($igns)-1} $igns)) {
+				@ignorectl(DELETE $0);
+			}{
+				xecho -b number out of range \($word(0 $igns) - $word(${numwords($igns)-1} $igns)\);
+				};
+			};
+		}{
+		xecho -b no ignores currently;
 	};
 };
 
-alias bye {
+alias _ighost (uh,void){
+	if (match(*!*@* $uh)) {
+		return $uh;
+	}{
+		if (:uhost=getuhost($uh)) {
+                        return *!$uhost;
+		}{
+			return $uh;
+		};
+       };
+};
+
+alias ignore {
+	if (#) {
+		if (# > 1) {
+			//ignore $_ighost($0) $1-;
+		}{
+			//ignore $_ighost($0) all;
+		};
+	}{
+		xecho -b Ignorance List:;
+		@:igns=numsort($ignorectl(REFNUMS));
+		if ( strlen($igns) ) {
+			fe ($igns) ignores {
+				xecho -b [$ignores] $ignorectl(GET $ignores NICK) $ignorectl(GET $ignores LEVEL);
+			};
+	
+		};
+	};
+};
+		
+alias cig {
 	if (@) {
-		//quit $(J)[$info(i)] - $(a.ver) : $*;
+		^ignore $0 public;
+		xecho -b ignoring public from $0, /tig to unignore;
 	}{
-		//quit $(J)[$info(i)] - $(a.ver) : $randread($(loadpath)reasons/quit.reasons);
+		^ignore $serverchan() public;
+		xecho -b ignoring public from $serverchan() , /tig to unignore;
 	};
 };
 
-alias ping (target default "$T") {
-	//ping $target;
-};
-
-alias toggle (cset,void) { 
-	@:vars = '';
-	fe ($symbolctl(PMATCH BUILTIN_VARIABLE $cset*)) symbol { 
-		if (symbolctl(GET $symbol 1 BUILTIN_VARIABLE TYPE) == 'BOOL') {
-			^push vars $symbol;
-		};
-	};
-	if ( #vars == 0 ) 
-		@:vars = cset;
-	if ( #vars == 1 ) {
-		//set $vars TOGGLE;
-	} {
-		fe ($vars) symbol {
-			//set $symbol;
-		};
-	};
-};
-
-alias rn {
-	@_rn='a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5';
-        fe ($_rn) n1 {
-                @setitem(_rn $numitems(_rn) $n1);
-        };
-	^nick $(getitem(_rn $rand($numitems(_rn))))$(getitem(_rn $rand($numitems(_rn))))$(getitem(_rn $rand($numitems(_rn))))$(getitem(_rn $rand($numitems(_rn))))$(getitem(_rn $rand($numitems(_rn))))$(getitem(_rn $rand($numitems(_rn))));
-};
-
-alias ver (target default "$T"){
-	if (@target)
-		//ctcp $target version;
-};
-
-alias whowas (nick, number default "$num_of_whowas", void) {
-	//whowas $nick $number;
-};
+## end ignore functionality
 
 ## script echo //does this still needing cleaning??
 alias abwecho {xecho -v $acban $cparse($*);};

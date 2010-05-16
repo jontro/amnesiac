@@ -112,6 +112,25 @@ alias config.printsection
 
 ## end /config output.
 
+## /set toggle getset functionality
+alias toggle (cset,void) { 
+	@:vars = '';
+	fe ($symbolctl(PMATCH BUILTIN_VARIABLE $cset*)) symbol { 
+		if (symbolctl(GET $symbol 1 BUILTIN_VARIABLE TYPE) == 'BOOL') {
+			^push vars $symbol;
+		};
+	};
+	if ( #vars == 0 ) 
+		@:vars = cset;
+	if ( #vars == 1 ) {
+		//set $vars TOGGLE;
+	} {
+		fe ($vars) symbol {
+			//set $symbol;
+		};
+	};
+};
+
 ## config helper alias
 alias config.matchinput {
 	if (*2=="''") {
