@@ -352,3 +352,9 @@ release
  will probably not notice the impact //zak
 -add /unig /rmignore to /tig to remove ignores for those that gets confused
 -merge ehelp.m -> help.m small file more appropriate //zak
+
+[cvs49]
+05.18.10
+-add statusbar 8 modification to add activity support, if some dont like it
+ill make another statbar like it with activity support if needed, which
+hopefully wont be the case, patch submitted by ryan, comitted by me //zak
