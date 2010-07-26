@@ -10,7 +10,7 @@ check the README NOTES TODO-BUGS E5-KNOWNBUGS Files if you are experiencing
 any weird problems/errors. more documents can also be found in ~/amn/docs
 also please report possible bug reports to us via e-mail or on irc.
 
-NOTE: amnesiac 2.0.1+ requires epic5 EPIC5-1.0.1+
+NOTE: amnesiac 2.0.2 and newer requires epic5 EPIC5-1.1.2+
 
 install info:
 
@@ -45,4 +45,5 @@ of us should be available.
 
 If you prefer to e-mail.
 E-mail: zak@nospam.ircii.org/kreca@nospam.ircii.org
+
 Amnesiac Mailing list: http://epicsol.org/mailman/listinfo/amnesiac

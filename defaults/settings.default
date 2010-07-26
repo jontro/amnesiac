@@ -2,20 +2,20 @@
 ## if so they'll be saved in ~/.amn/a.settings
 set auto_reconnect on;
 set auto_reconnect_delay 60;
-set auto_reconnect_retries 3;
+set auto_reconnect_retries 5;
 set auto_rejoin_connect on;
 set history_circleq on;
 set high_bit_esc 0;
 set -continued_line;
 set clock_24hour on;
 set dcc_sliding_window 256;
-set dcc_port_min 9500;
-set dcc_port_max 9800;
+set dcc_port_min 19500;
+set dcc_port_max 19800;
 set dcc_auto_send_rejects on;
 set auto_rejoin off;
 set auto_rejoin_delay 5;
-set lastlog 1500;
-set scrollback 1500;
+set lastlog 3500;
+set scrollback 2000;
 set num_of_whowas 2;
 set auto_whowas on;
 set indent off;

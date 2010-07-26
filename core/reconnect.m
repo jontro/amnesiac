@@ -2,6 +2,14 @@
 # See the 'COPYRIGHT' file for more information.
 ## made by nullie/weirdo
 ## modified by kreca -06
+##
+## comment by zak -july 2010, I have no idea why nullie/kreca i see
+## parts of it done by kreca as i can see his stonecode, nullies code
+## is literally fscking impossible to understand this mess needs to be
+## cleaned up, seriously guys. when writing something from scratch, don't
+## take shortcuts it took us a number of years to cleanup the horrid mess
+## from oblivion and we still get more junk in which ive been trying to
+## clean from the last oh i dunno 8 or so commits.
 
 if (word(2 $loadinfo()) != [pf]) {
 	load -pf $word(1 $loadinfo());

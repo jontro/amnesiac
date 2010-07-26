@@ -1,10 +1,19 @@
-05.12.10 - last edited by crapple
-NOTE: added a new CAVEAT for updating to latest amnesiac 2.0.1(cvs 40+)
+07.26.10 - last edited by crapple
 
 NOTE: most of this information here is for referece purposes, for some brave
-amnesiac users who still have yet to upgrade in the past 3+ years. you
+amnesiac users who still have yet to upgrade in the past 3+ years. you   
 should always back up your ~/.amn savefile directory before attempting to
 upgrade in case things breaks, or needs to be merged manually.
+
+NOTE: added a new CAVEAT for updating to latest amnesiac 2.0.1(cvs 40+)
+Most important from 2.0.x to 2.0.2 is to purge your ~/amn dir and recvs,
+unless you know how to force update to head via cvs then cvs -q up -Pd,
+then pray. cause of too many file deletion/changes/modifications/renames
+etc. so make sure your amnesiac dir actually get's rid of things that
+is now in the attic on the cvs side of things, next most important,
+make sure to unload modules that no longer exist, or possibly broken/
+nonexistent etc. /listmod and /vmod should help determine what's avail
+More info near the bottom of this upgrade file. marked "NEW"
 
 WARNING: the following may screw up your script, remove precious savefiles or
 render the client unusable, you have been warned.

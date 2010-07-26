@@ -192,12 +192,10 @@ fe ($jot(0 9 1)) tt {
 	bind ^[$tt parse_command toggle.window $tt;
 };
 
-# alias /0 - /40 to swap to that window (/10 is nonexistent by purpose,
-# use /0 instead)
-fe ($jot(1 40 1)) tt {
+# alias /0 - /60 to swap to that window (/10 is nonexistent by purpose,
+# use /0 instead, or /10 via alias)
+alias 10 window swap 10;
+fe ($jot(1 60 1)) tt {
 	@:t2= tt != 10 ? tt : 0;
 	alias $t2 ^window swap $tt;
 };
-
-## add /10
-alias 10 window swap 10;

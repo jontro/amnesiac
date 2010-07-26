@@ -72,6 +72,7 @@ alias uptime {
 	//echo $info(c);
 	//echo Compile-time options: $info(o);
 	//echo Amnesiac release/cvs id: $a.rel [cvs \($a.commitid\)];
+	//echo Amnesiac release date: $a.date;
 	//echo Amnesiac snap date: $a.snap;
 	//echo Last Recv Message: \($lrmn\) $lrm;
 	//echo Last Recv Notice: \($lrnn\) $lrn;

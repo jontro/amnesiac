@@ -17,14 +17,6 @@
 * people who wish to see amnesiac source via cvsweb may do so @
   http://cvs.epicsol.org/cgi/viewcvs.cgi/amn/
 
-* As of 2.0.x release of amnesiac, it is now considered BETA, I dont
-  expect to change this anytime soon, even in our releases ive always
-  considered it BETA, When we make a release its usually for people
-  who are paranoid, and want 'release' and package managers of various
-  distributions usually need release where -current/-snapshot, may be
-  frowned upon, regular users should probably update from cvs from time
-  to time for bugfixes, cleanups etc. -cvs is considerd 'BETA/stable'
-
 * The INSTALL file gives detailed instructions how to install amnesiac.
 
 * The documents directory, contains misc documents for amnesiac and epic
@@ -43,7 +35,7 @@
 
 * The CHANGES file contains any amendments to the help files since the 
   last release of amnesiac
-* The CHANGES.rel file contains changes between releases.
+* The CHANGES.1.2.3x file contains changes between releases.
 
 * NOTES file contains common questions and possible solution, please
   also see amn/docs for more documentation.
