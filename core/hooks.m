@@ -9,8 +9,7 @@ subpackage hooks;
 
 ## exit hook
 on #-exit 000 "*" {
-	@ex.signon=stime($time());
-	xecho -v -b Signon time  :    $ex.signon;
+	xecho -v -b Signon time  :    $stime($F);
         xecho -v -b Signoff time :    $stime($time());
         xecho -v -b Total uptime :    $tdiff(${time() - F});
         xecho -v -b signoff: $N \($*\);

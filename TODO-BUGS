@@ -54,6 +54,7 @@ $ = knownbug.
 
 ## low priority knownbugs.
 $ \ doesn't work well in tab, \nick\ in channel breaks causes problems..
+^^ fixed? or still broken? //zak
 
 $ Supposedly texp will break under certain circumstances <-- vague 
   kreca motherland speak, a little clarification here would 
@@ -67,7 +68,8 @@ $ userlist is buggy/has been having issues for years it's really not a
   just everything else ctcp etc is broken.
 
 $ serverlist module is actually incomplete, kreca says he will finish it
-  timeline unknown.
+  timeline unknown. - year 2014 by my prediction if IRC still exists. ;p
+  //zak
 
 ## high priority knownbugs.
 NONE KNOWN
@@ -127,8 +129,13 @@ NONE KNOWN
 
 ## Procrastinated requests.
 @ add support to bwk to allow usage of wildcards.
-@ fixdouble/fixwin or equiv for doublestats
+  - cool to have but hrm again what the benefit of the time
+    to do this? sure it may be 5 mins but 5 mins is a lot of
+    minutes for someone with a lack of time //zak
 
+@ fixdouble/fixwin or equiv for doublestats
+  - Note sure what the reason for this or why someone please
+    start documenting more on TODO-BUGS on what is what thanks. //zak
 
 ## bugs fixed. / projects done.
 ! 05.12.10

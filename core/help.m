@@ -9,7 +9,6 @@ subpackage help;
 ## Help strings below.
 @ahelp.rn='%Wu%nsage%K:%n /rn will change nick to a random nick of 7 chars';
 @ahelp.winhelp='%Wu%nsage%K:%n /winhelp will display help menu for windowing shortcuts.';
-@ahelp.untheme='%Wu%nsage%K:%n /untheme will make amnesiac revert back to the default theme.';
 @ahelp.unban='%Wu%nsage%K:%n /unban <nick|host> will unban nick or host from current channel';
 @ahelp.tig='%Wu%nsage%K:%n /tig will display all current ignores and prompt to delete one.';
 @ahelp.theme='%Wu%nsage%K:%n /theme will display all amnesiac themes and you can choose which one you want.';

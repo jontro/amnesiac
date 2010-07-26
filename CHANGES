@@ -358,3 +358,13 @@ release
 -add statusbar 8 modification to add activity support, if some dont like it
 ill make another statbar like it with activity support if needed, which
 hopefully wont be the case, patch submitted by ryan, comitted by me //zak
+
+[cvs50]
+07.26.10
+-slight cosmetic change on signoff/signon in hooks.m, slocate@efnet //zak
+-remove /untheme which does not exist from /ahelp seems it was removed
+or never existed in amnesiac, not sure how that was missed either way
+let's blame kreca for this one rb slocate@efnet //zak
+-sync epic5/amn docs to reality //zak
+-remove ref to XSIRC network, no one really goes there/support use efnet
+help channel //zak
